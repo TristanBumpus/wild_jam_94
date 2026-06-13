@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cfxw6wa20bfri"]
+
+[ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="1_s7fsy"]
+[ext_resource type="PackedScene" uid="uid://br5lmryevy4gn" path="res://Entitites/Enemies/spider.tscn" id="2_50dj4"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_50dj4"]
+vertices = PackedVector3Array(-49.5, 1, -49.5, -49.5, 1, 49.5, 49.5, 1, 49.5, 49.5, 1, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0l8oa"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0l8oa"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s7fsy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7fsy"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Test_World" type="Node3D" unique_id=179240575]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1387603658]
+navigation_mesh = SubResource("NavigationMesh_50dj4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1142325398]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=413695226]
+shape = SubResource("BoxShape3D_0l8oa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D" unique_id=958228147]
+mesh = SubResource("BoxMesh_0l8oa")
+
+[node name="player" parent="." unique_id=1745359200 instance=ExtResource("1_s7fsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2190876, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=902737527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9642024, -13.247374)
+mesh = SubResource("BoxMesh_s7fsy")
+surface_material_override/0 = SubResource("StandardMaterial3D_s7fsy")
+
+[node name="spider" parent="." unique_id=973888417 instance=ExtResource("2_50dj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)

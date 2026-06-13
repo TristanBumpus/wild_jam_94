@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b5wnly2coogb6"]
+
+[node name="stats" type="CanvasLayer" unique_id=1252389211]
+
+[node name="Control" type="Control" parent="." unique_id=92010438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Node2D" type="Node2D" parent="Control" unique_id=48813102]
+position = Vector2(976, 264)
+
+[node name="head" type="Button" parent="Control/Node2D" unique_id=940540084]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="torso" type="Button" parent="Control/Node2D" unique_id=722601218]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="right_arm" type="Button" parent="Control/Node2D" unique_id=992255201]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left_arm" type="Button" parent="Control/Node2D" unique_id=470819731]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="right_leg" type="Button" parent="Control/Node2D" unique_id=1643641523]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 88.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left_leg" type="Button" parent="Control/Node2D" unique_id=541867709]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 136.0
+offset_right = -8.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2

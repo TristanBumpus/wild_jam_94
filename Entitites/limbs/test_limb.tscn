@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://bcn88gm6sio0i"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_5ah0y"]
+[ext_resource type="PackedScene" uid="uid://ca76nvf5d44di" path="res://UI/billboard.tscn" id="2_7taf0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ah0y"]
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ah0y"]
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7taf0"]
+size = Vector3(0.5, 0.5, 1)
+
+[node name="limb" type="RigidBody3D" unique_id=1372837577]
+freeze_mode = 1
+script = ExtResource("1_5ah0y")
+limb_name = "Spider Leg"
+damage = 2
+speed = 2
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1460817294]
+shape = SubResource("BoxShape3D_5ah0y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2037384147]
+mesh = SubResource("BoxMesh_5ah0y")
+
+[node name="billboard" parent="." unique_id=1397176609 instance=ExtResource("2_7taf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62203205, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2055189638]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1119174717]
+shape = SubResource("BoxShape3D_7taf0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=511371568]
+layer = 2
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=253830466]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Control" unique_id=458884214]
+position = Vector2(546.01, 250)
+
+[node name="head" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1133485108]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="torso" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1972265298]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="right_arm" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=937832449]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="left_arm" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=428593319]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="right_leg" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1370928813]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 88.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="left_leg" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=763393254]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 136.0
+offset_right = -8.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="visibility_changed" from="Area3D" to="." method="_on_area_3d_visibility_changed"]
+[connection signal="button_down" from="CanvasLayer/Control/Node2D/head" to="." method="_on_head_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Node2D/torso" to="." method="_on_torso_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Node2D/right_arm" to="." method="_on_right_arm_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Node2D/left_arm" to="." method="_on_left_arm_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Node2D/right_leg" to="." method="_on_right_leg_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Node2D/left_leg" to="." method="_on_left_leg_button_down"]

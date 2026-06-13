@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://br5lmryevy4gn"]
+
+[ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_ixa8j"]
+[ext_resource type="PackedScene" uid="uid://bcn88gm6sio0i" path="res://Entitites/limbs/test_limb.tscn" id="2_dptck"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixa8j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ixa8j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dptck"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byolt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dptck"]
+
+[sub_resource type="Animation" id="Animation_byolt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dptck"]
+resource_name = "melee_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.44, 0.78),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byolt"]
+_data = {
+&"RESET": SubResource("Animation_byolt"),
+&"melee_attack": SubResource("Animation_dptck")
+}
+
+[node name="spider" type="CharacterBody3D" unique_id=973888417 node_paths=PackedStringArray("nav")]
+script = ExtResource("1_ixa8j")
+loot = Array[PackedScene]([ExtResource("2_dptck")])
+loot_chance = Array[int]([100])
+nav = NodePath("NavigationAgent3D")
+metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1328242023]
+shape = SubResource("BoxShape3D_ixa8j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=813517760]
+mesh = SubResource("BoxMesh_ixa8j")
+surface_material_override/0 = SubResource("StandardMaterial3D_dptck")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=577676601]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 45.6
+
+[node name="attack_box" type="Area3D" parent="." unique_id=1149960521]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=430839699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("BoxShape3D_byolt")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1659286447]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2004201073]
+shape = SubResource("BoxShape3D_dptck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746458141]
+libraries/ = SubResource("AnimationLibrary_byolt")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
