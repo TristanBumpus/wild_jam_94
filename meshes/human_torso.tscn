@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cf6qquxdfulr6"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_ky5b6"]
+[ext_resource type="PackedScene" uid="uid://buete8ir87yqg" path="res://assets/main_character/character_torso.glb" id="2_j3kjv"]
+
+[node name="human_torso" type="RigidBody3D" unique_id=2017863707]
+script = ExtResource("1_ky5b6")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="character_torso" parent="." unique_id=1576948992 instance=ExtResource("2_j3kjv")]

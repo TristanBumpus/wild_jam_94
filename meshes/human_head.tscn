@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dbmvs4glr00nb"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_ahsdv"]
+[ext_resource type="PackedScene" uid="uid://dgww0vp4xewm0" path="res://meshes/limbilimb/character/character_head.tscn" id="2_j2bum"]
+[ext_resource type="PackedScene" uid="uid://bw8en1i61aa13" path="res://meshes/limbilimb/character/character_neck.tscn" id="3_xd8cv"]
+
+[node name="limb" type="RigidBody3D" unique_id=2067002376]
+script = ExtResource("1_ahsdv")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="character_head2" parent="." unique_id=303792979 instance=ExtResource("2_j2bum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59700227, 0)
+
+[node name="character_neck2" parent="." unique_id=1296398145 instance=ExtResource("3_xd8cv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027760863, -0.112579346, 0)

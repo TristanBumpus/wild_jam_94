@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://di6l0yd2o4iqy"]
+
+[ext_resource type="PackedScene" uid="uid://cwc136gbbre6a" path="res://assets/main_character/character_shin.glb" id="1_n86dv"]
+[ext_resource type="Texture2D" uid="uid://67e2b3h3wydd" path="res://assets/main_character/character_torso_Character_TEXT.png" id="2_7vsbl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aipex"]
+albedo_texture = ExtResource("2_7vsbl")
+texture_filter = 0
+
+[node name="character_shin" unique_id=1858436231 instance=ExtResource("1_n86dv")]
+
+[node name="Cube_055" parent="." index="0" unique_id=1316238339]
+surface_material_override/0 = SubResource("StandardMaterial3D_aipex")
