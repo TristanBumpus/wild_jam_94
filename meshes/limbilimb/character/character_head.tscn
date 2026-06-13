@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dgww0vp4xewm0"]
+
+[ext_resource type="PackedScene" uid="uid://c44tx80jk5r47" path="res://assets/main_character/character_head.glb" id="1_528wp"]
+[ext_resource type="Texture2D" uid="uid://d6w6iemix3dj" path="res://assets/main_character/character_head_Character_TEXT.png" id="2_fpptv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j88jr"]
+albedo_texture = ExtResource("2_fpptv")
+texture_filter = 0
+
+[node name="character_head" unique_id=303792979 instance=ExtResource("1_528wp")]
+
+[node name="Cube_049" parent="." index="0" unique_id=1563410994]
+surface_material_override/0 = SubResource("StandardMaterial3D_j88jr")

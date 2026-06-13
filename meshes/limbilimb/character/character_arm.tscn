@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dpci7nytxdc3c"]
+
+[ext_resource type="PackedScene" uid="uid://h70hflx7428x" path="res://assets/main_character/character_arm.glb" id="1_lkjrc"]
+[ext_resource type="Texture2D" uid="uid://b2tit00giq4jc" path="res://assets/main_character/character_thigh_Character_TEXT.png" id="2_cwhs3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4hif"]
+albedo_texture = ExtResource("2_cwhs3")
+texture_filter = 0
+
+[node name="character_arm" unique_id=1727302863 instance=ExtResource("1_lkjrc")]
+
+[node name="Cube_052" parent="." index="0" unique_id=1358351163]
+surface_material_override/0 = SubResource("StandardMaterial3D_k4hif")

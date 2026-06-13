@@ -29,7 +29,8 @@ folder_colors={
 "res://Assets/": "yellow",
 "res://Entitites/": "red",
 "res://Levels/": "green",
-"res://Scripts/": "blue"
+"res://Scripts/": "blue",
+"res://assets/": "orange"
 }
 
 [global_group]
@@ -97,4 +98,7 @@ f={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/decals/filter=0
+textures/light_projectors/filter=0

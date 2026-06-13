@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b7xtr6lmjwchf"]
+
+[ext_resource type="PackedScene" uid="uid://h70hflx7428x" path="res://assets/main_character/character_arm.glb" id="1_oo4j2"]
+[ext_resource type="PackedScene" uid="uid://buete8ir87yqg" path="res://assets/main_character/character_torso.glb" id="2_kqav4"]
+[ext_resource type="PackedScene" uid="uid://dnaek1xi6arep" path="res://assets/main_character/character_forearm.glb" id="3_tfqwp"]
+[ext_resource type="PackedScene" uid="uid://c44tx80jk5r47" path="res://assets/main_character/character_head.glb" id="4_wl2bk"]
+[ext_resource type="PackedScene" uid="uid://d057ld1mgre8s" path="res://assets/main_character/character_neck.glb" id="5_3ige1"]
+[ext_resource type="PackedScene" uid="uid://du8ffty7okqqy" path="res://assets/main_character/character_fist.glb" id="6_snms0"]
+[ext_resource type="PackedScene" uid="uid://bxku3hv6ml8up" path="res://meshes/human_arm.tscn" id="7_kqav4"]
+
+[node name="character_anim" type="Node3D" unique_id=1489304338]
+
+[node name="character_arm" parent="." unique_id=1727302863 instance=ExtResource("1_oo4j2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1840508, 1.3000001, 0.070069194)
+
+[node name="character_torso" parent="." unique_id=1576948992 instance=ExtResource("2_kqav4")]
+
+[node name="character_forearm" parent="." unique_id=1416278927 instance=ExtResource("3_tfqwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2999954, 1.2646146, 0.042533875)
+
+[node name="character_head" parent="." unique_id=303792979 instance=ExtResource("4_wl2bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.658926, 0)
+
+[node name="character_neck" parent="." unique_id=1296398145 instance=ExtResource("5_3ige1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9206487, 0.11976838)
+
+[node name="character_fist" parent="." unique_id=498664092 instance=ExtResource("6_snms0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7042456, 1.2814622, 0.021156073)
+
+[node name="human_arm" parent="." unique_id=16946459 instance=ExtResource("7_kqav4")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

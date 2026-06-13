@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dpxgwwodwf1mh"]
+
+[ext_resource type="PackedScene" uid="uid://dnaek1xi6arep" path="res://assets/main_character/character_forearm.glb" id="1_oq7uh"]
+[ext_resource type="Texture2D" uid="uid://dhdw321i3d1mo" path="res://assets/main_character/character_shin_Character_TEXT.png" id="2_vodmj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rigyj"]
+albedo_texture = ExtResource("2_vodmj")
+texture_filter = 0
+
+[node name="character_forearm" unique_id=1416278927 instance=ExtResource("1_oq7uh")]
+
+[node name="Cube_051" parent="." index="0" unique_id=1365335775]
+surface_material_override/0 = SubResource("StandardMaterial3D_rigyj")

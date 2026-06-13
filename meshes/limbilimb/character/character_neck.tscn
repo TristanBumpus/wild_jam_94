@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bw8en1i61aa13"]
+
+[ext_resource type="PackedScene" uid="uid://d057ld1mgre8s" path="res://assets/main_character/character_neck.glb" id="1_rjpns"]
+[ext_resource type="Texture2D" uid="uid://d6w6iemix3dj" path="res://assets/main_character/character_head_Character_TEXT.png" id="2_pwasw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mab3e"]
+albedo_texture = ExtResource("2_pwasw")
+texture_filter = 0
+
+[node name="character_neck" unique_id=1296398145 instance=ExtResource("1_rjpns")]
+
+[node name="Cube_053" parent="." index="0" unique_id=1986483828]
+surface_material_override/0 = SubResource("StandardMaterial3D_mab3e")

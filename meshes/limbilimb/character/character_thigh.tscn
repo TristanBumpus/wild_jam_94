@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://v3g6gaq107xa"]
+
+[ext_resource type="PackedScene" uid="uid://j8tyyft4lu2q" path="res://assets/main_character/character_thigh.glb" id="1_pxmxo"]
+[ext_resource type="Texture2D" uid="uid://67e2b3h3wydd" path="res://assets/main_character/character_torso_Character_TEXT.png" id="2_5iaj4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgfbr"]
+albedo_texture = ExtResource("2_5iaj4")
+texture_filter = 0
+
+[node name="character_thigh" unique_id=1311167265 instance=ExtResource("1_pxmxo")]
+
+[node name="Cube_056" parent="." index="0" unique_id=113648536]
+surface_material_override/0 = SubResource("StandardMaterial3D_kgfbr")
