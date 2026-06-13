@@ -3,27 +3,33 @@
 [ext_resource type="Script" uid="uid://bv2cxefikbdij" path="res://Scripts/billboard.gd" id="1_8rsd6"]
 
 [sub_resource type="Gradient" id="Gradient_8rsd6"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 1, 1, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3drgr"]
 gradient = SubResource("Gradient_8rsd6")
 
-[node name="billboard" type="Sprite3D" unique_id=1397176609]
+[node name="billboard" type="Node3D" unique_id=548411036]
+script = ExtResource("1_8rsd6")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=173818548]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 1
 render_priority = -1
 texture = SubResource("GradientTexture2D_3drgr")
-script = ExtResource("1_8rsd6")
 
 [node name="title" type="Label3D" parent="." unique_id=1773557127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23706445, 0)
+offset = Vector2(0, 90)
 billboard = 1
 text = "Title"
 
 [node name="desc" type="Label3D" parent="." unique_id=1557866945]
+offset = Vector2(-100, 70)
 billboard = 1
-text = "Hello"
+text = "Hello "
+horizontal_alignment = 0
+vertical_alignment = 0
 
 [node name="interactible" type="Label3D" parent="." unique_id=511200716]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22987163, 0.25736293)
+offset = Vector2(-100, 100)
 billboard = 1
 text = "F"

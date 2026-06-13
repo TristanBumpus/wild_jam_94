@@ -16,7 +16,8 @@ size = Vector3(0.5, 0.5, 1)
 freeze_mode = 1
 script = ExtResource("1_5ah0y")
 limb_name = "Spider Leg"
-damage = 2
+limb_desc = "Basic attacks "
+damage = 5
 speed = 2
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
