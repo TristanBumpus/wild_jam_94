@@ -3,10 +3,19 @@
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_wfbyf"]
 [ext_resource type="PackedScene" uid="uid://pc7nv5qt3m4v" path="res://meshes/limbilimb/turtle/turtle_body_obj.tscn" id="2_oynhj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oynhj"]
+size = Vector3(3.1171875, 3.6954346, 2.5825806)
+
 [node name="turtle_body" type="RigidBody3D" unique_id=270943981]
 script = ExtResource("1_wfbyf")
+type = 3
+type_2 = 4
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="turtle_body" parent="." unique_id=1108865244 instance=ExtResource("2_oynhj")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=614944882]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=825038262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29681396, -0.22280884)
+shape = SubResource("BoxShape3D_oynhj")

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b7p7fwlbwluiw"]
+
+[ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_mpleh"]
+[ext_resource type="PackedScene" uid="uid://bruewlqmetmqh" path="res://Entitites/limbs/kobold/kobold_head.tscn" id="2_8l6fn"]
+[ext_resource type="PackedScene" uid="uid://dpgyag0q65hpy" path="res://Entitites/limbs/kobold/kobold_body.tscn" id="3_evxov"]
+[ext_resource type="PackedScene" uid="uid://daeabprp56qe6" path="res://Entitites/limbs/kobold/kobold_arm.tscn" id="4_p1fr8"]
+[ext_resource type="PackedScene" uid="uid://dh2q7yacmpvef" path="res://Entitites/limbs/kobold/kobold_leg.tscn" id="5_8oorq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1fr8"]
+size = Vector3(2.45969, 8.022068, 1.756897)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8oorq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jeyy2"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi5b5"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dreyd"]
+size = Vector3(2.5129328, 9.302782, 2.1027222)
+
+[node name="Kobold" type="CharacterBody3D" unique_id=571424669 node_paths=PackedStringArray("hit_box", "nav")]
+script = ExtResource("1_mpleh")
+hit_box = NodePath("Area3D")
+loot = Array[PackedScene]([ExtResource("4_p1fr8")])
+loot_chance = Array[int]([100])
+nav = NodePath("NavigationAgent3D")
+metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=465848917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013498306, -1.7536488, 0.037017822)
+shape = SubResource("BoxShape3D_p1fr8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=335368681]
+mesh = SubResource("BoxMesh_8oorq")
+surface_material_override/0 = SubResource("StandardMaterial3D_jeyy2")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1705259521]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 45.6
+
+[node name="attack_box" type="Area3D" parent="." unique_id=2056078445]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=924547612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("BoxShape3D_yi5b5")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1572068405]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1760977631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040112972, -1.0639753, 0.11129761)
+shape = SubResource("BoxShape3D_dreyd")
+
+[node name="body" type="Node3D" parent="." unique_id=2089432174]
+
+[node name="head" type="Node3D" parent="body" unique_id=40281909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0183964, -0.2858851)
+
+[node name="kobold_head" parent="body/head" unique_id=856710131 instance=ExtResource("2_8l6fn")]
+
+[node name="torso" type="Node3D" parent="body" unique_id=126621414]
+
+[node name="kobold_body" parent="body/torso" unique_id=1507028625 instance=ExtResource("3_evxov")]
+
+[node name="left_arm" type="Node3D" parent="body" unique_id=1757251897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8118849, 0.9741397, 0)
+
+[node name="kobold_arm" parent="body/left_arm" unique_id=29705706 instance=ExtResource("4_p1fr8")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
+
+[node name="right_arm" type="Node3D" parent="body" unique_id=588589206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.812, 0.974, 0)
+
+[node name="kobold_arm" parent="body/right_arm" unique_id=1090452506 instance=ExtResource("4_p1fr8")]
+
+[node name="left_leg" type="Node3D" parent="body" unique_id=1623871436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69447386, -2.2839234, 0.30782318)
+
+[node name="kobold_leg" parent="body/left_leg" unique_id=1415290783 instance=ExtResource("5_8oorq")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
+
+[node name="right_leg" type="Node3D" parent="body" unique_id=1494551660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.284, 0.308)
+
+[node name="kobold_leg" parent="body/right_leg" unique_id=1791170326 instance=ExtResource("5_8oorq")]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

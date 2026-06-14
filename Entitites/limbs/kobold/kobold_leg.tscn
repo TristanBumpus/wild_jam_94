@@ -152,8 +152,13 @@ _data = {
 &"walk": SubResource("Animation_egrn3")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2bfl"]
+size = Vector3(1, 3.2329102, 1.923584)
+
 [node name="kobold_leg" type="RigidBody3D" unique_id=1415290783]
 script = ExtResource("1_8nv7u")
+type = 2
+type_2 = 4
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="thigh_a" type="Node3D" parent="." unique_id=914299372]
@@ -170,3 +175,7 @@ transform = Transform3D(1.0000004, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000004, 1.629
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1675002956]
 libraries/ = SubResource("AnimationLibrary_nukca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=804974056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7536621, -0.3951416)
+shape = SubResource("BoxShape3D_j2bfl")

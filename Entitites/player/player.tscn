@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bywsd5xtginia" path="res://Scripts/player.gd" id="1_x8xjm"]
 [ext_resource type="PackedScene" uid="uid://b5wnly2coogb6" path="res://UI/stats.tscn" id="2_56rfj"]
 [ext_resource type="PackedScene" uid="uid://dbmvs4glr00nb" path="res://Entitites/limbs/human_head.tscn" id="3_40ase"]
+[ext_resource type="PackedScene" uid="uid://bc5v5xo7fjq7s" path="res://UI/ui.tscn" id="3_xelh6"]
 [ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="4_5e027"]
 [ext_resource type="PackedScene" uid="uid://6ccfeiq4tb8d" path="res://Entitites/limbs/spider/spider_legs.tscn" id="5_5e027"]
 [ext_resource type="PackedScene" uid="uid://bxku3hv6ml8up" path="res://Entitites/limbs/human_arm.tscn" id="5_xelh6"]
@@ -97,6 +98,8 @@ collision_mask = 4
 shape = SubResource("CapsuleShape3D_56rfj")
 
 [node name="stats" parent="." unique_id=1252389211 instance=ExtResource("2_56rfj")]
+
+[node name="ui" parent="." unique_id=1624100246 instance=ExtResource("3_xelh6")]
 
 [node name="body" type="Node3D" parent="." unique_id=1407957858]
 

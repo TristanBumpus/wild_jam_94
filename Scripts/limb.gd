@@ -97,6 +97,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	if type == 1 or type_2 == 1:
+		if get_parent() != get_tree().current_scene:
+			if get_parent().get_parent().get_parent().is_in_group("player"):
+				$attack_box.set_collision_layer_value(2,true)
+				$attack_box.set_collision_layer_value(3,false)
+			else:
+				$attack_box.set_collision_layer_value(3,true)
+				$attack_box.set_collision_layer_value(2,false)
+	
 	if get_parent() != get_tree().current_scene:
 		sleeping = true
 		$choice.visible = false

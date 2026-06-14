@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://6ccfeiq4tb8d" path="res://Entitites/limbs/spider/spider_legs.tscn" id="3_of68j"]
 [ext_resource type="PackedScene" uid="uid://bxku3hv6ml8up" path="res://Entitites/limbs/human_arm.tscn" id="4_mggor"]
 [ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="5_1ot53"]
+[ext_resource type="PackedScene" uid="uid://b7p7fwlbwluiw" path="res://Entitites/Enemies/kobold.tscn" id="6_m5bqa"]
+[ext_resource type="PackedScene" uid="uid://cmqrw57hu2s06" path="res://Entitites/Enemies/turtle.tscn" id="7_1r5jd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_50dj4"]
 vertices = PackedVector3Array(-49.5, 1, -49.5, -49.5, 1, 49.5, 49.5, 1, 49.5, 49.5, 1, -49.5)
@@ -54,3 +56,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
 
 [node name="human_torso" parent="." unique_id=2017863707 instance=ExtResource("5_1ot53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.318895, 8.102445, 0)
+
+[node name="turtle" parent="." unique_id=1342392873 instance=ExtResource("7_1r5jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.275362, 6.830715, 15.02258)
+
+[node name="Kobold" parent="." unique_id=571424669 instance=ExtResource("6_m5bqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.275362, 6.830715, 15.02258)

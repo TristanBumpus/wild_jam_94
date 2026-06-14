@@ -4,8 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dqn8mvbxrg3iq" path="res://meshes/limbilimb/turtle/turtle_head_obj.tscn" id="2_f4c6a"]
 [ext_resource type="PackedScene" uid="uid://735epodgdlrn" path="res://meshes/limbilimb/turtle/turtle_neck_obj.tscn" id="3_h7258"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4c6a"]
+radius = 0.86328125
+height = 2.0019531
+
 [node name="turtle_head" type="RigidBody3D" unique_id=1155505961]
 script = ExtResource("1_cxver")
+type = 0
+type_2 = 4
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="turtle_head" parent="." unique_id=1965336921 instance=ExtResource("2_f4c6a")]
@@ -14,3 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7868396, 0)
 [node name="turtle_neck" parent="." unique_id=1969769088 instance=ExtResource("3_h7258")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=251845262]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1608856086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46861196, 0)
+shape = SubResource("CapsuleShape3D_f4c6a")

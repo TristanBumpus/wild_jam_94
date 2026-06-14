@@ -58,7 +58,7 @@ _data = {
 
 [node name="spider" type="CharacterBody3D" unique_id=973888417 node_paths=PackedStringArray("nav")]
 script = ExtResource("1_ixa8j")
-loot = Array[PackedScene]([ExtResource("5_8qq4n")])
+loot = Array[PackedScene]([ExtResource("4_qtbis")])
 loot_chance = Array[int]([100])
 speed = 3
 nav = NodePath("NavigationAgent3D")
@@ -88,7 +88,7 @@ shape = SubResource("BoxShape3D_qtbis")
 disabled = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1659286447]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2004201073]

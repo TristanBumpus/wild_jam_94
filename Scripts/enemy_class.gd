@@ -23,8 +23,8 @@ var special_limb = 0
 
 
 func basic_movement():
-	nav.target_position = player.global_position
-	print(nav.is_target_reachable())
+	#nav.target_position = player.global_position
+	#print(nav.is_target_reachable())
 	#if nav.is_target_reachable():
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
@@ -41,8 +41,8 @@ func basic_movement():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
-		if node.get_node("AnimationPlayer").current_animation != animString:
-			node.get_node("AnimationPlayer").play("attack", .3)
+		#if node.get_node("AnimationPlayer").current_animation != "attack":
+		node.get_node("AnimationPlayer").play("attack")
 	
 	elif node.side == 1:
 		node.get_node("AnimationPlayer").play(animString, .3)
@@ -57,7 +57,8 @@ func set_animation(node:Node3D,animString:String):
 func melee_attack():
 	if velocity.x + velocity.z != 0:
 		set_animation($body/left_arm.get_child(0),"walk")
-		set_animation($body/right_arm.get_child(0),"walk")
+		if global_position.distance_to(player.global_position) > 10:
+			set_animation($body/right_arm.get_child(0),"walk")
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
 	

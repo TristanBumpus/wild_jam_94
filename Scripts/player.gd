@@ -117,6 +117,9 @@ func _unhandled_input(event):
 		$body/left_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
 		$body/right_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
 
+func update_ui():
+	$ui/Control/health.text = "HP: " + str(current_hp)
+
 
 
 func _ready() -> void:

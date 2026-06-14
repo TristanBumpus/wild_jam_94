@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cmqrw57hu2s06"]
+
+[ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_5bfqm"]
+[ext_resource type="PackedScene" uid="uid://c6thkbkht6suf" path="res://Entitites/limbs/turtle/turtle_head.tscn" id="2_ah6li"]
+[ext_resource type="PackedScene" uid="uid://c835bmqgkhiem" path="res://Entitites/limbs/turtle/turtle_body.tscn" id="3_typws"]
+[ext_resource type="PackedScene" uid="uid://c1lsxilwbl8gr" path="res://Entitites/limbs/turtle/turtle_arm.tscn" id="4_n1byt"]
+[ext_resource type="PackedScene" uid="uid://dw1krjabpru35" path="res://Entitites/limbs/turtle/turtle_leg.tscn" id="5_8t054"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ot2br"]
+size = Vector3(2.45969, 9.267382, 1.756897)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vfun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqn3q"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4lrh"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_126nu"]
+size = Vector3(2.5129328, 9.302782, 2.1027222)
+
+[node name="turtle" type="CharacterBody3D" unique_id=1342392873]
+script = ExtResource("1_5bfqm")
+loot = Array[PackedScene]([ExtResource("4_n1byt")])
+loot_chance = Array[int]([100])
+metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1528241298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013498306, -2.3763056, 0.037017822)
+shape = SubResource("BoxShape3D_ot2br")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=116554713]
+mesh = SubResource("BoxMesh_7vfun")
+surface_material_override/0 = SubResource("StandardMaterial3D_gqn3q")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=54556878]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 45.6
+
+[node name="attack_box" type="Area3D" parent="." unique_id=71586243]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=786520773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("BoxShape3D_h4lrh")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2099121729]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=437256803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040112972, -1.0639753, 0.11129761)
+shape = SubResource("BoxShape3D_126nu")
+
+[node name="body" type="Node3D" parent="." unique_id=1471017800]
+
+[node name="head" type="Node3D" parent="body" unique_id=241967150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0183964, -0.2858851)
+
+[node name="turtle_head" parent="body/head" unique_id=1155505961 instance=ExtResource("2_ah6li")]
+
+[node name="torso" type="Node3D" parent="body" unique_id=1965286212]
+
+[node name="turtle_body" parent="body/torso" unique_id=270943981 instance=ExtResource("3_typws")]
+
+[node name="left_arm" type="Node3D" parent="body" unique_id=1175994164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8118849, 0.9741397, 0)
+
+[node name="turtle_arm" parent="body/left_arm" unique_id=1350772181 instance=ExtResource("4_n1byt")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
+
+[node name="right_arm" type="Node3D" parent="body" unique_id=1560406482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.812, 0.974, 0)
+
+[node name="turtle_arm" parent="body/right_arm" unique_id=894054876 instance=ExtResource("4_n1byt")]
+
+[node name="left_leg" type="Node3D" parent="body" unique_id=2064421618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69447386, -2.2839234, 0.30782318)
+
+[node name="turtle_leg" parent="body/left_leg" unique_id=1336250424 instance=ExtResource("5_8t054")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
+
+[node name="right_leg" type="Node3D" parent="body" unique_id=718369929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.284, 0.308)
+
+[node name="turtle_leg" parent="body/right_leg" unique_id=580532378 instance=ExtResource("5_8t054")]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
