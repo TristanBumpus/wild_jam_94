@@ -47,10 +47,50 @@ func attack():
 		$AnimationPlayer.play("attack")
 
 func limb_checker():
+	if $body/head.get_child(0) != last_limbs[0]:
+		if last_limbs[0] != null:
+			max_hp -= last_limbs[0].hp
+			speed -= last_limbs[0]
+		last_limbs[0] = $body/head.get_child(0)
+		max_hp += $body/head.get_child(0).hp
+		speed += $body/head.get_child(0).speed
+	if $body/torso.get_child(0) != last_limbs[1]:
+		if last_limbs[1] != null:
+			max_hp -= last_limbs[1].hp
+			speed -= last_limbs[1]
+		last_limbs[0] = $body/torso.get_child(0)
+		max_hp += $body/torso.get_child(0).hp
+		speed += $body/torso.get_child(0).speed
+	
 	if $body/left_arm.get_child(0) != last_limbs[2]:
-		if last_limbs != null:
+		if last_limbs[2] != null:
 			max_hp -= last_limbs[2].hp
+			speed -= last_limbs[2]
 		last_limbs[0] = $body/left_arm.get_child(0)
+		max_hp += $body/left_arm.get_child(0).hp
+		speed += $body/left_arm.get_child(0).speed
+	if $body/right_arm.get_child(0) != last_limbs[3]:
+		if last_limbs[3] != null:
+			max_hp -= last_limbs[3].hp
+			speed -= last_limbs[3]
+		last_limbs[0] = $body/right_arm.get_child(0)
+		max_hp += $body/right_arm.get_child(0).hp
+		speed += $body/right_arm.get_child(0).speed
+	
+	if $body/left_leg.get_child(0) != last_limbs[4]:
+		if last_limbs[4] != null:
+			max_hp -= last_limbs[4].hp
+			speed -= last_limbs[4]
+		last_limbs[0] = $body/left_leg.get_child(0)
+		max_hp += $body/left_leg.get_child(0).hp
+		speed += $body/left_leg.get_child(0).speed
+	if $body/right_leg.get_child(0) != last_limbs[5]:
+		if last_limbs[5] != null:
+			max_hp -= last_limbs[5].hp
+			speed -= last_limbs[5]
+		last_limbs[0] = $body/right_leg.get_child(0)
+		max_hp += $body/right_leg.get_child(0).hp
+		speed += $body/right_leg.get_child(0).speed
 
 
 func _unhandled_input(event):
