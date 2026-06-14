@@ -3,11 +3,22 @@
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_636xt"]
 [ext_resource type="PackedScene" uid="uid://c72i75ctsb41m" path="res://meshes/limbilimb/spider/spider_head_obj.tscn" id="2_636xt"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6r5k"]
+radius = 0.9628906
+height = 2.604004
+
 [node name="spider_head" type="RigidBody3D" unique_id=958455242]
 script = ExtResource("1_636xt")
+type = 0
+type_2 = 4
+hp = 10
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="spider_head_obj" parent="." unique_id=1665656532 instance=ExtResource("2_636xt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1844558544]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=787779202]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.20718552, -0.5012207)
+shape = SubResource("CapsuleShape3D_t6r5k")

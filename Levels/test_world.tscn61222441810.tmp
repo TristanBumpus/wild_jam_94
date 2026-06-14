@@ -35,7 +35,7 @@ shape = SubResource("BoxShape3D_0l8oa")
 mesh = SubResource("BoxMesh_0l8oa")
 
 [node name="player" parent="." unique_id=1745359200 instance=ExtResource("1_s7fsy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9729013, 10.754153, 6.544957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.754153, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=902737527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9642024, -13.247374)
@@ -44,10 +44,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s7fsy")
 
 [node name="spider" parent="." unique_id=973888417 instance=ExtResource("2_50dj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+attack_type = null
+hp = null
+damage = null
+movement_type = null
+speed = null
+is_effected_by_gravity = null
 
 [node name="spider_legs" parent="." unique_id=2072162453 instance=ExtResource("3_of68j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 0)
-special_type = 1
 
 [node name="human_arm" parent="." unique_id=6190507 instance=ExtResource("4_mggor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)

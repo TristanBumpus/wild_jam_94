@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://qxwstax4k1ts" path="res://meshes/limbilimb/character/character_fist.tscn" id="2_ct58d"]
 [ext_resource type="PackedScene" uid="uid://dpxgwwodwf1mh" path="res://meshes/limbilimb/character/character_forearm.tscn" id="3_iw7x3"]
 [ext_resource type="PackedScene" uid="uid://dpci7nytxdc3c" path="res://meshes/limbilimb/character/character_arm.tscn" id="4_n0tqg"]
-[ext_resource type="PackedScene" uid="uid://ca76nvf5d44di" path="res://UI/billboard.tscn" id="5_ct58d"]
 
 [sub_resource type="Animation" id="Animation_s5k8x"]
 length = 0.001
@@ -32,6 +31,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wokdt"]
 resource_name = "attack"
@@ -58,6 +69,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.0431145, 0.359056, -0.32513654), Vector3(-0.08799522, 0.71955955, -0.29749545), Vector3(-0.50726926, 1.418356, -0.10746323)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.57, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_c28bo"]
@@ -154,8 +177,17 @@ _data = {
 &"walk": SubResource("Animation_owhpc")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_f87u6"]
+size = Vector3(2.6264648, 1, 6.010254)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ct58d"]
+size = Vector3(4.855713, 1, 1)
+
 [node name="human_arm" type="RigidBody3D" unique_id=6190507]
+freeze = true
+linear_damp_mode = 1
 script = ExtResource("1_f87u6")
+damage = 1
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="arm_a" type="Node3D" parent="." unique_id=1097571229]
@@ -176,103 +208,15 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 1.0000001, 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1025466254]
 libraries/ = SubResource("AnimationLibrary_c28bo")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1358312171]
-layer = 2
-visible = false
+[node name="attack_box" type="Area3D" parent="." unique_id=973881092]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1494535141]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Node2D" type="Node2D" parent="CanvasLayer/Control" unique_id=473433825]
-position = Vector2(546.01, 250)
-
-[node name="head" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=22414460]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=1393950709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -7.675617)
+shape = SubResource("BoxShape3D_f87u6")
 disabled = true
 
-[node name="torso" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=245036919]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = 48.0
-offset_right = 40.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="right_arm" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1166172710]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 48.0
-offset_top = 48.0
-offset_right = 128.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="left_arm" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1275003536]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = 48.0
-offset_right = -48.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="right_leg" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1670949305]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = 136.0
-offset_right = 88.0
-offset_bottom = 216.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="left_leg" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=290850139]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = 136.0
-offset_right = -8.0
-offset_bottom = 216.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="billboard" parent="." unique_id=548411036 instance=ExtResource("5_ct58d")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1600748917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2230225, 0, 0)
+shape = SubResource("BoxShape3D_ct58d")

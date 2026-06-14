@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bcn88gm6sio0i"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_5ah0y"]
-[ext_resource type="PackedScene" uid="uid://ca76nvf5d44di" path="res://UI/billboard.tscn" id="2_7taf0"]
-[ext_resource type="PackedScene" uid="uid://c1nsld17apec6" path="res://UI/choice.tscn" id="3_54q8h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ah0y"]
 size = Vector3(0.5, 0.5, 1)
@@ -28,17 +26,12 @@ shape = SubResource("BoxShape3D_5ah0y")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2037384147]
 mesh = SubResource("BoxMesh_5ah0y")
 
-[node name="billboard" parent="." unique_id=1397176609 instance=ExtResource("2_7taf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62203205, 0)
-
 [node name="Area3D" type="Area3D" parent="." unique_id=2055189638]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1119174717]
 shape = SubResource("BoxShape3D_7taf0")
-
-[node name="CanvasLayer" parent="." unique_id=31333311 instance=ExtResource("3_54q8h")]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

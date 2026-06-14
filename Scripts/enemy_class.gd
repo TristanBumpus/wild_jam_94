@@ -17,32 +17,52 @@ class_name Enemy
 @export var nav : NavigationAgent3D
 @export var is_effected_by_gravity = true
 
-
 var player: CharacterBody3D
 
+var special_limb = 0
 
 
 func basic_movement():
 	nav.target_position = player.global_position
-	if nav.is_target_reachable():
-		var flat_direction = Vector2(
-			player.global_position.x - global_position.x,
-			player.global_position.z - global_position.z
-		)
-		
-		# 2. Calculate the target angle on the floor grid
-		# Note: We use -flat_direction.y because Godot's 3D forward is -Z
-		var target_angle = flat_direction.angle_to(Vector2.UP)
-		
-		# 3. Apply the smooth rotation ONLY to the Y-axis
-		rotation.y = lerp_angle(rotation.y, target_angle, .05)
-		var dir = (nav.get_next_path_position() - global_position).normalized()
-		velocity.x = dir.x * speed
-		velocity.z = dir.z * speed
+	print(nav.is_target_reachable())
+	#if nav.is_target_reachable():
+	var flat_direction = Vector2(
+		player.global_position.x - global_position.x,
+		player.global_position.z - global_position.z
+	)
+	
+	var target_angle = flat_direction.angle_to(Vector2.UP)
+	
+	rotation.y = lerp_angle(rotation.y, target_angle, .05)
+	
+	var dir = (player.global_position - global_position).normalized()
+	velocity.x = dir.x * speed
+	velocity.z = dir.z * speed
+
+func set_animation(node:Node3D,animString:String):
+	if animString == "attack":
+		if node.get_node("AnimationPlayer").current_animation != animString:
+			node.get_node("AnimationPlayer").play("attack", .3)
+	
+	elif node.side == 1:
+		node.get_node("AnimationPlayer").play(animString, .3)
+	else:
+		var advance = false
+		if node.get_node("AnimationPlayer").current_animation != animString:
+			advance = true
+		node.get_node("AnimationPlayer").play(animString, .3)
+		if advance:
+			node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
 
 func melee_attack():
-	if global_position.distance_to(player.global_position) < 2:
-		$AnimationPlayer.play("melee_attack")
+	if velocity.x + velocity.z != 0:
+		set_animation($body/left_arm.get_child(0),"walk")
+		set_animation($body/right_arm.get_child(0),"walk")
+		set_animation($body/left_leg.get_child(0),"walk")
+		set_animation($body/right_leg.get_child(0),"walk")
+	
+	if global_position.distance_to(player.global_position) < 10:
+		set_animation($body/right_arm.get_child(0), "attack")
 
 
 

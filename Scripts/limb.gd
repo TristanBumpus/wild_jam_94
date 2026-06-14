@@ -16,30 +16,77 @@ class_name limb
 
 @export_category("other")
 @export var speed = 0
+@export_enum("none", "big") var special_type = 0
+@export var rotation_diffrence = 0
+
 
 var player : CharacterBody3D
+var billboard
 
+
+
+func switch_limb(to_get,s = 1):
+	var node = player.get_node(to_get)
+	var old = node.get_child(0)
+	old.reparent(get_tree().current_scene)
+	reparent(node)
+	old.global_position = global_position + Vector3(0,3,0)
+	old.get_node("choice").visible = false
+	position = Vector3.ZERO
+	rotation = Vector3.ZERO
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$choice.visible = false
+	side = s
+	sleeping = true
+	old.sleeping = false
+	player.limb_checker()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	var b = load("res://UI/billboard.tscn")
+	var billboard = b.instantiate()
+	billboard.position = Vector3.ZERO
+	billboard.position.y += 2
+	add_child(billboard)
+	$billboard.visible = false
+	
+	
+	var c = load("res://UI/choice.tscn")
+	var c2 = c.instantiate()
+	add_child(c2)
+	
+	
+	c2.get_node("Control/Node2D/head").button_down.connect(_on_head_button_down)
+	c2.get_node("Control/Node2D/torso").button_down.connect(_on_torso_button_down)
+	c2.get_node("Control/Node2D/right_arm").button_down.connect(_on_right_arm_button_down)
+	c2.get_node("Control/Node2D/left_arm").button_down.connect(_on_left_arm_button_down)
+	c2.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
+	c2.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
+	
+	add_to_group("limb",true)
+	
 	if type == 0 or type_2 == 0:
-		$CanvasLayer/Control/Node2D/head.disabled = false
+		$choice/Control/Node2D/head.disabled = false
 	
 	if type == 1 or type_2 == 1:
-		$CanvasLayer/Control/Node2D/left_arm.disabled = false
-		$CanvasLayer/Control/Node2D/right_arm.disabled = false
+		$choice/Control/Node2D/left_arm.disabled = false
+		$choice/Control/Node2D/right_arm.disabled = false
 	
 	if type == 2 or type_2 == 2:
-		$CanvasLayer/Control/Node2D/left_leg.disabled = false
-		$CanvasLayer/Control/Node2D/right_leg.disabled = false
+		$choice/Control/Node2D/left_leg.disabled = false
+		$choice/Control/Node2D/right_leg.disabled = false
 	
 	if type == 3 or type_2 == 3:
-		$CanvasLayer/Control/Node2D/torso.disabled = false
+		$choice/Control/Node2D/torso.disabled = false
 	
 	damage = snapped(damage * randf_range(.8,1.2), .01)
 	hp = snapped(hp * randf_range(.8,1.2), .01)
 	speed = snapped(speed * randf_range(.8,1.2),.01)
+	
+	if special_type == 1:
+		scale = Vector3(2,2,2)
 	
 	$billboard/title.text = limb_name
 	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Hp " + str(hp) + "\n" + "Speed " + str(speed) + "\n" + limb_desc
@@ -51,75 +98,52 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if get_parent() != get_tree().current_scene:
-		freeze = true
+		sleeping = true
+		$choice.visible = false
+		$billboard.visible = false
+		$CollisionShape3D.disabled = true
+		position = Vector3.ZERO
+		rotation = Vector3.ZERO
 	else:
-		freeze = false
+		sleeping = false
+		$CollisionShape3D.disabled = false
+		$AnimationPlayer.play("RESET")
 	
 	if side == 0:
 		scale = Vector3(-1,1,1)
+		if special_type == 1:
+			scale = Vector3(-2,2,2)
 	if side == 1:
 		scale = Vector3(1,1,1)
+		if special_type == 1:
+			scale = Vector3(2,2,2)
 	
 	if $billboard.visible:
 		if Input.is_action_just_pressed("f"):
-			$CanvasLayer.visible = true
+			$choice.visible = true
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	$billboard.visible = true
-
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	$billboard.visible = false
-
 
 func _on_right_arm_button_down() -> void:
-	reparent(player.get_node("body/right_arm"))
-	global_position = Vector3.ZERO
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$CanvasLayer.visible = false
-	side = 1
-	player.limb_checker()
+	switch_limb("body/right_arm")
 
 
 func _on_left_arm_button_down() -> void:
-	reparent(player.get_node("body/left_arm"))
-	global_position = Vector3.ZERO
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$CanvasLayer.visible = false
-	side = 0
-	player.limb_checker()
+	switch_limb("body/left_arm",0)
 
 
 func _on_head_button_down() -> void:
-	reparent(player.get_node("body/head"))
-	global_position = Vector3.ZERO
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$CanvasLayer.visible = false
-	player.limb_checker()
+	switch_limb("body/head")
 
 
 func _on_torso_button_down() -> void:
-	reparent(player.get_node("body/torso"))
-	global_position = Vector3.ZERO
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$CanvasLayer.visible = false
-	player.limb_checker()
+	switch_limb("body/torso")
 
 
 func _on_right_leg_button_down() -> void:
-	reparent(player.get_node("body/right_legs"))
-	global_position = Vector3.ZERO
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$CanvasLayer.visible = false
-	side = 1
-	player.limb_checker()
+	switch_limb("body/right_leg")
 
 
 func _on_left_leg_button_down() -> void:
-	reparent(player.get_node("body/left_leg"))
-	global_position = Vector3.ZERO
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	side = 0
-	$CanvasLayer.visible = false
+	switch_limb("body/left_leg",0)

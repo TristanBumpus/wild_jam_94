@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_ahsdv"]
 [ext_resource type="PackedScene" uid="uid://dgww0vp4xewm0" path="res://meshes/limbilimb/character/character_head.tscn" id="2_j2bum"]
 [ext_resource type="PackedScene" uid="uid://bw8en1i61aa13" path="res://meshes/limbilimb/character/character_neck.tscn" id="3_xd8cv"]
-[ext_resource type="PackedScene" uid="uid://ca76nvf5d44di" path="res://UI/billboard.tscn" id="4_pmi7j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2wt1"]
+size = Vector3(1, 1.9550781, 1)
 
 [node name="human_head" type="RigidBody3D" unique_id=2067002376]
 script = ExtResource("1_ahsdv")
@@ -17,103 +19,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59700227, 0)
 [node name="character_neck2" parent="." unique_id=1296398145 instance=ExtResource("3_xd8cv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027760863, -0.112579346, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1216645549]
-layer = 2
-visible = false
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=919343774]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=2002343728]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Node2D" type="Node2D" parent="CanvasLayer/Control" unique_id=282728413]
-position = Vector2(546.01, 250)
-
-[node name="head" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1611462988]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="torso" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=124564052]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = 48.0
-offset_right = 40.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="right_arm" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1479812620]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 48.0
-offset_top = 48.0
-offset_right = 128.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="left_arm" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1298164768]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = 48.0
-offset_right = -48.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="right_leg" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=407630305]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = 136.0
-offset_right = 88.0
-offset_bottom = 216.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="left_leg" type="Button" parent="CanvasLayer/Control/Node2D" unique_id=1900195452]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = 136.0
-offset_right = -8.0
-offset_bottom = 216.0
-grow_horizontal = 2
-grow_vertical = 2
-disabled = true
-
-[node name="billboard" parent="." unique_id=548411036 instance=ExtResource("4_pmi7j")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1490074053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47753906, 0)
+shape = SubResource("BoxShape3D_e2wt1")

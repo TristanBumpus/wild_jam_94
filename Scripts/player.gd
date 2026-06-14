@@ -68,18 +68,21 @@ func limb_checker():
 	limb_to_check($body/right_leg,5)
 
 func set_animation(node:Node3D,animString:String):
-	if node.side == 1:
+	if animString == "attack":
+		if !node.get_node("AnimationPlayer").is_playing():
+			attacking[node.side] = false
+		elif node.get_node("AnimationPlayer").current_animation != "attack":
+			node.get_node("AnimationPlayer").play(animString, .3)
+			node.get_node("AnimationPlayer").advance(0)
+	elif node.side == 1:
 		node.get_node("AnimationPlayer").play(animString, .3)
 	else:
 		var advance = false
 		if node.get_node("AnimationPlayer").current_animation != animString:
 			advance = true
-		print(node.get_node("AnimationPlayer").current_animation != animString)
 		node.get_node("AnimationPlayer").play(animString, .3)
 		if advance:
 			node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
-	if !node.get_node("AnimationPlayer").is_playing():
-		attacking[node.side] = false
 
 func animation_states():
 	if attacking[0] or attacking[1]:
@@ -88,7 +91,7 @@ func animation_states():
 		if attacking[1]:
 			set_animation($body/right_arm.get_child(0),"attack")
 	
-	if velocity.x + velocity.z != 0:
+	elif velocity.x + velocity.z != 0:
 		#set_animation($body/head.get_child(0),"walk")
 		#set_animation($body/torso.get_child(0),"walk")
 		set_animation($body/left_arm.get_child(0),"walk")
@@ -101,19 +104,28 @@ func animation_states():
 		set_animation($body/left_leg.get_child(0),"idle")
 		set_animation($body/right_leg.get_child(0),"idle")
 
-
 func _unhandled_input(event):
 	# Handle vertical/horizontal camera rotation
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		cam.rotate_x(-event.relative.y * mouse_sensitivity)
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+		
+		$body/left_arm.rotation.x = cam.rotation.x + deg_to_rad(10 + $body/left_arm.get_child(0).rotation_diffrence)
+		$body/right_arm.rotation.x = cam.rotation.x + deg_to_rad(10 + $body/right_arm.get_child(0).rotation_diffrence)
+		
+		$body/left_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
+		$body/right_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
+
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	limb_checker()
 
 func _physics_process(delta: float) -> void:
+	
+	
 	movement(delta)
 	cheats()
 	attack()
@@ -125,3 +137,13 @@ func _physics_process(delta: float) -> void:
 func _on_hit_box_area_entered(area: Area3D) -> void:
 	current_hp -= area.get_parent().damage
 	
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("limb"):
+		body.get_node("billboard").visible = true
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.is_in_group("limb"):
+		body.get_node("billboard").visible = false
