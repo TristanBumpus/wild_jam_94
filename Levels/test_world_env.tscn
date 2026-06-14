@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://iftn41ff1h7n"]
+
+[ext_resource type="MeshLibrary" uid="uid://drtr75uunroyp" path="res://assets/dungeon/tileset_dungeon2.meshlib" id="1_yipuo"]
+
+[node name="test_world_env" type="Node3D" unique_id=277827708]
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1606076858]
+mesh_library = ExtResource("1_yipuo")
+data = {
+"cells": PackedInt32Array(65535, 1, 0, 65535, 2, 0, 65535, 0, 0, 65535, 65535, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65534, 2, 0, 65535, 3, 3, 65534, 3, 3, 65533, 3, 3, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65535, 65534, 655363, 65534, 65534, 655363, 65533, 65534, 655363, 0, 65535, 1048579, 0, 0, 1048579, 0, 1, 1048579, 0, 2, 1048579, 0, 3, 5, 0, 65534, 1048581, 65532, 65534, 655365, 65532, 65535, 1441795, 65532, 0, 1441795, 65532, 1, 1441795, 65532, 2, 1441795, 65532, 3, 1441797)
+}
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1093920599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17792, 7.673998)

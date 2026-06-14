@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://5dilugkof4tt"]
+
+[ext_resource type="PackedScene" uid="uid://usmtan5656w4" path="res://assets/dungeon/dungeon_tileset.glb" id="1_x2jnl"]
+
+[node name="dungeon_tileset" unique_id=174215503 instance=ExtResource("1_x2jnl")]
