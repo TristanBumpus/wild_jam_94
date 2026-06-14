@@ -80,7 +80,6 @@ func set_animation(node:Node3D,animString:String):
 			node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
 	if !node.get_node("AnimationPlayer").is_playing():
 		attacking[node.side] = false
-		pass
 
 func animation_states():
 	if attacking[0] or attacking[1]:
