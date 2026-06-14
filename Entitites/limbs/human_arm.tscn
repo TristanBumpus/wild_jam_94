@@ -118,6 +118,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_owhpc"]
 resource_name = "walk"
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -126,7 +127,7 @@ tracks/0/path = NodePath("arm_a:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.5235988, 1.4809563e-08, -1.2787678), Vector3(0.24165832, 4.4183635e-09, -1.2787678)]
@@ -138,7 +139,7 @@ tracks/1/path = NodePath("arm_a/forearm_a:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.20556381, 1.1331403, -0.17426395), Vector3(0.21463417, 1.2159567, -0.15209773)]
