@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://32jbm1l5mhh"]
+
+[ext_resource type="PackedScene" uid="uid://dpoo0q5incgkm" path="res://assets/spider/spider_fist.glb" id="1_ssh6i"]
+
+[node name="spider_fist" unique_id=995621752 instance=ExtResource("1_ssh6i")]

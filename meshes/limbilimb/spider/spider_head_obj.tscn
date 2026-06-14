@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c72i75ctsb41m"]
+
+[ext_resource type="PackedScene" uid="uid://out8mibux2fa" path="res://assets/spider/spider_head.glb" id="2_jxj68"]
+[ext_resource type="Texture2D" uid="uid://u1i3sewmmp65" path="res://assets/spider/spider_forearm_spider.png" id="2_lpffv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxj68"]
+albedo_texture = ExtResource("2_lpffv")
+texture_filter = 0
+
+[node name="spider_head_obj" unique_id=1665656532 instance=ExtResource("2_jxj68")]
+
+[node name="Cube_032" parent="." index="0" unique_id=1849958583]
+surface_material_override/0 = SubResource("StandardMaterial3D_jxj68")

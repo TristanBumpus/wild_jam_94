@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d1nuv4edw4yas"]
+
+[ext_resource type="PackedScene" uid="uid://e4uen0yeg2em" path="res://assets/spider/spider_forearm.glb" id="1_8mcqu"]
+
+[node name="spider_forearm" unique_id=1159112142 instance=ExtResource("1_8mcqu")]

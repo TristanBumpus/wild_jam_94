@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b6neifua0r1xq"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_8p664"]
+[ext_resource type="PackedScene" uid="uid://dne4wp20eyqbb" path="res://assets/spider/spider_body.glb" id="2_230ci"]
+
+[node name="spider_body" type="RigidBody3D" unique_id=81140087]
+script = ExtResource("1_8p664")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="spider_body" parent="." unique_id=266963251 instance=ExtResource("2_230ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1826575763]
