@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dtxgkgg4dq36r"]
+
+[ext_resource type="PackedScene" uid="uid://o2ueypr12px6" path="res://assets/turtle/turtle_thigh.glb" id="1_l7ev7"]
+[ext_resource type="Texture2D" uid="uid://bh27vmeswc6ml" path="res://assets/turtle/turtle_arm_Turtle_TEXT.png" id="2_0kfgu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7k8n"]
+albedo_texture = ExtResource("2_0kfgu")
+texture_filter = 0
+
+[node name="turtle_thigh" unique_id=1320048774 instance=ExtResource("1_l7ev7")]
+
+[node name="Cube_075" parent="." index="0" unique_id=597224568]
+surface_material_override/0 = SubResource("StandardMaterial3D_r7k8n")

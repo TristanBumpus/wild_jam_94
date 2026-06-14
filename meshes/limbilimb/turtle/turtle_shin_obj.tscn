@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://mkntprl3iolf"]
+
+[ext_resource type="PackedScene" uid="uid://bd3ehmn8syexa" path="res://assets/turtle/turtle_shin.glb" id="1_x4gfj"]
+[ext_resource type="Texture2D" uid="uid://bh27vmeswc6ml" path="res://assets/turtle/turtle_arm_Turtle_TEXT.png" id="2_136dy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cx4cr"]
+albedo_texture = ExtResource("2_136dy")
+texture_filter = 0
+
+[node name="turtle_shin" unique_id=964635409 instance=ExtResource("1_x4gfj")]
+
+[node name="Cube_070" parent="." index="0" unique_id=158044946]
+surface_material_override/0 = SubResource("StandardMaterial3D_cx4cr")

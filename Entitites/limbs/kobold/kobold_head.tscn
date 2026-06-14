@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bruewlqmetmqh"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_0pict"]
+[ext_resource type="PackedScene" uid="uid://bs7e0p5p3aq55" path="res://meshes/limbilimb/kobold/kobold_head_obj.tscn" id="2_ou8un"]
+
+[node name="kobold_head" type="RigidBody3D" unique_id=856710131]
+script = ExtResource("1_0pict")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8020927, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1959474128]
