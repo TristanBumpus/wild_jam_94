@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dpgyag0q65hpy"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_8o8xg"]
+[ext_resource type="PackedScene" uid="uid://doma62af7gmjd" path="res://meshes/limbilimb/kobold/kobold_body_obj.tscn" id="2_awulk"]
+
+[node name="kobold_body" type="RigidBody3D" unique_id=1507028625]
+script = ExtResource("1_8o8xg")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="kobold_body" parent="." unique_id=2105975442 instance=ExtResource("2_awulk")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=376084061]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://735epodgdlrn"]
+
+[ext_resource type="PackedScene" uid="uid://dp0vmfeis728j" path="res://assets/turtle/turtle_neck.glb" id="1_63362"]
+[ext_resource type="Texture2D" uid="uid://bh27vmeswc6ml" path="res://assets/turtle/turtle_arm_Turtle_TEXT.png" id="2_hdmw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2o2wd"]
+albedo_texture = ExtResource("2_hdmw7")
+texture_filter = 0
+
+[node name="turtle_neck" unique_id=1969769088 instance=ExtResource("1_63362")]
+
+[node name="Cube_073" parent="." index="0" unique_id=534846375]
+surface_material_override/0 = SubResource("StandardMaterial3D_2o2wd")

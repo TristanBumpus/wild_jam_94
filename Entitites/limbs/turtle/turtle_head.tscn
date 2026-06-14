@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c6thkbkht6suf"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_cxver"]
+[ext_resource type="PackedScene" uid="uid://dqn8mvbxrg3iq" path="res://meshes/limbilimb/turtle/turtle_head_obj.tscn" id="2_f4c6a"]
+[ext_resource type="PackedScene" uid="uid://735epodgdlrn" path="res://meshes/limbilimb/turtle/turtle_neck_obj.tscn" id="3_h7258"]
+
+[node name="turtle_head" type="RigidBody3D" unique_id=1155505961]
+script = ExtResource("1_cxver")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="turtle_head" parent="." unique_id=1965336921 instance=ExtResource("2_f4c6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7868396, 0)
+
+[node name="turtle_neck" parent="." unique_id=1969769088 instance=ExtResource("3_h7258")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=251845262]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://blgd7pk7bdose"]
+
+[ext_resource type="PackedScene" uid="uid://bfvkscyq8bsrp" path="res://assets/kobold/kobold_fist.glb" id="1_l14n7"]
+[ext_resource type="Texture2D" uid="uid://c1clwqk6jmarr" path="res://assets/kobold/kobold_arm_Kobold_TEXT.png" id="2_51c1t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0evbw"]
+albedo_texture = ExtResource("2_51c1t")
+texture_filter = 0
+
+[node name="kobold_fist" unique_id=335961357 instance=ExtResource("1_l14n7")]
+
+[node name="Cube_080" parent="." index="0" unique_id=20573358]
+surface_material_override/0 = SubResource("StandardMaterial3D_0evbw")

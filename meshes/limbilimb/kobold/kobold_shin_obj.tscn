@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cwgpg1pjmmfhv"]
+
+[ext_resource type="PackedScene" uid="uid://bcs28v1mwgmvk" path="res://assets/kobold/kobold_shin.glb" id="1_dllrm"]
+[ext_resource type="Texture2D" uid="uid://c1clwqk6jmarr" path="res://assets/kobold/kobold_arm_Kobold_TEXT.png" id="2_8sn1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku5eg"]
+albedo_texture = ExtResource("2_8sn1g")
+texture_filter = 0
+
+[node name="kobold_shin" unique_id=507928802 instance=ExtResource("1_dllrm")]
+
+[node name="Cube_078" parent="." index="0" unique_id=588246527]
+surface_material_override/0 = SubResource("StandardMaterial3D_ku5eg")

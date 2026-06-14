@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d30uakkdoy8o5"]
+
+[ext_resource type="PackedScene" uid="uid://pjwgwyc5qrg5" path="res://assets/turtle/turtle_arm.glb" id="1_dxbml"]
+[ext_resource type="Texture2D" uid="uid://bh27vmeswc6ml" path="res://assets/turtle/turtle_arm_Turtle_TEXT.png" id="2_a04sl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdgd6"]
+albedo_texture = ExtResource("2_a04sl")
+texture_filter = 0
+
+[node name="turtle_arm" unique_id=541010621 instance=ExtResource("1_dxbml")]
+
+[node name="Cube_071" parent="." index="0" unique_id=2031588732]
+surface_material_override/0 = SubResource("StandardMaterial3D_gdgd6")
