@@ -10,6 +10,8 @@ var jump_speed = 4.5
 var mouse_sensitivity = .005
 @onready var cam = $Camera3D
 
+
+var attacking = [false,false]
 var last_limbs = [null,null,null,null,null,null]
 
 
@@ -44,53 +46,61 @@ func movement(delta):
 
 func attack():
 	if Input.is_action_just_pressed("left_click"):
-		$AnimationPlayer.play("attack")
+		attacking[0] = true
+	if Input.is_action_just_pressed("right_click"):
+		attacking[1] = true
+
+func limb_to_check(node,index):
+	if node.get_child(0) != last_limbs[index]:
+		if last_limbs[index] != null:
+			max_hp -= last_limbs[index].hp
+			speed -= last_limbs[index].speed
+		last_limbs[index] = node.get_child(0)
+		max_hp += node.get_child(0).hp
+		speed += node.get_child(0).speed
 
 func limb_checker():
-	if $body/head.get_child(0) != last_limbs[0]:
-		if last_limbs[0] != null:
-			max_hp -= last_limbs[0].hp
-			speed -= last_limbs[0]
-		last_limbs[0] = $body/head.get_child(0)
-		max_hp += $body/head.get_child(0).hp
-		speed += $body/head.get_child(0).speed
-	if $body/torso.get_child(0) != last_limbs[1]:
-		if last_limbs[1] != null:
-			max_hp -= last_limbs[1].hp
-			speed -= last_limbs[1]
-		last_limbs[0] = $body/torso.get_child(0)
-		max_hp += $body/torso.get_child(0).hp
-		speed += $body/torso.get_child(0).speed
+	limb_to_check($body/head,0)
+	limb_to_check($body/torso,1)
+	limb_to_check($body/left_arm,2)
+	limb_to_check($body/right_arm,3)
+	limb_to_check($body/left_leg,4)
+	limb_to_check($body/right_leg,5)
+
+func set_animation(node:Node3D,animString:String):
+	if node.side == 1:
+		node.get_node("AnimationPlayer").play(animString, .3)
+	else:
+		var advance = false
+		if node.get_node("AnimationPlayer").current_animation != animString:
+			advance = true
+		print(node.get_node("AnimationPlayer").current_animation != animString)
+		node.get_node("AnimationPlayer").play(animString, .3)
+		if advance:
+			node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
+	if !node.get_node("AnimationPlayer").is_playing():
+		attacking[node.side] = false
+		pass
+
+func animation_states():
+	if attacking[0] or attacking[1]:
+		if attacking[0]:
+			set_animation($body/left_arm.get_child(0),"attack")
+		if attacking[1]:
+			set_animation($body/right_arm.get_child(0),"attack")
 	
-	if $body/left_arm.get_child(0) != last_limbs[2]:
-		if last_limbs[2] != null:
-			max_hp -= last_limbs[2].hp
-			speed -= last_limbs[2]
-		last_limbs[0] = $body/left_arm.get_child(0)
-		max_hp += $body/left_arm.get_child(0).hp
-		speed += $body/left_arm.get_child(0).speed
-	if $body/right_arm.get_child(0) != last_limbs[3]:
-		if last_limbs[3] != null:
-			max_hp -= last_limbs[3].hp
-			speed -= last_limbs[3]
-		last_limbs[0] = $body/right_arm.get_child(0)
-		max_hp += $body/right_arm.get_child(0).hp
-		speed += $body/right_arm.get_child(0).speed
-	
-	if $body/left_leg.get_child(0) != last_limbs[4]:
-		if last_limbs[4] != null:
-			max_hp -= last_limbs[4].hp
-			speed -= last_limbs[4]
-		last_limbs[0] = $body/left_leg.get_child(0)
-		max_hp += $body/left_leg.get_child(0).hp
-		speed += $body/left_leg.get_child(0).speed
-	if $body/right_leg.get_child(0) != last_limbs[5]:
-		if last_limbs[5] != null:
-			max_hp -= last_limbs[5].hp
-			speed -= last_limbs[5]
-		last_limbs[0] = $body/right_leg.get_child(0)
-		max_hp += $body/right_leg.get_child(0).hp
-		speed += $body/right_leg.get_child(0).speed
+	if velocity.x + velocity.z != 0:
+		#set_animation($body/head.get_child(0),"walk")
+		#set_animation($body/torso.get_child(0),"walk")
+		set_animation($body/left_arm.get_child(0),"walk")
+		set_animation($body/right_arm.get_child(0),"walk")
+		set_animation($body/left_leg.get_child(0),"walk")
+		set_animation($body/right_leg.get_child(0),"walk")
+	else:
+		set_animation($body/left_arm.get_child(0),"idle")
+		set_animation($body/right_arm.get_child(0),"idle")
+		set_animation($body/left_leg.get_child(0),"idle")
+		set_animation($body/right_leg.get_child(0),"idle")
 
 
 func _unhandled_input(event):
@@ -98,15 +108,17 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		cam.rotate_x(-event.relative.y * mouse_sensitivity)
-		rotation.x = clamp(cam.rotation.x, deg_to_rad(-45), deg_to_rad(45))
+		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	limb_checker()
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	cheats()
 	attack()
+	animation_states()
 	
 	move_and_slide()
 

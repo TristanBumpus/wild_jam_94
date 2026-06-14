@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bywsd5xtginia" path="res://Scripts/player.gd" id="1_x8xjm"]
 [ext_resource type="PackedScene" uid="uid://b5wnly2coogb6" path="res://UI/stats.tscn" id="2_56rfj"]
+[ext_resource type="PackedScene" uid="uid://dbmvs4glr00nb" path="res://Entitites/limbs/human_head.tscn" id="3_40ase"]
+[ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="4_5e027"]
+[ext_resource type="PackedScene" uid="uid://bxku3hv6ml8up" path="res://Entitites/limbs/human_arm.tscn" id="5_xelh6"]
+[ext_resource type="PackedScene" uid="uid://bpa3233jqf5ej" path="res://Entitites/limbs/human_leg.tscn" id="6_6ll7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_56rfj"]
 size = Vector3(0.2, 0.1, 3)
@@ -9,6 +13,8 @@ size = Vector3(0.2, 0.1, 3)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8g563"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8xjm"]
+radius = 0.95458984
+height = 8.984619
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x8xjm"]
 
@@ -54,7 +60,7 @@ _data = {
 script = ExtResource("1_x8xjm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1701862291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561728, -0.5010339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0284791, -0.9148001)
 
 [node name="Area3D" type="Area3D" parent="Camera3D" unique_id=245596566]
 collision_layer = 8
@@ -68,6 +74,7 @@ shape = SubResource("BoxShape3D_56rfj")
 mesh = SubResource("CapsuleMesh_8g563")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=800997783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4923096, 0)
 shape = SubResource("CapsuleShape3D_x8xjm")
 
 [node name="attack_box" type="Area3D" parent="." unique_id=1332291046]
@@ -95,15 +102,37 @@ shape = SubResource("CapsuleShape3D_56rfj")
 [node name="body" type="Node3D" parent="." unique_id=1407957858]
 
 [node name="head" type="Node3D" parent="body" unique_id=903046002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0806952, 0)
+visible = false
+
+[node name="limb" parent="body/head" unique_id=2067002376 instance=ExtResource("3_40ase")]
 
 [node name="torso" type="Node3D" parent="body" unique_id=129462357]
 
+[node name="human_torso" parent="body/torso" unique_id=2017863707 instance=ExtResource("4_5e027")]
+
 [node name="left_arm" type="Node3D" parent="body" unique_id=1640906285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4173357, 1.127089, 0)
+
+[node name="human_arm" parent="body/left_arm" unique_id=6190507 instance=ExtResource("5_xelh6")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
 
 [node name="right_arm" type="Node3D" parent="body" unique_id=1018770589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.417, 1.127, 0)
+
+[node name="human_arm" parent="body/right_arm" unique_id=1896956776 instance=ExtResource("5_xelh6")]
 
 [node name="left_leg" type="Node3D" parent="body" unique_id=525976771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -2.223, 0.18311024)
+
+[node name="human_leg" parent="body/left_leg" unique_id=152757591 instance=ExtResource("6_6ll7k")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
 
 [node name="right_leg" type="Node3D" parent="body" unique_id=2008389218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.223, 0.183)
+
+[node name="human_leg" parent="body/right_leg" unique_id=602789468 instance=ExtResource("6_6ll7k")]
 
 [connection signal="area_entered" from="hit_box" to="." method="_on_hit_box_area_entered"]
