@@ -4,7 +4,7 @@ class_name limb
 
 @export_enum("head","arm","leg", "torso") var type = 1
 @export_enum("head","arm","leg", "torso","none") var type_2 = 1
-@export_enum("lef","right") var side = 1
+@export_enum("left","right") var side = 1
 
 @export var animation_name = ""
 @export var limb_name = "limb"
@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 		freeze = false
 	
 	if side == 0:
-		scale = Vector3(-1,-1,-1)
+		scale = Vector3(-1,1,1)
 	if side == 1:
 		scale = Vector3(1,1,1)
 	
