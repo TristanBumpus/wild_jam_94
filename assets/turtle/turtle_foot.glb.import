@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bakayki0mlvy7"
-path="res://.godot/imported/turtle_foot.glb-fe43154d9801f704f4aaeac364a0ca93.scn"
+path="res://.godot/imported/turtle_foot.glb-73e3217ca3641e2da125311034e0f28f.scn"
 
 [deps]
 
-source_file="res://Assets/turtle/turtle_foot.glb"
-dest_files=["res://.godot/imported/turtle_foot.glb-fe43154d9801f704f4aaeac364a0ca93.scn"]
+source_file="res://assets/turtle/turtle_foot.glb"
+dest_files=["res://.godot/imported/turtle_foot.glb-73e3217ca3641e2da125311034e0f28f.scn"]
 
 [params]
 
