@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://daylftwc1a6i5"
-path="res://.godot/imported/gui_arm.png-d1e44ac523756ad8ead0d6d5944a4a2a.ctex"
+path="res://.godot/imported/gui_arm.png-22c79cf73edfa26be35ea6621368a24f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gui/gui_arm.png"
-dest_files=["res://.godot/imported/gui_arm.png-d1e44ac523756ad8ead0d6d5944a4a2a.ctex"]
+source_file="res://assets/gui/gui_arm.png"
+dest_files=["res://.godot/imported/gui_arm.png-22c79cf73edfa26be35ea6621368a24f.ctex"]
 
 [params]
 
