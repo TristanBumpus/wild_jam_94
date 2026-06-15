@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://6ccfeiq4tb8d" path="res://Entitites/limbs/spider/spider_legs.tscn" id="5_5e027"]
 [ext_resource type="PackedScene" uid="uid://bxku3hv6ml8up" path="res://Entitites/limbs/human_arm.tscn" id="5_xelh6"]
 [ext_resource type="PackedScene" uid="uid://bpa3233jqf5ej" path="res://Entitites/limbs/human_leg.tscn" id="6_6ll7k"]
+[ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="9_6ll7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_56rfj"]
-size = Vector3(0.2, 0.1, 6)
+size = Vector3(0.3, 0.3, 6)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8g563"]
 
@@ -58,6 +59,19 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56rfj"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
+shader = ExtResource("9_6ll7k")
+shader_parameter/pixel_size = 2.0
+shader_parameter/levels = 35.0
+shader_parameter/gamma = Vector2(0.5, 3.5)
+shader_parameter/curvature = 14.95
+shader_parameter/vignette_multiplier = 5.75
+shader_parameter/test_scanlines = 7.56
+
+[sub_resource type="QuadMesh" id="QuadMesh_bnevg"]
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
+
 [node name="player" type="CharacterBody3D" unique_id=1745359200 groups=["player"]]
 script = ExtResource("1_x8xjm")
 
@@ -100,6 +114,13 @@ shape = SubResource("CapsuleShape3D_56rfj")
 [node name="stats" parent="." unique_id=1252389211 instance=ExtResource("2_56rfj")]
 
 [node name="ui" parent="." unique_id=1624100246 instance=ExtResource("3_xelh6")]
+
+[node name="shader" type="CanvasLayer" parent="." unique_id=1715279063]
+layer = 99
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="shader" unique_id=1459300580]
+material = SubResource("ShaderMaterial_duyax")
+mesh = SubResource("QuadMesh_bnevg")
 
 [node name="body" type="Node3D" parent="." unique_id=1407957858]
 

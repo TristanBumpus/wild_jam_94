@@ -309,6 +309,7 @@ size = Vector3(3.400673, 4.2197266, 3.4990234)
 mass = 5.0
 script = ExtResource("1_ymmc4")
 type = 2
+type_2 = 1
 damage = 5.0
 speed = 10
 metadata/_custom_type_script = "uid://1ncxcw86231v"
