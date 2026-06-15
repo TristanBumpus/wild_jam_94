@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_8o8xg"]
 [ext_resource type="PackedScene" uid="uid://doma62af7gmjd" path="res://meshes/limbilimb/kobold/kobold_body_obj.tscn" id="2_awulk"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_awulk"]
-size = Vector3(1.976654, 3.8840332, 1.3514404)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_awulk"]
+height = 4.73291
 
 [node name="kobold_body" type="RigidBody3D" unique_id=1507028625]
 script = ExtResource("1_8o8xg")
 type = 3
-type_2 = 4
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_body" parent="." unique_id=2105975442 instance=ExtResource("2_awulk")]
@@ -17,5 +16,5 @@ metadata/_custom_type_script = "uid://1ncxcw86231v"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=376084061]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1399611263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014907837, -0.11413574, -6.1035156e-05)
-shape = SubResource("BoxShape3D_awulk")
+transform = Transform3D(1.970212, 0, 0, 0, 1, 0, 0, 0, 1.540592, -0.014907837, -0.30578613, -6.1035156e-05)
+shape = SubResource("CapsuleShape3D_awulk")

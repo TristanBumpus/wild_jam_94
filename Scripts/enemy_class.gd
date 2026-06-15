@@ -34,7 +34,6 @@ var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 
 func basic_movement():
 	#nav.target_position = player.global_position
-	#print(nav.is_target_reachable())
 	#if nav.is_target_reachable():
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
@@ -175,8 +174,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			times += 1
 		
 		var l = loot[times].instantiate()
+		l.special_type = special_type
 		get_tree().current_scene.add_child(l)
 		l.global_position = global_position
-		l.special_type = special_type
+		
 		
 		queue_free()

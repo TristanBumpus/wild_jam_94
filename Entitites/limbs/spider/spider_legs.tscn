@@ -299,18 +299,19 @@ _data = {
 &"walk": SubResource("Animation_edgsj")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6f6cf"]
-size = Vector3(2.3666992, 5.6104126, 3.7976074)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6f6cf"]
+radius = 0.8984375
+height = 6.6192627
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4di8r"]
-size = Vector3(3.400673, 4.2197266, 3.4990234)
+size = Vector3(3.400673, 4.2197266, 6.0024414)
 
 [node name="spider_legs" type="RigidBody3D" unique_id=2072162453]
 mass = 5.0
 script = ExtResource("1_ymmc4")
 type = 2
 type_2 = 1
-damage = 5.0
+damage = 1.0
 speed = 10
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
@@ -321,7 +322,7 @@ transform = Transform3D(0.9659255, 0, -0.25881898, 0, 0.9999998, 0, 0.25881898, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.269007, 1.1402092, 0)
 
 [node name="forearm_a" type="Node3D" parent="arm_a" unique_id=1634022125]
-transform = Transform3D(0.96592593, 0, -0.2588189, 0, 0.99999994, 0, 0.25881904, 0, 0.96592534, 2.5538933, 2.1011138, 1.4156103e-07)
+transform = Transform3D(0.96592593, 0, -0.25881886, 0, 0.99999994, 0, 0.25881904, 0, 0.9659253, 2.5538933, 2.1011138, 1.4156103e-07)
 
 [node name="spider_arm2" parent="arm_a/forearm_a" unique_id=1370598267 instance=ExtResource("3_8n4u0")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.40845752, -2.4250588, 0)
@@ -348,14 +349,14 @@ transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 0.86495924,
 libraries/ = SubResource("AnimationLibrary_8n4u0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1814745727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1652832, -1.0018005, -0.4071045)
-shape = SubResource("BoxShape3D_6f6cf")
+transform = Transform3D(1.7931112, 0, 0, 0, 1, 0, 0, 0, 1.9691942, 1.5662575, -0.77090454, -0.4071045)
+shape = SubResource("CapsuleShape3D_6f6cf")
 
 [node name="attack_box" type="Area3D" parent="." unique_id=110410817]
 collision_layer = 6
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=1329940361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87264824, 1.8501143, -6.6795735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87264824, 1.8501143, -5.4278646)
 shape = SubResource("BoxShape3D_4di8r")
 disabled = true

@@ -126,7 +126,17 @@ func _unhandled_input(event):
 		$body/right_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
 
 func update_ui():
-	$ui/Control/health.text = "HP: " + str(current_hp)
+	#$ui/Control/health.text = "HP: " + str(current_hp)
+	
+	if $ui/Control/health_bar.value != current_hp:
+		var t = create_tween()
+		t.tween_property($ui/Control/health_bar,"value",current_hp,.2)
+		#$ui/Control/health_bar.value += snapped(((current_hp - $ui/Control/health_bar.value)/.01),.01)
+	
+	$ui/Control/health.text = "hp: " + str(current_hp)
+	
+	
+	$ui/Control/health_bar.max_value = max_hp
 
 
 
@@ -144,6 +154,24 @@ func _physics_process(delta: float) -> void:
 	animation_states()
 	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		# 3. Check if what we hit is actually a RigidBody3D
+		if collider is RigidBody3D:
+			# Calculate the direction of the hit (ignoring the Y axis so we don't push it into the floor)
+			var push_dir = -collision.get_normal()
+			push_dir.y = 0 
+			push_dir = push_dir.normalized()
+			
+			# 4. Apply the impulse at the exact point of contact
+			# Multiplying by character velocity makes it push harder if you're running faster
+			var push_force = speed / 10
+			var final_force = push_dir * push_force
+			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
+
 
 
 func _on_hit_box_area_entered(area: Area3D) -> void:

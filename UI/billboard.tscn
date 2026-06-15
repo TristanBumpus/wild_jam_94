@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ca76nvf5d44di"]
 
 [ext_resource type="Script" uid="uid://bv2cxefikbdij" path="res://Scripts/billboard.gd" id="1_8rsd6"]
-[ext_resource type="Texture2D" uid="uid://ynl8g7hxwc43" path="res://assets/gui/parchemin_text.png" id="2_3drgr"]
-[ext_resource type="Texture2D" uid="uid://ks6wlj1mebxx" path="res://assets/gui/dmg_gui.png" id="3_1y2an"]
-[ext_resource type="Texture2D" uid="uid://dgwtegmdee8v0" path="res://assets/gui/dmg_speed_gui.png" id="4_ewraf"]
-[ext_resource type="Texture2D" uid="uid://bbh7pm5a2pm1i" path="res://assets/gui/dmg_pierce_gui.png" id="5_21o47"]
-[ext_resource type="Texture2D" uid="uid://pjdh3i5gep7l" path="res://assets/gui/hearth_gui.png" id="6_v4kc2"]
-[ext_resource type="Texture2D" uid="uid://bq8jldullq4p4" path="res://assets/gui/armor_gui.png" id="7_dwtif"]
-[ext_resource type="Texture2D" uid="uid://2wgmnvo5bmg4" path="res://assets/gui/speed_gui.png" id="8_hyduu"]
+[ext_resource type="Texture2D" uid="uid://ynl8g7hxwc43" path="res://Assets/gui/parchemin_text.png" id="2_3drgr"]
+[ext_resource type="Texture2D" uid="uid://ks6wlj1mebxx" path="res://Assets/gui/dmg_gui.png" id="3_1y2an"]
+[ext_resource type="Texture2D" uid="uid://dgwtegmdee8v0" path="res://Assets/gui/dmg_speed_gui.png" id="4_ewraf"]
+[ext_resource type="Texture2D" uid="uid://bbh7pm5a2pm1i" path="res://Assets/gui/dmg_pierce_gui.png" id="5_21o47"]
+[ext_resource type="Texture2D" uid="uid://pjdh3i5gep7l" path="res://Assets/gui/hearth_gui.png" id="6_v4kc2"]
+[ext_resource type="Texture2D" uid="uid://bq8jldullq4p4" path="res://Assets/gui/armor_gui.png" id="7_dwtif"]
+[ext_resource type="Texture2D" uid="uid://2wgmnvo5bmg4" path="res://Assets/gui/speed_gui.png" id="8_hyduu"]
 
 [node name="billboard" type="Node3D" unique_id=548411036]
 script = ExtResource("1_8rsd6")
@@ -22,6 +22,7 @@ render_priority = -1
 texture = ExtResource("2_3drgr")
 
 [node name="title" type="Label3D" parent="." unique_id=1773557127]
+layers = 2
 offset = Vector2(0, 100)
 billboard = 1
 texture_filter = 0
@@ -31,6 +32,7 @@ text = "Title"
 font_size = 48
 
 [node name="desc" type="Label3D" parent="." unique_id=1557866945]
+layers = 2
 offset = Vector2(-150, 70)
 billboard = 1
 texture_filter = 0
@@ -47,6 +49,7 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="interactible" type="Label3D" parent="." unique_id=511200716]
+layers = 2
 offset = Vector2(-160, 110)
 billboard = 1
 texture_filter = 0

@@ -177,11 +177,12 @@ _data = {
 &"walk": SubResource("Animation_owhpc")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_h56yg"]
-size = Vector3(4.739105, 0.5911865, 0.5563965)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h56yg"]
+radius = 0.3334961
+height = 4.9765625
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4q71b"]
-size = Vector3(2.6264648, 1, 6.010254)
+size = Vector3(2.6264648, 1, 9.800903)
 
 [node name="kobold_arm" type="RigidBody3D" unique_id=29705706]
 script = ExtResource("1_t6lbc")
@@ -207,14 +208,14 @@ transform = Transform3D(1.0000004, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, 0.827
 libraries/ = SubResource("AnimationLibrary_53evo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1872244934]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3231049, 0.028869629, 0.0345459)
-shape = SubResource("BoxShape3D_h56yg")
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.2703705, 0.028869627, 0.0345459)
+shape = SubResource("CapsuleShape3D_h56yg")
 
 [node name="attack_box" type="Area3D" parent="." unique_id=264152675]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=1165055831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -7.675617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -5.7802925)
 shape = SubResource("BoxShape3D_4q71b")
 disabled = true
