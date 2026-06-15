@@ -30,6 +30,8 @@ var billboard
 
 
 func switch_limb(to_get,s = 1):
+	if type == 0:
+		s = 1
 	var node = player.get_node(to_get)
 	var old = node.get_child(0)
 	old.reparent(get_tree().current_scene)
@@ -49,6 +51,11 @@ func switch_limb(to_get,s = 1):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	for child in find_children("*","MeshInstance3D"):
+		child.set_layer_mask_value(1,false)
+		child.set_layer_mask_value(2,true)
+	
 	#Summoning ui elements
 	var b = load("res://UI/billboard.tscn")
 	var billboard = b.instantiate()
@@ -129,21 +136,27 @@ func _ready() -> void:
 	if special_type == "Unlucky":
 		luck *= .5
 	
+	#Set the scales
+	if side == 0:
+		scale = Vector3(-1,1,1)
+		if special_type == "Big":
+			scale = Vector3(-2,2,2)
+		if special_type == "Small":
+			scale = Vector3(-.5,.5,.5)
+	if side == 1:
+		scale = Vector3(1,1,1)
+		if special_type == "Big":
+			scale = Vector3(2,2,2)
+		if special_type == "Small":
+			scale = Vector3(.5,.5,.5)
+	
 	#Hover info
 	var s = ""
 	if special_type != "none":
 		s = special_type + " "
 	
 	$billboard/title.text = s + limb_name
-	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-	
-	#Choice tool tips
-	$choice/Control/Node2D/head.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-	$choice/Control/Node2D/torso.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-	$choice/Control/Node2D/right_arm.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-	$choice/Control/Node2D/left_arm.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-	$choice/Control/Node2D/right_leg.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-	$choice/Control/Node2D/left_leg.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
+	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
 	
 	player = get_tree().get_first_node_in_group("player")
 
@@ -162,40 +175,40 @@ func _process(delta: float) -> void:
 	
 	if get_parent() != get_tree().current_scene:
 		$AnimationPlayer.speed_scale = attack_speed
-		#sleeping = true
+		sleeping = true
 		$choice.visible = false
 		$billboard.visible = false
 		$CollisionShape3D.disabled = true
 		position = Vector3.ZERO
 		rotation = Vector3.ZERO
+		if side == 0:
+			scale = Vector3(-1,1,1)
+			if special_type == "Big":
+				scale = Vector3(-2,2,2)
+			if special_type == "Small":
+				scale = Vector3(-.5,.5,.5)
+		if side == 1:
+			scale = Vector3(1,1,1)
+			if special_type == "Big":
+				scale = Vector3(2,2,2)
+			if special_type == "Small":
+				scale = Vector3(.5,.5,.5)
 	else:
-		#sleeping = false
+		sleeping = false
 		$CollisionShape3D.disabled = false
 		$AnimationPlayer.play("RESET")
 	
-	if side == 0:
-		scale = Vector3(-1,1,1)
-		if special_type == "Big":
-			scale = Vector3(-2,2,2)
-		if special_type == "Small":
-			scale = Vector3(-.5,.5,.5)
-	if side == 1:
-		scale = Vector3(1,1,1)
-		if special_type == "Big":
-			scale = Vector3(2,2,2)
-		if special_type == "Small":
-			scale = Vector3(.5,.5,.5)
 	
 	if $billboard.visible:
 		if Input.is_action_just_pressed("f"):
 			$choice.visible = true
-			
-			$choice/Control/Node2D/head.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + "\n" + "Damage " + str(player.get_node("body/head").get_child(0).damage) + "\n" + "Attack speed +" + str(player.get_node("body/head").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/head").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/head").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/head").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/head").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/torso.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + "\n" + "Damage " + str(player.get_node("body/torso").get_child(0).damage) + "\n" + "Attack speed +" + str(player.get_node("body/torso").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/torso").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/torso").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/torso").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/torso").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/right_arm.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" + "\nOld" + "\n" + "Damage " + str(player.get_node("body/right_arm").get_child(0).damage) + "\n" + "Attack speed +" + str(player.get_node("body/right_arm").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/right_arm").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/right_arm").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/right_arm").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/right_arm").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/left_arm.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + "\n" + "Damage " + str(player.get_node("body/left_arm").get_child(0).damage) + "\n" + "Attack speed +" + str(player.get_node("body/left_arm").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/left_arm").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/left_arm").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/left_arm").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/left_arm").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/right_leg.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + "\n" + "Damage " + str(player.get_node("body/right_leg").get_child(0).damage) + "\n" + "Attack speed +" + str(player.get_node("body/right_leg").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/right_leg").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/right_leg").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/right_leg").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/right_leg").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/left_leg.tooltip_text = "New" + "\n" + "Damage " + str(damage) + "\n" + "Attack speed +" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + "\n" + "Damage " + str(player.get_node("body/left_leg").get_child(0).damage) + "\n" + "Attack speed +" + str(player.get_node("body/left_leg").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/left_leg").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/left_leg").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/left_leg").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/left_leg").get_child(0).speed) + "\n"
+			#Choice tool tips
+			$choice/Control/Node2D/head.tooltip_text = "New" + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + player.get_node("body/head").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/head").get_child(0).damage) + "\n" + "Attack speed" + str(player.get_node("body/head").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/head").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/head").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/head").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/head").get_child(0).speed) + "\n"
+			$choice/Control/Node2D/torso.tooltip_text = "New" + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + player.get_node("body/torso").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/torso").get_child(0).damage) + "\n" + "Attack speed" + str(player.get_node("body/torso").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/torso").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/torso").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/torso").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/torso").get_child(0).speed) + "\n"
+			$choice/Control/Node2D/right_arm.tooltip_text = "New" + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" + "\nOld" + player.get_node("body/right_arm").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/right_arm").get_child(0).damage) + "\n" + "Attack speed" + str(player.get_node("body/right_arm").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/right_arm").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/right_arm").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/right_arm").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/right_arm").get_child(0).speed) + "\n"
+			$choice/Control/Node2D/left_arm.tooltip_text = "New" + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + player.get_node("body/left_arm").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/left_arm").get_child(0).damage) + "\n" + "Attack speed" + str(player.get_node("body/left_arm").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/left_arm").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/left_arm").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/left_arm").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/left_arm").get_child(0).speed) + "\n"
+			$choice/Control/Node2D/right_leg.tooltip_text = "New" + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + player.get_node("body/right_leg").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/right_leg").get_child(0).damage) + "\n" + "Attack speed" + str(player.get_node("body/right_leg").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/right_leg").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/right_leg").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/right_leg").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/right_leg").get_child(0).speed) + "\n"
+			$choice/Control/Node2D/left_leg.tooltip_text = "New" + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld" + player.get_node("body/left_leg").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/left_leg").get_child(0).damage) + "\n" + "Attack speed" + str(player.get_node("body/left_leg").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/left_leg").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/left_leg").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/left_leg").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/left_leg").get_child(0).speed) + "\n"
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 

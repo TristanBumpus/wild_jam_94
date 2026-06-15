@@ -35,6 +35,8 @@ grow_vertical = 2
 disabled = true
 icon = ExtResource("1_kfsbo")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="torso" type="Button" parent="Control/Node2D" unique_id=905914650]
 anchors_preset = 8
@@ -51,6 +53,8 @@ grow_vertical = 2
 disabled = true
 icon = ExtResource("2_wlt8d")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="right_arm" type="Button" parent="Control/Node2D" unique_id=561527188]
 anchors_preset = 8
@@ -67,6 +71,8 @@ grow_vertical = 2
 disabled = true
 icon = ExtResource("3_bvpxc")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="left_arm" type="Button" parent="Control/Node2D" unique_id=944636041]
 anchors_preset = 8
@@ -83,6 +89,8 @@ grow_vertical = 2
 disabled = true
 icon = ExtResource("3_bvpxc")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="right_leg" type="Button" parent="Control/Node2D" unique_id=1772650718]
 anchors_preset = 8
@@ -99,6 +107,8 @@ grow_vertical = 2
 disabled = true
 icon = ExtResource("4_54hth")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="left_leg" type="Button" parent="Control/Node2D" unique_id=721096153]
 anchors_preset = 8
@@ -115,3 +125,5 @@ grow_vertical = 2
 disabled = true
 icon = ExtResource("4_54hth")
 flat = true
+icon_alignment = 1
+expand_icon = true

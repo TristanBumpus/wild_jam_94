@@ -77,11 +77,10 @@ func limb_checker():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
-		if !node.get_node("AnimationPlayer").is_playing():
-			attacking[node.side] = false
-		elif node.get_node("AnimationPlayer").current_animation != "attack":
+		if node.get_node("AnimationPlayer").current_animation != "attack":
 			node.get_node("AnimationPlayer").play(animString, .3)
 			node.get_node("AnimationPlayer").advance(0)
+			attacking[node.side] = false
 	elif node.side == 1:
 		if node.get_node("AnimationPlayer").current_animation != "attack":
 			node.get_node("AnimationPlayer").play(animString, .3)
@@ -110,10 +109,8 @@ func animation_states():
 	if attacking[0] or attacking[1]:
 		if attacking[0]:
 			set_animation($body/left_arm.get_child(0),"attack")
-			attacking[0] = false
 		if attacking[1]:
 			set_animation($body/right_arm.get_child(0),"attack")
-			attacking[1] = false
 
 func _unhandled_input(event):
 	# Handle vertical/horizontal camera rotation
