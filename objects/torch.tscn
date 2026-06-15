@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cqwgc1byhuh1k"]
 
-[ext_resource type="PackedScene" uid="uid://3i07sueee7c7" path="res://assets/objects/torch2.glb" id="1_i3qqe"]
-[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://assets/fire/fire2.png" id="2_f3qhp"]
-[ext_resource type="Material" uid="uid://b6pythop6u0hb" path="res://assets/fire/fire_pro_mat.tres" id="3_dvc4m"]
-[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://assets/fire/qua_mesh.tres" id="4_rxyrm"]
+[ext_resource type="PackedScene" uid="uid://3i07sueee7c7" path="res://Assets/objects/torch2.glb" id="1_i3qqe"]
+[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://Assets/fire/fire2.png" id="2_f3qhp"]
+[ext_resource type="Material" uid="uid://b6pythop6u0hb" path="res://Assets/fire/fire_pro_mat.tres" id="3_dvc4m"]
+[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://Assets/fire/qua_mesh.tres" id="4_rxyrm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1my3"]
 transparency = 1
@@ -36,7 +36,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.3207972, -0.8226042)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5223408, -3.2307339)
 light_color = Color(0.8039216, 0.40784314, 0.23921569, 1)
 light_energy = 8.0
-omni_range = 80.56387
+omni_range = 360.0
+omni_attenuation = 0.8
 
 [node name="fire_fx2" type="GPUParticles3D" parent="." unique_id=372202833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1490717, -5.8197107)

@@ -3,7 +3,7 @@ extends RigidBody3D
 class_name limb
 
 @export_enum("head","arm","leg", "torso") var type = 1
-@export_enum("head","arm","leg", "torso","none") var type_2 = 1
+@export_enum("head","arm","leg", "torso","none") var type_2 = 4
 @export_enum("left","right") var side = 1
 
 @export var animation_name = ""

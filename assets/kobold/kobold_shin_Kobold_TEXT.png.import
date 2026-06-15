@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm1i3fwtt4p8m"
-path.s3tc="res://.godot/imported/kobold_shin_Kobold_TEXT.png-d54c32e47bad53c634ee6a68a1afaeb2.s3tc.ctex"
+path.s3tc="res://.godot/imported/kobold_shin_Kobold_TEXT.png-53efd808ef6445f8bb87b4f71c925db4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/kobold/kobold_shin_Kobold_TEXT.png"
-dest_files=["res://.godot/imported/kobold_shin_Kobold_TEXT.png-d54c32e47bad53c634ee6a68a1afaeb2.s3tc.ctex"]
+source_file="res://Assets/kobold/kobold_shin_Kobold_TEXT.png"
+dest_files=["res://.godot/imported/kobold_shin_Kobold_TEXT.png-53efd808ef6445f8bb87b4f71c925db4.s3tc.ctex"]
 
 [params]
 

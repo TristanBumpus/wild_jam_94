@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_0pict"]
 [ext_resource type="PackedScene" uid="uid://bs7e0p5p3aq55" path="res://meshes/limbilimb/kobold/kobold_head_obj.tscn" id="2_ou8un"]
-[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://assets/fire/fire2.png" id="3_t0umq"]
-[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://assets/fire/qua_mesh.tres" id="4_248ph"]
+[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://Assets/fire/fire2.png" id="3_t0umq"]
+[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://Assets/fire/qua_mesh.tres" id="4_248ph"]
 
 [sub_resource type="Animation" id="Animation_t0umq"]
 length = 0.001
@@ -14,10 +14,10 @@ tracks/0/path = NodePath("fire_fx:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(-0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -30,6 +30,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ou8un"]
@@ -57,6 +69,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.2224008, -0.10815754, 0.09933041), Vector3(0.036422756, 0.14992899, 0.13897623), Vector3(0.29518798, 0.15665695, 0.17939419), Vector3(0.03475674, -0.10064002, 0.20657672), Vector3(0.07514208, 0.14684759, -0.05249998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.11, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_248ph"]
@@ -86,11 +110,15 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_pgdg7"]
+resource_name = "walk"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_21taa"]
 _data = {
 &"RESET": SubResource("Animation_t0umq"),
 &"attack": SubResource("Animation_ou8un"),
-&"idle": SubResource("Animation_248ph")
+&"idle": SubResource("Animation_248ph"),
+&"walk": SubResource("Animation_pgdg7")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ou8un"]
@@ -119,10 +147,14 @@ point_count = 2
 offsets = PackedFloat32Array(0.28368795, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.16924527, 0.1692453, 0.16924521, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t0umq"]
+size = Vector3(2.385315, 1, 8.161743)
+
 [node name="kobold_head" type="RigidBody3D" unique_id=856710131]
 script = ExtResource("1_0pict")
 type = 0
-type_2 = 4
+type_2 = 1
+damage = 5.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]
@@ -138,11 +170,13 @@ shape = SubResource("CapsuleShape3D_ou8un")
 [node name="fire_fx" type="CPUParticles3D" parent="." unique_id=1127974677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2832663, -1.9503574)
 material_override = SubResource("StandardMaterial3D_pgdg7")
+emitting = false
 amount = 50
 lifetime = 2.0
 lifetime_randomness = 0.08
 fixed_fps = 30
 visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+local_coords = true
 mesh = ExtResource("4_248ph")
 emission_shape = 1
 emission_sphere_radius = 0.2
@@ -159,3 +193,12 @@ scale_amount_max = 1.4
 scale_amount_curve = SubResource("Curve_rxyrm")
 color = Color(2.7786894, 1.4719771, 0.91565424, 1)
 color_ramp = SubResource("Gradient_x0om8")
+
+[node name="attack_box" type="Area3D" parent="." unique_id=113985146]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=365278264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039886475, 0, -6.1295357)
+shape = SubResource("BoxShape3D_t0umq")
+disabled = true

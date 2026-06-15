@@ -3,7 +3,7 @@ extends CharacterBody3D
 class_name Enemy
 
 @export_category("Combat")
-@export_enum("melee", ) var attack_type = 0
+@export_enum("melee", "range") var attack_type = 0
 @export var hp = 1
 @export var damage = 1
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
@@ -72,6 +72,17 @@ func melee_attack():
 	if global_position.distance_to(player.global_position) < 10:
 		set_animation($body/right_arm.get_child(0), "attack")
 
+func range_attack():
+	if velocity.x + velocity.z != 0:
+		set_animation($body/left_arm.get_child(0),"walk")
+		if global_position.distance_to(player.global_position) > 10:
+			set_animation($body/right_arm.get_child(0),"walk")
+		set_animation($body/left_leg.get_child(0),"walk")
+		set_animation($body/right_leg.get_child(0),"walk")
+	
+	if global_position.distance_to(player.global_position) < 10:
+		set_animation($body/head.get_child(0), "attack")
+
 func limb_to_check(node,index):
 	if node.get_child(0) != last_limbs[index]:
 		if last_limbs[index] != null:
@@ -124,6 +135,8 @@ func _process(delta: float) -> void:
 	
 	if attack_type == 0:
 		melee_attack()
+	if attack_type == 1:
+		range_attack()
 	
 	move_and_slide()
 
