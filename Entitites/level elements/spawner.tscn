@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dpy37ff65jw2n"]
+
+[node name="spawner" type="Node3D" unique_id=1067744907 groups=["spawner"]]

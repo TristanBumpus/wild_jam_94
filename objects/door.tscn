@@ -1,15 +1,41 @@
 [gd_scene format=3 uid="uid://bqpv1ak4mud4c"]
 
-[ext_resource type="PackedScene" uid="uid://c48yw7bao8jxe" path="res://assets/objects/door.glb" id="1_566yj"]
+[ext_resource type="PackedScene" uid="uid://c48yw7bao8jxe" path="res://Assets/objects/door.glb" id="1_566yj"]
+[ext_resource type="Script" uid="uid://cu8eyowlxvb7e" path="res://Scripts/door.gd" id="1_j7xx1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_566yj"]
-size = Vector3(13, 11, 3)
+size = Vector3(13, 14.299316, 3.2480469)
 
-[node name="door" type="StaticBody3D" unique_id=1206126029]
+[node name="door" type="Node3D" unique_id=1781663024]
+script = ExtResource("1_j7xx1")
 
-[node name="door" parent="." unique_id=1824624448 instance=ExtResource("1_566yj")]
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=571162592]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7.3633304, 5.0427065, 0.4889059)
+node_a = NodePath("../StaticBody3D")
+node_b = NodePath("../RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 1.850049
+angular_limit/lower = -1.9896754
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1213013558]
+collision_mask = 0
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 6
+
+[node name="door" parent="RigidBody3D" unique_id=1824624448 instance=ExtResource("1_566yj")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1616012475]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1616012475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.582212, 0.48513794)
 shape = SubResource("BoxShape3D_566yj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=809980860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3633304, 5.0427065, 0.4889059)
+
+[node name="Timer" type="Timer" parent="." unique_id=1984261073]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

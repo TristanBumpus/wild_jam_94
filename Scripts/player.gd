@@ -138,22 +138,7 @@ func update_ui():
 	
 	$ui/Control/health_bar.max_value = max_hp
 
-
-
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	limb_checker()
-
-func _physics_process(delta: float) -> void:
-	
-	update_ui()
-	
-	movement(delta)
-	cheats()
-	attack()
-	animation_states()
-	
-	move_and_slide()
+func rigid_interaction():
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -171,6 +156,25 @@ func _physics_process(delta: float) -> void:
 			var push_force = speed / 10
 			var final_force = push_dir * push_force
 			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
+
+
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	limb_checker()
+
+func _physics_process(delta: float) -> void:
+	
+	update_ui()
+	
+	movement(delta)
+	cheats()
+	attack()
+	animation_states()
+	
+	move_and_slide()
+	
+	rigid_interaction()
 
 
 
