@@ -107,9 +107,31 @@ func limb_checker():
 	limb_to_check($body/left_leg,4)
 	limb_to_check($body/right_leg,5)
 
+func rigid_interaction():
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		# 3. Check if what we hit is actually a RigidBody3D
+		if collider is RigidBody3D:
+			# Calculate the direction of the hit (ignoring the Y axis so we don't push it into the floor)
+			var push_dir = -collision.get_normal()
+			push_dir.y = 0 
+			push_dir = push_dir.normalized()
+			
+			# 4. Apply the impulse at the exact point of contact
+			# Multiplying by character velocity makes it push harder if you're running faster
+			var push_force = speed / 10
+			var final_force = push_dir * push_force
+			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
+
 
 
 func _ready() -> void:
+	
+	add_to_group("enemy")
+	
 	player = get_tree().get_first_node_in_group("player")
 	
 	
@@ -141,6 +163,8 @@ func _process(delta: float) -> void:
 		range_attack()
 	
 	move_and_slide()
+	
+	rigid_interaction()
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

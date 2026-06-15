@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bb6rilf0kpswn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ln2w8"]
+size = Vector3(13, 14.299316, 3.2480469)
+
+[node name="SpawnerTrigger" type="Node3D" unique_id=1359928648]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1362353907]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1875679028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.582212, 0.48513794)
+shape = SubResource("BoxShape3D_ln2w8")
