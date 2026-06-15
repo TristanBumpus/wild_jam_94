@@ -199,7 +199,7 @@ func _process(delta: float) -> void:
 		$CollisionShape3D.disabled = false
 		$AnimationPlayer.play("RESET")
 	
-	$billboard.global_position = global_position + Vector3(0,3,0)
+	$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
 	$billboard.global_rotation = Vector3.ZERO
 	
 	if $billboard.visible:

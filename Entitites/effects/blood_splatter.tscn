@@ -4,6 +4,5 @@
 
 [node name="blood_splatter" type="Decal" unique_id=1677322265]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-size = Vector3(2, 4.3012695, 2)
 texture_albedo = ExtResource("1_nlmsx")
 cull_mask = 1048573
