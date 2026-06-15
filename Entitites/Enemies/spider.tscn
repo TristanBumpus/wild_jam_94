@@ -58,9 +58,8 @@ _data = {
 
 [node name="spider" type="CharacterBody3D" unique_id=973888417 node_paths=PackedStringArray("nav")]
 script = ExtResource("1_ixa8j")
-loot = Array[PackedScene]([ExtResource("4_qtbis")])
+loot = Array[PackedScene]([ExtResource("5_8qq4n")])
 loot_chance = Array[int]([100])
-speed = 3
 nav = NodePath("NavigationAgent3D")
 metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
 
@@ -104,10 +103,12 @@ libraries/ = SubResource("AnimationLibrary_byolt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42490745, -2.4542398)
 
 [node name="spider_head" parent="body/head" unique_id=958455242 instance=ExtResource("3_ju50f")]
+hp = 0.0
 
 [node name="torso" type="Node3D" parent="body" unique_id=2113816249]
 
 [node name="spider_body" parent="body/torso" unique_id=81140087 instance=ExtResource("4_qtbis")]
+hp = 0.0
 
 [node name="left_arm" type="Node3D" parent="body" unique_id=675980868]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -1.430877)
@@ -115,11 +116,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -1.430877)
 [node name="spider_legs" parent="body/left_arm" unique_id=2072162453 instance=ExtResource("5_8qq4n")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 side = 0
+damage = 0.0
+hp = 0.0
 
 [node name="right_arm" type="Node3D" parent="body" unique_id=1729331845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0, -1.431)
 
 [node name="spider_legs" parent="body/right_arm" unique_id=2036669245 instance=ExtResource("5_8qq4n")]
+damage = 0.0
+hp = 0.0
 
 [node name="left_leg" type="Node3D" parent="body" unique_id=1833164654]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -0.5750859)
@@ -127,10 +132,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -0.5750859)
 [node name="spider_legs" parent="body/left_leg" unique_id=1328567629 instance=ExtResource("5_8qq4n")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 side = 0
+damage = 0.0
+hp = 0.0
 
 [node name="right_leg" type="Node3D" parent="body" unique_id=412243330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0, -0.575)
 
 [node name="spider_legs" parent="body/right_leg" unique_id=852666970 instance=ExtResource("5_8qq4n")]
+damage = 0.0
+hp = 0.0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

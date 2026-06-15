@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="5_1ot53"]
 [ext_resource type="PackedScene" uid="uid://b7p7fwlbwluiw" path="res://Entitites/Enemies/kobold.tscn" id="6_m5bqa"]
 [ext_resource type="PackedScene" uid="uid://cmqrw57hu2s06" path="res://Entitites/Enemies/turtle.tscn" id="7_1r5jd"]
+[ext_resource type="PackedScene" uid="uid://dpci7nytxdc3c" path="res://meshes/limbilimb/character/character_arm.tscn" id="8_jykfp"]
+[ext_resource type="PackedScene" uid="uid://c1nsld17apec6" path="res://UI/choice.tscn" id="9_vufbg"]
+[ext_resource type="PackedScene" uid="uid://ca76nvf5d44di" path="res://UI/billboard.tscn" id="10_eokls"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_50dj4"]
 vertices = PackedVector3Array(-49.5, 1, -49.5, -49.5, 1, 49.5, 49.5, 1, 49.5, 49.5, 1, -49.5)
@@ -22,6 +25,10 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7fsy"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1r5jd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1r5jd"]
 
 [node name="Test_World" type="Node3D" unique_id=179240575]
 
@@ -46,10 +53,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s7fsy")
 
 [node name="spider" parent="." unique_id=973888417 instance=ExtResource("2_50dj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+special_type = "Big"
 
 [node name="spider_legs" parent="." unique_id=2072162453 instance=ExtResource("3_of68j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 0)
-special_type = 1
+damage = 0.0
 
 [node name="human_arm" parent="." unique_id=6190507 instance=ExtResource("4_mggor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
@@ -58,7 +66,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.318895, 8.102445, 0)
 
 [node name="turtle" parent="." unique_id=1342392873 instance=ExtResource("7_1r5jd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.275362, 6.830715, 15.02258)
+transform = Transform3D(0.99989235, -0.0022759, 0.014492991, 0.002314027, 0.9999939, -0.0026139154, -0.014486953, 0.0026471785, 0.9998915, -31.275362, 6.830715, -15.06298)
+special_type = "Heavy"
 
 [node name="Kobold" parent="." unique_id=571424669 instance=ExtResource("6_m5bqa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.275362, 6.830715, 15.02258)
+special_type = "Sharp"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1609221955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.52639, 4.8482018, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=964874540]
+mesh = SubResource("SphereMesh_1r5jd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=757470788]
+shape = SubResource("SphereShape3D_1r5jd")
+
+[node name="character_arm" parent="RigidBody3D" unique_id=1727302863 instance=ExtResource("8_jykfp")]
+
+[node name="choice" parent="RigidBody3D" unique_id=31333311 instance=ExtResource("9_vufbg")]
+
+[node name="billboard" parent="RigidBody3D" unique_id=548411036 instance=ExtResource("10_eokls")]

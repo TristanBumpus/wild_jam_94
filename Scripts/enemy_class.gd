@@ -6,20 +6,27 @@ class_name Enemy
 @export_enum("melee", ) var attack_type = 0
 @export var hp = 1
 @export var damage = 1
+@export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
+
 @export var hit_box : Area3D
 @export var loot: Array[PackedScene] = []
+var attack_speed = 1
+var armor = 0
 
 @export var loot_chance : Array[int] = []
 
 @export_category("Movement")
 @export_enum("basic") var movement_type = 0
-@export var speed = 1
+@export var speed = 1.0
 @export var nav : NavigationAgent3D
 @export var is_effected_by_gravity = true
+var luck = 0.0
 
 var player: CharacterBody3D
 
 var special_limb = 0
+var last_limbs = [null,null,null,null,null,null]
+
 
 
 func basic_movement():
@@ -65,11 +72,47 @@ func melee_attack():
 	if global_position.distance_to(player.global_position) < 10:
 		set_animation($body/right_arm.get_child(0), "attack")
 
+func limb_to_check(node,index):
+	if node.get_child(0) != last_limbs[index]:
+		if last_limbs[index] != null:
+			hp -= last_limbs[index].hp
+			speed -= last_limbs[index].speed
+			armor -= last_limbs[index].armor
+			luck -= last_limbs[index].luck
+		
+		last_limbs[index] = node.get_child(0)
+		hp += node.get_child(0).hp
+		speed += node.get_child(0).speed
+		armor += node.get_child(0).armor
+		luck += node.get_child(0).luck
+
+func limb_checker():
+	limb_to_check($body/head,0)
+	limb_to_check($body/torso,1)
+	limb_to_check($body/left_arm,2)
+	limb_to_check($body/right_arm,3)
+	limb_to_check($body/left_leg,4)
+	limb_to_check($body/right_leg,5)
+
 
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	#hit_box.connect("attacked", )
+	
+	
+	var r = randi_range(1,100)
+	
+	if r == 1:
+		special_type = "Big"
+	
+	$body/head.get_child(0).special_type = special_type
+	$body/torso.get_child(0).special_type = special_type
+	$body/left_arm.get_child(0).special_type = special_type
+	$body/right_arm.get_child(0).special_type = special_type
+	$body/left_leg.get_child(0).special_type = special_type
+	$body/right_leg.get_child(0).special_type = special_type
+	
+	limb_checker()
 
 func _process(delta: float) -> void:
 	if is_effected_by_gravity:
@@ -86,7 +129,12 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	hp -= area.get_parent().damage
+	hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
+	
+	var pop = load("res://UI/pop_out.tscn").instantiate()
+	pop.global_position = global_position + Vector3.MODEL_FRONT * 2
+	pop.text = str(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p))
+	get_tree().current_scene.add_child(pop)
 	
 	if hp <= 0:
 		var chance = randi_range(1,100)
@@ -100,6 +148,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		
 		var l = loot[times].instantiate()
 		l.global_position = global_position
+		l.special_type = special_type
 		
 		get_tree().current_scene.add_child(l)
 		queue_free()

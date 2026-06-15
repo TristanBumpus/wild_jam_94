@@ -7,15 +7,17 @@
 size = Vector3(2.3276978, 3.4777832, 1)
 
 [node name="human_torso" type="RigidBody3D" unique_id=2017863707]
+can_sleep = false
+linear_velocity = Vector3(0, -1.995, 0)
 script = ExtResource("1_ky5b6")
 type = 3
 type_2 = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
-[node name="character_torso" parent="." unique_id=1576948992 instance=ExtResource("2_j3kjv")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1950849723]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=693086467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0035705566, -0.27355957, 0)
 shape = SubResource("BoxShape3D_aq4mq")
+
+[node name="character_torso" parent="." unique_id=1576948992 instance=ExtResource("2_j3kjv")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1950849723]

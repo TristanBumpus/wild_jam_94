@@ -124,7 +124,6 @@ side = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.417, 1.127, 0)
 
 [node name="human_arm" parent="body/right_arm" unique_id=1896956776 instance=ExtResource("5_xelh6")]
-special_type = 1
 
 [node name="left_leg" type="Node3D" parent="body" unique_id=525976771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5648884, -2.223, 0.18311024)
