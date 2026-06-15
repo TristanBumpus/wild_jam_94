@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_0pict"]
 [ext_resource type="PackedScene" uid="uid://bs7e0p5p3aq55" path="res://meshes/limbilimb/kobold/kobold_head_obj.tscn" id="2_ou8un"]
-[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://Assets/fire/fire2.png" id="3_t0umq"]
-[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://Assets/fire/qua_mesh.tres" id="4_248ph"]
+[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://assets/fire/fire2.png" id="3_t0umq"]
+[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://assets/fire/qua_mesh.tres" id="4_248ph"]
 
 [sub_resource type="Animation" id="Animation_t0umq"]
 length = 0.002
@@ -43,6 +43,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ou8un"]
 resource_name = "attack"
@@ -81,6 +93,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.8995611),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [8.0, 8.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_248ph"]
@@ -201,3 +225,10 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039886475, 0, -6.1295357)
 shape = SubResource("BoxShape3D_t0umq")
 disabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1129749117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.571712, -2.173431)
+light_color = Color(0.8039216, 0.40784314, 0.23921569, 1)
+light_energy = 0.0
+omni_range = 24.266167
+omni_attenuation = 0.8
