@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dpkqgk5xl0bdn"]
 
-[ext_resource type="Texture2D" uid="uid://fob3udpiceh7" path="res://icon.svg" id="1_nlmsx"]
+[ext_resource type="Texture2D" uid="uid://dgposolt65yte" path="res://Assets/elements/blood_splatter.png" id="1_nlmsx"]
 
 [node name="blood_splatter" type="Decal" unique_id=1677322265]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 size = Vector3(2, 4.3012695, 2)
 texture_albedo = ExtResource("1_nlmsx")
 texture_emission = ExtResource("1_nlmsx")
-emission_energy = 1.46
-modulate = Color(1, 0, 0, 1)
+emission_energy = 2.0
+modulate = Color(1, 0, 0, 0.46666667)
 cull_mask = 1048573
