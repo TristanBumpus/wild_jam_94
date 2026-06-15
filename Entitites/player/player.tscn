@@ -73,6 +73,7 @@ size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
 
 [node name="player" type="CharacterBody3D" unique_id=1745359200 groups=["player"]]
+floor_max_angle = 0.2617994
 script = ExtResource("1_x8xjm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1701862291]

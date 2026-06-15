@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://3gd1dcmnu2qi"]
 
-[ext_resource type="Texture2D" uid="uid://bk0k7bwxm8car" path="res://assets/dungeon/dungeon_tileset_dungeon_tiles.png" id="1_uav2u"]
+[ext_resource type="Texture2D" uid="uid://bk0k7bwxm8car" path="res://Assets/dungeon/dungeon_tileset_dungeon_tiles.png" id="1_uav2u"]
 
 [resource]
 cull_mode = 2

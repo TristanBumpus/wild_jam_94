@@ -176,7 +176,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var l = loot[times].instantiate()
 		l.special_type = special_type
 		get_tree().current_scene.add_child(l)
-		l.global_position = global_position
+		l.global_position = global_position + Vector3(0,6,0)
 		
 		
 		queue_free()
