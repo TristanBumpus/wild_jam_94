@@ -43,6 +43,11 @@ folder_colors={
 player=""
 limb=""
 
+[gui]
+
+theme/custom="uid://dng3rphw3juoc"
+theme/custom_font="uid://d32iwai3iy0a7"
+
 [input]
 
 w={

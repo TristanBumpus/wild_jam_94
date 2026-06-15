@@ -116,7 +116,6 @@ shape = SubResource("CapsuleShape3D_56rfj")
 [node name="ui" parent="." unique_id=1624100246 instance=ExtResource("3_xelh6")]
 
 [node name="shader" type="CanvasLayer" parent="." unique_id=1715279063]
-layer = 99
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="shader" unique_id=1459300580]
 material = SubResource("ShaderMaterial_duyax")
