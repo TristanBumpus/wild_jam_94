@@ -6,7 +6,4 @@
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 size = Vector3(2, 4.3012695, 2)
 texture_albedo = ExtResource("1_nlmsx")
-texture_emission = ExtResource("1_nlmsx")
-emission_energy = 2.0
-modulate = Color(1, 0, 0, 0.46666667)
 cull_mask = 1048573

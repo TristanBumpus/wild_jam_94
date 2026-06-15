@@ -185,7 +185,6 @@ size = Vector3(4.855713, 1, 1)
 
 [node name="human_arm" type="RigidBody3D" unique_id=694186439]
 gravity_scale = 8.0
-linear_damp_mode = 1
 script = ExtResource("1_f87u6")
 damage = 6.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"

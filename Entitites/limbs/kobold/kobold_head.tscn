@@ -154,7 +154,7 @@ size = Vector3(2.385315, 1, 8.161743)
 script = ExtResource("1_0pict")
 type = 0
 type_2 = 1
-damage = 5.0
+damage = 1.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]
