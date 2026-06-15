@@ -24,13 +24,13 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.387806, 12.369328, 167.0627)
 
 [node name="torch3" parent="." unique_id=388951825 instance=ExtResource("3_ivgnm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.3878, 9.491249, 34.556686)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.3878, 9.491249, 19.294706)
 
 [node name="torch4" parent="." unique_id=1036225438 instance=ExtResource("3_ivgnm")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368694, 9.491249, 94.911446)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368694, 9.491249, 87.5926)
 
 [node name="torch5" parent="." unique_id=1216949779 instance=ExtResource("3_ivgnm")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368689, 9.491249, 30.77938)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368689, 9.491249, 21.254631)
 
 [node name="torch6" parent="." unique_id=196904438 instance=ExtResource("3_ivgnm")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.538944, 12.772495, 54.885033)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.165407, 12.772495, 168.44922)
