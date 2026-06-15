@@ -1,9 +1,169 @@
 [gd_scene format=3 uid="uid://bxku3hv6ml8up"]
 
-[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_f87u6"]
 [ext_resource type="PackedScene" uid="uid://qxwstax4k1ts" path="res://meshes/limbilimb/character/character_fist.tscn" id="2_ct58d"]
 [ext_resource type="PackedScene" uid="uid://dpxgwwodwf1mh" path="res://meshes/limbilimb/character/character_forearm.tscn" id="3_iw7x3"]
 [ext_resource type="PackedScene" uid="uid://dpci7nytxdc3c" path="res://meshes/limbilimb/character/character_arm.tscn" id="4_n0tqg"]
+
+[sub_resource type="GDScript" id="GDScript_sniw2"]
+script/source = "extends RigidBody3D
+
+class_name limb
+
+@export_enum(\"head\",\"arm\",\"leg\", \"torso\") var type = 1
+@export_enum(\"head\",\"arm\",\"leg\", \"torso\",\"none\") var type_2 = 1
+@export_enum(\"left\",\"right\") var side = 1
+
+@export var animation_name = \"\"
+@export var limb_name = \"limb\"
+@export var limb_desc = \"limb\"
+
+@export_category(\"Combat\")
+@export var damage = 0
+@export var hp = 0
+
+@export_category(\"other\")
+@export var speed = 0
+@export_enum(\"none\", \"big\") var special_type = 0
+@export var rotation_diffrence = 0
+
+
+var player : CharacterBody3D
+var billboard
+
+
+
+func switch_limb(to_get,s = 1):
+	var node = player.get_node(to_get)
+	var old = node.get_child(0)
+	old.reparent(get_tree().current_scene)
+	reparent(node)
+	old.global_position = global_position + Vector3(0,3,0)
+	old.get_node(\"choice\").visible = false
+	position = Vector3.ZERO
+	rotation = Vector3.ZERO
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$choice.visible = false
+	side = s
+	sleeping = true
+	old.sleeping = false
+	player.limb_checker()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	var b = load(\"res://UI/billboard.tscn\")
+	var billboard = b.instantiate()
+	billboard.position = Vector3.ZERO
+	billboard.position.y += 2
+	add_child(billboard)
+	$billboard.visible = false
+	
+	
+	var c = load(\"res://UI/choice.tscn\")
+	var c2 = c.instantiate()
+	add_child(c2)
+	
+	
+	c2.get_node(\"Control/Node2D/head\").button_down.connect(_on_head_button_down)
+	c2.get_node(\"Control/Node2D/torso\").button_down.connect(_on_torso_button_down)
+	c2.get_node(\"Control/Node2D/right_arm\").button_down.connect(_on_right_arm_button_down)
+	c2.get_node(\"Control/Node2D/left_arm\").button_down.connect(_on_left_arm_button_down)
+	c2.get_node(\"Control/Node2D/right_leg\").button_down.connect(_on_right_leg_button_down)
+	c2.get_node(\"Control/Node2D/left_leg\").button_down.connect(_on_left_leg_button_down)
+	
+	add_to_group(\"limb\",true)
+	
+	if type == 0 or type_2 == 0:
+		$choice/Control/Node2D/head.disabled = false
+	
+	if type == 1 or type_2 == 1:
+		$choice/Control/Node2D/left_arm.disabled = false
+		$choice/Control/Node2D/right_arm.disabled = false
+	
+	if type == 2 or type_2 == 2:
+		$choice/Control/Node2D/left_leg.disabled = false
+		$choice/Control/Node2D/right_leg.disabled = false
+	
+	if type == 3 or type_2 == 3:
+		$choice/Control/Node2D/torso.disabled = false
+	
+	damage = snapped(damage * randf_range(.8,1.2), .01)
+	hp = snapped(hp * randf_range(.8,1.2), .01)
+	speed = snapped(speed * randf_range(.8,1.2),.01)
+	
+	if special_type == 1:
+		scale = Vector3(2,2,2)
+	
+	$billboard/title.text = limb_name
+	$billboard/desc.text = \"Damage \" + str(damage) + \"\\n\" + \"Hp \" + str(hp) + \"\\n\" + \"Speed \" + str(speed) + \"\\n\" + limb_desc
+	
+	player = get_tree().get_first_node_in_group(\"player\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	
+	if type == 1 or type_2 == 1:
+		if get_parent() != get_tree().current_scene:
+			if get_parent().get_parent().get_parent().is_in_group(\"player\"):
+				$attack_box.set_collision_layer_value(2,true)
+				$attack_box.set_collision_layer_value(3,false)
+			else:
+				$attack_box.set_collision_layer_value(3,true)
+				$attack_box.set_collision_layer_value(2,false)
+	
+	if get_parent() != get_tree().current_scene:
+		#sleeping = true
+		$choice.visible = false
+		$billboard.visible = false
+		$CollisionShape3D.disabled = true
+		position = Vector3.ZERO
+		rotation = Vector3.ZERO
+	else:
+		#sleeping = false
+		$CollisionShape3D.disabled = false
+		$AnimationPlayer.play(\"RESET\")
+	
+	if side == 0:
+		scale = Vector3(-1,1,1)
+		if special_type == 1:
+			scale = Vector3(-2,2,2)
+	if side == 1:
+		scale = Vector3(1,1,1)
+		if special_type == 1:
+			scale = Vector3(2,2,2)
+	
+	if $billboard.visible:
+		if Input.is_action_just_pressed(\"f\"):
+			$choice.visible = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+
+func _on_right_arm_button_down() -> void:
+	switch_limb(\"body/right_arm\")
+
+
+func _on_left_arm_button_down() -> void:
+	switch_limb(\"body/left_arm\",0)
+
+
+func _on_head_button_down() -> void:
+	switch_limb(\"body/head\")
+
+
+func _on_torso_button_down() -> void:
+	switch_limb(\"body/torso\")
+
+
+func _on_right_leg_button_down() -> void:
+	switch_limb(\"body/right_leg\")
+
+
+func _on_left_leg_button_down() -> void:
+	switch_limb(\"body/left_leg\",0)
+"
 
 [sub_resource type="Animation" id="Animation_s5k8x"]
 length = 0.001
@@ -184,9 +344,11 @@ size = Vector3(2.6264648, 1, 6.010254)
 size = Vector3(4.855713, 1, 1)
 
 [node name="human_arm" type="RigidBody3D" unique_id=694186439]
-gravity_scale = 8.0
+mass = 12.409
+freeze = true
 linear_damp_mode = 1
-script = ExtResource("1_f87u6")
+script = SubResource("GDScript_sniw2")
+damage = 1
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="arm_a" type="Node3D" parent="." unique_id=1097571229]

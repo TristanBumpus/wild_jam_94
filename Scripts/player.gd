@@ -6,7 +6,10 @@ extends CharacterBody3D
 @export var max_hp = 5
 
 var speed = 5.0
+var attack_speed = 1
+var armor = 0
 var jump_speed = 4.5
+var luck = 0.0
 var mouse_sensitivity = .005
 @onready var cam = $Camera3D
 
@@ -55,9 +58,14 @@ func limb_to_check(node,index):
 		if last_limbs[index] != null:
 			max_hp -= last_limbs[index].hp
 			speed -= last_limbs[index].speed
+			armor -= last_limbs[index].armor
+			luck -= last_limbs[index].luck
+		
 		last_limbs[index] = node.get_child(0)
 		max_hp += node.get_child(0).hp
 		speed += node.get_child(0).speed
+		armor += node.get_child(0).armor
+		luck += node.get_child(0).luck
 
 func limb_checker():
 	limb_to_check($body/head,0)
@@ -75,23 +83,19 @@ func set_animation(node:Node3D,animString:String):
 			node.get_node("AnimationPlayer").play(animString, .3)
 			node.get_node("AnimationPlayer").advance(0)
 	elif node.side == 1:
-		node.get_node("AnimationPlayer").play(animString, .3)
+		if node.get_node("AnimationPlayer").current_animation != "attack":
+			node.get_node("AnimationPlayer").play(animString, .3)
 	else:
-		var advance = false
-		if node.get_node("AnimationPlayer").current_animation != animString:
-			advance = true
-		node.get_node("AnimationPlayer").play(animString, .3)
-		if advance:
-			node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
+		if node.get_node("AnimationPlayer").current_animation != "attack":
+			var advance = false
+			if node.get_node("AnimationPlayer").current_animation != animString:
+				advance = true
+			node.get_node("AnimationPlayer").play(animString, .3)
+			if advance:
+				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
 
 func animation_states():
-	if attacking[0] or attacking[1]:
-		if attacking[0]:
-			set_animation($body/left_arm.get_child(0),"attack")
-		if attacking[1]:
-			set_animation($body/right_arm.get_child(0),"attack")
-	
-	elif velocity.x + velocity.z != 0:
+	if velocity.x + velocity.z != 0:
 		#set_animation($body/head.get_child(0),"walk")
 		#set_animation($body/torso.get_child(0),"walk")
 		set_animation($body/left_arm.get_child(0),"walk")
@@ -103,6 +107,13 @@ func animation_states():
 		set_animation($body/right_arm.get_child(0),"idle")
 		set_animation($body/left_leg.get_child(0),"idle")
 		set_animation($body/right_leg.get_child(0),"idle")
+	if attacking[0] or attacking[1]:
+		if attacking[0]:
+			set_animation($body/left_arm.get_child(0),"attack")
+			attacking[0] = false
+		if attacking[1]:
+			set_animation($body/right_arm.get_child(0),"attack")
+			attacking[1] = false
 
 func _unhandled_input(event):
 	# Handle vertical/horizontal camera rotation
@@ -128,6 +139,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	update_ui()
 	
 	movement(delta)
 	cheats()
@@ -138,8 +150,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_area_entered(area: Area3D) -> void:
-	current_hp -= area.get_parent().damage
-	
+	current_hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

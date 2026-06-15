@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b3765ujottbit"]
+
+[ext_resource type="Script" uid="uid://dfq74vfvnpy52" path="res://Scripts/pop_out.gd" id="1_8l2oe"]
+
+[node name="pop" type="Label3D" unique_id=1391438939]
+billboard = 1
+render_priority = 4
+modulate = Color(1, 0, 0, 1)
+font_size = 64
+script = ExtResource("1_8l2oe")
+
+[node name="Timer" type="Timer" parent="." unique_id=1566477418]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
