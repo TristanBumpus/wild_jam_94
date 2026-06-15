@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b5wnly2coogb6"]
 
+[ext_resource type="Theme" uid="uid://dng3rphw3juoc" path="res://Assets/theme/basic.tres" id="1_ulria"]
+
 [node name="stats" type="CanvasLayer" unique_id=1252389211]
 
 [node name="Control" type="Control" parent="." unique_id=92010438]
@@ -26,6 +28,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ulria")
 
 [node name="torso" type="Button" parent="Control/Node2D" unique_id=722601218]
 anchors_preset = 8

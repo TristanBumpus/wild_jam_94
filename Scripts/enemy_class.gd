@@ -27,6 +27,9 @@ var player: CharacterBody3D
 var special_limb = 0
 var last_limbs = [null,null,null,null,null,null]
 
+#special effect
+var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
+
 
 
 func basic_movement():
@@ -145,9 +148,21 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
 	
 	var pop = load("res://UI/pop_out.tscn").instantiate()
+	get_tree().current_scene.add_child(pop)
 	pop.global_position = global_position + Vector3.MODEL_FRONT * 2
 	pop.text = str(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p))
-	get_tree().current_scene.add_child(pop)
+	
+	
+	var b = blood_splatter.instantiate()
+	
+	get_tree().current_scene.add_child(b)
+	
+	b.global_position = global_position
+	b.global_position.y = 1
+	b.global_position.x += randi_range(-1,1)
+	b.global_position.z += randi_range(-1,1)
+	
+	
 	
 	if hp <= 0:
 		var chance = randi_range(1,100)
@@ -160,8 +175,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			times += 1
 		
 		var l = loot[times].instantiate()
+		get_tree().current_scene.add_child(l)
 		l.global_position = global_position
 		l.special_type = special_type
 		
-		get_tree().current_scene.add_child(l)
 		queue_free()

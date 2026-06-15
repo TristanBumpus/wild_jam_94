@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dng3rphw3juoc"]
+
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="1_fqh3q"]
+
+[resource]
+Button/fonts/font = ExtResource("1_fqh3q")
+Label/fonts/font = ExtResource("1_fqh3q")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbh60gadpjbxd"]
 
-[ext_resource type="PackedScene" uid="uid://r6f20saveoqg" path="res://assets/main_character/character_foot.glb" id="1_gthrc"]
-[ext_resource type="Texture2D" uid="uid://67e2b3h3wydd" path="res://assets/main_character/character_torso_Character_TEXT.png" id="2_eruo3"]
+[ext_resource type="PackedScene" uid="uid://r6f20saveoqg" path="res://Assets/main_character/character_foot.glb" id="1_gthrc"]
+[ext_resource type="Texture2D" uid="uid://67e2b3h3wydd" path="res://Assets/main_character/character_torso_Character_TEXT.png" id="2_eruo3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lul8p"]
 albedo_texture = ExtResource("2_eruo3")
@@ -9,5 +9,5 @@ texture_filter = 0
 
 [node name="character_foot" unique_id=942318772 instance=ExtResource("1_gthrc")]
 
-[node name="Cube_054" parent="." index="0" unique_id=1052150948]
+[node name="Cube_054" parent="." index="0" unique_id=2050941692]
 surface_material_override/0 = SubResource("StandardMaterial3D_lul8p")

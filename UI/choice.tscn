@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://c1nsld17apec6"]
 
+[ext_resource type="Texture2D" uid="uid://dfiqduwd1dc5o" path="res://Assets/gui/gui_head.png" id="1_kfsbo"]
+[ext_resource type="Texture2D" uid="uid://bv5k2wvbetxqn" path="res://Assets/gui/gui_body.png" id="2_wlt8d"]
+[ext_resource type="Texture2D" uid="uid://daylftwc1a6i5" path="res://Assets/gui/gui_arm.png" id="3_bvpxc"]
+[ext_resource type="Texture2D" uid="uid://ddicyfgvkkqt8" path="res://Assets/gui/gui_leg.png" id="4_54hth"]
+
 [node name="choice" type="CanvasLayer" unique_id=31333311]
 layer = 2
 visible = false
@@ -28,6 +33,10 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
+icon = ExtResource("1_kfsbo")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="torso" type="Button" parent="Control/Node2D" unique_id=905914650]
 anchors_preset = 8
@@ -42,6 +51,10 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
+icon = ExtResource("2_wlt8d")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="right_arm" type="Button" parent="Control/Node2D" unique_id=561527188]
 anchors_preset = 8
@@ -56,6 +69,10 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
+icon = ExtResource("3_bvpxc")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="left_arm" type="Button" parent="Control/Node2D" unique_id=944636041]
 anchors_preset = 8
@@ -70,6 +87,10 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
+icon = ExtResource("3_bvpxc")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="right_leg" type="Button" parent="Control/Node2D" unique_id=1772650718]
 anchors_preset = 8
@@ -84,6 +105,10 @@ offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
+icon = ExtResource("4_54hth")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="left_leg" type="Button" parent="Control/Node2D" unique_id=721096153]
 anchors_preset = 8
@@ -98,3 +123,7 @@ offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
+icon = ExtResource("4_54hth")
+flat = true
+icon_alignment = 1
+expand_icon = true
