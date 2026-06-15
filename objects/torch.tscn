@@ -36,7 +36,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.3207972, -0.8226042)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5223408, -3.2307339)
 light_color = Color(0.8039216, 0.40784314, 0.23921569, 1)
 light_energy = 8.0
-omni_range = 42.366543
+omni_range = 24.266167
 omni_attenuation = 0.8
 
 [node name="fire_fx2" type="GPUParticles3D" parent="." unique_id=372202833]
@@ -50,7 +50,7 @@ draw_pass_1 = ExtResource("4_rxyrm")
 [node name="fire_fx" type="CPUParticles3D" parent="." unique_id=84097126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5745358, -2.192675)
 material_override = SubResource("StandardMaterial3D_u1my3")
-amount = 50
+amount = 100
 lifetime_randomness = 0.08
 fixed_fps = 30
 visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
