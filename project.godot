@@ -21,6 +21,8 @@ global="*uid://gcmlerlcdl1e"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 
 [file_customization]
@@ -30,7 +32,10 @@ folder_colors={
 "res://Entitites/": "red",
 "res://Levels/": "green",
 "res://Scripts/": "blue",
-"res://assets/": "orange"
+"res://assets/": "orange",
+"res://meshes/": "gray",
+"res://objects/": "teal",
+"res://shader/": "yellow"
 }
 
 [global_group]

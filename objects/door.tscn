@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqpv1ak4mud4c"]
+
+[ext_resource type="PackedScene" uid="uid://c48yw7bao8jxe" path="res://assets/objects/door.glb" id="1_566yj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j7xx1"]
+radius = 2.0
+height = 7.0
+
+[node name="door" type="StaticBody3D" unique_id=1206126029]
+
+[node name="door" parent="." unique_id=1824624448 instance=ExtResource("1_566yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1257703492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_j7xx1")

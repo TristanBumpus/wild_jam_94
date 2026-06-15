@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cqwgc1byhuh1k"]
+
+[ext_resource type="PackedScene" uid="uid://3i07sueee7c7" path="res://assets/objects/torch2.glb" id="1_i3qqe"]
+[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://assets/fire/fire2.png" id="2_f3qhp"]
+[ext_resource type="Material" uid="uid://b6pythop6u0hb" path="res://assets/fire/fire_pro_mat.tres" id="3_dvc4m"]
+[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://assets/fire/qua_mesh.tres" id="4_rxyrm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1my3"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_f3qhp")
+albedo_texture_force_srgb = true
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_rxyrm"]
+_data = [Vector2(0, 0.35255563), 0.0, 1.895005, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_x0om8"]
+offsets = PackedFloat32Array(0.28368795, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.16924527, 0.1692453, 0.16924521, 1)
+
+[node name="torch" type="StaticBody3D" unique_id=352304234]
+
+[node name="torch2" parent="." unique_id=1688982626 instance=ExtResource("1_i3qqe")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.3207972, -0.8226042)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1253183506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5223408, -3.2307339)
+light_color = Color(0.8039216, 0.40784314, 0.23921569, 1)
+light_energy = 8.0
+omni_range = 80.56387
+
+[node name="fire_fx2" type="GPUParticles3D" parent="." unique_id=372202833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1490717, -5.8197107)
+material_override = SubResource("StandardMaterial3D_u1my3")
+emitting = false
+amount = 25
+process_material = ExtResource("3_dvc4m")
+draw_pass_1 = ExtResource("4_rxyrm")
+
+[node name="fire_fx" type="CPUParticles3D" parent="." unique_id=84097126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5745358, -2.192675)
+material_override = SubResource("StandardMaterial3D_u1my3")
+amount = 50
+lifetime_randomness = 0.08
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = ExtResource("4_rxyrm")
+emission_shape = 1
+emission_sphere_radius = 1.4
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 15.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angle_min = -179.99998
+angle_max = 180.00002
+scale_amount_min = 0.9
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_rxyrm")
+color = Color(2.7786894, 1.4719771, 0.91565424, 1)
+color_ramp = SubResource("Gradient_x0om8")

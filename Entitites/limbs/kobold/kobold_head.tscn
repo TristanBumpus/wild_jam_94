@@ -2,18 +2,122 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_0pict"]
 [ext_resource type="PackedScene" uid="uid://bs7e0p5p3aq55" path="res://meshes/limbilimb/kobold/kobold_head_obj.tscn" id="2_ou8un"]
+[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://assets/fire/fire2.png" id="3_t0umq"]
+[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://assets/fire/qua_mesh.tres" id="4_248ph"]
+
+[sub_resource type="Animation" id="Animation_t0umq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire_fx:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("kobold_head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ou8un"]
 resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire_fx:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.90000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("kobold_head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.10867332, 0.1963131, 0.40000004, 0.6, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.2224008, -0.10815754, 0.09933041), Vector3(0.036422756, 0.14992899, 0.13897623), Vector3(0.29518798, 0.15665695, 0.17939419), Vector3(0.03475674, -0.10064002, 0.20657672), Vector3(0.07514208, 0.14684759, -0.05249998)]
+}
+
+[sub_resource type="Animation" id="Animation_248ph"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire_fx:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("kobold_head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_21taa"]
 _data = {
-&"attack": SubResource("Animation_ou8un")
+&"RESET": SubResource("Animation_t0umq"),
+&"attack": SubResource("Animation_ou8un"),
+&"idle": SubResource("Animation_248ph")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ou8un"]
 radius = 0.65771484
 height = 2.8615723
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgdg7"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_t0umq")
+albedo_texture_force_srgb = true
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_rxyrm"]
+_data = [Vector2(0, 0.35255563), 0.0, 1.895005, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_x0om8"]
+offsets = PackedFloat32Array(0.28368795, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.16924527, 0.1692453, 0.16924521, 1)
 
 [node name="kobold_head" type="RigidBody3D" unique_id=856710131]
 script = ExtResource("1_0pict")
@@ -22,7 +126,7 @@ type_2 = 4
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8020927, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.8020927, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1959474128]
 libraries/ = SubResource("AnimationLibrary_21taa")
@@ -30,3 +134,28 @@ libraries/ = SubResource("AnimationLibrary_21taa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1556025935]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.50526404, -0.15466309)
 shape = SubResource("CapsuleShape3D_ou8un")
+
+[node name="fire_fx" type="CPUParticles3D" parent="." unique_id=1127974677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2832663, -1.9503574)
+material_override = SubResource("StandardMaterial3D_pgdg7")
+amount = 50
+lifetime = 2.0
+lifetime_randomness = 0.08
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = ExtResource("4_248ph")
+emission_shape = 1
+emission_sphere_radius = 0.2
+particle_flag_rotate_y = true
+direction = Vector3(0, 0, 0)
+spread = 15.0
+gravity = Vector3(0, 0, -8.35)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angle_min = -179.99998
+angle_max = 180.00002
+scale_amount_min = 0.9
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_rxyrm")
+color = Color(2.7786894, 1.4719771, 0.91565424, 1)
+color_ramp = SubResource("Gradient_x0om8")

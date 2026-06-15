@@ -1,14 +1,69 @@
 [gd_scene format=3 uid="uid://iftn41ff1h7n"]
 
 [ext_resource type="MeshLibrary" uid="uid://drtr75uunroyp" path="res://assets/dungeon/tileset_dungeon2.meshlib" id="1_yipuo"]
+[ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="2_yipuo"]
+[ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_8qmsi"]
+[ext_resource type="Shader" uid="uid://cll4oveewc5m8" path="res://shader/overlay.gdshader" id="4_d4flt"]
+[ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="5_vrwk1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
+render_priority = 99
+shader = ExtResource("4_d4flt")
+shader_parameter/pixel_size = 3.0
+shader_parameter/levels = 35.0
+shader_parameter/gamma = Vector2(0.13, 9.055)
+
+[sub_resource type="QuadMesh" id="QuadMesh_vrwk1"]
+material = SubResource("ShaderMaterial_duyax")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gy64i"]
+shader = ExtResource("5_vrwk1")
+shader_parameter/pixel_size = 2.0
+shader_parameter/levels = 35.0
+shader_parameter/gamma = Vector2(0.24, 7.71)
+shader_parameter/curvature = 14.95
+shader_parameter/vignette_multiplier = 5.75
+shader_parameter/test_scanlines = 7.5600000000000005
+
+[sub_resource type="QuadMesh" id="QuadMesh_xsv13"]
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
 
 [node name="test_world_env" type="Node3D" unique_id=277827708]
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1606076858]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 mesh_library = ExtResource("1_yipuo")
 data = {
 "cells": PackedInt32Array(65535, 1, 0, 65535, 2, 0, 65535, 0, 0, 65535, 65535, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65534, 2, 0, 65535, 3, 3, 65534, 3, 3, 65533, 3, 3, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65535, 65534, 655363, 65534, 65534, 655363, 65533, 65534, 655363, 0, 65535, 1048579, 0, 0, 1048579, 0, 1, 1048579, 0, 2, 1048579, 0, 3, 5, 0, 65534, 1048581, 65532, 65534, 655365, 65532, 65535, 1441795, 65532, 0, 1441795, 65532, 1, 1441795, 65532, 2, 1441795, 65532, 3, 1441797)
 }
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1093920599]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17792, 7.673998)
+[node name="player" parent="." unique_id=1745359200 instance=ExtResource("2_yipuo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.123927, 16.29289, 2.1971378)
+
+[node name="torch" parent="." unique_id=352304234 instance=ExtResource("3_8qmsi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.589674, 16.511292, -6.4303703)
+
+[node name="torch2" parent="." unique_id=1249424885 instance=ExtResource("3_8qmsi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.589674, 16.511292, 26.805454)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=394314309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8109406, 11.929473, -5.65567)
+render_priority = 127
+outline_render_priority = 127
+text = "test"
+font_size = 989
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=833517187]
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_vrwk1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=888756309]
+layer = 99
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=160269715]
+material = SubResource("ShaderMaterial_gy64i")
+mesh = SubResource("QuadMesh_xsv13")

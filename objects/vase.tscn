@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ddel5brshl8fu"]
+
+[ext_resource type="PackedScene" uid="uid://ol26ftironu0" path="res://assets/objects/vase2.glb" id="1_16yq0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_16yq0"]
+radius = 1.0
+height = 2.22583
+
+[node name="vase" type="StaticBody3D" unique_id=1770591776]
+
+[node name="vase2" parent="." unique_id=640155627 instance=ExtResource("1_16yq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1786592, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1809736816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0379639, 0)
+shape = SubResource("CapsuleShape3D_16yq0")
