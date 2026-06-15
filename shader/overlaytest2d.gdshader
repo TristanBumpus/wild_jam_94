@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode unshaded, skip_vertex_transform;
 
 uniform float pixel_size : hint_range(0.0, 20.0, 1.0);
-uniform float levels : hint_range(0.0, 2000.0, 1.0);
+uniform float levels : hint_range(0.0, 100.0, 1.0);
 uniform vec2 gamma;
 
 uniform float curvature = 5.0;
@@ -24,7 +24,7 @@ void fragment() {
 	vec2 pixelated_uv = floor(SCREEN_UV * pixel_count) / pixel_count;
 	vec4 color = texture(screen_texture,pixelated_uv);
 	
-	color.rgb = pow(color.rgb,vec3(gamma.x));
+	//color.rgb = pow(color.rgb,vec3(gamma.x));
 	
 	
 	float grayscale = max(color.r,max(color.g,color.b));
@@ -39,7 +39,7 @@ void fragment() {
 	float adjustement = level / grayscale;
 	
 	color.rgb *= adjustement;
-	color.rgb = pow(color.rgb,vec3(gamma.y));
+	//color.rgb = pow(color.rgb,vec3(gamma.y));
 	
 	COLOR.xyz = color.rgb;
 	COLOR.a = color.a;

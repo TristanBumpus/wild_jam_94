@@ -31,6 +31,14 @@ shader_parameter/test_scanlines = 7.56
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
 
+[sub_resource type="Environment" id="Environment_vrwk1"]
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 5.52
+fog_density = 3.47
+fog_sky_affect = 0.0
+
 [node name="test_world_env" type="Node3D" unique_id=277827708]
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1606076858]
@@ -67,3 +75,6 @@ layer = 99
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=160269715]
 material = SubResource("ShaderMaterial_gy64i")
 mesh = SubResource("QuadMesh_xsv13")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=308073982]
+environment = SubResource("Environment_vrwk1")
