@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c7isqoxqb6uh"]
+
+[ext_resource type="PackedScene" uid="uid://cejcuck7qqlfq" path="res://assets/dungeon/dungeon_tileset10.glb" id="1_3b3un"]
+[ext_resource type="Material" uid="uid://3gd1dcmnu2qi" path="res://assets/dungeon/dungeon_material_test.tres" id="2_6dka4"]
+
+[node name="dungeon_tileset10" unique_id=1738005462 instance=ExtResource("1_3b3un")]
+
+[node name="Cube_005" parent="." index="9" unique_id=848046896]
+surface_material_override/0 = ExtResource("2_6dka4")
+
+[node name="Cube_010" parent="." index="13" unique_id=1113953113]
+surface_material_override/0 = ExtResource("2_6dka4")

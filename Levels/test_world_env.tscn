@@ -4,7 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="2_yipuo"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_8qmsi"]
 [ext_resource type="Shader" uid="uid://cll4oveewc5m8" path="res://shader/overlay.gdshader" id="4_d4flt"]
-[ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="5_vrwk1"]
+[ext_resource type="Texture2D" uid="uid://ynl8g7hxwc43" path="res://assets/gui/parchemin_text.png" id="6_cje65"]
+[ext_resource type="Texture2D" uid="uid://ks6wlj1mebxx" path="res://assets/gui/dmg_gui.png" id="7_4uyd3"]
+[ext_resource type="Texture2D" uid="uid://dgwtegmdee8v0" path="res://assets/gui/dmg_speed_gui.png" id="8_xgtlk"]
+[ext_resource type="Texture2D" uid="uid://bbh7pm5a2pm1i" path="res://assets/gui/dmg_pierce_gui.png" id="9_its1e"]
+[ext_resource type="Texture2D" uid="uid://pjdh3i5gep7l" path="res://assets/gui/hearth_gui.png" id="10_3emk2"]
+[ext_resource type="Texture2D" uid="uid://bq8jldullq4p4" path="res://assets/gui/armor_gui.png" id="11_4cyse"]
+[ext_resource type="Texture2D" uid="uid://2wgmnvo5bmg4" path="res://assets/gui/speed_gui.png" id="12_r4u05"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
 render_priority = 99
@@ -17,19 +23,6 @@ shader_parameter/gamma = Vector2(0.13, 9.055)
 material = SubResource("ShaderMaterial_duyax")
 flip_faces = true
 size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gy64i"]
-shader = ExtResource("5_vrwk1")
-shader_parameter/pixel_size = 2.0
-shader_parameter/levels = 35.0
-shader_parameter/gamma = Vector2(0.24, 7.71)
-shader_parameter/curvature = 14.95
-shader_parameter/vignette_multiplier = 5.75
-shader_parameter/test_scanlines = 7.56
-
-[sub_resource type="QuadMesh" id="QuadMesh_xsv13"]
-size = Vector2(1280, 720)
-center_offset = Vector3(640, 360, 0)
 
 [sub_resource type="Environment" id="Environment_vrwk1"]
 fog_enabled = true
@@ -69,12 +62,99 @@ visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_vrwk1")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=888756309]
-layer = 99
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=160269715]
-material = SubResource("ShaderMaterial_gy64i")
-mesh = SubResource("QuadMesh_xsv13")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=308073982]
 environment = SubResource("Environment_vrwk1")
+
+[node name="test_bill" type="Node3D" parent="." unique_id=1150515680]
+transform = Transform3D(1.735, 0, 0, 0, 1.735, 0, 0, 0, 1.735, -112.358536, 13.0116825, 52.225838)
+
+[node name="Sprite3D" type="Sprite3D" parent="test_bill" unique_id=538274954]
+transform = Transform3D(6.37, 0, 0, 0, 5.935, 0, 0, 0, 3.765, 0, 0, 0)
+layers = 2
+offset = Vector2(0, -4.415)
+billboard = 1
+texture_filter = 0
+render_priority = -1
+texture = ExtResource("6_cje65")
+
+[node name="title" type="Label3D" parent="test_bill" unique_id=26192062]
+offset = Vector2(0, 100)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+outline_render_priority = 0
+text = "Title"
+font_size = 48
+
+[node name="desc" type="Label3D" parent="test_bill" unique_id=1928439442]
+offset = Vector2(-150, 70)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+outline_render_priority = -8
+text = "Damage
+AT
+AP
+HP
+Armor
+Speed"
+font_size = 48
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="interactible" type="Label3D" parent="test_bill" unique_id=878295178]
+offset = Vector2(-160, 110)
+billboard = 1
+texture_filter = 0
+render_priority = 2
+outline_render_priority = 1
+text = "F"
+font_size = 48
+
+[node name="damage" type="Sprite3D" parent="test_bill" unique_id=2082051134]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, 50)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("7_4uyd3")
+
+[node name="attack_speed" type="Sprite3D" parent="test_bill" unique_id=634285830]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, 1.985)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("8_xgtlk")
+
+[node name="armor_peircing" type="Sprite3D" parent="test_bill" unique_id=1933457615]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -42.135)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("9_its1e")
+
+[node name="hp" type="Sprite3D" parent="test_bill" unique_id=2114528259]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -89.83)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("10_3emk2")
+
+[node name="armor" type="Sprite3D" parent="test_bill" unique_id=527108459]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -135.15)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("11_4cyse")
+
+[node name="speed" type="Sprite3D" parent="test_bill" unique_id=1335864436]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -179.84)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("12_r4u05")
