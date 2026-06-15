@@ -30,8 +30,6 @@ var billboard
 
 
 func switch_limb(to_get,s = 1):
-	if type == 0:
-		s = 1
 	var node = player.get_node(to_get)
 	var old = node.get_child(0)
 	old.reparent(get_tree().current_scene)
@@ -137,13 +135,13 @@ func _ready() -> void:
 		luck *= .5
 	
 	#Set the scales
-	if side == 0:
+	if side == 0 and type != 0:
 		scale = Vector3(-1,1,1)
 		if special_type == "Big":
 			scale = Vector3(-2,2,2)
 		if special_type == "Small":
 			scale = Vector3(-.5,.5,.5)
-	if side == 1:
+	else:
 		scale = Vector3(1,1,1)
 		if special_type == "Big":
 			scale = Vector3(2,2,2)
@@ -181,13 +179,13 @@ func _process(delta: float) -> void:
 		$CollisionShape3D.disabled = true
 		position = Vector3.ZERO
 		rotation = Vector3.ZERO
-		if side == 0:
+		if side == 0 and type != 0:
 			scale = Vector3(-1,1,1)
 			if special_type == "Big":
 				scale = Vector3(-2,2,2)
 			if special_type == "Small":
 				scale = Vector3(-.5,.5,.5)
-		if side == 1:
+		else:
 			scale = Vector3(1,1,1)
 			if special_type == "Big":
 				scale = Vector3(2,2,2)
