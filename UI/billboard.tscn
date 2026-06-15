@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://ca76nvf5d44di"]
 
 [ext_resource type="Script" uid="uid://bv2cxefikbdij" path="res://Scripts/billboard.gd" id="1_8rsd6"]
-
-[sub_resource type="Gradient" id="Gradient_8rsd6"]
-colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3drgr"]
-gradient = SubResource("Gradient_8rsd6")
+[ext_resource type="Texture2D" uid="uid://ynl8g7hxwc43" path="res://Assets/gui/parchemin_text.png" id="2_3drgr"]
+[ext_resource type="Texture2D" uid="uid://ks6wlj1mebxx" path="res://Assets/gui/dmg_gui.png" id="3_1y2an"]
+[ext_resource type="Texture2D" uid="uid://dgwtegmdee8v0" path="res://Assets/gui/dmg_speed_gui.png" id="4_ewraf"]
+[ext_resource type="Texture2D" uid="uid://bbh7pm5a2pm1i" path="res://Assets/gui/dmg_pierce_gui.png" id="5_21o47"]
+[ext_resource type="Texture2D" uid="uid://pjdh3i5gep7l" path="res://Assets/gui/hearth_gui.png" id="6_v4kc2"]
+[ext_resource type="Texture2D" uid="uid://bq8jldullq4p4" path="res://Assets/gui/armor_gui.png" id="7_dwtif"]
+[ext_resource type="Texture2D" uid="uid://2wgmnvo5bmg4" path="res://Assets/gui/speed_gui.png" id="8_hyduu"]
 
 [node name="billboard" type="Node3D" unique_id=548411036]
 script = ExtResource("1_8rsd6")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=173818548]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(6.37, 0, 0, 0, 5.345, 0, 0, 0, 3.765, 0, 0, 0)
+offset = Vector2(0, -4.415)
 billboard = 1
+texture_filter = 0
 render_priority = -1
-texture = SubResource("GradientTexture2D_3drgr")
+texture = ExtResource("2_3drgr")
 
 [node name="title" type="Label3D" parent="." unique_id=1773557127]
 offset = Vector2(0, 90)
@@ -23,13 +26,66 @@ billboard = 1
 text = "Title"
 
 [node name="desc" type="Label3D" parent="." unique_id=1557866945]
-offset = Vector2(-100, 70)
+offset = Vector2(-150, 70)
 billboard = 1
-text = "Hello "
+text = "Damage
+AT
+AP
+HP
+Armor
+Speed"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="interactible" type="Label3D" parent="." unique_id=511200716]
-offset = Vector2(-100, 100)
+offset = Vector2(-160, 100)
 billboard = 1
 text = "F"
+
+[node name="damage" type="Sprite3D" parent="." unique_id=439957223]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, 50)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_1y2an")
+
+[node name="attack_speed" type="Sprite3D" parent="." unique_id=2090415298]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, 1.985)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("4_ewraf")
+
+[node name="armor_peircing" type="Sprite3D" parent="." unique_id=236525846]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -42.135)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("5_21o47")
+
+[node name="hp" type="Sprite3D" parent="." unique_id=1818074956]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -89.83)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("6_v4kc2")
+
+[node name="armor" type="Sprite3D" parent="." unique_id=807511096]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -135.15)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("7_dwtif")
+
+[node name="speed" type="Sprite3D" parent="." unique_id=1071061219]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(-180, -179.84)
+billboard = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("8_hyduu")
