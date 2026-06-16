@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfxw6wa20bfri"]
 
 [ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="1_s7fsy"]
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_vufbg"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_vufbg"]
 [ext_resource type="PackedScene" uid="uid://br5lmryevy4gn" path="res://Entitites/Enemies/spider.tscn" id="2_50dj4"]
 [ext_resource type="PackedScene" uid="uid://b7p7fwlbwluiw" path="res://Entitites/Enemies/kobold.tscn" id="6_m5bqa"]
 [ext_resource type="PackedScene" uid="uid://cmqrw57hu2s06" path="res://Entitites/Enemies/turtle.tscn" id="7_1r5jd"]
