@@ -312,7 +312,8 @@ script = ExtResource("1_ymmc4")
 type = 2
 type_2 = 1
 damage = 1.0
-speed = 10
+attack_speed = 2.0
+speed = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="arm_a" type="Node3D" parent="." unique_id=115247879]
@@ -322,7 +323,7 @@ transform = Transform3D(0.9659255, 0, -0.25881898, 0, 0.9999998, 0, 0.25881898, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.269007, 1.1402092, 0)
 
 [node name="forearm_a" type="Node3D" parent="arm_a" unique_id=1634022125]
-transform = Transform3D(0.96592593, 0, -0.25881886, 0, 0.99999994, 0, 0.25881904, 0, 0.9659253, 2.5538933, 2.1011138, 1.4156103e-07)
+transform = Transform3D(0.96592593, 0, -0.25881886, 0, 0.99999994, 0, 0.25881904, 0, 0.9659252, 2.5538933, 2.1011138, 1.4156103e-07)
 
 [node name="spider_arm2" parent="arm_a/forearm_a" unique_id=1370598267 instance=ExtResource("3_8n4u0")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.40845752, -2.4250588, 0)

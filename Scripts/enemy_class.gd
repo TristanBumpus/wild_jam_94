@@ -4,7 +4,7 @@ class_name Enemy
 
 @export_category("Combat")
 @export_enum("melee", "range") var attack_type = 0
-@export var hp = 1
+@export var hp = 0
 @export var damage = 1
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 

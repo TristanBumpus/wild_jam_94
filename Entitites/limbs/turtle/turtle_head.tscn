@@ -11,7 +11,7 @@ height = 2.0019531
 [node name="turtle_head" type="RigidBody3D" unique_id=1155505961]
 script = ExtResource("1_cxver")
 type = 0
-type_2 = 4
+hp = 5.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="turtle_head" parent="." unique_id=1965336921 instance=ExtResource("2_f4c6a")]

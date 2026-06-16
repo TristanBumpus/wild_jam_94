@@ -187,7 +187,8 @@ height = 5.246582
 
 [node name="turtle_arm" type="RigidBody3D" unique_id=1350772181]
 script = ExtResource("1_orh06")
-damage = 1.0
+damage = 5.0
+hp = 1.0
 attack_speed = 0.5
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

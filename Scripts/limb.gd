@@ -60,8 +60,6 @@ func _ready() -> void:
 	#Summoning ui elements
 	var b = load("res://UI/billboard.tscn")
 	var billboard = b.instantiate()
-	billboard.position = Vector3.ZERO
-	billboard.position.y += 3
 	add_child(billboard)
 	$billboard.visible = false
 	
@@ -199,8 +197,9 @@ func _process(delta: float) -> void:
 		$CollisionShape3D.disabled = false
 		$AnimationPlayer.play("RESET")
 	
-	$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
-	$billboard.global_rotation = Vector3.ZERO
+	#$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
+	#$billboard.global_rotation = Vector3.ZERO
+	
 	
 	if $billboard.visible:
 		if Input.is_action_just_pressed("f"):

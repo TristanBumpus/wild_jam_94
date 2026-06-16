@@ -10,7 +10,7 @@ size = Vector3(13, 14.299316, 3.2480469)
 script = ExtResource("1_j7xx1")
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=571162592]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7.3633304, 5.0427065, 0.4889059)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.1151605, 5.0427065, 0.4889059)
 node_a = NodePath("../StaticBody3D")
 node_b = NodePath("../RigidBody3D")
 angular_limit/enable = true
@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.582212, 0.48513794)
 shape = SubResource("BoxShape3D_566yj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=809980860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3633304, 5.0427065, 0.4889059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.069444, 5.0427065, 0.4889059)
 
 [node name="Timer" type="Timer" parent="." unique_id=1984261073]
 one_shot = true

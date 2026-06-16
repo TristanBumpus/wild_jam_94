@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_0pict"]
 [ext_resource type="PackedScene" uid="uid://bs7e0p5p3aq55" path="res://meshes/limbilimb/kobold/kobold_head_obj.tscn" id="2_ou8un"]
-[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://assets/fire/fire2.png" id="3_t0umq"]
-[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://assets/fire/qua_mesh.tres" id="4_248ph"]
+[ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://Assets/fire/fire2.png" id="3_t0umq"]
+[ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://Assets/fire/qua_mesh.tres" id="4_248ph"]
 
 [sub_resource type="Animation" id="Animation_t0umq"]
 length = 0.002
@@ -179,6 +179,9 @@ script = ExtResource("1_0pict")
 type = 0
 type_2 = 1
 damage = 1.0
+hp = 1.0
+armor = 1.0
+armor_p = 1.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]

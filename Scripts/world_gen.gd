@@ -1,0 +1,32 @@
+extends Node3D
+
+@export var start : Node3D
+
+@export var levels : Array[PackedScene]
+
+@export var size = 5
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	start = get_child(0).get_node("door3")
+	
+	while size:
+		
+		var level = levels.pick_random().instantiate()
+		
+		get_tree().current_scene.add_child(level)
+		
+		level.global_position = start.global_position
+		
+		level.global_position.y = 0
+		
+		start = level.find_child("door")
+		
+		size -= 1
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
