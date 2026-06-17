@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b368tqirf5llu"]
+
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_7riof"]
+[ext_resource type="PackedScene" uid="uid://bb6rilf0kpswn" path="res://Entitites/level elements/spawner_trigger.tscn" id="2_l5x6e"]
+[ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="3_vc03a"]
+[ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="4_7dgrr"]
+[ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="5_l5x6e"]
+
+[node name="dtm_lvl_3" type="Node3D" unique_id=1324383939]
+
+[node name="GridMap2" type="GridMap" parent="." unique_id=684615304]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 63.465126)
+mesh_library = ExtResource("1_7riof")
+data = {
+"cells": PackedInt32Array(65535, 65532, 655370, 0, 65532, 655371, 1, 65532, 655363, 65534, 65532, 655363, 0, 65533, 0, 65535, 65533, 0, 65535, 65534, 0, 0, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 0, 1, 655368, 0, 0, 655368, 0, 65535, 655368, 1, 65534, 655368, 1, 65533, 0, 65534, 65533, 1048584, 65534, 65534, 8, 65534, 65535, 8, 65534, 0, 8, 65533, 65533, 1048584, 1, 65535, 1048577, 2, 65533, 1048584, 3, 65533, 1048584, 65532, 65534, 655368, 65532, 65535, 655368, 65532, 0, 655368, 1, 1, 655361, 1, 0, 655361, 2, 1, 655361, 2, 0, 655361, 2, 65535, 655361, 2, 65534, 655361, 3, 1, 655361, 3, 0, 655361, 3, 65535, 655361, 3, 65534, 655361, 4, 1, 1048578, 4, 0, 1048578, 4, 65535, 1048578, 4, 65534, 1048578, 4, 65533, 1048583, 4, 65532, 1048581, 3, 65532, 655363, 2, 65532, 655363, 65533, 65532, 655363, 65531, 65534, 1441795, 65531, 65535, 1441795, 65531, 0, 1441795, 65532, 65533, 1441792, 65531, 65533, 1441795, 65532, 65532, 655363, 65531, 65532, 655365, 65533, 65534, 655361, 65533, 65535, 655361, 65533, 0, 655361, 65532, 1, 1441800, 65533, 1, 1441800, 65531, 1, 1441795, 65534, 1, 655360, 65535, 2, 655360, 65535, 3, 655360, 0, 2, 655368, 0, 3, 655368, 65535, 4, 655360, 0, 4, 655360, 1, 2, 655361, 2, 2, 655361, 1, 4, 1441800, 2, 3, 1441800, 3, 2, 1441800, 4, 2, 1441796, 3, 3, 1441792, 2, 4, 1441792, 3, 4, 1441792, 4, 3, 1048579, 4, 4, 1048579, 3, 5, 3, 2, 5, 3, 1, 5, 3, 1, 3, 1, 65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 65534, 3, 0, 65533, 3, 0, 65532, 3, 0, 65534, 4, 0, 65533, 4, 0, 65532, 4, 0, 65535, 5, 11, 0, 5, 10, 65534, 5, 3, 65533, 5, 3, 65532, 5, 3, 65531, 2, 1441795, 65531, 3, 1441795, 65531, 4, 1441795, 65531, 5, 1441797, 4, 5, 5)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="SpawnerTrigger" parent="." unique_id=1359928648 instance=ExtResource("2_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3690882, 7.4402084, 9.045582)
+
+[node name="door2" parent="." unique_id=1781663024 instance=ExtResource("3_vc03a")]
+transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, 157.38255)
+
+[node name="torch" parent="." unique_id=352304234 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -79.27244, 12.3847065, 37.91032)
+
+[node name="torch2" parent="." unique_id=22958707 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -79.27244, 12.3847065, 67.113014)
+
+[node name="torch4" parent="." unique_id=151385200 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -79.27244, 12.3847065, 107.476906)
+
+[node name="torch5" parent="." unique_id=596875202 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -79.27244, 12.3847065, 134.98322)
+
+[node name="torch9" parent="." unique_id=146687782 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.882538, 12.3847065, 158.73897)
+
+[node name="torch10" parent="." unique_id=942477826 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.762661, 12.3847065, 158.73897)
+
+[node name="torch11" parent="." unique_id=1655158019 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 27.762661, 12.3847065, 0.092287004)
+
+[node name="torch12" parent="." unique_id=1257584059 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -27.882538, 12.3847065, 0.09229189)
+
+[node name="torch3" parent="." unique_id=1415754502 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 79.26684, 12.3847065, 135.8314)
+
+[node name="torch6" parent="." unique_id=1275471396 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 79.26683, 12.3847065, 106.628716)
+
+[node name="torch7" parent="." unique_id=618705621 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-3.9692047e-08, -0.41886577, 0.90804815, 0.34003484, 0.8539401, 0.39390674, -0.9404128, 0.30876803, 0.14242892, 78.177246, 12.3847065, 67.59313)
+
+[node name="torch8" parent="." unique_id=1353439336 instance=ExtResource("4_7dgrr")]
+transform = Transform3D(-0.11687457, -0.32969597, 0.9368249, -0.46567002, 0.85136217, 0.24152403, -0.8772068, -0.4080233, -0.25303212, 77.35962, 12.3847065, 40.783176)
+
+[node name="spawner" parent="." unique_id=1067744907 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9427395, 2.8015556, 90.575485)
+
+[node name="spawner2" parent="." unique_id=1978605671 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33652306, 2.8015556, 90.575485)
+
+[node name="spawner3" parent="." unique_id=1718609432 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.655355, 2.8015556, 90.575485)
+
+[node name="spawner4" parent="." unique_id=258610344 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.261574, 2.8015556, 90.575485)
+
+[node name="spawner5" parent="." unique_id=1371328948 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.683594, 2.8015556, 113.809685)
+
+[node name="spawner6" parent="." unique_id=2077902676 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.077378, 2.8015556, 113.809685)
+
+[node name="spawner7" parent="." unique_id=680121905 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.914501, 2.8015556, 113.809685)
+
+[node name="spawner8" parent="." unique_id=1734261902 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.520718, 2.8015556, 113.809685)
+
+[node name="spawner9" parent="." unique_id=973720363 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.686806, 2.8015556, 105.15224)
+
+[node name="spawner10" parent="." unique_id=1843177599 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.08059, 2.8015556, 105.15224)
+
+[node name="spawner11" parent="." unique_id=1165449783 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.088713, 2.8015556, 105.15224)
+
+[node name="spawner12" parent="." unique_id=246977816 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5175056, 2.8015556, 105.15224)
+
+[node name="spawner13" parent="." unique_id=374174803 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.42766, 2.8015556, 128.38644)
+
+[node name="spawner14" parent="." unique_id=1282293787 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.821445, 2.8015556, 128.38644)
+
+[node name="spawner15" parent="." unique_id=491128490 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.829567, 2.8015556, 128.38644)
+
+[node name="spawner16" parent="." unique_id=460256467 instance=ExtResource("5_l5x6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2233505, 2.8015556, 128.38644)

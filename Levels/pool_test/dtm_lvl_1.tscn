@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://lgec6keeh8ab"]
 
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_dtkoa"]
+[ext_resource type="PackedScene" uid="uid://bb6rilf0kpswn" path="res://Entitites/level elements/spawner_trigger.tscn" id="2_2n3jw"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="2_aradg"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_2n3jw"]
+[ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="5_2n3jw"]
 
 [node name="dtm_lvl_1" type="Node3D" unique_id=1582005914]
 
@@ -13,6 +15,9 @@ data = {
 "cells": PackedInt32Array(65535, 65532, 655370, 0, 65532, 655371, 1, 65532, 655363, 2, 65532, 655363, 3, 65532, 655363, 65534, 65532, 655363, 65533, 65532, 655363, 65532, 65532, 655363, 4, 65532, 1048581, 65531, 65532, 655365, 4, 65533, 1048583, 4, 65534, 1048578, 4, 65535, 6, 3, 0, 6, 2, 2, 6, 1, 5, 6, 2, 1, 1048578, 1, 3, 1048578, 1, 4, 1048578, 3, 65535, 1048577, 3, 65534, 1048577, 2, 65535, 1048577, 2, 0, 1048577, 1, 2, 1048577, 1, 1, 1048577, 1, 0, 1048577, 0, 1, 1048577, 3, 65533, 1048584, 2, 65534, 1048584, 1, 65535, 1048584, 0, 0, 1048584, 2, 65533, 1048576, 1, 65534, 1048576, 0, 65535, 1048576, 0, 65534, 1048576, 0, 65533, 1048576, 1, 65533, 1048576, 65535, 0, 1048584, 65534, 0, 1048576, 65534, 1, 655368, 65534, 2, 655368, 65534, 65535, 655363, 65533, 65534, 1048579, 65534, 65533, 3, 65535, 65534, 1441795, 65535, 65533, 1441801, 65535, 65535, 655369, 65533, 65535, 1048585, 65533, 65533, 9, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65533, 2, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 3, 0, 65531, 65533, 1441795, 65531, 65534, 1441795, 65531, 65535, 1441795, 65531, 0, 1441795, 65531, 1, 1441795, 65531, 2, 1441795, 65531, 3, 1441795, 65535, 1, 1441793, 65535, 2, 1441793, 0, 2, 1441793, 0, 3, 1441793, 65535, 3, 1441793, 0, 4, 1441793, 0, 5, 12, 65535, 5, 13, 65535, 4, 1, 65534, 3, 655368, 65534, 4, 655368, 65533, 3, 655360, 65533, 4, 655360, 65532, 4, 655360, 65531, 4, 1441795, 65534, 5, 3, 65533, 5, 3, 65532, 5, 3, 65531, 5, 1441797)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="SpawnerTrigger" parent="." unique_id=1359928648 instance=ExtResource("2_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3690882, 7.4402084, 9.045582)
 
 [node name="door2" parent="." unique_id=1781663024 instance=ExtResource("2_aradg")]
 transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, 157.38255)
@@ -55,3 +60,30 @@ transform = Transform3D(-0.020897403, -0.15771013, 0.98726434, -0.30110675, 0.94
 
 [node name="torch11" parent="." unique_id=1773214632 instance=ExtResource("3_2n3jw")]
 transform = Transform3D(0.68945825, 0.1508612, 0.70844054, -0.25213996, 0.9668848, 0.03948757, -0.6790233, -0.20585123, 0.7046649, 78.04916, 11.27416, 49.51794)
+
+[node name="spawner" parent="." unique_id=1067744907 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.298037, 2.8015556, 111.71695)
+
+[node name="spawner2" parent="." unique_id=732665148 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.852556, 2.8015556, 111.71695)
+
+[node name="spawner3" parent="." unique_id=1005402359 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.70134, 2.8015556, 111.71695)
+
+[node name="spawner4" parent="." unique_id=1179688359 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.298037, 2.8015556, 94.136734)
+
+[node name="spawner5" parent="." unique_id=1482834720 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.852556, 2.8015556, 94.136734)
+
+[node name="spawner6" parent="." unique_id=418912689 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.70134, 2.8015556, 94.136734)
+
+[node name="spawner7" parent="." unique_id=1337055166 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.298037, 2.8015556, 64.628716)
+
+[node name="spawner8" parent="." unique_id=426518836 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.852556, 2.8015556, 64.628716)
+
+[node name="spawner9" parent="." unique_id=894846058 instance=ExtResource("5_2n3jw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.70134, 2.8015556, 64.628716)

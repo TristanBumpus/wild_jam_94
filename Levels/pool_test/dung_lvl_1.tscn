@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://b3wbmaphhvo4j"]
 
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="2_0wjf4"]
+[ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="3_0wjf4"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="4_vjcl7"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_0wjf4"]
-vertices = PackedVector3Array(16.758415, 26.922363, -65.491585, 16.758415, 26.922363, -64.491585, 32.008415, 26.922363, -64.491585, 32.008415, 26.922363, -65.491585, -32.991585, 26.922363, -48.491585, -32.991585, 26.922363, 63.258415, -32.491585, 26.922363, -48.491585, -33.491585, 26.922363, -48.741585, -32.491585, 26.922363, -63.991585, -33.491585, 26.922363, -63.991585, -31.741585, 30.422363, -47.991585, -31.741585, 30.422363, 63.508415, 31.508415, 30.422363, 63.758415, 31.758415, 30.422363, 48.008415, 31.758415, 30.422363, -63.491585, -31.491585, 30.422363, -63.741585, -31.241585, 1.6723633, -62.491585, -31.241585, 1.6723633, -48.991585, -30.491585, 1.6723633, -48.741585, -7.241585, 1.6723633, -62.491585, 31.258415, 1.6723633, 62.508415, 31.258415, 1.6723633, 49.008415, 30.508415, 1.6723633, 48.758415, 7.258415, 1.6723633, 62.508415, -7.241585, 1.6723633, 62.508415, -6.991585, 1.6723633, 63.758415, 7.008415, 1.6723633, 63.758415, 7.258415, 1.6723633, -62.491585, 7.008415, 1.6723633, -63.741585, -6.991585, 1.6723633, -63.741585, -30.491585, 1.6723633, 63.258415, -15.991585, 1.6723633, 62.508415, 30.508415, 1.6723633, -63.241585, 16.008415, 1.6723633, -62.491585, -16.241585, 1.6723633, 63.258415, 16.258415, 1.6723633, -63.241585, 33.008415, 26.922363, 48.508415, 33.008415, 26.922363, -63.241585, 32.508415, 26.922363, 48.508415, 33.508415, 26.922363, 48.758415, 32.508415, 26.922363, 64.008415, 33.508415, 26.922363, 64.008415, -31.991585, 26.922363, 64.508415, -31.991585, 26.922363, 65.508415, -16.741585, 26.922363, 65.508415, -16.741585, 26.922363, 64.508415)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(4, 7, 6), PackedInt32Array(6, 7, 9), PackedInt32Array(6, 9, 8), PackedInt32Array(15, 14, 10), PackedInt32Array(10, 14, 13), PackedInt32Array(10, 13, 12), PackedInt32Array(10, 12, 11), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 23), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 19), PackedInt32Array(33, 32, 18), PackedInt32Array(18, 32, 22), PackedInt32Array(18, 22, 31), PackedInt32Array(18, 31, 30), PackedInt32Array(18, 27, 33), PackedInt32Array(31, 34, 30), PackedInt32Array(33, 35, 32), PackedInt32Array(18, 19, 27), PackedInt32Array(22, 24, 31), PackedInt32Array(22, 23, 24), PackedInt32Array(38, 37, 36), PackedInt32Array(36, 39, 38), PackedInt32Array(38, 39, 41), PackedInt32Array(38, 41, 40), PackedInt32Array(45, 44, 42), PackedInt32Array(42, 44, 43)]
-geometry_parsed_geometry_type = 1
+[sub_resource type="Environment" id="Environment_0wjf4"]
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 5.52
+fog_density = 3.0
+fog_sky_affect = 0.0
 
 [node name="dung_lvl1" type="Node3D" unique_id=1243141460]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=881171445]
-navigation_mesh = SubResource("NavigationMesh_0wjf4")
-
-[node name="GridMap" type="GridMap" parent="NavigationRegion3D" unique_id=787779524]
+[node name="GridMap" type="GridMap" parent="." unique_id=787779524]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 0)
 mesh_library = ExtResource("1_vjcl7")
 data = {
@@ -45,3 +46,9 @@ transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, -64.852
 
 [node name="door3" parent="." unique_id=1206126029 instance=ExtResource("4_vjcl7")]
 transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, 62.627472)
+
+[node name="player" parent="." unique_id=1745359200 instance=ExtResource("3_0wjf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.448555, 6.5987587, 22.410505)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1777380716]
+environment = SubResource("Environment_0wjf4")

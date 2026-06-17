@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://drev0vh7o7itp"]
+
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_8oh4g"]
+[ext_resource type="PackedScene" uid="uid://bb6rilf0kpswn" path="res://Entitites/level elements/spawner_trigger.tscn" id="2_3dk0j"]
+[ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="3_5kfqn"]
+[ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="4_5ark0"]
+[ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="5_3dk0j"]
+
+[node name="mount_lvl_1" type="Node3D" unique_id=661546840]
+
+[node name="GridMap2" type="GridMap" parent="." unique_id=615397317]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 63.465126)
+mesh_library = ExtResource("1_8oh4g")
+data = {
+"cells": PackedInt32Array(65535, 65532, 655372, 0, 65532, 655373, 1, 65532, 655362, 2, 65532, 655362, 65534, 65532, 655362, 65533, 65532, 655362, 65532, 65532, 655366, 65531, 65533, 655366, 65530, 65534, 655366, 65529, 65535, 655366, 65528, 0, 655366, 65528, 1, 1441794, 65528, 2, 1441794, 65528, 3, 1441798, 65529, 4, 1441798, 65530, 5, 1441798, 65531, 6, 1441798, 65532, 7, 1441798, 65533, 7, 2, 65534, 7, 2, 0, 7, 12, 65535, 7, 13, 2, 7, 2, 1, 7, 2, 3, 7, 6, 4, 6, 6, 5, 5, 6, 6, 4, 6, 7, 3, 6, 7, 2, 1048578, 7, 1, 1048578, 7, 0, 1048582, 6, 65535, 1048582, 5, 65534, 1048582, 4, 65533, 1048582, 3, 65532, 1048582, 3, 65533, 1048577, 2, 65533, 1048577, 1, 65533, 1048577, 0, 65533, 1048577, 65535, 65533, 1048577, 65534, 65533, 1048577, 65533, 65533, 1048577, 65532, 65533, 1048577, 4, 65534, 1048577, 3, 65534, 1048577, 2, 65534, 1048577, 1, 65534, 1048577, 0, 65534, 1048577, 65535, 65534, 1048577, 65534, 65534, 1048577, 65533, 65534, 1048577, 65532, 65534, 1048577, 65531, 65534, 1048577, 5, 65535, 1048577, 4, 65535, 1048577, 3, 65535, 1048577, 2, 65535, 1048577, 1, 65535, 1048577, 0, 65535, 1048577, 65535, 65535, 1048577, 65534, 65535, 1048577, 65533, 65535, 1048577, 65532, 65535, 1048577, 65531, 65535, 1048577, 65530, 65535, 1048577, 6, 0, 1048577, 5, 0, 1048577, 4, 0, 1048577, 3, 0, 1048577, 2, 0, 1048577, 1, 0, 1048577, 0, 0, 1048577, 65535, 0, 1048577, 65534, 0, 1048577, 65533, 0, 1048577, 65532, 0, 1048577, 65531, 0, 1048577, 65530, 0, 1048577, 65529, 0, 1048577, 6, 1, 1048577, 6, 2, 1048577, 6, 3, 1048577, 65529, 3, 1048577, 65529, 2, 1048577, 65529, 1, 1048577, 65530, 1, 1048577, 65531, 1, 1048577, 65532, 1, 1048577, 65533, 1, 1048577, 5, 1, 1048577, 4, 1, 1048577, 3, 1, 1048577, 2, 1, 1048577, 1, 1, 1048577, 0, 1, 1048577, 65535, 1, 1048577, 65534, 1, 1048577, 4, 2, 1048577, 5, 2, 1048577, 3, 2, 1048577, 2, 2, 1048577, 1, 2, 1048577, 0, 2, 1048577, 65535, 2, 1048577, 65534, 2, 1048577, 65533, 2, 1048577, 65532, 2, 1048577, 65531, 2, 1048577, 65530, 2, 1048577, 65530, 3, 1048577, 65531, 3, 1048577, 65532, 3, 1048577, 65533, 3, 1048577, 65534, 3, 1048577, 65535, 3, 1048577, 0, 3, 1048577, 1, 3, 1048577, 2, 3, 1048577, 3, 3, 1048577, 4, 3, 1048577, 5, 3, 1048577, 5, 4, 1048577, 4, 5, 1048577, 4, 4, 1048577, 3, 6, 1048577, 3, 5, 1048577, 3, 4, 1048577, 2, 6, 1048577, 2, 5, 1048577, 2, 4, 1048577, 1, 6, 1048577, 1, 5, 1048577, 1, 4, 1048577, 0, 6, 1048577, 0, 5, 1048577, 0, 4, 1048577, 65535, 4, 1048577, 65534, 6, 1048577, 65535, 6, 1048577, 65535, 5, 1048577, 65533, 6, 1048577, 65533, 5, 1048577, 65533, 4, 1048577, 65532, 4, 1048577, 65532, 5, 1048577, 65532, 6, 1048577, 65534, 5, 1048577, 65534, 4, 1048577, 65531, 4, 1048577, 65531, 5, 1048577, 65530, 4, 1048577)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="SpawnerTrigger" parent="." unique_id=1359928648 instance=ExtResource("2_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3690882, 7.4402084, 9.045582)
+
+[node name="door2" parent="." unique_id=1781663024 instance=ExtResource("3_5kfqn")]
+transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, 189.67314)
+
+[node name="torch" parent="." unique_id=352304234 instance=ExtResource("4_5ark0")]
+transform = Transform3D(-0.15214068, 0.21735425, -0.964163, 9.61276e-09, 0.9755192, 0.2199143, 0.98835886, 0.0334579, -0.14841615, -93.59791, 12.3847065, 37.91032)
+
+[node name="torch2" parent="." unique_id=140856932 instance=ExtResource("4_5ark0")]
+transform = Transform3D(-0.15214068, 0.21735425, -0.964163, 9.61276e-09, 0.9755192, 0.2199143, 0.98835886, 0.0334579, -0.14841615, -125.337746, 12.3847065, 90.07518)
+
+[node name="torch4" parent="." unique_id=1183709848 instance=ExtResource("4_5ark0")]
+transform = Transform3D(-0.15214068, 0.21735425, -0.964163, 9.61276e-09, 0.9755192, 0.2199143, 0.98835886, 0.0334579, -0.14841615, -77.362885, 12.3847065, 164.99667)
+
+[node name="torch5" parent="." unique_id=1189324627 instance=ExtResource("4_5ark0")]
+transform = Transform3D(0.15214077, -0.21735425, 0.964163, 1.6976607e-08, 0.9755192, 0.2199143, -0.98835886, -0.03345791, 0.14841624, 92.966644, 12.3847065, 154.25212)
+
+[node name="torch6" parent="." unique_id=1283165353 instance=ExtResource("4_5ark0")]
+transform = Transform3D(0.15214077, -0.21735425, 0.964163, 1.6976607e-08, 0.9755192, 0.2199143, -0.98835886, -0.03345791, 0.14841624, 125.14426, 12.3847065, 105.24628)
+
+[node name="torch7" parent="." unique_id=1714617139 instance=ExtResource("4_5ark0")]
+transform = Transform3D(0.15214077, -0.21735425, 0.964163, 1.6976607e-08, 0.9755192, 0.2199143, -0.98835886, -0.03345791, 0.14841624, 77.572235, 12.3847065, 25.945278)
+
+[node name="torch3" parent="." unique_id=1262054481 instance=ExtResource("4_5ark0")]
+transform = Transform3D(-0.993936, -0.0132007, 0.10916449, -1.0495123e-08, 0.9927678, 0.12005021, -0.109959744, 0.119322225, -0.9867477, -22.003294, 12.3847065, 1.9317598)
+
+[node name="torch8" parent="." unique_id=798651631 instance=ExtResource("4_5ark0")]
+transform = Transform3D(-0.999996, -0.00034362543, 0.0028415546, -9.569449e-09, 0.99276793, 0.12005022, -0.0028622597, 0.120049715, -0.9927637, 21.603611, 12.3847065, 1.9317598)
+
+[node name="torch9" parent="." unique_id=238009329 instance=ExtResource("4_5ark0")]
+transform = Transform3D(0.9939361, 0.013200689, -0.10916442, -9.569449e-09, 0.99276793, 0.12005022, 0.109959655, -0.119322225, 0.9867477, 21.603611, 12.3847065, 189.0719)
+
+[node name="torch10" parent="." unique_id=1638003295 instance=ExtResource("4_5ark0")]
+transform = Transform3D(0.999996, 0.00034361496, -0.0028414677, -9.590774e-09, 0.99276793, 0.120050214, 0.0028621724, -0.12004971, 0.9927637, -22.003292, 12.3847065, 189.0719)
+
+[node name="spawner" parent="." unique_id=1067744907 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.600502, 2.8015556, 132.33273)
+
+[node name="spawner2" parent="." unique_id=1907812713 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.021057, 2.8015556, 132.33273)
+
+[node name="spawner3" parent="." unique_id=2033434704 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.248955, 2.8015556, 132.33273)
+
+[node name="spawner4" parent="." unique_id=1267231689 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.113712, 2.8015556, 119.183914)
+
+[node name="spawner5" parent="." unique_id=1361779971 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.534267, 2.8015556, 119.183914)
+
+[node name="spawner6" parent="." unique_id=1637588114 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.762165, 2.8015556, 119.183914)
+
+[node name="spawner7" parent="." unique_id=1663010098 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.790112, 2.8015556, 146.95558)
+
+[node name="spawner8" parent="." unique_id=745860721 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78933334, 2.8015556, 146.95558)
+
+[node name="spawner9" parent="." unique_id=95050553 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.561436, 2.8015556, 146.95558)
+
+[node name="spawner10" parent="." unique_id=151566848 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30332184, 2.8015556, 133.80676)
+
+[node name="spawner11" parent="." unique_id=1551248244 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.276123, 2.8015556, 133.80676)
+
+[node name="spawner12" parent="." unique_id=1482275523 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.048225, 2.8015556, 133.80676)
+
+[node name="spawner13" parent="." unique_id=2107628923 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.564575, 2.8015556, 99.10443)
+
+[node name="spawner14" parent="." unique_id=1890927638 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.14402, 2.8015556, 99.10443)
+
+[node name="spawner15" parent="." unique_id=1347616204 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.916122, 2.8015556, 99.10443)
+
+[node name="spawner16" parent="." unique_id=269230616 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.051365, 2.8015556, 85.95561)
+
+[node name="spawner17" parent="." unique_id=1714565447 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.63081, 2.8015556, 85.95561)
+
+[node name="spawner18" parent="." unique_id=721875264 instance=ExtResource("5_3dk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.402912, 2.8015556, 85.95561)
