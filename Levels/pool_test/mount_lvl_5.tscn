@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bb6rilf0kpswn" path="res://Entitites/level elements/spawner_trigger.tscn" id="2_t74ue"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="3_jw7gg"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="4_3io2g"]
+[ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="5_t74ue"]
 
 [node name="mount_lvl_5" type="Node3D" unique_id=80072871]
 
@@ -59,3 +60,36 @@ transform = Transform3D(-0.9940583, 0.023937559, -0.10618485, 2.5546948e-08, 0.9
 
 [node name="torch13" parent="." unique_id=1195833275 instance=ExtResource("4_3io2g")]
 transform = Transform3D(-0.9940583, 0.023937559, -0.10618485, 2.5546948e-08, 0.9755193, 0.2199143, 0.10884956, 0.21860759, -0.9697229, -52.440926, 12.3847065, 1.6357193)
+
+[node name="spawner" parent="." unique_id=1067744907 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.003407, 2.8015556, 162.38162)
+
+[node name="spawner6" parent="." unique_id=1428086646 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.003407, 2.8015556, 84.32499)
+
+[node name="spawner7" parent="." unique_id=555478583 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.705072, 2.8015556, 84.32499)
+
+[node name="spawner11" parent="." unique_id=1929369020 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.114687, 2.8015556, 89.86512)
+
+[node name="spawner2" parent="." unique_id=1031723867 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.524872, 2.8015556, 162.38162)
+
+[node name="spawner3" parent="." unique_id=1709891182 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.065344, 2.8015556, 162.38162)
+
+[node name="spawner4" parent="." unique_id=1975575131 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.10179, 2.8015556, 162.38162)
+
+[node name="spawner5" parent="." unique_id=1152178878 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.755978, 2.8015556, 162.38162)
+
+[node name="spawner8" parent="." unique_id=1419122674 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54521, 2.8015556, 146.04002)
+
+[node name="spawner9" parent="." unique_id=289962444 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4912357, 2.8015556, 146.04002)
+
+[node name="spawner10" parent="." unique_id=1644947277 instance=ExtResource("5_t74ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.145424, 2.8015556, 146.04002)

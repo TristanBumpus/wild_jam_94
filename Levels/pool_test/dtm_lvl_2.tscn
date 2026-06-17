@@ -3,6 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_oel68"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="2_t3u1l"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_elqdb"]
+[ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="4_t3u1l"]
 
 [node name="dtm_lvl_2" type="Node3D" unique_id=1709097257]
 
@@ -10,7 +11,7 @@
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 63.465126)
 mesh_library = ExtResource("1_oel68")
 data = {
-"cells": PackedInt32Array(0, 65532, 655371, 1, 65532, 1048581, 65534, 65532, 655365, 65534, 65533, 1441797, 1, 65533, 5, 65535, 65532, 655370, 65535, 65533, 1048584, 0, 65533, 1048584, 65535, 65534, 1441794, 0, 65534, 1048578, 65535, 65535, 655361, 0, 65535, 655373, 1, 0, 655361, 0, 0, 655361, 65535, 0, 655361, 65534, 0, 655361, 0, 1, 1441800, 65535, 1, 1441800, 65534, 1, 1441800, 1, 1, 1441800, 65534, 65535, 6, 1, 65535, 1441798, 65533, 0, 655366, 2, 0, 1048582, 2, 1, 1441796, 65533, 1, 1441799, 65534, 2, 1441801, 65535, 2, 1441792, 0, 2, 1441792, 1, 2, 9, 65533, 2, 1441797, 65534, 3, 1441797, 2, 2, 5, 1, 3, 5, 65535, 3, 11, 0, 3, 10)
+"cells": PackedInt32Array(0, 65532, 655371, 1, 65532, 1048581, 65534, 65532, 655365, 65534, 65533, 1441797, 1, 65533, 5, 65535, 65532, 655370, 65535, 65533, 1048584, 0, 65533, 1048584, 65535, 65534, 1441794, 0, 65534, 1048578, 65535, 65535, 655372, 0, 65535, 655373, 1, 0, 655361, 0, 0, 655361, 65535, 0, 655361, 65534, 0, 655361, 0, 1, 1441800, 65535, 1, 1441800, 65534, 1, 1441800, 1, 1, 1441800, 65534, 65535, 6, 1, 65535, 1441798, 65533, 0, 655366, 2, 0, 1048582, 2, 1, 1441796, 65533, 1, 1441799, 65534, 2, 1441801, 65535, 2, 1441792, 0, 2, 1441792, 1, 2, 9, 65533, 2, 1441797, 65534, 3, 1441797, 2, 2, 5, 1, 3, 5, 65535, 3, 11, 0, 3, 10)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -34,3 +35,21 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -46.
 
 [node name="torch6" parent="." unique_id=1882891566 instance=ExtResource("3_elqdb")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 47.329792, 12.3847065, 96.63983)
+
+[node name="spawner" parent="." unique_id=1067744907 instance=ExtResource("4_t3u1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9427395, 2.8015556, 90.575485)
+
+[node name="spawner2" parent="." unique_id=1801528314 instance=ExtResource("4_t3u1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8606052, 2.8015556, 90.575485)
+
+[node name="spawner3" parent="." unique_id=334260216 instance=ExtResource("4_t3u1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.993776, 2.8015556, 90.575485)
+
+[node name="spawner4" parent="." unique_id=196073535 instance=ExtResource("4_t3u1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9427395, 2.8015556, 76.873245)
+
+[node name="spawner5" parent="." unique_id=1226747460 instance=ExtResource("4_t3u1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8606052, 2.8015556, 76.873245)
+
+[node name="spawner6" parent="." unique_id=204161536 instance=ExtResource("4_t3u1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.993776, 2.8015556, 76.873245)
