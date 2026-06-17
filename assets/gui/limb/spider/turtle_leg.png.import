@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8cwslx4hfvtw"
-path="res://.godot/imported/turtle_leg.png-55f27461285d302e510781ecceb0c3a0.ctex"
+path="res://.godot/imported/turtle_leg.png-e2f3741600a931b7d378a8f9b14e8b9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gui/limb/spider/turtle_leg.png"
-dest_files=["res://.godot/imported/turtle_leg.png-55f27461285d302e510781ecceb0c3a0.ctex"]
+source_file="res://assets/gui/limb/spider/turtle_leg.png"
+dest_files=["res://.godot/imported/turtle_leg.png-e2f3741600a931b7d378a8f9b14e8b9d.ctex"]
 
 [params]
 

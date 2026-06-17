@@ -61,7 +61,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
 shader = ExtResource("9_6ll7k")
-shader_parameter/pixel_size = 2.0
+shader_parameter/pixel_size = 1.0
 shader_parameter/levels = 20.0
 shader_parameter/gamma = Vector2(0.4, 2.975)
 shader_parameter/curvature = 14.95
