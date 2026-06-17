@@ -158,6 +158,7 @@ height = 3.8515625
 [node name="kobold_leg" type="RigidBody3D" unique_id=1415290783]
 script = ExtResource("1_8nv7u")
 type = 2
+limb_name = "Kobold Leg"
 hp = 2.0
 speed = 2
 metadata/_custom_type_script = "uid://1ncxcw86231v"

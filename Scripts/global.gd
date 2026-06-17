@@ -1,5 +1,7 @@
 extends Node
 
+var difficulty = 0
+var new_level = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

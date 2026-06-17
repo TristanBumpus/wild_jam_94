@@ -311,6 +311,7 @@ mass = 5.0
 script = ExtResource("1_ymmc4")
 type = 2
 type_2 = 1
+limb_name = "Spider Legs"
 damage = 1.0
 attack_speed = 2.0
 speed = 3

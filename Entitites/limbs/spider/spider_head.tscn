@@ -10,6 +10,7 @@ height = 2.604004
 [node name="spider_head" type="RigidBody3D" unique_id=958455242]
 script = ExtResource("1_636xt")
 type = 0
+limb_name = "Spider Head"
 hp = 2.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

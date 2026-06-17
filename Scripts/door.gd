@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var init = $RigidBody3D.global_transform.origin
-
+var run = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,14 +16,18 @@ func _process(delta: float) -> void:
 	
 	if get_tree().get_node_count_in_group("enemy") > 0:
 		$RigidBody3D.freeze = true
-		if $RigidBody3D.position != Vector3.ZERO:
+		if $RigidBody3D.position != Vector3.ZERO and run:
 			#global_transform.origin = init
+			run = false
+			$RigidBody3D/CollisionShape3D.disabled = true
 			var t = create_tween()
 			t.tween_property($RigidBody3D,"rotation:y",0,1)
 			t.parallel().tween_property($RigidBody3D,"position",Vector3.ZERO,1)
 			t.tween_property($RigidBody3D,"linear_velocity",Vector3.ZERO,.1)
 			t.tween_property($RigidBody3D,"angular_velocity",Vector3.ZERO,.1)
+			t.tween_property($RigidBody3D/CollisionShape3D,"disabled",false,.1)
 	else:
+		run = true
 		$RigidBody3D.freeze = false
 	
 	if $RigidBody3D.position != Vector3.ZERO and $Timer.is_stopped():
@@ -34,8 +38,10 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
+	$RigidBody3D/CollisionShape3D.disabled = true
 	var t = create_tween()
 	t.tween_property($RigidBody3D,"rotation:y",0,1)
 	t.parallel().tween_property($RigidBody3D,"position",Vector3.ZERO,1)
 	t.tween_property($RigidBody3D,"linear_velocity",Vector3.ZERO,.1)
 	t.tween_property($RigidBody3D,"angular_velocity",Vector3.ZERO,.1)
+	t.tween_property($RigidBody3D/CollisionShape3D,"disabled",false,.1)

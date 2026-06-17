@@ -178,6 +178,7 @@ size = Vector3(2.385315, 1, 8.161743)
 script = ExtResource("1_0pict")
 type = 0
 type_2 = 1
+limb_name = "Kobold Head"
 damage = 1.0
 hp = 1.0
 armor = 1.0

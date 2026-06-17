@@ -9,6 +9,7 @@ radius = 1.6892773
 [node name="spider_body" type="RigidBody3D" unique_id=81140087]
 script = ExtResource("1_8p664")
 type = 3
+limb_name = "Spider Torso"
 hp = 5.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

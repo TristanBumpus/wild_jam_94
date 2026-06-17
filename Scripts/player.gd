@@ -93,7 +93,7 @@ func set_animation(node:Node3D,animString:String):
 				advance = true
 			node.get_node("AnimationPlayer").play(animString, .3)
 			if advance:
-				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
+				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.attack_speed)
 
 func animation_states():
 	if velocity.x + velocity.z != 0:

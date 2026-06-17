@@ -149,13 +149,7 @@ func _ready() -> void:
 		if special_type == "Small":
 			scale = Vector3(.5,.5,.5)
 	
-	#Hover info
-	var s = ""
-	if special_type != "none":
-		s = special_type + " "
 	
-	$billboard/title.text = s + limb_name
-	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
 	
 	player = get_tree().get_first_node_in_group("player")
 
@@ -200,6 +194,12 @@ func _process(delta: float) -> void:
 	#$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
 	#$billboard.global_rotation = Vector3.ZERO
 	
+	var s = ""
+	if special_type != "none":
+		s = special_type + " "
+	$billboard/title.text = s + limb_name
+	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
+			
 	
 	if $billboard.visible:
 		if Input.is_action_just_pressed("f"):

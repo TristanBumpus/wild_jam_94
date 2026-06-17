@@ -186,6 +186,7 @@ size = Vector3(2.6264648, 1, 9.800903)
 
 [node name="kobold_arm" type="RigidBody3D" unique_id=29705706]
 script = ExtResource("1_t6lbc")
+limb_name = "Kobold Arm"
 damage = 2.0
 hp = 2.0
 armor = 1.0

@@ -8,10 +8,9 @@ class_name spawner
 
 func spawn():
 	
-	var e = enemies.pick_random().instantiate()
-	get_tree().current_scene.add_child(e)
+	var e = get_tree().current_scene.get_node("enemy_holder").get_children().pick_random()
+	e.reparent(get_tree().current_scene)
 	e.global_position = global_position + Vector3(0,10,0)
-	print("w")
 	queue_free()
 
 

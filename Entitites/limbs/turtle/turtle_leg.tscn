@@ -159,6 +159,7 @@ height = 4.953125
 [node name="turtle_leg" type="RigidBody3D" unique_id=1336250424]
 script = ExtResource("1_g6o6b")
 type = 2
+limb_name = "Turtle Legs"
 speed = 1
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
