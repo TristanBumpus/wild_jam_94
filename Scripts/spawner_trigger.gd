@@ -15,5 +15,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		for child in get_parent().find_children("*","spawner"):
 			child.spawn()
+			$Timer.start(2)
 		
-		global.new_level = true
+		
+
+
+func _on_timer_timeout() -> void:
+	global.new_level = true

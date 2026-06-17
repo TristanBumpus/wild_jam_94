@@ -5,6 +5,7 @@ class_name Enemy
 @export_category("Combat")
 @export_enum("melee", "range") var attack_type = 0
 @export var hp = 0
+var max_hp = 0
 @export var damage = 1
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 
@@ -22,6 +23,9 @@ var armor = 0
 @export var is_effected_by_gravity = true
 var luck = 0.0
 
+@export_category("Other")
+@export var e_name = "Enemy"
+
 var player: CharacterBody3D
 
 var special_limb = 0
@@ -31,6 +35,33 @@ var last_limbs = [null,null,null,null,null,null]
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 
 
+func chest_equalizer():
+	var head_offset = $body/torso.get_child(0).chest_off_head_set
+	var arm_offset = $body/torso.get_child(0).chest_off_set
+	var leg_offset = $body/torso.get_child(0).chest_off_set_legs
+	
+	head_offset.x *= $body/torso.get_child(0).scale.x
+	head_offset.y *= $body/torso.get_child(0).scale.x
+	head_offset.z *= $body/torso.get_child(0).scale.x
+	
+	arm_offset.x *= $body/torso.get_child(0).scale.x
+	arm_offset.y *= $body/torso.get_child(0).scale.x
+	arm_offset.z *= $body/torso.get_child(0).scale.x
+	
+	leg_offset.x *= $body/torso.get_child(0).scale.x
+	leg_offset.y *= $body/torso.get_child(0).scale.x
+	leg_offset.z *= $body/torso.get_child(0).scale.x
+	
+	$CollisionShape3D.scale = $body/torso.get_child(0).scale
+	$Area3D/CollisionShape3D.scale = $body/torso.get_child(0).scale
+	
+	$body/head.position = head_offset
+	
+	$body/right_leg.position = leg_offset
+	$body/left_leg.position = leg_offset * Vector3(-1,1,1)
+	
+	$body/right_arm.position = arm_offset
+	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func basic_movement():
 	$NavigationAgent3D.target_position = player.global_position
@@ -40,7 +71,6 @@ func basic_movement():
 		player.global_position.z - global_position.z
 	).normalized()
 	
-	print($NavigationAgent3D.get_current_navigation_path())
 	var target_angle = flat_direction.angle_to(Vector2.UP)
 	
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
@@ -50,6 +80,7 @@ func basic_movement():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
+		node.look_at(player.position)
 		#if node.get_node("AnimationPlayer").current_animation != "attack":
 		node.get_node("AnimationPlayer").play("attack")
 	
@@ -106,6 +137,10 @@ func limb_checker():
 	limb_to_check($body/right_arm,3)
 	limb_to_check($body/left_leg,4)
 	limb_to_check($body/right_leg,5)
+	
+	max_hp = hp
+	
+	chest_equalizer()
 
 func rigid_interaction():
 	
@@ -130,13 +165,15 @@ func rigid_interaction():
 
 func _ready() -> void:
 	
+	
 	player = get_tree().get_first_node_in_group("player")
 	
 	
 	var r = randi_range(1,100)
 	
-	if r <= 10:
+	if r <= 30:
 		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
+		#var types = ["Big","Small"]
 		special_type = types.pick_random()
 	
 	$body/head.get_child(0).special_type = special_type
@@ -147,8 +184,11 @@ func _ready() -> void:
 	$body/right_leg.get_child(0).special_type = special_type
 	
 	limb_checker()
+	
+	chest_equalizer()
 
 func _process(delta: float) -> void:
+	
 	
 	add_to_group("enemy")
 	

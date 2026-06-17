@@ -49,6 +49,7 @@ spawner=""
 
 theme/custom="uid://dng3rphw3juoc"
 theme/custom_font="uid://d32iwai3iy0a7"
+theme/main_scene="uid://cfxw6wa20bfri"
 
 [input]
 

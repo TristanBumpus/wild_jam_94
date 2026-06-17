@@ -22,7 +22,9 @@ class_name limb
 @export var speed = 0
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 @export var rotation_diffrence = 0
-
+@export var chest_off_set = Vector3(0,0,0)
+@export var chest_off_set_legs = Vector3(0,0,0)
+@export var chest_off_head_set = Vector3(0,0,0)
 
 var player : CharacterBody3D
 var billboard
@@ -45,6 +47,69 @@ func switch_limb(to_get,s = 1):
 	old.sleeping = false
 	player.limb_checker()
 
+func tooltip(old_limb,show_attack = false):
+	$choice/Control/RichTextLabel.text = ""
+	$choice/Control/RichTextLabel2.text = ""
+	
+	$choice/Control/RichTextLabel.text = "New " + $billboard/title.text
+	$choice/Control/RichTextLabel2.text = "Old " + old_limb.get_node("billboard/title").text
+	
+	$choice/Control/RichTextLabel.text += "\n"
+	$choice/Control/RichTextLabel2.text += "\n"
+	
+	if show_attack:
+		if old_limb.damage > damage:
+			$choice/Control/RichTextLabel2.append_text("Damage: [color=green]%s[/color]\n" % [str(old_limb.damage)])
+			$choice/Control/RichTextLabel.append_text("Damage: [color=red%s[/color]\n" % [str(damage)])
+		if old_limb.damage <= damage:
+			$choice/Control/RichTextLabel2.append_text("Damage: [color=red]%s[/color]\n" % [str(old_limb.damage)])
+			$choice/Control/RichTextLabel.append_text("Damage: [color=green]%s[/color]\n" % [str(damage)])
+		
+		if old_limb.attack_speed > attack_speed:
+			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(old_limb.attack_speed)])
+			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=red%s[/color]\n" % [str(attack_speed)])
+		if old_limb.attack_speed <= attack_speed:
+			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(old_limb.attack_speed)])
+			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(attack_speed)])
+		
+		if old_limb.armor_p > armor_p:
+			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(old_limb.armor_p)])
+			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=red%s[/color]\n" % [str(armor_p)])
+		if old_limb.armor_p <= armor_p:
+			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=red]%s[/color]\n" % [str(old_limb.armor_p)])
+			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(armor_p)])
+	
+	if old_limb.hp > hp:
+		$choice/Control/RichTextLabel2.append_text("Hp: [color=green]%s[/color]\n" % [str(old_limb.hp)])
+		$choice/Control/RichTextLabel.append_text("Hp: [color=red%s[/color]\n" % [str(hp)])
+	if old_limb.hp <= hp:
+		$choice/Control/RichTextLabel2.append_text("Hp: [color=red]%s[/color]\n" % [str(old_limb.hp)])
+		$choice/Control/RichTextLabel.append_text("Hp: [color=green]%s[/color]\n" % [str(hp)])
+	
+	if old_limb.armor > armor:
+		$choice/Control/RichTextLabel2.append_text("Armor: [color=green]%s[/color]\n" % [str(old_limb.armor)])
+		$choice/Control/RichTextLabel.append_text("Armor: [color=red%s[/color]\n" % [str(armor)])
+	if old_limb.armor <= armor:
+		$choice/Control/RichTextLabel2.append_text("Armor: [color=red]%s[/color]\n" % [str(old_limb.armor)])
+		$choice/Control/RichTextLabel.append_text("Armor: [color=green]%s[/color]\n" % [str(armor)])
+	
+	if old_limb.speed > speed:
+		$choice/Control/RichTextLabel2.append_text("Speed: [color=green]%s[/color]\n" % [str(old_limb.speed)])
+		$choice/Control/RichTextLabel.append_text("Speed: [color=red%s[/color]\n" % [str(speed)])
+	if old_limb.speed <= speed:
+		$choice/Control/RichTextLabel2.append_text("Speed: [color=red]%s[/color]\n" % [str(old_limb.speed)])
+		$choice/Control/RichTextLabel.append_text("Speed: [color=green]%s[/color]\n" % [str(speed)])
+	
+	if old_limb.luck > luck:
+		$choice/Control/RichTextLabel2.append_text("Luck: [color=green]%s[/color]\n" % [str(old_limb.luck)])
+		$choice/Control/RichTextLabel.append_text("Luck: [color=red%s[/color]\n" % [str(luck)])
+	if old_limb.luck <= luck:
+		$choice/Control/RichTextLabel2.append_text("Luck: [color=red]%s[/color]\n" % [str(old_limb.luck)])
+		$choice/Control/RichTextLabel.append_text("Luck: [color=green]%s[/color]\n" % [str(luck)])
+	
+	
+	#$choice/Control/RichTextLabel2.text
+	#$choice/Control/RichTextLabel2.text += str(old_limb.damage)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -76,22 +141,30 @@ func _ready() -> void:
 	c2.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
 	c2.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
 	
+	
+	
 	add_to_group("limb",true)
 	
 	#Limb selection
 	if type == 0 or type_2 == 0:
 		$choice/Control/Node2D/head.disabled = false
+		c2.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
 	
 	if type == 1 or type_2 == 1:
 		$choice/Control/Node2D/left_arm.disabled = false
 		$choice/Control/Node2D/right_arm.disabled = false
+		c2.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
+		c2.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
 	
 	if type == 2 or type_2 == 2:
 		$choice/Control/Node2D/left_leg.disabled = false
 		$choice/Control/Node2D/right_leg.disabled = false
+		c2.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
+		c2.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
 	
 	if type == 3 or type_2 == 3:
 		$choice/Control/Node2D/torso.disabled = false
+		c2.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	
 	#Basic stats
 	damage = snapped(damage * randf_range(.8,1.2), .01)
@@ -157,7 +230,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if type == 1 or type_2 == 1:
+	if $attack_box != null:
 		if get_parent() != get_tree().current_scene:
 			if get_parent().get_parent().get_parent().is_in_group("player"):
 				$attack_box.set_collision_layer_value(2,true)
@@ -199,18 +272,14 @@ func _process(delta: float) -> void:
 		s = special_type + " "
 	$billboard/title.text = s + limb_name
 	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
-			
+	
+	if $choice.visible:
+		$billboard.visible = false
 	
 	if $billboard.visible:
 		if Input.is_action_just_pressed("f"):
 			$choice.visible = true
-			#Choice tool tips
-			$choice/Control/Node2D/head.tooltip_text = "New " + $billboard/title.text + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld " + player.get_node("body/head").get_child(0).get_node("billboard/title").text + "\n" + "Hp +" + str(player.get_node("body/head").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/head").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/head").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/torso.tooltip_text = "New " + $billboard/title.text + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld " + player.get_node("body/torso").get_child(0).get_node("billboard/title").text + "\n" + "Hp +" + str(player.get_node("body/torso").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/torso").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/torso").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/right_arm.tooltip_text = "New " + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed " + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" + "\nOld " + player.get_node("body/right_arm").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/right_arm").get_child(0).damage) + "\n" + "Attack speed " + str(player.get_node("body/right_arm").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/right_arm").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/right_arm").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/right_arm").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/right_arm").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/left_arm.tooltip_text = "New " + $billboard/title.text + "\n" + "Damage " + str(damage) + "\n" + "Attack speed " + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld " + player.get_node("body/left_arm").get_child(0).get_node("billboard/title").text + "\n" + "Damage " + str(player.get_node("body/left_arm").get_child(0).damage) + "\n" + "Attack speed " + str(player.get_node("body/left_arm").get_child(0).attack_speed) + "\n" + "Armor Percing " + str(player.get_node("body/left_arm").get_child(0).armor_p) + "\n" + "Hp +" + str(player.get_node("body/left_arm").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/left_arm").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/left_arm").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/right_leg.tooltip_text = "New " + $billboard/title.text + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld " + player.get_node("body/right_leg").get_child(0).get_node("billboard/title").text + "\n" + "Hp +" + str(player.get_node("body/right_leg").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/right_leg").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/right_leg").get_child(0).speed) + "\n"
-			$choice/Control/Node2D/left_leg.tooltip_text = "New " + $billboard/title.text + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n" +  "\nOld " + player.get_node("body/left_leg").get_child(0).get_node("billboard/title").text + "\n" + "Hp +" + str(player.get_node("body/left_leg").get_child(0).hp) + "\n" + "Armor +" + str(player.get_node("body/left_leg").get_child(0).armor) + "\n" +"Speed +" + str(player.get_node("body/left_leg").get_child(0).speed) + "\n"
+			
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -238,3 +307,27 @@ func _on_right_leg_button_down() -> void:
 
 func _on_left_leg_button_down() -> void:
 	switch_limb("body/left_leg",0)
+
+
+func _head_hover():
+	tooltip(player.get_node("body/head").get_child(0))
+
+
+func _torso_hover():
+	tooltip(player.get_node("body/torso").get_child(0))
+
+
+func _left_arm_hover():
+	tooltip(player.get_node("body/left_arm").get_child(0),true)
+
+
+func _right_arm_hover():
+	tooltip(player.get_node("body/right_arm").get_child(0),true)
+
+
+func _left_leg_hover():
+	tooltip(player.get_node("body/left_leg").get_child(0))
+
+
+func _right_leg_hover():
+	tooltip(player.get_node("body/right_leg").get_child(0))

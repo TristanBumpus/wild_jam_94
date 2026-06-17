@@ -188,7 +188,7 @@ size = Vector3(2.6264648, 1, 9.800903)
 script = ExtResource("1_t6lbc")
 limb_name = "Kobold Arm"
 damage = 2.0
-hp = 2.0
+hp = 1.0
 armor = 1.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

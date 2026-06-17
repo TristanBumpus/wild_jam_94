@@ -18,6 +18,31 @@ var attacking = [false,false]
 var last_limbs = [null,null,null,null,null,null]
 
 
+func chest_equalizer():
+	var head_offset = $body/torso.get_child(0).chest_off_head_set
+	var arm_offset = $body/torso.get_child(0).chest_off_set
+	var leg_offset = $body/torso.get_child(0).chest_off_set_legs
+	
+	head_offset.x *= $body/torso.get_child(0).scale.x
+	head_offset.y *= $body/torso.get_child(0).scale.x
+	head_offset.z *= $body/torso.get_child(0).scale.x
+	
+	arm_offset.x *= $body/torso.get_child(0).scale.x
+	arm_offset.y *= $body/torso.get_child(0).scale.x
+	arm_offset.z *= $body/torso.get_child(0).scale.x
+	
+	leg_offset.x *= $body/torso.get_child(0).scale.x
+	leg_offset.y *= $body/torso.get_child(0).scale.x
+	leg_offset.z *= $body/torso.get_child(0).scale.x
+	
+	
+	$body/head.position = head_offset
+	
+	$body/right_leg.position = leg_offset
+	$body/left_leg.position = leg_offset * Vector3(-1,1,1)
+	
+	$body/right_arm.position = arm_offset
+	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func cheats():
 	if Input.is_action_just_pressed("esc"):
@@ -68,6 +93,8 @@ func limb_to_check(node,index):
 		speed += node.get_child(0).speed
 		armor += node.get_child(0).armor
 		luck += node.get_child(0).luck
+		if node.get_child(0).get_node("attack_box") != null:
+			node.get_child(0).get_node("attack_box").body_entered.connect(update_enemy_ui)
 
 func limb_checker():
 	limb_to_check($body/head,0)
@@ -76,6 +103,8 @@ func limb_checker():
 	limb_to_check($body/right_arm,3)
 	limb_to_check($body/left_leg,4)
 	limb_to_check($body/right_leg,5)
+	
+	chest_equalizer()
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
@@ -162,7 +191,6 @@ func rigid_interaction():
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	limb_checker()
 
 func _physics_process(delta: float) -> void:
@@ -182,13 +210,41 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit_box_area_entered(area: Area3D) -> void:
 	current_hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
-
+	
+	if current_hp <= 0:
+		$ui/death_screen.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("limb"):
 		body.get_node("billboard").visible = true
-
+	if body.is_in_group("enemy"):
+		$ui/Control/enemy.visible = true
+		$ui/Control/enemy_hp.visible = true
+		
+		$ui/Control/enemy_hp.max_value = body.max_hp
+		$ui/Control/enemy_hp.value = body.hp
+		if body.special_type != "none":
+			$ui/Control/enemy.text = body.get_node("body/head").get_child(0).special_type + " " + body.e_name
+		else:
+			$ui/Control/enemy.text = body.e_name
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("limb"):
 		body.get_node("billboard").visible = false
+	if body.is_in_group("enemy"):
+		$ui/Control/enemy.visible = false
+		$ui/Control/enemy_hp.visible = false
+
+func update_enemy_ui(body: Node3D) -> void:
+	if body != null:
+		$ui/Control/enemy.visible = true
+		$ui/Control/enemy_hp.visible = true
+		
+		$ui/Control/enemy_hp.max_value = body.max_hp
+		$ui/Control/enemy_hp.value = body.hp
+		if body.special_type != "none":
+			$ui/Control/enemy.text = body.get_node("body/head").get_child(0).special_type + " " + body.e_name
+		else:
+			$ui/Control/enemy.text = body.e_name

@@ -61,6 +61,7 @@ script = ExtResource("1_ixa8j")
 loot = Array[PackedScene]([ExtResource("5_8qq4n")])
 loot_chance = Array[int]([100])
 nav = NodePath("NavigationAgent3D")
+e_name = "Spider"
 metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1328242023]

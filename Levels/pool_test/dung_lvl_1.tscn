@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3wbmaphhvo4j"]
 
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="2_0wjf4"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="4_vjcl7"]
 

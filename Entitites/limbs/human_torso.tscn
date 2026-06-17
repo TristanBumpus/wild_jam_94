@@ -14,6 +14,9 @@ type = 3
 type_2 = 3
 limb_name = "Human Torso"
 hp = 10.0
+chest_off_set = Vector3(1.417, 1.127, 0)
+chest_off_set_legs = Vector3(0.5, -2.223, 0.183)
+chest_off_head_set = Vector3(0, 2.0806952, 0)
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=693086467]

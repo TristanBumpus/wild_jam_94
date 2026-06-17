@@ -7,11 +7,7 @@ class_name spawner
 
 
 func spawn():
-	
-	var e = get_tree().current_scene.get_node("enemy_holder").get_children().pick_random()
-	e.reparent(get_tree().current_scene)
-	e.global_position = global_position + Vector3(0,10,0)
-	queue_free()
+	$Timer.start(randf_range(.01,1))
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,3 +18,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_timer_timeout() -> void:
+	var e = get_tree().current_scene.get_node("enemy_holder").get_children().pick_random()
+	e.reparent(get_tree().current_scene)
+	e.global_position = global_position + Vector3(0,10,0)
+	queue_free()

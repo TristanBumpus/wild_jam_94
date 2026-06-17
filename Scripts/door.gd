@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var init = $RigidBody3D.global_transform.origin
+@onready var player = get_tree().get_first_node_in_group("player")
+
 var run = false
 
 
@@ -16,7 +18,7 @@ func _process(delta: float) -> void:
 	
 	if get_tree().get_node_count_in_group("enemy") > 0:
 		$RigidBody3D.freeze = true
-		if $RigidBody3D.position != Vector3.ZERO and run:
+		if $RigidBody3D.position != Vector3.ZERO and run and player.global_position.z + 2 > global_position.z:
 			#global_transform.origin = init
 			run = false
 			$RigidBody3D/CollisionShape3D.disabled = true
@@ -30,8 +32,8 @@ func _process(delta: float) -> void:
 		run = true
 		$RigidBody3D.freeze = false
 	
-	if $RigidBody3D.position != Vector3.ZERO and $Timer.is_stopped():
-		$Timer.start(10)
+	if $RigidBody3D.freeze and player.global_position.z < global_position.z:
+		$RigidBody3D.freeze = false
 
 
 
