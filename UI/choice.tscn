@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dratf5vwmbcmi" path="res://Assets/gui/limb/gui_body_wb.png" id="2_ejxot"]
 [ext_resource type="Texture2D" uid="uid://dv4p77rrkjq28" path="res://Assets/gui/limb/gui_arm_wb.png" id="3_54hth"]
 [ext_resource type="Texture2D" uid="uid://cbdopcmflf3in" path="res://Assets/gui/limb/gui_leg_wb.png" id="4_ejxot"]
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="5_ejxot"]
 
 [node name="choice" type="CanvasLayer" unique_id=31333311]
 layer = 2
@@ -136,3 +137,48 @@ icon = ExtResource("4_ejxot")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1801868684]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = -360.0
+offset_right = -246.0
+offset_bottom = 360.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_ejxot")
+theme_override_font_sizes/normal_font_size = 24
+text = "This 
+is
+ a
+ test"
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=1221733042]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -360.0
+offset_bottom = 360.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_ejxot")
+theme_override_font_sizes/normal_font_size = 24
+text = "This 
+is
+ a
+ test"
+vertical_alignment = 1
