@@ -1,6 +1,145 @@
 [gd_scene format=3 uid="uid://dpy37ff65jw2n"]
 
 [ext_resource type="Script" uid="uid://btvlojkg8dqyb" path="res://Scripts/spawner.gd" id="1_7iusy"]
+[ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="2_3hmla"]
+[ext_resource type="PackedScene" uid="uid://bruewlqmetmqh" path="res://Entitites/limbs/kobold/kobold_head.tscn" id="3_uiwxf"]
+[ext_resource type="PackedScene" uid="uid://dpgyag0q65hpy" path="res://Entitites/limbs/kobold/kobold_body.tscn" id="4_jgnra"]
+[ext_resource type="PackedScene" uid="uid://daeabprp56qe6" path="res://Entitites/limbs/kobold/kobold_arm.tscn" id="5_abmd8"]
+[ext_resource type="PackedScene" uid="uid://dh2q7yacmpvef" path="res://Entitites/limbs/kobold/kobold_leg.tscn" id="6_kxfk6"]
+[ext_resource type="PackedScene" uid="uid://6ccfeiq4tb8d" path="res://Entitites/limbs/spider/spider_legs.tscn" id="7_seag1"]
+[ext_resource type="PackedScene" uid="uid://c772k7wk1nd15" path="res://Entitites/limbs/spider/spider_head.tscn" id="8_gsqqq"]
+[ext_resource type="PackedScene" uid="uid://b6neifua0r1xq" path="res://Entitites/limbs/spider/spider_body.tscn" id="9_083yp"]
+[ext_resource type="PackedScene" uid="uid://c1lsxilwbl8gr" path="res://Entitites/limbs/turtle/turtle_arm.tscn" id="10_7rfdx"]
+[ext_resource type="PackedScene" uid="uid://c6thkbkht6suf" path="res://Entitites/limbs/turtle/turtle_head.tscn" id="11_5fu1r"]
+[ext_resource type="PackedScene" uid="uid://c835bmqgkhiem" path="res://Entitites/limbs/turtle/turtle_body.tscn" id="12_emevd"]
+[ext_resource type="PackedScene" uid="uid://dw1krjabpru35" path="res://Entitites/limbs/turtle/turtle_leg.tscn" id="13_8yi6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1fr8"]
+size = Vector3(2.45969, 8.022068, 1.756897)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8oorq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jeyy2"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi5b5"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dreyd"]
+size = Vector3(2.5129328, 9.302782, 2.1027222)
+
+[sub_resource type="PackedScene" id="PackedScene_mi3qc"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741845, 1073741844, 70, 69, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("Kobold", "CharacterBody3D", "script", "attack_type", "hit_box", "loot", "loot_chance", "nav", "metadata/_custom_type_script", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "MeshInstance3D", "MeshInstance3D", "mesh", "surface_material_override/0", "NavigationAgent3D", "NavigationAgent3D", "debug_enabled", "debug_path_custom_color", "debug_path_custom_point_size", "attack_box", "Area3D", "visible", "collision_layer", "collision_mask", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "disabled", "Area3D", "Area3D", "collision_layer", "collision_mask", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "body", "Node3D", "head", "Node3D", "transform", "kobold_head", "torso", "Node3D", "kobold_body", "left_arm", "Node3D", "transform", "kobold_arm", "transform", "side", "right_arm", "Node3D", "transform", "kobold_arm", "left_leg", "Node3D", "transform", "kobold_leg", "transform", "side", "right_leg", "Node3D", "transform", "kobold_leg", "_on_area_3d_area_entered", "area_entered"),
+"node_count": 21,
+"node_ids": PackedInt32Array(571424669, 465848917, 335368681, 1705259521, 2056078445, 924547612, 1572068405, 1760977631, 2089432174, 40281909, 856710131, 126621414, 1507028625, 1757251897, 29705706, 588589206, 1090452506, 1623871436, 1415290783, 1494551660, 1791170326),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./attack_box"), NodePath("."), NodePath("./Area3D"), NodePath("."), NodePath("./body"), NodePath("./body/head"), NodePath("./body"), NodePath("./body/torso"), NodePath("./body"), NodePath("./body/left_arm"), NodePath("./body"), NodePath("./body/right_arm"), NodePath("./body"), NodePath("./body/left_leg"), NodePath("./body"), NodePath("./body/right_leg"), NodePath("."), NodePath("Area3D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 1073741828, 2, 5, 3, 6, 4, 1073741831, 5, 8, 6, 0, 1073741824, 0, 10, 9, -1, 2, 11, 7, 12, 8, 0, 1073741825, 0, 14, 13, -1, 2, 15, 9, 16, 10, 0, 1073741826, 0, 18, 17, -1, 3, 19, 11, 20, 12, 21, 13, 0, 1073741827, 0, 23, 22, -1, 3, 24, 14, 25, 15, 26, 16, 0, 1073741828, 0, 28, 27, -1, 3, 29, 17, 30, 18, 31, 19, 0, 1073741829, 0, 33, 32, -1, 2, 34, 20, 35, 21, 0, 1073741830, 0, 37, 36, -1, 2, 38, 22, 39, 23, 0, 1073741831, 0, 41, 40, -1, 0, 0, 1073741832, 0, 43, 42, -1, 1, 44, 24, 0, 1073741833, 0, 2147483647, 45, 25, 0, 0, 1073741834, 0, 47, 46, -1, 0, 0, 1073741835, 0, 2147483647, 48, 26, 0, 0, 1073741836, 0, 50, 49, -1, 1, 51, 27, 0, 1073741837, 0, 2147483647, 52, 28, 2, 53, 29, 54, 30, 0, 1073741838, 0, 56, 55, -1, 1, 57, 31, 0, 1073741839, 0, 2147483647, 58, 32, 0, 0, 1073741840, 0, 60, 59, -1, 1, 61, 33, 0, 1073741841, 0, 2147483647, 62, 34, 2, 63, 35, 64, 36, 0, 1073741842, 0, 66, 65, -1, 1, 67, 37, 0, 1073741843, 0, 2147483647, 68, 38, 0, 0),
+"variants": [ExtResource("2_3hmla"), 1, NodePath("Area3D"), Array[PackedScene]([ExtResource("3_uiwxf")]), Array[int]([100]), NodePath("NavigationAgent3D"), "uid://cf3ljm2w7h0i", Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013498306, -1.7536488, 0.037017822), SubResource("BoxShape3D_p1fr8"), SubResource("BoxMesh_8oorq"), SubResource("StandardMaterial3D_jeyy2"), true, Color(1, 0, 0, 1), 45.6, false, 4, 4, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1), SubResource("BoxShape3D_yi5b5"), true, 0, 2, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040112972, -1.0639753, 0.11129761), SubResource("BoxShape3D_dreyd"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0183964, -0.2858851), ExtResource("3_uiwxf"), ExtResource("4_jgnra"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8118849, 0.9741397, 0), ExtResource("5_abmd8"), Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.812, 0.974, 0), ExtResource("5_abmd8"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69447386, -2.2839234, 0.30782318), ExtResource("6_kxfk6"), Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.284, 0.308), ExtResource("6_kxfk6")],
+"version": 3
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ju50f"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ixa8j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dptck"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtbis"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8qq4n"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="Animation" id="Animation_byolt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dptck"]
+resource_name = "melee_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.44, 0.78),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byolt"]
+_data = {
+&"RESET": SubResource("Animation_byolt"),
+&"melee_attack": SubResource("Animation_dptck")
+}
+
+[sub_resource type="PackedScene" id="PackedScene_mg63g"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741846, 1073741845, 77, 76, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("spider", "CharacterBody3D", "script", "loot", "loot_chance", "nav", "metadata/_custom_type_script", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "MeshInstance3D", "MeshInstance3D", "mesh", "surface_material_override/0", "NavigationAgent3D", "NavigationAgent3D", "debug_enabled", "debug_path_custom_color", "debug_path_custom_point_size", "attack_box", "Area3D", "visible", "collision_layer", "collision_mask", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "disabled", "Area3D", "Area3D", "collision_layer", "collision_mask", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "AnimationPlayer", "AnimationPlayer", "libraries/", "body", "Node3D", "head", "Node3D", "transform", "spider_head", "hp", "torso", "Node3D", "spider_body", "hp", "left_arm", "Node3D", "transform", "spider_legs", "transform", "side", "damage", "right_arm", "Node3D", "transform", "spider_legs", "damage", "left_leg", "Node3D", "transform", "spider_legs", "transform", "side", "damage", "right_leg", "Node3D", "transform", "spider_legs", "damage", "_on_area_3d_area_entered", "area_entered"),
+"node_count": 22,
+"node_ids": PackedInt32Array(973888417, 1328242023, 813517760, 577676601, 1149960521, 430839699, 1659286447, 2004201073, 746458141, 1140613474, 387186141, 958455242, 2113816249, 81140087, 675980868, 2072162453, 1729331845, 2036669245, 1833164654, 1328567629, 412243330, 852666970),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./attack_box"), NodePath("."), NodePath("./Area3D"), NodePath("."), NodePath("."), NodePath("./body"), NodePath("./body/head"), NodePath("./body"), NodePath("./body/torso"), NodePath("./body"), NodePath("./body/left_arm"), NodePath("./body"), NodePath("./body/right_arm"), NodePath("./body"), NodePath("./body/left_leg"), NodePath("./body"), NodePath("./body/right_leg"), NodePath("."), NodePath("Area3D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 1073741829, 3, 6, 4, 0, 1073741824, 0, 8, 7, -1, 2, 9, 5, 10, 6, 0, 1073741825, 0, 12, 11, -1, 2, 13, 7, 14, 8, 0, 1073741826, 0, 16, 15, -1, 3, 17, 9, 18, 10, 19, 11, 0, 1073741827, 0, 21, 20, -1, 3, 22, 12, 23, 13, 24, 14, 0, 1073741828, 0, 26, 25, -1, 3, 27, 15, 28, 16, 29, 17, 0, 1073741829, 0, 31, 30, -1, 2, 32, 18, 33, 19, 0, 1073741830, 0, 35, 34, -1, 2, 36, 20, 37, 21, 0, 1073741831, 0, 39, 38, -1, 1, 40, 22, 0, 1073741832, 0, 42, 41, -1, 0, 0, 1073741833, 0, 44, 43, -1, 1, 45, 23, 0, 1073741834, 0, 2147483647, 46, 24, 1, 47, 25, 0, 1073741835, 0, 49, 48, -1, 0, 0, 1073741836, 0, 2147483647, 50, 26, 1, 51, 27, 0, 1073741837, 0, 53, 52, -1, 1, 54, 28, 0, 1073741838, 0, 2147483647, 55, 29, 3, 56, 30, 57, 31, 58, 32, 0, 1073741839, 0, 60, 59, -1, 1, 61, 33, 0, 1073741840, 0, 2147483647, 62, 34, 1, 63, 35, 0, 1073741841, 0, 65, 64, -1, 1, 66, 36, 0, 1073741842, 0, 2147483647, 67, 37, 3, 68, 38, 69, 39, 70, 40, 0, 1073741843, 0, 72, 71, -1, 1, 73, 41, 0, 1073741844, 0, 2147483647, 74, 42, 1, 75, 43, 0),
+"variants": [ExtResource("2_3hmla"), Array[PackedScene]([ExtResource("7_seag1")]), Array[int]([100]), NodePath("NavigationAgent3D"), "uid://cf3ljm2w7h0i", Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022132874, -0.7617531, -0.62805176), SubResource("BoxShape3D_ju50f"), SubResource("BoxMesh_ixa8j"), SubResource("StandardMaterial3D_dptck"), true, Color(1, 0, 0, 1), 45.6, false, 4, 4, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1), SubResource("BoxShape3D_qtbis"), true, 0, 2, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022132874, -0.7617531, -0.62805176), SubResource("BoxShape3D_8qq4n"), SubResource("AnimationLibrary_byolt"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42490745, -2.4542398), ExtResource("8_gsqqq"), 0.0, ExtResource("9_083yp"), 0.0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -1.430877), ExtResource("7_seag1"), Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 0, 0.0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0, -1.431), ExtResource("7_seag1"), 0.0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -0.5750859), ExtResource("7_seag1"), Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 0, 0.0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0, -0.575), ExtResource("7_seag1"), 0.0],
+"version": 3
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ot2br"]
+size = Vector3(2.45969, 9.267382, 1.756897)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vfun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqn3q"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4lrh"]
+size = Vector3(7.9781647, 6.0382767, 7.102783)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_126nu"]
+size = Vector3(2.5129328, 9.302782, 2.1027222)
+
+[sub_resource type="PackedScene" id="PackedScene_r4tjd"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741845, 1073741844, 67, 66, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("turtle", "CharacterBody3D", "script", "loot", "loot_chance", "metadata/_custom_type_script", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "MeshInstance3D", "MeshInstance3D", "mesh", "surface_material_override/0", "NavigationAgent3D", "NavigationAgent3D", "debug_enabled", "debug_path_custom_color", "debug_path_custom_point_size", "attack_box", "Area3D", "visible", "collision_layer", "collision_mask", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "disabled", "Area3D", "Area3D", "collision_layer", "collision_mask", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "body", "Node3D", "head", "Node3D", "transform", "turtle_head", "torso", "Node3D", "turtle_body", "left_arm", "Node3D", "transform", "turtle_arm", "transform", "side", "right_arm", "Node3D", "transform", "turtle_arm", "left_leg", "Node3D", "transform", "turtle_leg", "transform", "side", "right_leg", "Node3D", "transform", "turtle_leg", "_on_area_3d_area_entered", "area_entered"),
+"node_count": 21,
+"node_ids": PackedInt32Array(1342392873, 1528241298, 116554713, 54556878, 71586243, 786520773, 2099121729, 437256803, 1471017800, 241967150, 1155505961, 1965286212, 270943981, 1175994164, 1350772181, 1560406482, 894054876, 2064421618, 1336250424, 718369929, 580532378),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./attack_box"), NodePath("."), NodePath("./Area3D"), NodePath("."), NodePath("./body"), NodePath("./body/head"), NodePath("./body"), NodePath("./body/torso"), NodePath("./body"), NodePath("./body/left_arm"), NodePath("./body"), NodePath("./body/right_arm"), NodePath("./body"), NodePath("./body/left_leg"), NodePath("./body"), NodePath("./body/right_leg"), NodePath("."), NodePath("Area3D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0, 1073741824, 0, 7, 6, -1, 2, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 2, 12, 6, 13, 7, 0, 1073741826, 0, 15, 14, -1, 3, 16, 8, 17, 9, 18, 10, 0, 1073741827, 0, 20, 19, -1, 3, 21, 11, 22, 12, 23, 13, 0, 1073741828, 0, 25, 24, -1, 3, 26, 14, 27, 15, 28, 16, 0, 1073741829, 0, 30, 29, -1, 2, 31, 17, 32, 18, 0, 1073741830, 0, 34, 33, -1, 2, 35, 19, 36, 20, 0, 1073741831, 0, 38, 37, -1, 0, 0, 1073741832, 0, 40, 39, -1, 1, 41, 21, 0, 1073741833, 0, 2147483647, 42, 22, 0, 0, 1073741834, 0, 44, 43, -1, 0, 0, 1073741835, 0, 2147483647, 45, 23, 0, 0, 1073741836, 0, 47, 46, -1, 1, 48, 24, 0, 1073741837, 0, 2147483647, 49, 25, 2, 50, 26, 51, 27, 0, 1073741838, 0, 53, 52, -1, 1, 54, 28, 0, 1073741839, 0, 2147483647, 55, 29, 0, 0, 1073741840, 0, 57, 56, -1, 1, 58, 30, 0, 1073741841, 0, 2147483647, 59, 31, 2, 60, 32, 61, 33, 0, 1073741842, 0, 63, 62, -1, 1, 64, 34, 0, 1073741843, 0, 2147483647, 65, 35, 0, 0),
+"variants": [ExtResource("2_3hmla"), Array[PackedScene]([ExtResource("10_7rfdx")]), Array[int]([100]), "uid://cf3ljm2w7h0i", Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013498306, -2.3763056, 0.037017822), SubResource("BoxShape3D_ot2br"), SubResource("BoxMesh_7vfun"), SubResource("StandardMaterial3D_gqn3q"), true, Color(1, 0, 0, 1), 45.6, false, 4, 4, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1), SubResource("BoxShape3D_h4lrh"), true, 0, 2, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040112972, -1.0639753, 0.11129761), SubResource("BoxShape3D_126nu"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0183964, -0.2858851), ExtResource("11_5fu1r"), ExtResource("12_emevd"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8118849, 0.9741397, 0), ExtResource("10_7rfdx"), Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.812, 0.974, 0), ExtResource("10_7rfdx"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69447386, -2.2839234, 0.30782318), ExtResource("13_8yi6v"), Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.284, 0.308), ExtResource("13_8yi6v")],
+"version": 3
+}
 
 [node name="spawner" type="Node3D" unique_id=1067744907 groups=["spawner"]]
 script = ExtResource("1_7iusy")
+enemies = Array[PackedScene]([SubResource("PackedScene_mi3qc"), SubResource("PackedScene_mg63g"), SubResource("PackedScene_r4tjd")])

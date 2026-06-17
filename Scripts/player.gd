@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var current_hp = 5
 @export var max_hp = 5
 
-var speed = 5.0
+var speed = 10.0
 var attack_speed = 1
 var armor = 0
 var jump_speed = 4.5
@@ -48,21 +48,23 @@ func movement(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 func attack():
-	if Input.is_action_just_pressed("left_click"):
+	if Input.is_action_pressed("left_click") and !attacking[0]:
 		attacking[0] = true
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_pressed("right_click") and !attacking[1]:
 		attacking[1] = true
 
 func limb_to_check(node,index):
 	if node.get_child(0) != last_limbs[index]:
 		if last_limbs[index] != null:
 			max_hp -= last_limbs[index].hp
+			current_hp -= last_limbs[index].hp
 			speed -= last_limbs[index].speed
 			armor -= last_limbs[index].armor
 			luck -= last_limbs[index].luck
 		
 		last_limbs[index] = node.get_child(0)
 		max_hp += node.get_child(0).hp
+		current_hp += node.get_child(0).hp
 		speed += node.get_child(0).speed
 		armor += node.get_child(0).armor
 		luck += node.get_child(0).luck
@@ -91,7 +93,7 @@ func set_animation(node:Node3D,animString:String):
 				advance = true
 			node.get_node("AnimationPlayer").play(animString, .3)
 			if advance:
-				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
+				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.attack_speed)
 
 func animation_states():
 	if velocity.x + velocity.z != 0:

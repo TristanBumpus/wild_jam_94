@@ -4,7 +4,7 @@ class_name Enemy
 
 @export_category("Combat")
 @export_enum("melee", "range") var attack_type = 0
-@export var hp = 1
+@export var hp = 0
 @export var damage = 1
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 
@@ -33,20 +33,20 @@ var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 
 
 func basic_movement():
-	#nav.target_position = player.global_position
-	#if nav.is_target_reachable():
+	$NavigationAgent3D.target_position = player.global_position
+	
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
 		player.global_position.z - global_position.z
-	)
+	).normalized()
 	
+	print($NavigationAgent3D.get_current_navigation_path())
 	var target_angle = flat_direction.angle_to(Vector2.UP)
 	
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
-	
-	var dir = (player.global_position - global_position).normalized()
-	velocity.x = dir.x * speed
-	velocity.z = dir.z * speed
+	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
+	velocity.x = flat_direction.x * speed
+	velocity.z = flat_direction.y * speed
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
@@ -130,15 +130,14 @@ func rigid_interaction():
 
 func _ready() -> void:
 	
-	add_to_group("enemy")
-	
 	player = get_tree().get_first_node_in_group("player")
 	
 	
 	var r = randi_range(1,100)
 	
-	if r == 1:
-		special_type = "Big"
+	if r <= 10:
+		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
+		special_type = types.pick_random()
 	
 	$body/head.get_child(0).special_type = special_type
 	$body/torso.get_child(0).special_type = special_type
@@ -150,6 +149,9 @@ func _ready() -> void:
 	limb_checker()
 
 func _process(delta: float) -> void:
+	
+	add_to_group("enemy")
+	
 	if is_effected_by_gravity:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -184,7 +186,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	b.global_position.y = 1
 	b.global_position.x += randi_range(-1,1)
 	b.global_position.z += randi_range(-1,1)
-	
+	b.rotation.y = randf_range(0,7)
 	
 	
 	if hp <= 0:
@@ -197,10 +199,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 				break
 			times += 1
 		
-		var l = loot[times].instantiate()
-		l.special_type = special_type
-		get_tree().current_scene.add_child(l)
-		l.global_position = global_position + Vector3(0,6,0)
+		var new_loot = [$body/head.get_child(0),$body/torso.get_child(0),$body/left_arm.get_child(0),$body/right_arm.get_child(0),$body/left_leg.get_child(0),$body/right_leg.get_child(0)]
+		
+		var selected = new_loot.pick_random()
+		selected.reparent(get_tree().current_scene)
+		selected.global_position.y += 2
 		
 		
 		queue_free()

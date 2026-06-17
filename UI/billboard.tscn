@@ -3,105 +3,174 @@
 [ext_resource type="Script" uid="uid://bv2cxefikbdij" path="res://Scripts/billboard.gd" id="1_8rsd6"]
 [ext_resource type="Texture2D" uid="uid://ynl8g7hxwc43" path="res://Assets/gui/parchemin_text.png" id="2_3drgr"]
 [ext_resource type="Texture2D" uid="uid://ks6wlj1mebxx" path="res://Assets/gui/dmg_gui.png" id="3_1y2an"]
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="3_ewraf"]
 [ext_resource type="Texture2D" uid="uid://dgwtegmdee8v0" path="res://Assets/gui/dmg_speed_gui.png" id="4_ewraf"]
 [ext_resource type="Texture2D" uid="uid://bbh7pm5a2pm1i" path="res://Assets/gui/dmg_pierce_gui.png" id="5_21o47"]
 [ext_resource type="Texture2D" uid="uid://pjdh3i5gep7l" path="res://Assets/gui/hearth_gui.png" id="6_v4kc2"]
 [ext_resource type="Texture2D" uid="uid://bq8jldullq4p4" path="res://Assets/gui/armor_gui.png" id="7_dwtif"]
 [ext_resource type="Texture2D" uid="uid://2wgmnvo5bmg4" path="res://Assets/gui/speed_gui.png" id="8_hyduu"]
 
-[node name="billboard" type="Node3D" unique_id=548411036]
+[node name="billboard" type="CanvasLayer" unique_id=1246629809]
 script = ExtResource("1_8rsd6")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=173818548]
-transform = Transform3D(6.37, 0, 0, 0, 5.935, 0, 0, 0, 3.765, 0, 0, 0)
-layers = 2
-offset = Vector2(0, -4.415)
-billboard = 1
-texture_filter = 0
-render_priority = -1
+[node name="Sprite3D" type="NinePatchRect" parent="." unique_id=618613565]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_3drgr")
 
-[node name="title" type="Label3D" parent="." unique_id=1773557127]
-layers = 2
-offset = Vector2(0, 100)
-billboard = 1
-texture_filter = 0
-render_priority = 1
-outline_render_priority = 0
-text = "Title"
-font_size = 48
+[node name="title" type="Label" parent="." unique_id=351213380]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(100, 0)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ewraf")
+theme_override_font_sizes/font_size = 24
+text = "wasdwasdwaq"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[node name="desc" type="Label3D" parent="." unique_id=1557866945]
-layers = 2
-offset = Vector2(-150, 70)
-billboard = 1
-texture_filter = 0
-render_priority = 1
-outline_render_priority = -8
+[node name="desc" type="Label" parent="." unique_id=969928258]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 478.0
+offset_top = -147.0
+offset_right = 574.0
+offset_bottom = 12.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_ewraf")
+theme_override_font_sizes/font_size = 24
 text = "Damage
 AT
 AP
 HP
 Armor
 Speed"
-font_size = 48
-horizontal_alignment = 0
-vertical_alignment = 0
 
-[node name="interactible" type="Label3D" parent="." unique_id=511200716]
-layers = 2
-offset = Vector2(-160, 110)
-billboard = 1
-texture_filter = 0
-render_priority = 2
-outline_render_priority = 1
+[node name="interactible" type="Label" parent="." unique_id=2062645867]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -194.0
+offset_right = -264.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_ewraf")
+theme_override_font_sizes/font_size = 24
 text = "F"
-font_size = 48
 
-[node name="damage" type="Sprite3D" parent="." unique_id=439957223]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(-180, 50)
-billboard = 1
-texture_filter = 0
-render_priority = 1
+[node name="damage" type="TextureRect" parent="." unique_id=290100377]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -147.0
+offset_right = -174.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_1y2an")
 
-[node name="attack_speed" type="Sprite3D" parent="." unique_id=2090415298]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(-180, 1.985)
-billboard = 1
-texture_filter = 0
-render_priority = 1
+[node name="attack_speed" type="TextureRect" parent="." unique_id=381091256]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -96.0
+offset_right = -174.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_ewraf")
 
-[node name="armor_peircing" type="Sprite3D" parent="." unique_id=236525846]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(-180, -42.135)
-billboard = 1
-texture_filter = 0
-render_priority = 1
+[node name="armor_peircing" type="TextureRect" parent="." unique_id=956904712]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -46.0
+offset_right = -174.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_21o47")
 
-[node name="hp" type="Sprite3D" parent="." unique_id=1818074956]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(-180, -89.83)
-billboard = 1
-texture_filter = 0
-render_priority = 1
+[node name="hp" type="TextureRect" parent="." unique_id=876891379]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 11.0
+offset_right = -174.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("6_v4kc2")
 
-[node name="armor" type="Sprite3D" parent="." unique_id=807511096]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(-180, -135.15)
-billboard = 1
-texture_filter = 0
-render_priority = 1
+[node name="armor" type="TextureRect" parent="." unique_id=1436175351]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 63.0
+offset_right = -174.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("7_dwtif")
 
-[node name="speed" type="Sprite3D" parent="." unique_id=1071061219]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(-180, -179.84)
-billboard = 1
-texture_filter = 0
-render_priority = 1
+[node name="speed" type="TextureRect" parent="." unique_id=13763594]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 115.0
+offset_right = -174.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("8_hyduu")

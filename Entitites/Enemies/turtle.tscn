@@ -21,10 +21,11 @@ size = Vector3(7.9781647, 6.0382767, 7.102783)
 [sub_resource type="BoxShape3D" id="BoxShape3D_126nu"]
 size = Vector3(2.5129328, 9.302782, 2.1027222)
 
-[node name="turtle" type="CharacterBody3D" unique_id=1342392873]
+[node name="turtle" type="CharacterBody3D" unique_id=1342392873 node_paths=PackedStringArray("nav")]
 script = ExtResource("1_5bfqm")
 loot = Array[PackedScene]([ExtResource("4_n1byt")])
 loot_chance = Array[int]([100])
+nav = NodePath("NavigationAgent3D")
 metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1528241298]

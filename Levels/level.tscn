@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cxn67d3c4suyy"]
+
+[ext_resource type="Script" uid="uid://wlucj2gqtxru" path="res://Scripts/world_gen.gd" id="1_s41d2"]
+[ext_resource type="PackedScene" uid="uid://cvibi08ndu3bk" path="res://Levels/pool_test/dung_lvl_2.tscn" id="2_8a2b0"]
+[ext_resource type="PackedScene" uid="uid://b3wbmaphhvo4j" path="res://Levels/pool_test/dung_lvl_1.tscn" id="2_gtnvv"]
+[ext_resource type="PackedScene" uid="uid://c6bigt02v7h52" path="res://Levels/pool_test/dung_lvl_3.tscn" id="3_ecu0b"]
+[ext_resource type="PackedScene" uid="uid://7kcj0p3x8okq" path="res://Levels/pool_test/dung_lvl_4.tscn" id="4_t2u7g"]
+[ext_resource type="PackedScene" uid="uid://jvnhb0womgkm" path="res://Levels/pool_test/dung_lvl_5.tscn" id="5_vx8ih"]
+[ext_resource type="PackedScene" uid="uid://cxc7u7todeq50" path="res://Levels/pool_test/dung_lvl_6.tscn" id="6_ugh17"]
+[ext_resource type="PackedScene" uid="uid://b7p7fwlbwluiw" path="res://Entitites/Enemies/kobold.tscn" id="7_ugh17"]
+[ext_resource type="PackedScene" uid="uid://br5lmryevy4gn" path="res://Entitites/Enemies/spider.tscn" id="8_eabcg"]
+[ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="8_ecu0b"]
+[ext_resource type="PackedScene" uid="uid://cmqrw57hu2s06" path="res://Entitites/Enemies/turtle.tscn" id="9_dvejp"]
+
+[sub_resource type="Environment" id="Environment_ecu0b"]
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 5.52
+fog_density = 0.8
+fog_sky_affect = 0.0
+
+[node name="Level" type="Node3D" unique_id=753582588]
+script = ExtResource("1_s41d2")
+levels = Array[PackedScene]([ExtResource("2_8a2b0"), ExtResource("3_ecu0b"), ExtResource("4_t2u7g"), ExtResource("5_vx8ih"), ExtResource("6_ugh17")])
+enemies = Array[PackedScene]([ExtResource("7_ugh17"), ExtResource("8_eabcg"), ExtResource("9_dvejp")])
+
+[node name="dung_lvl1" parent="." unique_id=1243141460 instance=ExtResource("2_gtnvv")]
+
+[node name="player" parent="." unique_id=1745359200 instance=ExtResource("8_ecu0b")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 10.308697, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1198014098]
+environment = SubResource("Environment_ecu0b")
+
+[node name="enemy_holder" type="Node3D" parent="." unique_id=333925593]
+process_mode = 4
+visible = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1184278005]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

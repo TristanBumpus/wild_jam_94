@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bc5v5xo7fjq7s"]
 
-[ext_resource type="Texture2D" uid="uid://d2unt0rpax0s8" path="res://assets/gui/hp_bar/hp_bar_backbackground.png" id="1_e6gg6"]
-[ext_resource type="Texture2D" uid="uid://c450ni5t1qcay" path="res://assets/gui/hp_bar/hp_bar_background.png" id="2_hat8c"]
-[ext_resource type="Texture2D" uid="uid://d72jrm08lyww" path="res://assets/gui/hp_bar/hp_bar_foreground.png" id="3_3sbvi"]
-[ext_resource type="Texture2D" uid="uid://ve0ifyaw3t4f" path="res://assets/gui/hp_bar/hp_bar_stick.png" id="4_hat8c"]
+[ext_resource type="Texture2D" uid="uid://d2unt0rpax0s8" path="res://Assets/gui/hp_bar/hp_bar_backbackground.png" id="1_e6gg6"]
+[ext_resource type="Texture2D" uid="uid://c450ni5t1qcay" path="res://Assets/gui/hp_bar/hp_bar_background.png" id="2_hat8c"]
+[ext_resource type="Texture2D" uid="uid://d72jrm08lyww" path="res://Assets/gui/hp_bar/hp_bar_foreground.png" id="3_3sbvi"]
+[ext_resource type="Texture2D" uid="uid://ve0ifyaw3t4f" path="res://Assets/gui/hp_bar/hp_bar_stick.png" id="4_hat8c"]
 
 [sub_resource type="Animation" id="Animation_hat8c"]
 length = 0.001
@@ -89,7 +89,6 @@ offset_bottom = 40.0
 scale = Vector2(2, 2)
 step = 0.01
 value = 100.0
-exp_edit = true
 allow_lesser = true
 texture_progress = ExtResource("3_3sbvi")
 

@@ -9,7 +9,10 @@ size = Vector3(3.1171875, 3.6954346, 2.5825806)
 [node name="turtle_body" type="RigidBody3D" unique_id=270943981]
 script = ExtResource("1_wfbyf")
 type = 3
-type_2 = 4
+limb_name = "Turtle Shell"
+hp = 5.0
+armor = 10.0
+speed = -2
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="turtle_body" parent="." unique_id=1108865244 instance=ExtResource("2_oynhj")]

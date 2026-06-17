@@ -11,6 +11,8 @@ radius = 0.5888672
 script = ExtResource("1_ahsdv")
 type = 0
 type_2 = 0
+limb_name = "Human Head"
+hp = 10.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="character_head2" parent="." unique_id=303792979 instance=ExtResource("2_j2bum")]

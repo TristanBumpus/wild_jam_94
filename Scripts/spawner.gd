@@ -2,8 +2,15 @@ extends Node3D
 
 class_name spawner
 
+@export var enemies : Array[PackedScene]
+
+
+
 func spawn():
 	
+	var e = get_tree().current_scene.get_node("enemy_holder").get_children().pick_random()
+	e.reparent(get_tree().current_scene)
+	e.global_position = global_position + Vector3(0,10,0)
 	queue_free()
 
 

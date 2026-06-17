@@ -9,6 +9,9 @@ height = 4.73291
 [node name="kobold_body" type="RigidBody3D" unique_id=1507028625]
 script = ExtResource("1_8o8xg")
 type = 3
+limb_name = "Kobold Torso"
+hp = 5.0
+armor = 2.0
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_body" parent="." unique_id=2105975442 instance=ExtResource("2_awulk")]
