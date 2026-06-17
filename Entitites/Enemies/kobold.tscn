@@ -40,7 +40,6 @@ mesh = SubResource("BoxMesh_8oorq")
 surface_material_override/0 = SubResource("StandardMaterial3D_jeyy2")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1705259521]
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 debug_path_custom_point_size = 45.6
 
