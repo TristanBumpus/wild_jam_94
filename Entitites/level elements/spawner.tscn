@@ -143,3 +143,8 @@ _bundled = {
 [node name="spawner" type="Node3D" unique_id=1067744907 groups=["spawner"]]
 script = ExtResource("1_7iusy")
 enemies = Array[PackedScene]([SubResource("PackedScene_mi3qc"), SubResource("PackedScene_mg63g"), SubResource("PackedScene_r4tjd")])
+
+[node name="Timer" type="Timer" parent="." unique_id=1869654230]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

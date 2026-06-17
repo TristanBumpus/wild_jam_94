@@ -5,6 +5,7 @@ class_name Enemy
 @export_category("Combat")
 @export_enum("melee", "range") var attack_type = 0
 @export var hp = 0
+var max_hp = 0
 @export var damage = 1
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 
@@ -21,6 +22,9 @@ var armor = 0
 @export var nav : NavigationAgent3D
 @export var is_effected_by_gravity = true
 var luck = 0.0
+
+@export_category("Other")
+@export var e_name = "Enemy"
 
 var player: CharacterBody3D
 
@@ -76,6 +80,7 @@ func basic_movement():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
+		node.look_at(player.position)
 		#if node.get_node("AnimationPlayer").current_animation != "attack":
 		node.get_node("AnimationPlayer").play("attack")
 	
@@ -133,6 +138,8 @@ func limb_checker():
 	limb_to_check($body/left_leg,4)
 	limb_to_check($body/right_leg,5)
 	
+	max_hp = hp
+	
 	chest_equalizer()
 
 func rigid_interaction():
@@ -158,14 +165,15 @@ func rigid_interaction():
 
 func _ready() -> void:
 	
+	
 	player = get_tree().get_first_node_in_group("player")
 	
 	
 	var r = randi_range(1,100)
 	
-	if r <= 100:
-		#var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
-		var types = ["Big","Small"]
+	if r <= 30:
+		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
+		#var types = ["Big","Small"]
 		special_type = types.pick_random()
 	
 	$body/head.get_child(0).special_type = special_type
@@ -176,11 +184,11 @@ func _ready() -> void:
 	$body/right_leg.get_child(0).special_type = special_type
 	
 	limb_checker()
+	
+	chest_equalizer()
 
 func _process(delta: float) -> void:
 	
-	chest_equalizer()
-	limb_checker()
 	
 	add_to_group("enemy")
 	

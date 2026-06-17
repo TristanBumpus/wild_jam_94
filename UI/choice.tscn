@@ -8,6 +8,7 @@
 
 [node name="choice" type="CanvasLayer" unique_id=31333311]
 layer = 2
+visible = false
 
 [node name="Control" type="Control" parent="." unique_id=1284888017]
 layout_mode = 3

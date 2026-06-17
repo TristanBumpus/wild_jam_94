@@ -159,7 +159,7 @@ height = 3.8515625
 script = ExtResource("1_8nv7u")
 type = 2
 limb_name = "Kobold Leg"
-hp = 2.0
+armor = 1.0
 speed = 2
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

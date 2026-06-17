@@ -47,7 +47,7 @@ func switch_limb(to_get,s = 1):
 	old.sleeping = false
 	player.limb_checker()
 
-func tooltip(old_limb):
+func tooltip(old_limb,show_attack = false):
 	$choice/Control/RichTextLabel.text = ""
 	$choice/Control/RichTextLabel2.text = ""
 	
@@ -57,27 +57,27 @@ func tooltip(old_limb):
 	$choice/Control/RichTextLabel.text += "\n"
 	$choice/Control/RichTextLabel2.text += "\n"
 	
-	
-	if old_limb.damage > damage:
-		$choice/Control/RichTextLabel2.append_text("Damage: [color=green]%s[/color]\n" % [str(old_limb.damage)])
-		$choice/Control/RichTextLabel.append_text("Damage: [color=red%s[/color]\n" % [str(damage)])
-	if old_limb.damage <= damage:
-		$choice/Control/RichTextLabel2.append_text("Damage: [color=red]%s[/color]\n" % [str(old_limb.damage)])
-		$choice/Control/RichTextLabel.append_text("Damage: [color=green]%s[/color]\n" % [str(damage)])
-	
-	if old_limb.attack_speed > attack_speed:
-		$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(old_limb.attack_speed)])
-		$choice/Control/RichTextLabel.append_text("Attack Speed: [color=red%s[/color]\n" % [str(attack_speed)])
-	if old_limb.attack_speed <= attack_speed:
-		$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(old_limb.attack_speed)])
-		$choice/Control/RichTextLabel.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(attack_speed)])
-	
-	if old_limb.armor_p > armor_p:
-		$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(old_limb.armor_p)])
-		$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=red%s[/color]\n" % [str(armor_p)])
-	if old_limb.armor_p <= armor_p:
-		$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=red]%s[/color]\n" % [str(old_limb.armor_p)])
-		$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(armor_p)])
+	if show_attack:
+		if old_limb.damage > damage:
+			$choice/Control/RichTextLabel2.append_text("Damage: [color=green]%s[/color]\n" % [str(old_limb.damage)])
+			$choice/Control/RichTextLabel.append_text("Damage: [color=red%s[/color]\n" % [str(damage)])
+		if old_limb.damage <= damage:
+			$choice/Control/RichTextLabel2.append_text("Damage: [color=red]%s[/color]\n" % [str(old_limb.damage)])
+			$choice/Control/RichTextLabel.append_text("Damage: [color=green]%s[/color]\n" % [str(damage)])
+		
+		if old_limb.attack_speed > attack_speed:
+			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(old_limb.attack_speed)])
+			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=red%s[/color]\n" % [str(attack_speed)])
+		if old_limb.attack_speed <= attack_speed:
+			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(old_limb.attack_speed)])
+			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(attack_speed)])
+		
+		if old_limb.armor_p > armor_p:
+			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(old_limb.armor_p)])
+			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=red%s[/color]\n" % [str(armor_p)])
+		if old_limb.armor_p <= armor_p:
+			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=red]%s[/color]\n" % [str(old_limb.armor_p)])
+			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(armor_p)])
 	
 	if old_limb.hp > hp:
 		$choice/Control/RichTextLabel2.append_text("Hp: [color=green]%s[/color]\n" % [str(old_limb.hp)])
@@ -141,12 +141,6 @@ func _ready() -> void:
 	c2.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
 	c2.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
 	
-	c2.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
-	c2.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
-	c2.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
-	c2.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
-	c2.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
-	c2.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
 	
 	
 	add_to_group("limb",true)
@@ -154,17 +148,23 @@ func _ready() -> void:
 	#Limb selection
 	if type == 0 or type_2 == 0:
 		$choice/Control/Node2D/head.disabled = false
+		c2.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
 	
 	if type == 1 or type_2 == 1:
 		$choice/Control/Node2D/left_arm.disabled = false
 		$choice/Control/Node2D/right_arm.disabled = false
+		c2.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
+		c2.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
 	
 	if type == 2 or type_2 == 2:
 		$choice/Control/Node2D/left_leg.disabled = false
 		$choice/Control/Node2D/right_leg.disabled = false
+		c2.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
+		c2.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
 	
 	if type == 3 or type_2 == 3:
 		$choice/Control/Node2D/torso.disabled = false
+		c2.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	
 	#Basic stats
 	damage = snapped(damage * randf_range(.8,1.2), .01)
@@ -318,11 +318,11 @@ func _torso_hover():
 
 
 func _left_arm_hover():
-	tooltip(player.get_node("body/left_arm").get_child(0))
+	tooltip(player.get_node("body/left_arm").get_child(0),true)
 
 
 func _right_arm_hover():
-	tooltip(player.get_node("body/right_arm").get_child(0))
+	tooltip(player.get_node("body/right_arm").get_child(0),true)
 
 
 func _left_leg_hover():
