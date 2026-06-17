@@ -11,6 +11,9 @@ script = ExtResource("1_8p664")
 type = 3
 limb_name = "Spider Torso"
 hp = 5.0
+chest_off_set = Vector3(0.677, 0, -0.575)
+chest_off_set_legs = Vector3(0.677, 0, -0.575)
+chest_off_head_set = Vector3(0, -0.42490745, -2.4542398)
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="spider_body" parent="." unique_id=266963251 instance=ExtResource("2_230ci")]

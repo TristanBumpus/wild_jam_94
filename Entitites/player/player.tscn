@@ -13,8 +13,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_56rfj"]
 size = Vector3(0.3, 0.3, 10)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8g563"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8xjm"]
 radius = 0.95458984
 height = 8.984619
@@ -85,9 +83,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0284791, -0.9148001)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 shape = SubResource("BoxShape3D_56rfj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=577313883]
-mesh = SubResource("CapsuleMesh_8g563")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=800997783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4923096, 0)
 shape = SubResource("CapsuleShape3D_x8xjm")
@@ -130,8 +125,7 @@ mesh = SubResource("QuadMesh_bnevg")
 [node name="body" type="Node3D" parent="." unique_id=1407957858]
 
 [node name="head" type="Node3D" parent="body" unique_id=903046002]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0806952, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="limb" parent="body/head" unique_id=2067002376 instance=ExtResource("3_40ase")]
 
@@ -147,21 +141,23 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 side = 0
 
 [node name="right_arm" type="Node3D" parent="body" unique_id=1018770589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.417, 1.127, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79090357, 0.5557922, 0)
 
 [node name="human_arm" parent="body/right_arm" unique_id=1896956776 instance=ExtResource("5_xelh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50661564, 0.62241435, 0)
 
 [node name="left_leg" type="Node3D" parent="body" unique_id=525976771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5648884, -2.223, 0.18311024)
 
 [node name="human_leg" parent="body/left_leg" unique_id=152757591 instance=ExtResource("6_6ll7k")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
 side = 0
 
 [node name="right_leg" type="Node3D" parent="body" unique_id=2008389218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.223, 0.183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4548899, -1.2215494, 0.101801306)
 
 [node name="human_leg" parent="body/right_leg" unique_id=602789468 instance=ExtResource("6_6ll7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0624963, 0)
 
 [connection signal="body_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Camera3D/Area3D" to="." method="_on_area_3d_body_exited"]

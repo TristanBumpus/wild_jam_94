@@ -12,6 +12,9 @@ type = 3
 limb_name = "Kobold Torso"
 hp = 5.0
 armor = 2.0
+chest_off_set = Vector3(1.812, 0.974, 0)
+chest_off_set_legs = Vector3(0.7, -2.284, 0.308)
+chest_off_head_set = Vector3(0, 2.0183964, -0.2858851)
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_body" parent="." unique_id=2105975442 instance=ExtResource("2_awulk")]

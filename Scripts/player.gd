@@ -18,6 +18,31 @@ var attacking = [false,false]
 var last_limbs = [null,null,null,null,null,null]
 
 
+func chest_equalizer():
+	var head_offset = $body/torso.get_child(0).chest_off_head_set
+	var arm_offset = $body/torso.get_child(0).chest_off_set
+	var leg_offset = $body/torso.get_child(0).chest_off_set_legs
+	
+	head_offset.x *= $body/torso.get_child(0).scale.x
+	head_offset.y *= $body/torso.get_child(0).scale.x
+	head_offset.z *= $body/torso.get_child(0).scale.x
+	
+	arm_offset.x *= $body/torso.get_child(0).scale.x
+	arm_offset.y *= $body/torso.get_child(0).scale.x
+	arm_offset.z *= $body/torso.get_child(0).scale.x
+	
+	leg_offset.x *= $body/torso.get_child(0).scale.x
+	leg_offset.y *= $body/torso.get_child(0).scale.x
+	leg_offset.z *= $body/torso.get_child(0).scale.x
+	
+	
+	$body/head.position = head_offset
+	
+	$body/right_leg.position = leg_offset
+	$body/left_leg.position = leg_offset * Vector3(-1,1,1)
+	
+	$body/right_arm.position = arm_offset
+	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func cheats():
 	if Input.is_action_just_pressed("esc"):
@@ -76,6 +101,8 @@ func limb_checker():
 	limb_to_check($body/right_arm,3)
 	limb_to_check($body/left_leg,4)
 	limb_to_check($body/right_leg,5)
+	
+	chest_equalizer()
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":

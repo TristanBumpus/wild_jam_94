@@ -22,7 +22,9 @@ class_name limb
 @export var speed = 0
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 @export var rotation_diffrence = 0
-
+@export var chest_off_set = Vector3(0,0,0)
+@export var chest_off_set_legs = Vector3(0,0,0)
+@export var chest_off_head_set = Vector3(0,0,0)
 
 var player : CharacterBody3D
 var billboard

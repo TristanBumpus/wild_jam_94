@@ -31,6 +31,33 @@ var last_limbs = [null,null,null,null,null,null]
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 
 
+func chest_equalizer():
+	var head_offset = $body/torso.get_child(0).chest_off_head_set
+	var arm_offset = $body/torso.get_child(0).chest_off_set
+	var leg_offset = $body/torso.get_child(0).chest_off_set_legs
+	
+	head_offset.x *= $body/torso.get_child(0).scale.x
+	head_offset.y *= $body/torso.get_child(0).scale.x
+	head_offset.z *= $body/torso.get_child(0).scale.x
+	
+	arm_offset.x *= $body/torso.get_child(0).scale.x
+	arm_offset.y *= $body/torso.get_child(0).scale.x
+	arm_offset.z *= $body/torso.get_child(0).scale.x
+	
+	leg_offset.x *= $body/torso.get_child(0).scale.x
+	leg_offset.y *= $body/torso.get_child(0).scale.x
+	leg_offset.z *= $body/torso.get_child(0).scale.x
+	
+	$CollisionShape3D.scale = $body/torso.get_child(0).scale
+	$Area3D/CollisionShape3D.scale = $body/torso.get_child(0).scale
+	
+	$body/head.position = head_offset
+	
+	$body/right_leg.position = leg_offset
+	$body/left_leg.position = leg_offset * Vector3(-1,1,1)
+	
+	$body/right_arm.position = arm_offset
+	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func basic_movement():
 	$NavigationAgent3D.target_position = player.global_position
@@ -106,6 +133,8 @@ func limb_checker():
 	limb_to_check($body/right_arm,3)
 	limb_to_check($body/left_leg,4)
 	limb_to_check($body/right_leg,5)
+	
+	chest_equalizer()
 
 func rigid_interaction():
 	
@@ -135,8 +164,9 @@ func _ready() -> void:
 	
 	var r = randi_range(1,100)
 	
-	if r <= 10:
-		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
+	if r <= 100:
+		#var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
+		var types = ["Big","Small"]
 		special_type = types.pick_random()
 	
 	$body/head.get_child(0).special_type = special_type
@@ -149,6 +179,9 @@ func _ready() -> void:
 	limb_checker()
 
 func _process(delta: float) -> void:
+	
+	chest_equalizer()
+	limb_checker()
 	
 	add_to_group("enemy")
 	
