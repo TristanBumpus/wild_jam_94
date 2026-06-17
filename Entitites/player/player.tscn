@@ -56,6 +56,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56rfj"]
+radius = 1.0976563
+height = 11.4552
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
 shader = ExtResource("9_6ll7k")
@@ -105,6 +107,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hit_box" unique_id=950283515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.225769, 0)
 shape = SubResource("CapsuleShape3D_56rfj")
 
 [node name="stats" parent="." unique_id=1252389211 instance=ExtResource("2_56rfj")]

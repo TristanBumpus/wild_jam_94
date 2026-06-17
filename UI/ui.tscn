@@ -1,40 +1,14 @@
 [gd_scene format=3 uid="uid://bc5v5xo7fjq7s"]
 
-[ext_resource type="Texture2D" uid="uid://d2unt0rpax0s8" path="res://Assets/gui/hp_bar/hp_bar_backbackground.png" id="1_e6gg6"]
-[ext_resource type="Texture2D" uid="uid://c450ni5t1qcay" path="res://Assets/gui/hp_bar/hp_bar_background.png" id="2_hat8c"]
-[ext_resource type="Texture2D" uid="uid://d72jrm08lyww" path="res://Assets/gui/hp_bar/hp_bar_foreground.png" id="3_3sbvi"]
-[ext_resource type="Texture2D" uid="uid://ve0ifyaw3t4f" path="res://Assets/gui/hp_bar/hp_bar_stick.png" id="4_hat8c"]
+[ext_resource type="Texture2D" uid="uid://uqre2m3ig2ax" path="res://Assets/gui/hp_bar/renders/health_bar_cap_render.png" id="5_nm1m0"]
+[ext_resource type="Texture2D" uid="uid://lyy2to5vfoc4" path="res://Assets/gui/hp_bar/renders/health_bar_render.png" id="6_c7tqi"]
 
 [sub_resource type="Animation" id="Animation_hat8c"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HpBarStick:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-140, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_3sbvi"]
 resource_name = "default"
 loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HpBarStick:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.2679431, 1),
-"update": 0,
-"values": [Vector2(-140, 0), Vector2(140, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nm1m0"]
 _data = {
@@ -65,32 +39,22 @@ theme_override_font_sizes/font_size = 32
 text = "HP: 10"
 vertical_alignment = 1
 
-[node name="HpBarBackbackground" type="Sprite2D" parent="Control" unique_id=987308204]
-scale = Vector2(2, 2)
-texture = ExtResource("1_e6gg6")
-centered = false
-
-[node name="HpBarBackground" type="Sprite2D" parent="Control" unique_id=1732758238]
-scale = Vector2(2, 2)
-texture = ExtResource("2_hat8c")
-centered = false
-
-[node name="HpBarStick" type="Sprite2D" parent="Control" unique_id=749938443]
-modulate = Color(2.3133948, 2.3133948, 2.3133948, 1)
-position = Vector2(-140, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("4_hat8c")
-centered = false
+[node name="HealthBarCapRender" type="Sprite2D" parent="Control" unique_id=467135046]
+position = Vector2(179.16666, 53.333336)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_nm1m0")
 
 [node name="health_bar" type="TextureProgressBar" parent="Control" unique_id=777665082]
 layout_mode = 0
-offset_right = 272.0
-offset_bottom = 40.0
-scale = Vector2(2, 2)
+offset_left = -14.999998
+offset_top = -138.33333
+offset_right = 257.0
+offset_bottom = 117.66667
+scale = Vector2(1.5, 1.5)
 step = 0.01
 value = 100.0
 allow_lesser = true
-texture_progress = ExtResource("3_3sbvi")
+texture_progress = ExtResource("6_c7tqi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=254715273]
 root_node = NodePath("../Control")

@@ -209,7 +209,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit_box_area_entered(area: Area3D) -> void:
 	current_hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
-
+	print("s")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("limb"):

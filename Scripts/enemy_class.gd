@@ -67,7 +67,6 @@ func basic_movement():
 		player.global_position.z - global_position.z
 	).normalized()
 	
-	print($NavigationAgent3D.get_current_navigation_path())
 	var target_angle = flat_direction.angle_to(Vector2.UP)
 	
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)

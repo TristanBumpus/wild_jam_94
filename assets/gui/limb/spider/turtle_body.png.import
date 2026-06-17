@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvypsq7ef4wlh"
-path="res://.godot/imported/turtle_body.png-2f60ea073a57311a95770d7a6f10ddf0.ctex"
+path="res://.godot/imported/turtle_body.png-c4e20d20dde60bb3d7fbe34cb58efa6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/spider/turtle_body.png"
-dest_files=["res://.godot/imported/turtle_body.png-2f60ea073a57311a95770d7a6f10ddf0.ctex"]
+source_file="res://Assets/gui/limb/spider/turtle_body.png"
+dest_files=["res://.godot/imported/turtle_body.png-c4e20d20dde60bb3d7fbe34cb58efa6a.ctex"]
 
 [params]
 
