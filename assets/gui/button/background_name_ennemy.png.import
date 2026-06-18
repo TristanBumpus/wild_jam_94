@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wwtbde8g80h5"
-path="res://.godot/imported/button_nine_patch.png-b6eaf6d8e83aa28d7a9fe38b19876368.ctex"
+uid="uid://7p1gpisr862y"
+path="res://.godot/imported/background_name_ennemy.png-2e1cc089ea98912eab1bfc17ee569d3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/button/button_nine_patch.png"
-dest_files=["res://.godot/imported/button_nine_patch.png-b6eaf6d8e83aa28d7a9fe38b19876368.ctex"]
+source_file="res://assets/gui/button/background_name_ennemy.png"
+dest_files=["res://.godot/imported/background_name_ennemy.png-2e1cc089ea98912eab1bfc17ee569d3d.ctex"]
 
 [params]
 
