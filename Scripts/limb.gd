@@ -206,16 +206,16 @@ func _ready() -> void:
 		damage *= .5
 		hp *= 3
 		armor *= 2
-		armor += 1 * snapped(armor * randf_range(.8,1.2),.01) * (global.difficulty/100)
+		armor += 1 * snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
 		speed *= .5
 	
 	if special_type == "Lucky":
 		luck *= 1.5
-		luck += 1 * snapped(luck * randf_range(.8,1.2),.01) * (global.difficulty/100)
+		luck += 1 * snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	if special_type == "Sharp":
 		armor_p *= 2
-		armor_p += 1 * snapped(armor_p * randf_range(.8,1.2),.01) * (global.difficulty/100)
+		armor_p += 1 * snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	if special_type == "Dull":
 		armor_p /= 2
@@ -307,7 +307,12 @@ func _process(delta: float) -> void:
 			
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
+	
+	if global_position.distance_to(player.global_position) > 500:
+		visible = false
+		$Rigidbody3D.sleep = true
+	else:
+		visible = true
 
 
 func _on_right_arm_button_down() -> void:

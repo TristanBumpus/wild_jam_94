@@ -4,9 +4,10 @@ extends Node3D
 
 @export var levels : Array[PackedScene]
 
-@export var size = 5
+@export var size = 100
 
 @export var enemies: Array[PackedScene]
+
 
 
 func genocide():
@@ -33,7 +34,8 @@ func _ready() -> void:
 		start = level.find_child("door")
 		
 		size -= 1
-
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

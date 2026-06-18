@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxc7u7todeq50"]
 
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_bmyod"]
+[ext_resource type="Script" uid="uid://c6ngt8a3k4tc2" path="res://Scripts/level_manager.gd" id="1_y4tgl"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="2_infka"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_y4tgl"]
 [ext_resource type="PackedScene" uid="uid://bb6rilf0kpswn" path="res://Entitites/level elements/spawner_trigger.tscn" id="4_bockf"]
@@ -13,6 +14,7 @@ geometry_parsed_geometry_type = 1
 agent_height = 5.0
 
 [node name="dung_lvl_6" type="Node3D" unique_id=1249705675]
+script = ExtResource("1_y4tgl")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=945494620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4902396, 2.8015556, 111.71695)

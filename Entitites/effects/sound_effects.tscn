@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cq6wlvkga0275"]
+
+[ext_resource type="Script" uid="uid://07uhllblttjx" path="res://Scripts/sound_effects.gd" id="1_2pldg"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" unique_id=1345822288]
+autoplay = true
+bus = &"sfx"
+script = ExtResource("1_2pldg")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

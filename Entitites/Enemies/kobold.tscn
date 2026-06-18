@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b7p7fwlbwluiw"]
 
 [ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_mpleh"]
-[ext_resource type="PackedScene" uid="uid://bruewlqmetmqh" path="res://Entitites/limbs/kobold/kobold_head.tscn" id="2_8l6fn"]
-[ext_resource type="PackedScene" uid="uid://dpgyag0q65hpy" path="res://Entitites/limbs/kobold/kobold_body.tscn" id="3_evxov"]
-[ext_resource type="PackedScene" uid="uid://daeabprp56qe6" path="res://Entitites/limbs/kobold/kobold_arm.tscn" id="4_p1fr8"]
-[ext_resource type="PackedScene" uid="uid://dh2q7yacmpvef" path="res://Entitites/limbs/kobold/kobold_leg.tscn" id="5_8oorq"]
+[ext_resource type="PackedScene" uid="uid://vsvb11wvbf31" path="res://Entitites/limbs/kobold/kobold_head.tscn" id="2_8l6fn"]
+[ext_resource type="PackedScene" uid="uid://dx3jmq85ad1d6" path="res://Entitites/limbs/kobold/kobold_body.tscn" id="3_evxov"]
+[ext_resource type="PackedScene" uid="uid://cwv2tha1kev2c" path="res://Entitites/limbs/kobold/kobold_arm.tscn" id="4_p1fr8"]
+[ext_resource type="PackedScene" uid="uid://bubj5mfgol4mn" path="res://Entitites/limbs/kobold/kobold_leg.tscn" id="5_8oorq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p1fr8"]
 size = Vector3(2.45969, 8.022068, 1.756897)
@@ -28,7 +28,7 @@ hit_box = NodePath("Area3D")
 loot = Array[PackedScene]([ExtResource("2_8l6fn")])
 loot_chance = Array[int]([100])
 nav = NodePath("NavigationAgent3D")
-e_name = "Kobald"
+e_name = "Kobold"
 metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=465848917]

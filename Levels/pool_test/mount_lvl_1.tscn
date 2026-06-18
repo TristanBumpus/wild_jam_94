@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://drev0vh7o7itp"]
 
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_8oh4g"]
+[ext_resource type="Script" uid="uid://c6ngt8a3k4tc2" path="res://Scripts/level_manager.gd" id="1_5kfqn"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_8oh4g"]
 [ext_resource type="PackedScene" uid="uid://bb6rilf0kpswn" path="res://Entitites/level elements/spawner_trigger.tscn" id="2_3dk0j"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="3_5kfqn"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="4_5ark0"]
 [ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="5_3dk0j"]
 
 [node name="mount_lvl_1" type="Node3D" unique_id=661546840]
+script = ExtResource("1_5kfqn")
 
 [node name="GridMap2" type="GridMap" parent="." unique_id=615397317]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 63.465126)

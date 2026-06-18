@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cjm1vju54hpy8" path="res://Scripts/spawner_trigger.gd" id="1_ykgn3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ln2w8"]
-size = Vector3(13, 14.299316, 3.2480469)
+size = Vector3(20, 14.299, 3)
 
 [node name="SpawnerTrigger" type="Node3D" unique_id=1359928648]
 script = ExtResource("1_ykgn3")

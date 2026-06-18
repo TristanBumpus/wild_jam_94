@@ -32,6 +32,7 @@ var special_limb = 0
 var last_limbs = [null,null,null,null,null,null]
 
 var start = true
+var hit_sound = ["res://Assets/sfx/atk_c1.mp3", "res://Assets/sfx/atk_c2.mp3"]
 
 #special effect
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
@@ -167,18 +168,17 @@ func rigid_interaction():
 
 func _ready() -> void:
 	
-	
 	player = get_tree().get_first_node_in_group("player")
 	
 	
 	var r = randi_range(1,100)
 	
-	if r <= 50:
+	if r <= 50 * (global.difficulty / 100):
 		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
 		#var types = ["Big","Small"]
 		special_type = types.pick_random()
 	
-	if r <= 10:
+	if r <= 10 * (global.difficulty / 100):
 		
 		var ran = randi_range(1,4)
 		
@@ -204,14 +204,14 @@ func _ready() -> void:
 			var ran2 = randi_range(1,2)
 			if ran2 == 1:
 				$body/left_leg.get_child(0).queue_free()
-				var new_limb = load(global.all_arms.pick_random()).instantiate()
+				var new_limb = load(global.all_legs.pick_random()).instantiate()
 				$body/left_leg.add_child(new_limb)
 			if ran2 == 2:
 				$body/right_leg.get_child(0).queue_free()
-				var new_limb = load(global.all_arms.pick_random()).instantiate()
+				var new_limb = load(global.all_legs.pick_random()).instantiate()
 				$body/right_leg.add_child(new_limb)
 		
-		pass
+		
 	
 	$body/head.get_child(0).special_type = special_type
 	$body/torso.get_child(0).special_type = special_type
@@ -219,8 +219,7 @@ func _ready() -> void:
 	$body/right_arm.get_child(0).special_type = special_type
 	$body/left_leg.get_child(0).special_type = special_type
 	$body/right_leg.get_child(0).special_type = special_type
-	
-	
+
 
 func _process(delta: float) -> void:
 	if start:
@@ -251,6 +250,8 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
+	
+	global.play_sound(hit_sound.pick_random(),global_position)
 	
 	var pop = load("res://UI/pop_out.tscn").instantiate()
 	get_tree().current_scene.add_child(pop)

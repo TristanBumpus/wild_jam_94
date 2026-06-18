@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b3wbmaphhvo4j"]
 
+[ext_resource type="Script" uid="uid://c6ngt8a3k4tc2" path="res://Scripts/level_manager.gd" id="1_6q72o"]
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="2_0wjf4"]
 [ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="4_fl3fy"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://btx35qgv0ae7n" path="res://Entitites/limbs/human_leg.tscn" id="8_6q72o"]
 
 [node name="dung_lvl1" type="Node3D" unique_id=1243141460 groups=["first_level_is_special_cus_the_limbs_demand_it"]]
+script = ExtResource("1_6q72o")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=787779524]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 0)

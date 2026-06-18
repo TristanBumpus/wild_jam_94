@@ -128,3 +128,4 @@ rendering_device/driver.windows="d3d12"
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/decals/filter=0
 textures/light_projectors/filter=0
+occlusion_culling/use_occlusion_culling=true

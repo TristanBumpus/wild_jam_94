@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	
 	if get_tree().get_node_count_in_group("enemy") > 0:
 		$RigidBody3D.freeze = true
-		if $RigidBody3D.position != Vector3.ZERO and run and player.global_position.z + 2 > global_position.z:
+		if $RigidBody3D.position != Vector3.ZERO and run:
 			#global_transform.origin = init
 			run = false
 			$RigidBody3D/CollisionShape3D.disabled = true
