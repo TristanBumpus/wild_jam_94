@@ -2,6 +2,13 @@
 
 [ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="1_fqh3q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqh3q"]
+bg_color = Color(1, 0, 0, 0.34117648)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqh3q"]
+
 [resource]
 Button/fonts/font = ExtResource("1_fqh3q")
+Button/styles/disabled = SubResource("StyleBoxFlat_fqh3q")
+Button/styles/normal = SubResource("StyleBoxEmpty_fqh3q")
 Label/fonts/font = ExtResource("1_fqh3q")

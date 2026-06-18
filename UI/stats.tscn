@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://dng3rphw3juoc" path="res://Assets/theme/basic.tres" id="1_ulria"]
 
 [node name="stats" type="CanvasLayer" unique_id=1252389211]
+visible = false
 
 [node name="Control" type="Control" parent="." unique_id=92010438]
 layout_mode = 3

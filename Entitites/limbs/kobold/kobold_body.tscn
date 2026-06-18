@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://dpgyag0q65hpy"]
+[gd_scene format=3 uid="uid://dx3jmq85ad1d6"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_8o8xg"]
 [ext_resource type="PackedScene" uid="uid://doma62af7gmjd" path="res://meshes/limbilimb/kobold/kobold_body_obj.tscn" id="2_awulk"]
+[ext_resource type="Texture2D" uid="uid://c3qysewfdt4qk" path="res://Assets/gui/limb/kobold/kobold_body.png" id="2_wuqk6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_awulk"]
 height = 4.73291
@@ -12,6 +13,7 @@ type = 3
 limb_name = "Kobold Torso"
 hp = 5.0
 armor = 2.0
+image = ExtResource("2_wuqk6")
 chest_off_set = Vector3(1.812, 0.974, 0)
 chest_off_set_legs = Vector3(0.7, -2.284, 0.308)
 chest_off_head_set = Vector3(0, 2.0183964, -0.2858851)

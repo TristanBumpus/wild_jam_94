@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://b6neifua0r1xq"]
+[gd_scene format=3 uid="uid://mogpyw3ky265"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_8p664"]
 [ext_resource type="PackedScene" uid="uid://dne4wp20eyqbb" path="res://Assets/spider/spider_body.glb" id="2_230ci"]
+[ext_resource type="Texture2D" uid="uid://ccuxhidjj1at8" path="res://Assets/gui/limb/spider/spider_body.png" id="2_cejn0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kefrf"]
 radius = 1.6892773
@@ -11,6 +12,7 @@ script = ExtResource("1_8p664")
 type = 3
 limb_name = "Spider Torso"
 hp = 5.0
+image = ExtResource("2_cejn0")
 chest_off_set = Vector3(0.677, 0, -0.575)
 chest_off_set_legs = Vector3(0.677, 0, -0.575)
 chest_off_head_set = Vector3(0, -0.42490745, -2.4542398)

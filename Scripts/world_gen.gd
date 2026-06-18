@@ -8,6 +8,13 @@ extends Node3D
 
 @export var enemies: Array[PackedScene]
 
+
+func genocide():
+	for child in $enemy_holder.get_children():
+		child.queue_free()
+		global.new_level = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -35,10 +42,6 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if $enemy_holder.get_child_count() < 20:
-		if global.new_level:
-			for child in $enemy_holder.get_children():
-				child.queue_free()
-			global.new_level = false
 		
 		var e = enemies.pick_random().instantiate()
 		$enemy_holder.add_child(e)

@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://c772k7wk1nd15"]
+[gd_scene format=3 uid="uid://ds53vom5b1yec"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_636xt"]
 [ext_resource type="PackedScene" uid="uid://c72i75ctsb41m" path="res://meshes/limbilimb/spider/spider_head_obj.tscn" id="2_636xt"]
+[ext_resource type="Texture2D" uid="uid://cthbxs5mpk6q8" path="res://Assets/gui/limb/spider/spider_head.png" id="2_h5m6n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6r5k"]
 radius = 0.9628906
@@ -12,6 +13,7 @@ script = ExtResource("1_636xt")
 type = 0
 limb_name = "Spider Head"
 hp = 2.0
+image = ExtResource("2_h5m6n")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="spider_head_obj" parent="." unique_id=1665656532 instance=ExtResource("2_636xt")]

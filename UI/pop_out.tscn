@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://b3765ujottbit"]
 
 [ext_resource type="Script" uid="uid://dfq74vfvnpy52" path="res://Scripts/pop_out.gd" id="1_8l2oe"]
+[ext_resource type="Texture2D" uid="uid://bbhaksvgf4aqw" path="res://Assets/gui/pops/dmg_pop.png" id="2_kt8hr"]
 
 [node name="pop" type="Label3D" unique_id=1391438939]
 billboard = 1
 render_priority = 4
+outline_render_priority = 0
 modulate = Color(1, 0, 0, 1)
+text = "10"
 font_size = 64
 script = ExtResource("1_8l2oe")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=958008302]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.060437918, 0)
+billboard = 1
+render_priority = -1
+texture = ExtResource("2_kt8hr")
 
 [node name="Timer" type="Timer" parent="." unique_id=1566477418]
 

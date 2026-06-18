@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://daeabprp56qe6"]
+[gd_scene format=3 uid="uid://cwv2tha1kev2c"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_t6lbc"]
+[ext_resource type="Texture2D" uid="uid://bt1qujq811grk" path="res://Assets/gui/limb/kobold/kobold_arm.png" id="2_4q71b"]
 [ext_resource type="PackedScene" uid="uid://bnkyg0efathlc" path="res://meshes/limbilimb/kobold/kobold_arm_obj.tscn" id="2_h56yg"]
 [ext_resource type="PackedScene" uid="uid://blgd7pk7bdose" path="res://meshes/limbilimb/kobold/kobold_fist_obj.tscn" id="3_4q71b"]
 [ext_resource type="PackedScene" uid="uid://b66lgqii2y1ek" path="res://meshes/limbilimb/kobold/kobold_forearm_obj.tscn" id="4_ol7wb"]
@@ -190,6 +191,7 @@ limb_name = "Kobold Arm"
 damage = 2.0
 hp = 1.0
 armor = 1.0
+image = ExtResource("2_4q71b")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="arm_a" type="Node3D" parent="." unique_id=1158962348]

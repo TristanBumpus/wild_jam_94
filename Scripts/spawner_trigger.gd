@@ -12,13 +12,15 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	
 	if body.is_in_group("player"):
-		for child in get_parent().find_children("*","spawner"):
-			child.spawn()
-			$Timer.start(2)
-		
-		
+		if get_parent().find_children("*","spawner") != []:
+			for child in get_parent().find_children("*","spawner"):
+				child.spawn()
+			$Timer.start(5)
+			
 
 
 func _on_timer_timeout() -> void:
-	global.new_level = true
+	global.difficulty += 10
+	get_tree().current_scene.genocide()

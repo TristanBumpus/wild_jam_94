@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bpa3233jqf5ej"]
+[gd_scene format=3 uid="uid://btx35qgv0ae7n"]
 
 [ext_resource type="PackedScene" uid="uid://v3g6gaq107xa" path="res://meshes/limbilimb/character/character_thigh.tscn" id="1_1l1l6"]
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_se4xl"]
+[ext_resource type="Texture2D" uid="uid://c03vb2s3r4g65" path="res://Assets/gui/limb/human/human_leg.png" id="2_8kadl"]
 [ext_resource type="PackedScene" uid="uid://di6l0yd2o4iqy" path="res://meshes/limbilimb/character/character_shin.tscn" id="2_se4xl"]
 [ext_resource type="PackedScene" uid="uid://bbh60gadpjbxd" path="res://meshes/limbilimb/character/character_foot.tscn" id="3_egrn3"]
 
@@ -161,6 +162,7 @@ script = ExtResource("1_se4xl")
 type = 2
 type_2 = 2
 limb_name = "Human Leg"
+image = ExtResource("2_8kadl")
 speed = 2
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
@@ -168,7 +170,7 @@ metadata/_custom_type_script = "uid://1ncxcw86231v"
 transform = Transform3D(0.9999997, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999997, 0, -0.124415874, 0.022377014)
 
 [node name="shin_a" type="Node3D" parent="thigh_a" unique_id=1886875040]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, -1.6298145e-09, -2.1891568, -0.119065665)
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999999, -1.6298144e-09, -2.1891568, -0.11906566)
 
 [node name="character_shin2" parent="thigh_a/shin_a" unique_id=1858436231 instance=ExtResource("2_se4xl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013212562, -1.092489, 0.043480635)

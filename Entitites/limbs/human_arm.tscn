@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bxku3hv6ml8up"]
+[gd_scene format=3 uid="uid://0jlslac7hjs1"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_f87u6"]
 [ext_resource type="PackedScene" uid="uid://qxwstax4k1ts" path="res://meshes/limbilimb/character/character_fist.tscn" id="2_ct58d"]
+[ext_resource type="Texture2D" uid="uid://cski12ufbaeny" path="res://Assets/gui/limb/human/human_arm.png" id="2_iw7x3"]
 [ext_resource type="PackedScene" uid="uid://dpxgwwodwf1mh" path="res://meshes/limbilimb/character/character_forearm.tscn" id="3_iw7x3"]
 [ext_resource type="PackedScene" uid="uid://dpci7nytxdc3c" path="res://meshes/limbilimb/character/character_arm.tscn" id="4_n0tqg"]
 
@@ -184,10 +185,10 @@ size = Vector3(2.6264648, 1, 6.010254)
 size = Vector3(4.855713, 1, 1)
 
 [node name="human_arm" type="RigidBody3D" unique_id=694186439]
-gravity_scale = 8.0
 script = ExtResource("1_f87u6")
 limb_name = "Human Arm"
 damage = 2.0
+image = ExtResource("2_iw7x3")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="arm_a" type="Node3D" parent="." unique_id=1097571229]

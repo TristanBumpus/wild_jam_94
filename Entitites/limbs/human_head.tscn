@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://dbmvs4glr00nb"]
+[gd_scene format=3 uid="uid://djkuw1xuor68y"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_ahsdv"]
 [ext_resource type="PackedScene" uid="uid://dgww0vp4xewm0" path="res://meshes/limbilimb/character/character_head.tscn" id="2_j2bum"]
+[ext_resource type="Texture2D" uid="uid://ce6y4va4gbnmh" path="res://Assets/gui/limb/human/human_head.png" id="2_pmi7j"]
 [ext_resource type="PackedScene" uid="uid://bw8en1i61aa13" path="res://meshes/limbilimb/character/character_neck.tscn" id="3_xd8cv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e2wt1"]
@@ -13,6 +14,7 @@ type = 0
 type_2 = 0
 limb_name = "Human Head"
 hp = 10.0
+image = ExtResource("2_pmi7j")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="character_head2" parent="." unique_id=303792979 instance=ExtResource("2_j2bum")]
