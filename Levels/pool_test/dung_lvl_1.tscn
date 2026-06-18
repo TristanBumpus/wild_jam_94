@@ -2,9 +2,14 @@
 
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="2_0wjf4"]
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="4_fl3fy"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="4_vjcl7"]
+[ext_resource type="PackedScene" uid="uid://djkuw1xuor68y" path="res://Entitites/limbs/human_head.tscn" id="7_6q72o"]
+[ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="7_vfkhy"]
+[ext_resource type="PackedScene" uid="uid://0jlslac7hjs1" path="res://Entitites/limbs/human_arm.tscn" id="7_vna20"]
+[ext_resource type="PackedScene" uid="uid://btx35qgv0ae7n" path="res://Entitites/limbs/human_leg.tscn" id="8_6q72o"]
 
-[node name="dung_lvl1" type="Node3D" unique_id=1243141460]
+[node name="dung_lvl1" type="Node3D" unique_id=1243141460 groups=["first_level_is_special_cus_the_limbs_demand_it"]]
 
 [node name="GridMap" type="GridMap" parent="." unique_id=787779524]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 0)
@@ -37,3 +42,34 @@ transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, -64.852
 
 [node name="door3" parent="." unique_id=1206126029 instance=ExtResource("4_vjcl7")]
 transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, 62.627472)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=2029475716]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 18.897171, 13.325357, 59.3639)
+text = "Attack: Right and Left Click
+Collect Some limb"
+font = ExtResource("4_fl3fy")
+font_size = 320
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=897638997]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -4.761881, 9.77945, 59.3639)
+text = "Push"
+font = ExtResource("4_fl3fy")
+font_size = 320
+
+[node name="limb" parent="." unique_id=2067002376 instance=ExtResource("7_6q72o")]
+transform = Transform3D(0.99959815, -0.00906241, 0.02685242, 0, 0.9474953, 0.31976974, -0.028340425, -0.31964123, 0.9471145, -22.059084, 6.3508625, 59.6899)
+
+[node name="human_torso" parent="." unique_id=2017863707 instance=ExtResource("7_vfkhy")]
+transform = Transform3D(0.99959815, 0, 0.028340425, 0, 1, 0, -0.028340425, 0, 0.99959815, -22.059084, 4.3508625, 59.6899)
+
+[node name="human_arm" parent="." unique_id=694186439 instance=ExtResource("7_vna20")]
+transform = Transform3D(-0.5829522, 0.758417, 0.2914962, 0.81190425, 0.55755097, 0.17305624, 0.031275153, -0.3375505, 0.94078755, -23.475847, 5.477952, 59.73007)
+
+[node name="human_arm2" parent="." unique_id=1083254216 instance=ExtResource("7_vna20")]
+transform = Transform3D(0.47242317, -0.8623627, 0.18206403, 0.8770205, 0.48045316, 1.4901161e-08, -0.08747323, 0.1596739, 0.9832867, -20.655067, 5.620423, 59.462387)
+
+[node name="human_leg2" parent="." unique_id=807043674 instance=ExtResource("8_6q72o")]
+transform = Transform3D(0.85941696, 0.51127476, -0.0004659293, 0.008001855, -0.014361747, -0.99986494, -0.51121235, 0.85929716, -0.016433874, -22.618555, 2.1278625, 59.888947)
+
+[node name="human_leg" parent="." unique_id=335077774 instance=ExtResource("8_6q72o")]
+transform = Transform3D(0.93106884, -0.36482826, 0.0032903936, 0.06458485, 0.15593569, -0.9856534, 0.35908118, 0.91792375, 0.16874923, -21.489124, 2.1278625, 59.856815)

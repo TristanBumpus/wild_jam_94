@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://dh2q7yacmpvef"]
+[gd_scene format=3 uid="uid://bubj5mfgol4mn"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_8nv7u"]
+[ext_resource type="Texture2D" uid="uid://cenw8rnqv133k" path="res://Assets/gui/limb/kobold/kobold_leg.png" id="2_5gnbh"]
 [ext_resource type="PackedScene" uid="uid://d4n4ekpvkkvgq" path="res://meshes/limbilimb/kobold/kobold_thigh_obj.tscn" id="2_j2bfl"]
 [ext_resource type="PackedScene" uid="uid://cwgpg1pjmmfhv" path="res://meshes/limbilimb/kobold/kobold_shin_obj.tscn" id="3_5gnbh"]
 
@@ -160,6 +161,7 @@ script = ExtResource("1_8nv7u")
 type = 2
 limb_name = "Kobold Leg"
 armor = 1.0
+image = ExtResource("2_5gnbh")
 speed = 2
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bywsd5xtginia" path="res://Scripts/player.gd" id="1_x8xjm"]
 [ext_resource type="PackedScene" uid="uid://b5wnly2coogb6" path="res://UI/stats.tscn" id="2_56rfj"]
-[ext_resource type="PackedScene" uid="uid://dbmvs4glr00nb" path="res://Entitites/limbs/human_head.tscn" id="3_40ase"]
+[ext_resource type="PackedScene" uid="uid://djkuw1xuor68y" path="res://Entitites/limbs/human_head.tscn" id="3_40ase"]
 [ext_resource type="PackedScene" uid="uid://bc5v5xo7fjq7s" path="res://UI/ui.tscn" id="3_xelh6"]
-[ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="4_5e027"]
-[ext_resource type="PackedScene" uid="uid://6ccfeiq4tb8d" path="res://Entitites/limbs/spider/spider_legs.tscn" id="5_5e027"]
-[ext_resource type="PackedScene" uid="uid://bxku3hv6ml8up" path="res://Entitites/limbs/human_arm.tscn" id="5_xelh6"]
-[ext_resource type="PackedScene" uid="uid://bpa3233jqf5ej" path="res://Entitites/limbs/human_leg.tscn" id="6_6ll7k"]
+[ext_resource type="PackedScene" uid="uid://0jlslac7hjs1" path="res://Entitites/limbs/human_arm.tscn" id="5_xelh6"]
+[ext_resource type="PackedScene" uid="uid://btx35qgv0ae7n" path="res://Entitites/limbs/human_leg.tscn" id="6_6ll7k"]
+[ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="6_xelh6"]
 [ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="9_6ll7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_56rfj"]
@@ -129,39 +128,44 @@ mesh = SubResource("QuadMesh_bnevg")
 
 [node name="head" type="Node3D" parent="body" unique_id=903046002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
 
-[node name="limb" parent="body/head" unique_id=2067002376 instance=ExtResource("3_40ase")]
+[node name="human_head" parent="body/head" unique_id=2067002376 instance=ExtResource("3_40ase")]
 
 [node name="torso" type="Node3D" parent="body" unique_id=129462357]
 
-[node name="human_torso" parent="body/torso" unique_id=2017863707 instance=ExtResource("4_5e027")]
+[node name="human_torso" parent="body/torso" unique_id=2017863707 instance=ExtResource("6_xelh6")]
 
 [node name="left_arm" type="Node3D" parent="body" unique_id=1640906285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4173357, 1.127089, 0)
 
-[node name="spider_legs" parent="body/left_arm" unique_id=2072162453 instance=ExtResource("5_5e027")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="human_arm" parent="body/left_arm" unique_id=694186439 instance=ExtResource("5_xelh6")]
 side = 0
 
 [node name="right_arm" type="Node3D" parent="body" unique_id=1018770589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79090357, 0.5557922, 0)
 
-[node name="human_arm" parent="body/right_arm" unique_id=1896956776 instance=ExtResource("5_xelh6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50661564, 0.62241435, 0)
+[node name="human_arm" parent="body/right_arm" unique_id=200164508 instance=ExtResource("5_xelh6")]
 
 [node name="left_leg" type="Node3D" parent="body" unique_id=525976771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5648884, -2.223, 0.18311024)
 
 [node name="human_leg" parent="body/left_leg" unique_id=152757591 instance=ExtResource("6_6ll7k")]
-transform = Transform3D(-1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
 side = 0
 
 [node name="right_leg" type="Node3D" parent="body" unique_id=2008389218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4548899, -1.2215494, 0.101801306)
 
-[node name="human_leg" parent="body/right_leg" unique_id=602789468 instance=ExtResource("6_6ll7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0624963, 0)
+[node name="human_leg" parent="body/right_leg" unique_id=1485523535 instance=ExtResource("6_6ll7k")]
+
+[node name="attack_cooldown0" type="Timer" parent="." unique_id=914385972]
+one_shot = true
+
+[node name="attack_cooldown1" type="Timer" parent="." unique_id=828821509]
+one_shot = true
 
 [connection signal="body_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Camera3D/Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="area_entered" from="hit_box" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="attack_cooldown0" to="." method="_on_attack_cooldown_0_timeout"]
+[connection signal="timeout" from="attack_cooldown1" to="." method="_on_attack_cooldown_1_timeout"]

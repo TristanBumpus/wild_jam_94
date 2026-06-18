@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://dw1krjabpru35"]
+[gd_scene format=3 uid="uid://lvdlehkj0dyi"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_g6o6b"]
+[ext_resource type="Texture2D" uid="uid://b5wboiw58wvor" path="res://Assets/gui/limb/turtle/turtle_leg.png" id="2_7nl0g"]
 [ext_resource type="PackedScene" uid="uid://dtxgkgg4dq36r" path="res://meshes/limbilimb/turtle/turtle_thigh_obj.tscn" id="2_u412r"]
 [ext_resource type="PackedScene" uid="uid://mkntprl3iolf" path="res://meshes/limbilimb/turtle/turtle_shin_obj.tscn" id="3_7nl0g"]
 [ext_resource type="PackedScene" uid="uid://da8x3427eiyip" path="res://meshes/limbilimb/turtle/turtle_foot_obj.tscn" id="4_u1dul"]
@@ -160,6 +161,7 @@ height = 4.953125
 script = ExtResource("1_g6o6b")
 type = 2
 limb_name = "Turtle Legs"
+image = ExtResource("2_7nl0g")
 speed = 1
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

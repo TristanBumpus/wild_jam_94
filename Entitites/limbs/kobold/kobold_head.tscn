@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://bruewlqmetmqh"]
+[gd_scene format=3 uid="uid://vsvb11wvbf31"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_0pict"]
+[ext_resource type="Texture2D" uid="uid://c7xld3h1wokr0" path="res://Assets/gui/limb/kobold/kobold_head.png" id="2_248ph"]
 [ext_resource type="PackedScene" uid="uid://bs7e0p5p3aq55" path="res://meshes/limbilimb/kobold/kobold_head_obj.tscn" id="2_ou8un"]
 [ext_resource type="Texture2D" uid="uid://bl2obv4g4fnnq" path="res://Assets/fire/fire2.png" id="3_t0umq"]
 [ext_resource type="QuadMesh" uid="uid://c3hb0q50no7pm" path="res://Assets/fire/qua_mesh.tres" id="4_248ph"]
@@ -182,6 +183,7 @@ limb_name = "Kobold Head"
 damage = 1.0
 hp = 1.0
 armor_p = 1.0
+image = ExtResource("2_248ph")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]

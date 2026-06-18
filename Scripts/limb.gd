@@ -19,6 +19,7 @@ class_name limb
 @export var luck = 0.0
 
 @export_category("other")
+@export var image = load("res://Assets/gui/limb/human/human_arm.png")
 @export var speed = 0
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
 @export var rotation_diffrence = 0
@@ -32,6 +33,7 @@ var billboard
 
 
 func switch_limb(to_get,s = 1):
+	global.choice_active = false
 	var node = player.get_node(to_get)
 	var old = node.get_child(0)
 	old.reparent(get_tree().current_scene)
@@ -60,49 +62,58 @@ func tooltip(old_limb,show_attack = false):
 	if show_attack:
 		if old_limb.damage > damage:
 			$choice/Control/RichTextLabel2.append_text("Damage: [color=green]%s[/color]\n" % [str(old_limb.damage)])
-			$choice/Control/RichTextLabel.append_text("Damage: [color=red%s[/color]\n" % [str(damage)])
-		if old_limb.damage <= damage:
+			$choice/Control/RichTextLabel.append_text("Damage: [color=red]%s[/color]\n" % [str(damage)])
+		else:
 			$choice/Control/RichTextLabel2.append_text("Damage: [color=red]%s[/color]\n" % [str(old_limb.damage)])
 			$choice/Control/RichTextLabel.append_text("Damage: [color=green]%s[/color]\n" % [str(damage)])
 		
 		if old_limb.attack_speed > attack_speed:
 			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(old_limb.attack_speed)])
-			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=red%s[/color]\n" % [str(attack_speed)])
-		if old_limb.attack_speed <= attack_speed:
+			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(attack_speed)])
+		else:
 			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(old_limb.attack_speed)])
 			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(attack_speed)])
 		
 		if old_limb.armor_p > armor_p:
 			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(old_limb.armor_p)])
 			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=red%s[/color]\n" % [str(armor_p)])
-		if old_limb.armor_p <= armor_p:
+		else:
 			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=red]%s[/color]\n" % [str(old_limb.armor_p)])
 			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(armor_p)])
+		
+		if old_limb.damage / old_limb.attack_speed > damage / attack_speed:
+			$choice/Control/RichTextLabel2.append_text("DPS: [color=green]%s[/color]\n" % [str(snapped(old_limb.damage / old_limb.attack_speed,.01))])
+			$choice/Control/RichTextLabel.append_text("DPS: [color=red]%s[/color]\n" % [str(snapped(damage / attack_speed,.01))])
+			print(snapped(damage / attack_speed,.01))
+		else:
+			$choice/Control/RichTextLabel2.append_text("DPS: [color=red]%s[/color]\n" % [str(snapped(old_limb.damage / old_limb.attack_speed,.01))])
+			$choice/Control/RichTextLabel.append_text("DPS: [color=green]%s[/color]\n" % [str(snapped(damage / attack_speed,.1))])
+	
 	
 	if old_limb.hp > hp:
 		$choice/Control/RichTextLabel2.append_text("Hp: [color=green]%s[/color]\n" % [str(old_limb.hp)])
-		$choice/Control/RichTextLabel.append_text("Hp: [color=red%s[/color]\n" % [str(hp)])
+		$choice/Control/RichTextLabel.append_text("Hp: [color=red]%s[/color]\n" % [str(hp)])
 	if old_limb.hp <= hp:
 		$choice/Control/RichTextLabel2.append_text("Hp: [color=red]%s[/color]\n" % [str(old_limb.hp)])
 		$choice/Control/RichTextLabel.append_text("Hp: [color=green]%s[/color]\n" % [str(hp)])
 	
 	if old_limb.armor > armor:
 		$choice/Control/RichTextLabel2.append_text("Armor: [color=green]%s[/color]\n" % [str(old_limb.armor)])
-		$choice/Control/RichTextLabel.append_text("Armor: [color=red%s[/color]\n" % [str(armor)])
+		$choice/Control/RichTextLabel.append_text("Armor: [color=red]%s[/color]\n" % [str(armor)])
 	if old_limb.armor <= armor:
 		$choice/Control/RichTextLabel2.append_text("Armor: [color=red]%s[/color]\n" % [str(old_limb.armor)])
 		$choice/Control/RichTextLabel.append_text("Armor: [color=green]%s[/color]\n" % [str(armor)])
 	
 	if old_limb.speed > speed:
 		$choice/Control/RichTextLabel2.append_text("Speed: [color=green]%s[/color]\n" % [str(old_limb.speed)])
-		$choice/Control/RichTextLabel.append_text("Speed: [color=red%s[/color]\n" % [str(speed)])
+		$choice/Control/RichTextLabel.append_text("Speed: [color=red]%s[/color]\n" % [str(speed)])
 	if old_limb.speed <= speed:
 		$choice/Control/RichTextLabel2.append_text("Speed: [color=red]%s[/color]\n" % [str(old_limb.speed)])
 		$choice/Control/RichTextLabel.append_text("Speed: [color=green]%s[/color]\n" % [str(speed)])
 	
 	if old_limb.luck > luck:
 		$choice/Control/RichTextLabel2.append_text("Luck: [color=green]%s[/color]\n" % [str(old_limb.luck)])
-		$choice/Control/RichTextLabel.append_text("Luck: [color=red%s[/color]\n" % [str(luck)])
+		$choice/Control/RichTextLabel.append_text("Luck: [color=red]%s[/color]\n" % [str(luck)])
 	if old_limb.luck <= luck:
 		$choice/Control/RichTextLabel2.append_text("Luck: [color=red]%s[/color]\n" % [str(old_limb.luck)])
 		$choice/Control/RichTextLabel.append_text("Luck: [color=green]%s[/color]\n" % [str(luck)])
@@ -117,6 +128,7 @@ func _ready() -> void:
 	
 	linear_damp = 2
 	angular_damp = 2
+	mass = .5
 	
 	for child in find_children("*","MeshInstance3D"):
 		child.set_layer_mask_value(1,false)
@@ -140,6 +152,7 @@ func _ready() -> void:
 	c2.get_node("Control/Node2D/left_arm").button_down.connect(_on_left_arm_button_down)
 	c2.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
 	c2.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
+	c2.get_node("Control/Node2D/end").button_down.connect(end_choice)
 	
 	
 	
@@ -167,12 +180,12 @@ func _ready() -> void:
 		c2.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	
 	#Basic stats
-	damage = snapped(damage * randf_range(.8,1.2), .01)
-	hp = snapped(hp * randf_range(.8,1.2), .01)
-	speed = snapped(speed * randf_range(.8,1.2),.01)
-	armor = snapped(armor * randf_range(.8,1.2), .01)
-	attack_speed = snapped(attack_speed * randf_range(.8,1.2), .01)
-	armor_p = snapped(armor_p * randf_range(.8,1.2),.01)
+	damage = snapped(damage * randf_range(.8,1.2), .01) * (global.difficulty/100)
+	hp = snapped(hp * randf_range(.8,1.2), .01) * (global.difficulty/100)
+	speed = snapped(speed * randf_range(.8,1.2),.01) * (global.difficulty/100)
+	armor = snapped(armor * randf_range(.8,1.2), .01) * (global.difficulty/100)
+	attack_speed = snapped(attack_speed * randf_range(.8,1.2), .01) * (global.difficulty/100)
+	armor_p = snapped(armor_p * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	#Set up special types
 	can_sleep = false
@@ -193,13 +206,16 @@ func _ready() -> void:
 		damage *= .5
 		hp *= 3
 		armor *= 2
+		armor += 1 * snapped(armor * randf_range(.8,1.2),.01) * (global.difficulty/100)
 		speed *= .5
 	
 	if special_type == "Lucky":
 		luck *= 1.5
+		luck += 1 * snapped(luck * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	if special_type == "Sharp":
 		armor_p *= 2
+		armor_p += 1 * snapped(armor_p * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	if special_type == "Dull":
 		armor_p /= 2
@@ -230,7 +246,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if $attack_box != null:
+	if has_node("attack_box"):
 		if get_parent() != get_tree().current_scene:
 			if get_parent().get_parent().get_parent().is_in_group("player"):
 				$attack_box.set_collision_layer_value(2,true)
@@ -239,7 +255,7 @@ func _process(delta: float) -> void:
 				$attack_box.set_collision_layer_value(3,true)
 				$attack_box.set_collision_layer_value(2,false)
 	
-	if get_parent() != get_tree().current_scene:
+	if get_parent() != get_tree().current_scene and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
 		$AnimationPlayer.speed_scale = attack_speed
 		sleeping = true
 		$choice.visible = false
@@ -262,8 +278,9 @@ func _process(delta: float) -> void:
 	else:
 		sleeping = false
 		$CollisionShape3D.disabled = false
-		$AnimationPlayer.play("RESET")
-	
+		if $AnimationPlayer.has_animation("RESET"):
+			$AnimationPlayer.play("RESET")
+
 	#$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
 	#$billboard.global_rotation = Vector3.ZERO
 	
@@ -277,8 +294,16 @@ func _process(delta: float) -> void:
 		$billboard.visible = false
 	
 	if $billboard.visible:
-		if Input.is_action_just_pressed("f"):
+		if Input.is_action_just_pressed("f") and !global.choice_active:
 			$choice.visible = true
+			global.choice_active = false
+			
+			$choice/Control/Node2D/head/TextureRect.texture = player.get_node("body/head").get_child(0).image
+			$choice/Control/Node2D/torso/TextureRect.texture = player.get_node("body/torso").get_child(0).image
+			$choice/Control/Node2D/right_arm/TextureRect.texture = player.get_node("body/right_arm").get_child(0).image
+			$choice/Control/Node2D/left_arm/TextureRect.texture = player.get_node("body/left_arm").get_child(0).image
+			$choice/Control/Node2D/right_leg/TextureRect.texture = player.get_node("body/right_leg").get_child(0).image
+			$choice/Control/Node2D/left_leg/TextureRect.texture = player.get_node("body/left_leg").get_child(0).image
 			
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -307,6 +332,12 @@ func _on_right_leg_button_down() -> void:
 
 func _on_left_leg_button_down() -> void:
 	switch_limb("body/left_leg",0)
+
+
+func end_choice():
+	$choice.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	global.choice_active
 
 
 func _head_hover():

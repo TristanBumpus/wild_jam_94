@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://br5lmryevy4gn"]
 
 [ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_ixa8j"]
-[ext_resource type="PackedScene" uid="uid://c772k7wk1nd15" path="res://Entitites/limbs/spider/spider_head.tscn" id="3_ju50f"]
-[ext_resource type="PackedScene" uid="uid://b6neifua0r1xq" path="res://Entitites/limbs/spider/spider_body.tscn" id="4_qtbis"]
-[ext_resource type="PackedScene" uid="uid://6ccfeiq4tb8d" path="res://Entitites/limbs/spider/spider_legs.tscn" id="5_8qq4n"]
+[ext_resource type="PackedScene" uid="uid://ds53vom5b1yec" path="res://Entitites/limbs/spider/spider_head.tscn" id="3_ju50f"]
+[ext_resource type="PackedScene" uid="uid://mogpyw3ky265" path="res://Entitites/limbs/spider/spider_body.tscn" id="4_qtbis"]
+[ext_resource type="PackedScene" uid="uid://bweaqfh46ham7" path="res://Entitites/limbs/spider/spider_legs.tscn" id="5_8qq4n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ju50f"]
 size = Vector3(7.9781647, 6.0382767, 7.102783)
@@ -73,7 +73,6 @@ mesh = SubResource("BoxMesh_ixa8j")
 surface_material_override/0 = SubResource("StandardMaterial3D_dptck")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=577676601]
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_point_size = 83.65
 
@@ -104,12 +103,10 @@ libraries/ = SubResource("AnimationLibrary_byolt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42490745, -2.4542398)
 
 [node name="spider_head" parent="body/head" unique_id=958455242 instance=ExtResource("3_ju50f")]
-hp = 0.0
 
 [node name="torso" type="Node3D" parent="body" unique_id=2113816249]
 
 [node name="spider_body" parent="body/torso" unique_id=81140087 instance=ExtResource("4_qtbis")]
-hp = 0.0
 
 [node name="left_arm" type="Node3D" parent="body" unique_id=675980868]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -1.430877)
@@ -117,13 +114,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -1.430877)
 [node name="spider_legs" parent="body/left_arm" unique_id=2072162453 instance=ExtResource("5_8qq4n")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 side = 0
-damage = 0.0
 
 [node name="right_arm" type="Node3D" parent="body" unique_id=1729331845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0, -1.431)
 
 [node name="spider_legs" parent="body/right_arm" unique_id=2036669245 instance=ExtResource("5_8qq4n")]
-damage = 0.0
 
 [node name="left_leg" type="Node3D" parent="body" unique_id=1833164654]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -0.5750859)
@@ -131,12 +126,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6768341, 0, -0.5750859)
 [node name="spider_legs" parent="body/left_leg" unique_id=1328567629 instance=ExtResource("5_8qq4n")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 side = 0
-damage = 0.0
 
 [node name="right_leg" type="Node3D" parent="body" unique_id=412243330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0, -0.575)
 
 [node name="spider_legs" parent="body/right_leg" unique_id=852666970 instance=ExtResource("5_8qq4n")]
-damage = 0.0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

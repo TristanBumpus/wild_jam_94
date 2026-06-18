@@ -27,6 +27,7 @@ _data = {
 }
 
 [node name="ui" type="CanvasLayer" unique_id=1624100246]
+layer = 10
 
 [node name="Control" type="Control" parent="." unique_id=1663359738]
 visible = false
@@ -68,6 +69,7 @@ texture_under = ExtResource("2_e6gg6")
 texture_progress = ExtResource("6_c7tqi")
 
 [node name="enemy" type="Label" parent="Control" unique_id=1791381773]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -89,6 +91,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="enemy_hp" type="ProgressBar" parent="Control" unique_id=856183731]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

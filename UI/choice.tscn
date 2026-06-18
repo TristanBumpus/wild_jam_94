@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://c1nsld17apec6"]
 
 [ext_resource type="Texture2D" uid="uid://c6ii46pe1kga6" path="res://Assets/gui/limb/gui_head_wb.png" id="1_54hth"]
+[ext_resource type="Theme" uid="uid://dng3rphw3juoc" path="res://Assets/theme/basic.tres" id="1_j6te1"]
 [ext_resource type="Texture2D" uid="uid://dratf5vwmbcmi" path="res://Assets/gui/limb/gui_body_wb.png" id="2_ejxot"]
 [ext_resource type="Texture2D" uid="uid://dv4p77rrkjq28" path="res://Assets/gui/limb/gui_arm_wb.png" id="3_54hth"]
 [ext_resource type="Texture2D" uid="uid://cbdopcmflf3in" path="res://Assets/gui/limb/gui_leg_wb.png" id="4_ejxot"]
 [ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="5_ejxot"]
+[ext_resource type="Texture2D" uid="uid://bx2g1b0acq42u" path="res://Assets/gui/limb/gui_background.png" id="5_x5j0t"]
 
 [node name="choice" type="CanvasLayer" unique_id=31333311]
 layer = 2
@@ -42,11 +44,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_j6te1")
 disabled = true
 icon = ExtResource("1_54hth")
-flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node2D/head" unique_id=1037152221]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="torso" type="Button" parent="Control/Node2D" unique_id=905914650]
 layout_mode = 0
@@ -62,9 +78,22 @@ grow_horizontal = 2
 grow_vertical = 2
 disabled = true
 icon = ExtResource("2_ejxot")
-flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node2D/torso" unique_id=1658884294]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="right_arm" type="Button" parent="Control/Node2D" unique_id=561527188]
 layout_mode = 1
@@ -81,9 +110,22 @@ grow_horizontal = 2
 grow_vertical = 2
 disabled = true
 icon = ExtResource("3_54hth")
-flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node2D/right_arm" unique_id=1082517708]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="left_arm" type="Button" parent="Control/Node2D" unique_id=944636041]
 layout_mode = 1
@@ -101,9 +143,23 @@ grow_vertical = 2
 scale = Vector2(-1, 1)
 disabled = true
 icon = ExtResource("3_54hth")
-flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node2D/left_arm" unique_id=1493676999]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -32.0
+offset_right = 96.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
 
 [node name="right_leg" type="Button" parent="Control/Node2D" unique_id=1772650718]
 layout_mode = 0
@@ -119,9 +175,22 @@ grow_horizontal = 2
 grow_vertical = 2
 disabled = true
 icon = ExtResource("4_ejxot")
-flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node2D/right_leg" unique_id=20929491]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="left_leg" type="Button" parent="Control/Node2D" unique_id=721096153]
 layout_mode = 1
@@ -139,7 +208,41 @@ grow_vertical = 2
 scale = Vector2(-1, 1)
 disabled = true
 icon = ExtResource("4_ejxot")
-flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Node2D/left_leg" unique_id=389835413]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -32.0
+offset_right = 96.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+
+[node name="end" type="Button" parent="Control/Node2D" unique_id=1749734326]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -40.0
+offset_right = 203.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+theme_override_font_sizes/font_size = 48
+text = "X"
+icon = ExtResource("5_x5j0t")
 icon_alignment = 1
 expand_icon = true
 
@@ -160,10 +263,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("5_ejxot")
 theme_override_font_sizes/normal_font_size = 24
-text = "This 
-is
- a
- test"
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=1221733042]
@@ -182,8 +281,4 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("5_ejxot")
 theme_override_font_sizes/normal_font_size = 24
-text = "This 
-is
- a
- test"
 vertical_alignment = 1

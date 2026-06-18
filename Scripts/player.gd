@@ -50,8 +50,18 @@ func cheats():
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if Input.is_action_just_pressed("k"):
+		for child in get_tree().get_nodes_in_group("enemy"):
+			child.queue_free()
 
 func movement(delta):
+	
+	var speed_mod = 1
+	
+	if Input.is_action_just_pressed("shift"):
+		speed_mod = 10
+	elif Input.is_action_pressed("shift"):
+		speed_mod = 2
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -66,15 +76,23 @@ func movement(delta):
 	var input_dir := Input.get_vector("a", "d", "w", "s")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		velocity.x = direction.x * speed * speed_mod
+		velocity.z = direction.z * speed * speed_mod
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 func attack():
+	
+	if attacking[0] and $attack_cooldown0.is_stopped():
+		attacking[0] = false
+	if attacking[1] and $attack_cooldown1.is_stopped():
+		attacking[1] = false
+	
+	
 	if Input.is_action_pressed("left_click") and !attacking[0]:
 		attacking[0] = true
+	
 	if Input.is_action_pressed("right_click") and !attacking[1]:
 		attacking[1] = true
 
@@ -93,7 +111,7 @@ func limb_to_check(node,index):
 		speed += node.get_child(0).speed
 		armor += node.get_child(0).armor
 		luck += node.get_child(0).luck
-		if node.get_child(0).get_node("attack_box") != null:
+		if node.get_child(0).has_node("attack_box"):
 			node.get_child(0).get_node("attack_box").body_entered.connect(update_enemy_ui)
 
 func limb_checker():
@@ -108,10 +126,10 @@ func limb_checker():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
-		if node.get_node("AnimationPlayer").current_animation != "attack":
+		if node.get_node("AnimationPlayer").current_animation != "attack" and get_node("attack_cooldown"+str(node.side)).is_stopped():
 			node.get_node("AnimationPlayer").play(animString, .3)
 			node.get_node("AnimationPlayer").advance(0)
-			attacking[node.side] = false
+			get_node("attack_cooldown"+str(node.side)).start(node.get_node("AnimationPlayer").get_animation(animString).length * node.attack_speed)
 	elif node.side == 1:
 		if node.get_node("AnimationPlayer").current_animation != "attack":
 			node.get_node("AnimationPlayer").play(animString, .3)
@@ -157,12 +175,13 @@ func _unhandled_input(event):
 		$body/right_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
 
 func update_ui():
-	#$ui/Control/health.text = "HP: " + str(current_hp)
+	
+	if current_hp > max_hp:
+		current_hp = max_hp
 	
 	if $ui/Control/health_bar.value != current_hp:
 		var t = create_tween()
 		t.tween_property($ui/Control/health_bar,"value",current_hp,.2)
-		#$ui/Control/health_bar.value += snapped(((current_hp - $ui/Control/health_bar.value)/.01),.01)
 	
 	$ui/Control/health.text = "hp: " + str(current_hp)
 	
@@ -195,11 +214,19 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	update_ui()
+	if global_position.y < -5:
+		$ui/Control/health_bar.value = current_hp
+		
+		$ui/Control/health.text = "hp: " + str(current_hp)
+		
+		$ui/death_screen.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
 	
+	update_ui()
+	attack()
 	movement(delta)
 	cheats()
-	attack()
 	animation_states()
 	
 	move_and_slide()
@@ -212,14 +239,23 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 	current_hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
 	
 	if current_hp <= 0:
+		$ui/Control/health_bar.value = current_hp
+		
+		$ui/Control/health.text = "hp: " + str(current_hp)
+		
 		$ui/death_screen.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("limb"):
-		body.get_node("billboard").visible = true
-	if body.is_in_group("enemy"):
+	if body.is_in_group("limb") and global.hover_limb == null:
+		if attacking[0] == true and attacking[1] == true and get_tree().get_node_count_in_group("enemy") > 0:
+			pass
+		else:
+			global.hover_limb = body
+			body.get_node("billboard").visible = true
+	
+	if body.is_in_group("enemy") and body != null:
 		$ui/Control/enemy.visible = true
 		$ui/Control/enemy_hp.visible = true
 		
@@ -231,7 +267,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			$ui/Control/enemy.text = body.e_name
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.is_in_group("limb"):
+	if body.is_in_group("limb") and body == global.hover_limb:
+		global.hover_limb = null
 		body.get_node("billboard").visible = false
 	if body.is_in_group("enemy"):
 		$ui/Control/enemy.visible = false
@@ -248,3 +285,11 @@ func update_enemy_ui(body: Node3D) -> void:
 			$ui/Control/enemy.text = body.get_node("body/head").get_child(0).special_type + " " + body.e_name
 		else:
 			$ui/Control/enemy.text = body.e_name
+
+
+func _on_attack_cooldown_0_timeout() -> void:
+	attacking[0] = false
+
+
+func _on_attack_cooldown_1_timeout() -> void:
+	attacking[1] = false

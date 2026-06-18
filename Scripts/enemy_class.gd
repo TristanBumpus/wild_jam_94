@@ -31,6 +31,8 @@ var player: CharacterBody3D
 var special_limb = 0
 var last_limbs = [null,null,null,null,null,null]
 
+var start = true
+
 #special effect
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 
@@ -80,7 +82,7 @@ func basic_movement():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
-		node.look_at(player.position)
+		node.get_parent().look_at(player.position)
 		#if node.get_node("AnimationPlayer").current_animation != "attack":
 		node.get_node("AnimationPlayer").play("attack")
 	
@@ -171,10 +173,45 @@ func _ready() -> void:
 	
 	var r = randi_range(1,100)
 	
-	if r <= 30:
+	if r <= 50:
 		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
 		#var types = ["Big","Small"]
 		special_type = types.pick_random()
+	
+	if r <= 10:
+		
+		var ran = randi_range(1,4)
+		
+		if ran == 1:
+			$body/head.get_child(0).queue_free()
+			var new_limb = load(global.all_heads.pick_random()).instantiate()
+			$body/head.add_child(new_limb)
+		if ran == 2:
+			$body/torso.get_child(0).queue_free()
+			var new_limb = load(global.all_torsos.pick_random()).instantiate()
+			$body/torso.add_child(new_limb)
+		if ran == 3:
+			var ran2 = randi_range(1,2)
+			if ran2 == 1:
+				$body/left_arm.get_child(0).queue_free()
+				var new_limb = load(global.all_arms.pick_random()).instantiate()
+				$body/left_arm.add_child(new_limb)
+			if ran2 == 2:
+				$body/right_arm.get_child(0).queue_free()
+				var new_limb = load(global.all_arms.pick_random()).instantiate()
+				$body/right_arm.add_child(new_limb)
+		if ran == 4:
+			var ran2 = randi_range(1,2)
+			if ran2 == 1:
+				$body/left_leg.get_child(0).queue_free()
+				var new_limb = load(global.all_arms.pick_random()).instantiate()
+				$body/left_leg.add_child(new_limb)
+			if ran2 == 2:
+				$body/right_leg.get_child(0).queue_free()
+				var new_limb = load(global.all_arms.pick_random()).instantiate()
+				$body/right_leg.add_child(new_limb)
+		
+		pass
 	
 	$body/head.get_child(0).special_type = special_type
 	$body/torso.get_child(0).special_type = special_type
@@ -183,13 +220,16 @@ func _ready() -> void:
 	$body/left_leg.get_child(0).special_type = special_type
 	$body/right_leg.get_child(0).special_type = special_type
 	
-	limb_checker()
 	
-	chest_equalizer()
 
 func _process(delta: float) -> void:
+	if start:
+		limb_checker()
+		
+		
+		start = false
 	
-	
+	chest_equalizer()
 	add_to_group("enemy")
 	
 	if is_effected_by_gravity:
@@ -230,6 +270,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	
 	
 	if hp <= 0:
+		player.current_hp += player.max_hp / 5
 		var chance = randi_range(1,100)
 		
 		var times = 0
