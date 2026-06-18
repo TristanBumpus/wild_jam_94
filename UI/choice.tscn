@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1nsld17apec6"]
 
 [ext_resource type="Theme" uid="uid://dng3rphw3juoc" path="res://Assets/theme/basic.tres" id="1_j6te1"]
+[ext_resource type="Texture2D" uid="uid://c6owua6inoubq" path="res://Assets/gui/button/x_button.png" id="3_54hth"]
 [ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="5_ejxot"]
 [ext_resource type="Texture2D" uid="uid://bx2g1b0acq42u" path="res://Assets/gui/limb/gui_background.png" id="5_x5j0t"]
 
@@ -237,8 +238,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(-1, 1)
 theme_override_font_sizes/font_size = 48
-text = "X"
-icon = ExtResource("5_x5j0t")
+icon = ExtResource("3_54hth")
 icon_alignment = 1
 expand_icon = true
 

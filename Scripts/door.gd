@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		if $RigidBody3D.position != Vector3.ZERO and run:
 			#global_transform.origin = init
 			run = false
+			global.play_sound("res://Assets/sfx/close_door_c1.mp3",global_position)
 			$RigidBody3D/CollisionShape3D.disabled = true
 			var t = create_tween()
 			t.tween_property($RigidBody3D,"rotation:y",0,1)

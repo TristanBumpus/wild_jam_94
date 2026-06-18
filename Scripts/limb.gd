@@ -33,6 +33,7 @@ var billboard
 
 
 func switch_limb(to_get,s = 1):
+	global.play_sound("res://Assets/sfx/equip_limb_c2.mp3",global_position)
 	global.choice_active = false
 	var node = player.get_node(to_get)
 	var old = node.get_child(0)
@@ -188,7 +189,6 @@ func _ready() -> void:
 	armor_p = snapped(armor_p * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	#Set up special types
-	can_sleep = false
 	if special_type == "Big":
 		scale = Vector3(2,2,2)
 		damage *= 1.5
@@ -251,9 +251,13 @@ func _process(delta: float) -> void:
 			if get_parent().get_parent().get_parent().is_in_group("player"):
 				$attack_box.set_collision_layer_value(2,true)
 				$attack_box.set_collision_layer_value(3,false)
+				$attack_box.set_collision_mask_value(2,true)
+				$attack_box.set_collision_mask_value(3,false)
 			else:
 				$attack_box.set_collision_layer_value(3,true)
 				$attack_box.set_collision_layer_value(2,false)
+				$attack_box.set_collision_mask_value(3,true)
+				$attack_box.set_collision_mask_value(2,false)
 	
 	if get_parent() != get_tree().current_scene and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
 		$AnimationPlayer.speed_scale = attack_speed
@@ -308,11 +312,6 @@ func _process(delta: float) -> void:
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	if global_position.distance_to(player.global_position) > 500:
-		visible = false
-		$Rigidbody3D.sleep = true
-	else:
-		visible = true
 
 
 func _on_right_arm_button_down() -> void:

@@ -249,43 +249,50 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
-	
-	global.play_sound(hit_sound.pick_random(),global_position)
-	
-	var pop = load("res://UI/pop_out.tscn").instantiate()
-	get_tree().current_scene.add_child(pop)
-	pop.global_position = global_position + Vector3.MODEL_FRONT * 2
-	pop.text = str(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p))
-	
-	
-	var b = blood_splatter.instantiate()
-	
-	get_tree().current_scene.add_child(b)
-	
-	b.global_position = global_position
-	b.global_position.y = 1
-	b.global_position.x += randi_range(-1,1)
-	b.global_position.z += randi_range(-1,1)
-	b.rotation.y = randf_range(0,7)
-	
-	
-	if hp <= 0:
-		player.current_hp += player.max_hp / 5
-		var chance = randi_range(1,100)
+	if area.get_parent().is_in_group("limb"):
+		hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
 		
-		var times = 0
+		global.play_sound(hit_sound.pick_random(),global_position,-10)
 		
-		for c in loot_chance:
-			if chance <= c:
-				break
-			times += 1
+		var hit_effect = load("res://Entitites/effects/hit_particule_fx.tscn").instantiate()
+		get_tree().current_scene.add_child(hit_effect)
+		hit_effect.global_position = global_position
+		hit_effect.get_child(0).emitting = true
 		
-		var new_loot = [$body/head.get_child(0),$body/torso.get_child(0),$body/left_arm.get_child(0),$body/right_arm.get_child(0),$body/left_leg.get_child(0),$body/right_leg.get_child(0)]
-		
-		var selected = new_loot.pick_random()
-		selected.reparent(get_tree().current_scene)
-		selected.global_position.y += 2
+		var pop = load("res://UI/pop_out.tscn").instantiate()
+		get_tree().current_scene.add_child(pop)
+		pop.global_position = global_position + Vector3.MODEL_FRONT * 2
+		pop.text = str(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p))
 		
 		
-		queue_free()
+		var b = blood_splatter.instantiate()
+		
+		get_tree().current_scene.add_child(b)
+		
+		b.global_position = global_position
+		b.global_position.y = 1
+		b.global_position.x += randi_range(-1,1)
+		b.global_position.z += randi_range(-1,1)
+		b.rotation.y = randf_range(0,7)
+		
+		
+		if hp <= 0:
+			global.play_sound("res://Assets/sfx/die_c1.mp3",global_position)
+			player.current_hp += player.max_hp / 5
+			var chance = randi_range(1,100)
+			
+			var times = 0
+			
+			for c in loot_chance:
+				if chance <= c:
+					break
+				times += 1
+			
+			var new_loot = [$body/head.get_child(0),$body/torso.get_child(0),$body/left_arm.get_child(0),$body/right_arm.get_child(0),$body/left_leg.get_child(0),$body/right_leg.get_child(0)]
+			
+			var selected = new_loot.pick_random()
+			selected.reparent(get_tree().current_scene)
+			selected.global_position.y += 2
+			
+			
+			queue_free()

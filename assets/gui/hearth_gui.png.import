@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pjdh3i5gep7l"
-path.s3tc="res://.godot/imported/hearth_gui.png-d3cf0e37bce5cabc590db93e56089215.s3tc.ctex"
+path.s3tc="res://.godot/imported/hearth_gui.png-aec28db3dc0ac235bc19ff68ff1c43bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/gui/hearth_gui.png"
-dest_files=["res://.godot/imported/hearth_gui.png-d3cf0e37bce5cabc590db93e56089215.s3tc.ctex"]
+source_file="res://Assets/gui/hearth_gui.png"
+dest_files=["res://.godot/imported/hearth_gui.png-aec28db3dc0ac235bc19ff68ff1c43bd.s3tc.ctex"]
 
 [params]
 

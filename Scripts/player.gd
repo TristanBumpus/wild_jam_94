@@ -112,7 +112,7 @@ func limb_to_check(node,index):
 		armor += node.get_child(0).armor
 		luck += node.get_child(0).luck
 		if node.get_child(0).has_node("attack_box"):
-			node.get_child(0).get_node("attack_box").body_entered.connect(update_enemy_ui)
+			node.get_child(0).get_node("attack_box").area_entered.connect(update_enemy_ui)
 
 func limb_checker():
 	limb_to_check($body/head,0)
@@ -274,17 +274,17 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		$ui/Control/enemy.visible = false
 		$ui/Control/enemy_hp.visible = false
 
-func update_enemy_ui(body: Node3D) -> void:
-	if body != null:
+func update_enemy_ui(area: Area3D) -> void:
+	if area.get_parent() != null and area.get_parent().is_in_group("enemy"):
 		$ui/Control/enemy.visible = true
 		$ui/Control/enemy_hp.visible = true
 		
-		$ui/Control/enemy_hp.max_value = body.max_hp
-		$ui/Control/enemy_hp.value = body.hp
-		if body.special_type != "none":
-			$ui/Control/enemy.text = body.get_node("body/head").get_child(0).special_type + " " + body.e_name
+		$ui/Control/enemy_hp.max_value = area.get_parent().max_hp
+		$ui/Control/enemy_hp.value = area.get_parent().hp
+		if area.get_parent().special_type != "none":
+			$ui/Control/enemy.text = area.get_parent().get_node("body/head").get_child(0).special_type + " " + area.get_parent().e_name
 		else:
-			$ui/Control/enemy.text = body.e_name
+			$ui/Control/enemy.text = area.get_parent().e_name
 
 
 func _on_attack_cooldown_0_timeout() -> void:

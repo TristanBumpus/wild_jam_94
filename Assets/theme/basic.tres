@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dng3rphw3juoc"]
 
-[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://assets/font/Minecraft.ttf" id="1_fqh3q"]
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="1_fqh3q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqh3q"]
 bg_color = Color(1, 0, 0, 0.34117648)

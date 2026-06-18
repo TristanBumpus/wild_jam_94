@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cmqrw57hu2s06"]
 
 [ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_5bfqm"]
-[ext_resource type="PackedScene" uid="uid://c6thkbkht6suf" path="res://Entitites/limbs/turtle/turtle_head.tscn" id="2_ah6li"]
-[ext_resource type="PackedScene" uid="uid://c835bmqgkhiem" path="res://Entitites/limbs/turtle/turtle_body.tscn" id="3_typws"]
-[ext_resource type="PackedScene" uid="uid://c1lsxilwbl8gr" path="res://Entitites/limbs/turtle/turtle_arm.tscn" id="4_n1byt"]
-[ext_resource type="PackedScene" uid="uid://dw1krjabpru35" path="res://Entitites/limbs/turtle/turtle_leg.tscn" id="5_8t054"]
+[ext_resource type="PackedScene" uid="uid://dkyj2jmsltxbw" path="res://Entitites/limbs/turtle/turtle_head.tscn" id="2_ah6li"]
+[ext_resource type="PackedScene" uid="uid://lx2rnxg3rx5i" path="res://Entitites/limbs/turtle/turtle_body.tscn" id="3_typws"]
+[ext_resource type="PackedScene" uid="uid://b82us7d6woty2" path="res://Entitites/limbs/turtle/turtle_arm.tscn" id="4_n1byt"]
+[ext_resource type="PackedScene" uid="uid://lvdlehkj0dyi" path="res://Entitites/limbs/turtle/turtle_leg.tscn" id="5_8t054"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ot2br"]
 size = Vector3(2.45969, 9.267382, 1.756897)
@@ -52,7 +52,7 @@ shape = SubResource("BoxShape3D_h4lrh")
 disabled = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2099121729]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=437256803]

@@ -15,9 +15,6 @@ size = Vector3(2.45969, 8.022068, 1.756897)
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yi5b5"]
-size = Vector3(7.9781647, 6.0382767, 7.102783)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_dreyd"]
 size = Vector3(2.5129328, 9.302782, 2.1027222)
 
@@ -43,18 +40,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jeyy2")
 debug_path_custom_color = Color(1, 0, 0, 1)
 debug_path_custom_point_size = 45.6
 
-[node name="attack_box" type="Area3D" parent="." unique_id=2056078445]
-visible = false
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=924547612]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-shape = SubResource("BoxShape3D_yi5b5")
-disabled = true
-
 [node name="Area3D" type="Area3D" parent="." unique_id=1572068405]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1760977631]
