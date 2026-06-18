@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bbh7pm5a2pm1i" path="res://assets/gui/dmg_pierce_gui.png" id="9_its1e"]
 [ext_resource type="Texture2D" uid="uid://pjdh3i5gep7l" path="res://assets/gui/hearth_gui.png" id="10_3emk2"]
 [ext_resource type="Texture2D" uid="uid://bq8jldullq4p4" path="res://assets/gui/armor_gui.png" id="11_4cyse"]
+[ext_resource type="PackedScene" uid="uid://3j3s4t1nrkjv" path="res://meshes/hit_particule_fx.tscn" id="12_cje65"]
 [ext_resource type="Texture2D" uid="uid://2wgmnvo5bmg4" path="res://assets/gui/speed_gui.png" id="12_r4u05"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
@@ -158,3 +159,6 @@ billboard = 1
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("12_r4u05")
+
+[node name="hit_particule_fx" parent="." unique_id=21424782 instance=ExtResource("12_cje65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.28699, 12.85418, 34.80509)
