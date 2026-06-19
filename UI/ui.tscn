@@ -34,7 +34,7 @@ _data = {
 }
 
 [node name="ui" type="CanvasLayer" unique_id=1624100246]
-layer = 10
+layer = 4
 
 [node name="Control" type="Control" parent="." unique_id=1663359738]
 visible = false
@@ -138,6 +138,7 @@ value = 50.0
 show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1386766820]
+z_index = -4096
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -204,5 +205,6 @@ autoplay = &"default"
 
 [node name="settings" parent="." unique_id=1314367093 instance=ExtResource("10_h81ot")]
 visible = false
+z_index = 100
 
 [connection signal="timeout" from="load_screen/Timer" to="load_screen" method="_on_timer_timeout"]

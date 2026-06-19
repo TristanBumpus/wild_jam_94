@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-class_name Enemy
-
 @export_category("Combat")
 @export_enum("melee", "range") var attack_type = 0
 @export var hp = 0
@@ -36,6 +34,7 @@ var hit_sound = ["res://Assets/sfx/atk_c1.mp3", "res://Assets/sfx/atk_c2.mp3"]
 
 #special effect
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
+
 
 
 func chest_equalizer():
@@ -146,162 +145,13 @@ func limb_checker():
 	
 	chest_equalizer()
 
-func rigid_interaction():
-	
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		
-		# 3. Check if what we hit is actually a RigidBody3D
-		if collider is RigidBody3D:
-			# Calculate the direction of the hit (ignoring the Y axis so we don't push it into the floor)
-			var push_dir = -collision.get_normal()
-			push_dir.y = 0 
-			push_dir = push_dir.normalized()
-			
-			# 4. Apply the impulse at the exact point of contact
-			# Multiplying by character velocity makes it push harder if you're running faster
-			var push_force = speed / 10
-			var final_force = push_dir * push_force
-			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
 
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	player = get_tree().get_first_node_in_group("player")
-	
-	
-	var r = randi_range(1,100)
-	
-	if r <= 40 * (global.difficulty / 100):
-		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
-		#var types = ["Big","Small"]
-		special_type = types.pick_random()
-	
-	
-	if r <= 10 * (global.difficulty / 100):
-		e_name += " Mutant"
-		var ran = randi_range(1,4)
-		
-		if ran == 1:
-			$body/head.get_child(0).queue_free()
-			var new_limb = load(global.all_heads.pick_random()).instantiate()
-			$body/head.add_child(new_limb)
-		if ran == 2:
-			$body/torso.get_child(0).queue_free()
-			var new_limb = load(global.all_torsos.pick_random()).instantiate()
-			$body/torso.add_child(new_limb)
-		if ran == 3:
-			var ran2 = randi_range(1,2)
-			if ran2 == 1:
-				$body/left_arm.get_child(0).queue_free()
-				var new_limb = load(global.all_arms.pick_random()).instantiate()
-				$body/left_arm.add_child(new_limb)
-				new_limb.side = 0
-			if ran2 == 2:
-				$body/right_arm.get_child(0).queue_free()
-				var new_limb = load(global.all_arms.pick_random()).instantiate()
-				$body/right_arm.add_child(new_limb)
-		if ran == 4:
-			var ran2 = randi_range(1,2)
-			if ran2 == 1:
-				$body/left_leg.get_child(0).queue_free()
-				var new_limb = load(global.all_legs.pick_random()).instantiate()
-				$body/left_leg.add_child(new_limb)
-				new_limb.side = 0
-			if ran2 == 2:
-				$body/right_leg.get_child(0).queue_free()
-				var new_limb = load(global.all_legs.pick_random()).instantiate()
-				$body/right_leg.add_child(new_limb)
-		
-		
-	
-	$body/head.get_child(0).special_type = special_type
-	$body/torso.get_child(0).special_type = special_type
-	$body/left_arm.get_child(0).special_type = special_type
-	$body/right_arm.get_child(0).special_type = special_type
-	$body/left_leg.get_child(0).special_type = special_type
-	$body/right_leg.get_child(0).special_type = special_type
+	pass # Replace with function body.
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if start:
-		limb_checker()
-		
-		
-		start = false
-	
-	chest_equalizer()
-	add_to_group("enemy")
-	
-	if is_effected_by_gravity:
-		if not is_on_floor():
-			velocity += get_gravity() * delta
-	
-	if movement_type == 0:
-		basic_movement()
-	
-	if attack_type == 0:
-		melee_attack()
-	if attack_type == 1:
-		range_attack()
-	
-	move_and_slide()
-	
-	rigid_interaction()
-
-
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.get_parent().is_in_group("limb"):
-		hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
-		
-		global.play_sound(hit_sound.pick_random(),global_position,-10)
-		
-		var hit_effect = load("res://Entitites/effects/hit_particule_fx.tscn").instantiate()
-		get_tree().current_scene.add_child(hit_effect)
-		hit_effect.global_position = global_position
-		hit_effect.get_child(0).emitting = true
-		
-		var pop = load("res://UI/pop_out.tscn").instantiate()
-		get_tree().current_scene.add_child(pop)
-		pop.global_position = global_position + Vector3.MODEL_FRONT * 2
-		pop.text = str(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p))
-		
-		
-		var b = blood_splatter.instantiate()
-		
-		get_tree().current_scene.add_child(b)
-		
-		b.global_position = global_position
-		b.global_position.y = 1
-		b.global_position.x += randi_range(-1,1)
-		b.global_position.z += randi_range(-1,1)
-		b.rotation.y = randf_range(0,7)
-		
-		
-		if hp <= 0:
-			global.play_sound("res://Assets/sfx/die_c1.mp3",global_position)
-			player.current_hp += player.max_hp / 5
-			var chance = randi_range(1,100)
-			
-			var death_effect = load("res://Entitites/effects/blood_explosion.tscn").instantiate()
-			get_tree().current_scene.add_child(death_effect)
-			death_effect.global_position = global_position
-			death_effect.get_child(0).emitting = true
-			
-			var times = 0
-			
-			for c in loot_chance:
-				if chance <= c:
-					break
-				times += 1
-			
-			var new_loot = [$body/head.get_child(0),$body/torso.get_child(0),$body/left_arm.get_child(0),$body/right_arm.get_child(0),$body/left_leg.get_child(0),$body/right_leg.get_child(0)]
-			
-			var selected = new_loot.pick_random()
-			selected.reparent(get_tree().current_scene)
-			selected.global_position.y += 2
-			
-			
-			queue_free()
+	pass

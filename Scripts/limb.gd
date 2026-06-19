@@ -147,7 +147,7 @@ func tooltip(old_limb,show_attack = false):
 	#$choice/Control/RichTextLabel2.text += str(old_limb.damage)
 
 func play_step():
-	global.play_sound("res://Assets/sfx/step_c1.mp3", global_position,-25)
+	global.play_sound(["res://Assets/sfx/step_c1.mp3","res://Assets/sfx/step_c2.mp3","res://Assets/sfx/step_c3.mp3"].pick_random(), global_position,-22)
 
 
 
@@ -321,6 +321,7 @@ func _process(delta: float) -> void:
 	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
 	
 	if $choice.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$billboard.visible = false
 		if global_position.distance_to(player.global_position) > 15:
 			$choice.visible = false

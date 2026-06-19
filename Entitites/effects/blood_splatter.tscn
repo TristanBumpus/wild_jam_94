@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dpkqgk5xl0bdn"]
 
-[ext_resource type="Texture2D" uid="uid://dgposolt65yte" path="res://Assets/elements/blood_splatter.png" id="1_nlmsx"]
+[ext_resource type="Texture2D" uid="uid://brcvta3mlcf8l" path="res://Assets/elements/blood_effect.png" id="1_nlmsx"]
+[ext_resource type="Texture2D" uid="uid://d2gtlowh65xia" path="res://Assets/elements/blood_effect_n.png" id="2_8j4py"]
 
 [node name="blood_splatter" type="Decal" unique_id=1677322265]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 texture_albedo = ExtResource("1_nlmsx")
+texture_normal = ExtResource("2_8j4py")
 cull_mask = 1048573

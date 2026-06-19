@@ -21,14 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://cwlfnpwtfwckq" path="res://Levels/pool_test/dtm_lvl_4.tscn" id="14_gaktt"]
 [ext_resource type="PackedScene" uid="uid://bliy2mdwfntjv" path="res://Levels/pool_test/dtm_lvl_5.tscn" id="15_3fdi5"]
 [ext_resource type="AudioStream" uid="uid://dfejnthou7i2p" path="res://Assets/music/thing.mp3" id="16_vmy0u"]
+[ext_resource type="PackedScene" uid="uid://3j3s4t1nrkjv" path="res://Entitites/effects/hit_particule_fx.tscn" id="23_twn60"]
 
 [sub_resource type="Environment" id="Environment_ecu0b"]
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
-fog_light_energy = 5.52
+fog_light_energy = 2.0
 fog_density = 0.8
 fog_sky_affect = 0.0
+fog_depth_curve = 12.553342
+fog_depth_begin = 5.0
 
 [node name="Level" type="Node3D" unique_id=753582588]
 script = ExtResource("1_s41d2")
@@ -59,5 +62,9 @@ stream = ExtResource("16_vmy0u")
 pitch_scale = 0.6
 autoplay = true
 bus = &"music"
+
+[node name="hit_particule_fx" parent="." unique_id=21424782 instance=ExtResource("23_twn60")]
+
+[node name="hit_particule_fx2" parent="." unique_id=1202504963 instance=ExtResource("23_twn60")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -13,9 +13,19 @@ var luck = 0.0
 var mouse_sensitivity = .005
 @onready var cam = $Camera3D
 
-
 var attacking = [false,false]
 var last_limbs = [null,null,null,null,null,null]
+var cam_pos = Vector3(0,1,-.9)
+
+@export_category("Camera Shake")
+@export var decay : float = 0.8 # Time it takes to reach 0% of trauma
+@export var max_offset : Vector2 = Vector2(100, 75) # Max hor/ver shake in pixels
+@export var max_roll : float = 0.1 # Maximum rotation in radians (use sparingly)
+@export var follow_node : Node2D # Node to follow (assign this to your player)
+
+var trauma : float = 0.0 # Current shake strength
+var trauma_power : int = 2 # Trauma exponent. Increase for more extreme shaking
+
 
 
 func chest_equalizer():
@@ -46,6 +56,7 @@ func chest_equalizer():
 
 func cheats():
 	if Input.is_action_just_pressed("k"):
+		trigger_shake(.5)
 		for child in get_tree().get_nodes_in_group("enemy"):
 			child.hp = 0
 	if Input.is_action_just_pressed("e"):
@@ -53,7 +64,6 @@ func cheats():
 		var i = get_viewport().get_texture().get_image()
 		i.save_png("res://screenshots/"+ str(randi()) +".png")
 		$ui.visible = true
-
 
 func movement(delta):
 	
@@ -93,9 +103,10 @@ func attack():
 	
 	if Input.is_action_pressed("left_click") and !attacking[0]:
 		attacking[0] = true
-	
+		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position)
 	if Input.is_action_pressed("right_click") and !attacking[1]:
 		attacking[1] = true
+		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position)
 
 func limb_to_check(node,index):
 	if node.get_child(0) != last_limbs[index]:
@@ -208,12 +219,27 @@ func rigid_interaction():
 			var final_force = push_dir * push_force
 			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
 
+func shake(delta):
+	if trauma:
+		trauma = max(trauma - decay * delta, 0)
+		var amount = pow(trauma, trauma_power)
+		#cam.rotation = max_roll * amount * randf_range(-1, 1)
+		cam.h_offset = max_offset.x * amount * randf_range(-1, 1)
+		cam.v_offset = max_offset.y * amount * randf_range(-1, 1)
+
+func trigger_shake(amount : float):
+	trauma = min(trauma + amount, 1.0)
+	if trauma > .1:
+		trauma = .1
+
 
 
 func _ready() -> void:
 	limb_checker()
 
 func _physics_process(delta: float) -> void:
+	
+	cam.position = cam_pos * $body/torso.get_child(0).scale.x
 	
 	if global_position.y < -5:
 		$ui/Control/health_bar.value = current_hp
@@ -224,6 +250,7 @@ func _physics_process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
 	
+	shake(delta)
 	update_ui()
 	attack()
 	movement(delta)
@@ -248,6 +275,7 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
 
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("limb") and global.hover_limb == null:
 		if attacking[0] == true and attacking[1] == true and get_tree().get_node_count_in_group("enemy") > 0:
@@ -267,6 +295,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		else:
 			$ui/Control/enemy.text = body.e_name
 
+
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("limb") and body == global.hover_limb:
 		global.hover_limb = null
@@ -275,7 +304,10 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		$ui/Control/enemy.visible = false
 		$ui/Control/enemy_hp.visible = false
 
+
 func update_enemy_ui(area: Area3D) -> void:
+	if area.get_parent().is_in_group("enemy"):
+		trigger_shake(.1)
 	if area.get_parent() != null and area.get_parent().is_in_group("enemy"):
 		if area.get_parent().hp > 0:
 			$ui/Control/enemy.visible = true

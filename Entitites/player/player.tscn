@@ -61,7 +61,7 @@ height = 11.4552
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_duyax"]
 shader = ExtResource("9_6ll7k")
 shader_parameter/pixel_size = 2.0
-shader_parameter/levels = 20.0
+shader_parameter/levels = 25.0
 shader_parameter/gamma = Vector2(0.4, 2.975)
 shader_parameter/curvature = 14.95
 shader_parameter/vignette_multiplier = 5.75

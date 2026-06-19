@@ -1,19 +1,17 @@
 [gd_scene format=3 uid="uid://c1nsld17apec6"]
 
 [ext_resource type="Theme" uid="uid://dng3rphw3juoc" path="res://Assets/theme/basic.tres" id="1_j6te1"]
+[ext_resource type="Texture2D" uid="uid://cski12ufbaeny" path="res://Assets/gui/limb/human/human_arm.png" id="2_54hth"]
+[ext_resource type="Texture2D" uid="uid://ct5wqxpb31yv4" path="res://Assets/gui/button/X.png" id="3_ejxot"]
 [ext_resource type="Texture2D" uid="uid://ynl8g7hxwc43" path="res://Assets/gui/parchemin_text.png" id="4_ejxot"]
 [ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="5_ejxot"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5j0t"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bvpxc"]
-load_path = "res://.godot/imported/x_button.png-6dfb1f3e8eb67d0b386c724f5ba886a6.ctex"
-
 [node name="choice" type="CanvasLayer" unique_id=31333311]
-layer = 2
+layer = 4
 visible = false
 
 [node name="Control" type="Control" parent="." unique_id=1284888017]
+z_index = 4096
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +44,6 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_j6te1")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_x5j0t")
 disabled = true
 icon_alignment = 1
 expand_icon = true
@@ -64,6 +61,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_54hth")
 
 [node name="torso" type="Button" parent="Control/Node2D" unique_id=905914650]
 layout_mode = 0
@@ -94,6 +92,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_54hth")
 
 [node name="right_arm" type="Button" parent="Control/Node2D" unique_id=561527188]
 layout_mode = 1
@@ -114,17 +113,19 @@ expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/Node2D/right_arm" unique_id=1082517708]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -32.0
+offset_left = -8.0
 offset_top = -32.0
-offset_right = 32.0
+offset_right = 56.0
 offset_bottom = 32.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("2_54hth")
 
 [node name="left_arm" type="Button" parent="Control/Node2D" unique_id=944636041]
 layout_mode = 1
@@ -158,6 +159,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(-1, 1)
+texture = ExtResource("2_54hth")
 
 [node name="right_leg" type="Button" parent="Control/Node2D" unique_id=1772650718]
 layout_mode = 0
@@ -182,12 +184,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
+offset_left = 32.0
 offset_top = -32.0
-offset_right = 32.0
+offset_right = 96.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("2_54hth")
 
 [node name="left_leg" type="Button" parent="Control/Node2D" unique_id=721096153]
 layout_mode = 1
@@ -221,6 +225,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(-1, 1)
+texture = ExtResource("2_54hth")
 
 [node name="end" type="Button" parent="Control/Node2D" unique_id=1749734326]
 layout_mode = 1
@@ -253,7 +258,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(-1, 1)
-texture = SubResource("CompressedTexture2D_bvpxc")
+texture = ExtResource("3_ejxot")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=384095702]
 layout_mode = 1

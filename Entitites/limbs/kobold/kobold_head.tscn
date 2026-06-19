@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -200,9 +200,9 @@ shape = SubResource("CapsuleShape3D_ou8un")
 [node name="fire_fx" type="CPUParticles3D" parent="." unique_id=1127974677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2832663, -1.9503574)
 material_override = SubResource("StandardMaterial3D_pgdg7")
-emitting = false
 amount = 50
 lifetime = 2.0
+one_shot = true
 lifetime_randomness = 0.08
 fixed_fps = 30
 visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)

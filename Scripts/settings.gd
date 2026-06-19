@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		visible = !visible
-		if !$"../start".visible and !$"../death_screen".visible:
+		if !$"../start".visible and !$"../death_screen".visible and !global.choice_active:
 			get_tree().paused = !get_tree().paused
 			if visible:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -40,6 +40,6 @@ func _on_full_button_down() -> void:
 
 func _on_resume_button_down() -> void:
 	visible = !visible
-	if !$"../start".visible and !$"../death_screen".visible:
+	if !$"../start".visible and !$"../death_screen".visible and !global.choice_active:
 		get_tree().paused = !get_tree().paused
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
