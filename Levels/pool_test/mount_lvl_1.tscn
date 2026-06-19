@@ -7,10 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="4_5ark0"]
 [ext_resource type="PackedScene" uid="uid://dpy37ff65jw2n" path="res://Entitites/level elements/spawner.tscn" id="5_3dk0j"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_5kfqn"]
+geometry_parsed_geometry_type = 1
+
 [node name="mount_lvl_1" type="Node3D" unique_id=661546840]
 script = ExtResource("1_5kfqn")
 
-[node name="GridMap2" type="GridMap" parent="." unique_id=615397317]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=372574675]
+navigation_mesh = SubResource("NavigationMesh_5kfqn")
+
+[node name="GridMap2" type="GridMap" parent="NavigationRegion3D" unique_id=615397317]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 63.465126)
 mesh_library = ExtResource("1_8oh4g")
 data = {

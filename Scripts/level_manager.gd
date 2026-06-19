@@ -10,7 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if player.global_position.z < global_position.z:
-		if global_position.distance_to(player.global_position) > 100:
+		if global_position.distance_to(player.global_position) > 150:
 			visible = false
 		else:
 			visible = true

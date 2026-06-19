@@ -1,9 +1,13 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://3gd1dcmnu2qi"]
 
-[ext_resource type="Texture2D" uid="uid://bk0k7bwxm8car" path="res://assets/dungeon/dungeon_tileset_dungeon_tiles.png" id="1_uav2u"]
+[ext_resource type="Texture2D" uid="uid://bk0k7bwxm8car" path="res://Assets/dungeon/dungeon_tileset_dungeon_tiles.png" id="1_uav2u"]
+[ext_resource type="Texture2D" uid="uid://cnj3yelk10ckq" path="res://Assets/normals/dungeon_tiles_n.png" id="2_5dv87"]
 
 [resource]
 cull_mode = 2
 albedo_texture = ExtResource("1_uav2u")
 metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 3.0
+normal_texture = ExtResource("2_5dv87")
 texture_filter = 0

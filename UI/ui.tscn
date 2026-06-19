@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cisollqtkkuan" path="res://Assets/gui/circle_light.png" id="6_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://lyy2to5vfoc4" path="res://Assets/gui/hp_bar/renders/health_bar_render.png" id="6_c7tqi"]
 [ext_resource type="Script" uid="uid://dn2fubsb80q3d" path="res://UI/load_screen.gd" id="7_c7tqi"]
+[ext_resource type="PackedScene" uid="uid://d1kgigs4ks3lv" path="res://UI/settings.tscn" id="10_h81ot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1m0"]
 bg_color = Color(0.005185704, 0.07819951, 0.033666193, 1)
@@ -160,7 +161,6 @@ visible = false
 
 [node name="load_screen" type="Control" parent="." unique_id=1786424467]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,5 +201,8 @@ autostart = true
 root_node = NodePath("../Control")
 libraries/ = SubResource("AnimationLibrary_nm1m0")
 autoplay = &"default"
+
+[node name="settings" parent="." unique_id=1314367093 instance=ExtResource("10_h81ot")]
+visible = false
 
 [connection signal="timeout" from="load_screen/Timer" to="load_screen" method="_on_timer_timeout"]

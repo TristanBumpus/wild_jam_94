@@ -46,6 +46,7 @@ mesh = SubResource("BoxMesh_ixa8j")
 surface_material_override/0 = SubResource("StandardMaterial3D_dptck")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=577676601]
+path_desired_distance = 5.0
 debug_use_custom = true
 debug_path_custom_point_size = 83.65
 

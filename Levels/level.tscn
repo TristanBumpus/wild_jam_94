@@ -54,6 +54,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=373271715]
+process_mode = 3
 stream = ExtResource("16_vmy0u")
 pitch_scale = 0.6
 autoplay = true

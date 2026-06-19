@@ -45,14 +45,15 @@ func chest_equalizer():
 	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func cheats():
-	if Input.is_action_just_pressed("esc"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if Input.is_action_just_pressed("k"):
 		for child in get_tree().get_nodes_in_group("enemy"):
-			child.queue_free()
+			child.hp = 0
+	if Input.is_action_just_pressed("e"):
+		$ui.visible = false
+		var i = get_viewport().get_texture().get_image()
+		i.save_png("res://screenshots/"+ str(randi()) +".png")
+		$ui.visible = true
+
 
 func movement(delta):
 	
@@ -129,7 +130,7 @@ func set_animation(node:Node3D,animString:String):
 		if node.get_node("AnimationPlayer").current_animation != "attack" and get_node("attack_cooldown"+str(node.side)).is_stopped():
 			node.get_node("AnimationPlayer").play(animString, .3)
 			node.get_node("AnimationPlayer").advance(0)
-			get_node("attack_cooldown"+str(node.side)).start(node.get_node("AnimationPlayer").get_animation(animString).length * node.attack_speed)
+			get_node("attack_cooldown"+str(node.side)).start(node.get_node("AnimationPlayer").get_animation(animString).length / node.attack_speed)
 	elif node.side == 1:
 		if node.get_node("AnimationPlayer").current_animation != "attack":
 			node.get_node("AnimationPlayer").play(animString, .3)
@@ -141,7 +142,6 @@ func set_animation(node:Node3D,animString:String):
 			node.get_node("AnimationPlayer").play(animString, .3)
 			if advance:
 				node.get_node("AnimationPlayer").seek(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.get_node("AnimationPlayer").speed_scale,true)
-			print(advance)
 
 func animation_states():
 	if velocity.x + velocity.z != 0:

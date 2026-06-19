@@ -313,9 +313,6 @@ func _process(delta: float) -> void:
 		$CollisionShape3D.disabled = false
 		if $AnimationPlayer.has_animation("RESET"):
 			$AnimationPlayer.play("RESET")
-
-	#$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
-	#$billboard.global_rotation = Vector3.ZERO
 	
 	var s = ""
 	if special_type != "none":
@@ -325,7 +322,7 @@ func _process(delta: float) -> void:
 	
 	if $choice.visible:
 		$billboard.visible = false
-		if global_position.distance_to(player.global_position) > 20:
+		if global_position.distance_to(player.global_position) > 15:
 			$choice.visible = false
 			global.choice_active = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

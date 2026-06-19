@@ -27,8 +27,10 @@ texture_margin_right = 40.0
 texture_margin_bottom = 40.0
 
 [resource]
+Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_fqh3q")
 Button/styles/disabled = SubResource("StyleBoxTexture_jrjic")
 Button/styles/hover = SubResource("StyleBoxTexture_qpylt")
 Button/styles/normal = SubResource("StyleBoxTexture_qlaem")
+Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_fqh3q")

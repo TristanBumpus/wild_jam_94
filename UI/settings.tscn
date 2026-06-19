@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://d1kgigs4ks3lv"]
+
+[ext_resource type="Script" uid="uid://bx52hnfp7g1ig" path="res://Scripts/settings.gd" id="1_7iqql"]
+[ext_resource type="Shader" uid="uid://dtcj7se60gc5" path="res://shader/half_tone.gdshader" id="2_vbc7n"]
+[ext_resource type="Theme" uid="uid://dng3rphw3juoc" path="res://Assets/theme/basic.tres" id="3_wgjsl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7iqql"]
+shader = ExtResource("2_vbc7n")
+shader_parameter/step_posterize = 20
+shader_parameter/step_pixelated = 1000
+shader_parameter/color_A = Color(0.47843137, 0.1882353, 0.27058825, 1)
+shader_parameter/color_B = Color(0.18039216, 0.13333334, 0.18431373, 1)
+shader_parameter/dithering_bayer = false
+shader_parameter/animated_dithering = true
+shader_parameter/smooth_animate = false
+shader_parameter/interval = 0.1
+
+[node name="settings" type="Control" unique_id=1314367093]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7iqql")
+
+[node name="MeshInstance2D" type="ColorRect" parent="." unique_id=294206658]
+material = SubResource("ShaderMaterial_7iqql")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=960602710]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 199.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="resume" type="Button" parent="." unique_id=826956095]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -144.0
+offset_right = 268.0
+offset_bottom = -32.0
+grow_vertical = 0
+text = "Resume"
+
+[node name="full" type="Button" parent="." unique_id=1163898710]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -296.0
+offset_right = 270.0
+offset_bottom = -184.0
+grow_vertical = 0
+text = "Fullscreen"
+
+[node name="master" type="Label" parent="." unique_id=1265991090]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 176.0
+offset_right = 136.0
+offset_bottom = 208.0
+theme = ExtResource("3_wgjsl")
+text = "Master"
+
+[node name="master_s" type="HSlider" parent="master" unique_id=683549958]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 17.0
+offset_right = 236.0
+offset_bottom = 33.0
+grow_vertical = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="music" type="Label" parent="." unique_id=671444782]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 256.0
+offset_right = 114.0
+offset_bottom = 288.0
+theme = ExtResource("3_wgjsl")
+text = "Music"
+
+[node name="music_s" type="HSlider" parent="music" unique_id=2115379627]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 17.0
+offset_right = 236.0
+offset_bottom = 33.0
+grow_vertical = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="sfx" type="Label" parent="." unique_id=693455451]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 336.0
+offset_right = 98.0
+offset_bottom = 368.0
+theme = ExtResource("3_wgjsl")
+text = "SFX"
+
+[node name="sfx_s" type="HSlider" parent="sfx" unique_id=850361039]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 17.0
+offset_right = 236.0
+offset_bottom = 33.0
+grow_vertical = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[connection signal="button_down" from="resume" to="." method="_on_resume_button_down"]
+[connection signal="button_down" from="full" to="." method="_on_full_button_down"]
+[connection signal="value_changed" from="master/master_s" to="." method="_on_master_s_value_changed"]
+[connection signal="value_changed" from="music/music_s" to="." method="_on_music_s_value_changed"]
+[connection signal="value_changed" from="sfx/sfx_s" to="." method="_on_sfx_s_value_changed"]

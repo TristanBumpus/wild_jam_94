@@ -68,7 +68,7 @@ func chest_equalizer():
 
 func basic_movement():
 	$NavigationAgent3D.target_position = player.global_position
-	
+	$NavigationAgent3D.path_desired_distance = 20
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
 		player.global_position.z - global_position.z
@@ -78,8 +78,8 @@ func basic_movement():
 	
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
 	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
-	velocity.x = flat_direction.x * speed
-	velocity.z = flat_direction.y * speed
+	velocity.x = dir.x * speed
+	velocity.z = dir.z * speed
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
@@ -105,13 +105,13 @@ func melee_attack():
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
 	
-	if global_position.distance_to(player.global_position) < 10:
+	if global_position.distance_to(player.global_position) < 10 and $body/right_arm.get_child(0).get_node("AnimationPlayer").current_animation != "attack":
 		set_animation($body/right_arm.get_child(0), "attack")
 
 func range_attack():
 	if velocity.x + velocity.z != 0:
 		set_animation($body/left_arm.get_child(0),"walk")
-		if global_position.distance_to(player.global_position) > 10:
+		if global_position.distance_to(player.global_position) > 10 and $body/right_arm.get_child(0).get_node("AnimationPlayer").current_animation != "attack":
 			set_animation($body/right_arm.get_child(0),"walk")
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
