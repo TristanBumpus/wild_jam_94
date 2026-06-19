@@ -12,6 +12,8 @@ var all_arms = ["res://Entitites/limbs/kobold/kobold_arm.tscn","res://Entitites/
 
 var sound_effects = preload("res://Entitites/effects/sound_effects.tscn")
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Engine.max_fps = 60

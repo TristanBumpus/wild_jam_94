@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbhaksvgf4aqw" path="res://Assets/gui/pops/dmg_pop.png" id="2_kt8hr"]
 
 [node name="pop" type="Label3D" unique_id=1391438939]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 1
 render_priority = 4
 outline_render_priority = 0

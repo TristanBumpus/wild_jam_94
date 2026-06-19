@@ -64,6 +64,9 @@ func tooltip(old_limb,show_attack = false):
 		if old_limb.damage > damage:
 			$choice/Control/RichTextLabel2.append_text("Damage: [color=green]%s[/color]\n" % [str(old_limb.damage)])
 			$choice/Control/RichTextLabel.append_text("Damage: [color=red]%s[/color]\n" % [str(damage)])
+		elif old_limb.damage == damage:
+			$choice/Control/RichTextLabel2.append_text("Damage: [color=yellow]%s[/color]\n" % [str(old_limb.damage)])
+			$choice/Control/RichTextLabel.append_text("Damage: [color=yellow]%s[/color]\n" % [str(damage)])
 		else:
 			$choice/Control/RichTextLabel2.append_text("Damage: [color=red]%s[/color]\n" % [str(old_limb.damage)])
 			$choice/Control/RichTextLabel.append_text("Damage: [color=green]%s[/color]\n" % [str(damage)])
@@ -71,13 +74,19 @@ func tooltip(old_limb,show_attack = false):
 		if old_limb.attack_speed > attack_speed:
 			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(old_limb.attack_speed)])
 			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(attack_speed)])
+		elif old_limb.attack_speed == attack_speed:
+			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=yellow]%s[/color]\n" % [str(old_limb.attack_speed)])
+			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=yellow]%s[/color]\n" % [str(attack_speed)])
 		else:
 			$choice/Control/RichTextLabel2.append_text("Attack Speed: [color=red]%s[/color]\n" % [str(old_limb.attack_speed)])
 			$choice/Control/RichTextLabel.append_text("Attack Speed: [color=green]%s[/color]\n" % [str(attack_speed)])
 		
 		if old_limb.armor_p > armor_p:
 			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(old_limb.armor_p)])
-			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=red%s[/color]\n" % [str(armor_p)])
+			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=red]%s[/color]\n" % [str(armor_p)])
+		elif old_limb.armor_p == armor_p:
+			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=yellow]%s[/color]\n" % [str(old_limb.armor_p)])
+			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=yellow]%s[/color]\n" % [str(armor_p)])
 		else:
 			$choice/Control/RichTextLabel2.append_text("Armor Penetration: [color=red]%s[/color]\n" % [str(old_limb.armor_p)])
 			$choice/Control/RichTextLabel.append_text("Armor Penetration: [color=green]%s[/color]\n" % [str(armor_p)])
@@ -85,7 +94,9 @@ func tooltip(old_limb,show_attack = false):
 		if old_limb.damage / old_limb.attack_speed > damage / attack_speed:
 			$choice/Control/RichTextLabel2.append_text("DPS: [color=green]%s[/color]\n" % [str(snapped(old_limb.damage / old_limb.attack_speed,.01))])
 			$choice/Control/RichTextLabel.append_text("DPS: [color=red]%s[/color]\n" % [str(snapped(damage / attack_speed,.01))])
-			print(snapped(damage / attack_speed,.01))
+		elif old_limb.damage / old_limb.attack_speed == damage / attack_speed:
+			$choice/Control/RichTextLabel2.append_text("DPS: [color=yellow]%s[/color]\n" % [str(snapped(old_limb.damage / old_limb.attack_speed,.01))])
+			$choice/Control/RichTextLabel.append_text("DPS: [color=yellow]%s[/color]\n" % [str(snapped(damage / attack_speed,.01))])
 		else:
 			$choice/Control/RichTextLabel2.append_text("DPS: [color=red]%s[/color]\n" % [str(snapped(old_limb.damage / old_limb.attack_speed,.01))])
 			$choice/Control/RichTextLabel.append_text("DPS: [color=green]%s[/color]\n" % [str(snapped(damage / attack_speed,.1))])
@@ -94,28 +105,40 @@ func tooltip(old_limb,show_attack = false):
 	if old_limb.hp > hp:
 		$choice/Control/RichTextLabel2.append_text("Hp: [color=green]%s[/color]\n" % [str(old_limb.hp)])
 		$choice/Control/RichTextLabel.append_text("Hp: [color=red]%s[/color]\n" % [str(hp)])
-	if old_limb.hp <= hp:
+	elif old_limb.hp == hp:
+		$choice/Control/RichTextLabel2.append_text("Hp: [color=yellow]%s[/color]\n" % [str(old_limb.hp)])
+		$choice/Control/RichTextLabel.append_text("Hp: [color=yellow]%s[/color]\n" % [str(hp)])
+	else:
 		$choice/Control/RichTextLabel2.append_text("Hp: [color=red]%s[/color]\n" % [str(old_limb.hp)])
 		$choice/Control/RichTextLabel.append_text("Hp: [color=green]%s[/color]\n" % [str(hp)])
 	
 	if old_limb.armor > armor:
 		$choice/Control/RichTextLabel2.append_text("Armor: [color=green]%s[/color]\n" % [str(old_limb.armor)])
 		$choice/Control/RichTextLabel.append_text("Armor: [color=red]%s[/color]\n" % [str(armor)])
-	if old_limb.armor <= armor:
+	elif old_limb.armor == armor:
+		$choice/Control/RichTextLabel2.append_text("Armor: [color=yellow]%s[/color]\n" % [str(old_limb.armor)])
+		$choice/Control/RichTextLabel.append_text("Armor: [color=yellow]%s[/color]\n" % [str(armor)])
+	else:
 		$choice/Control/RichTextLabel2.append_text("Armor: [color=red]%s[/color]\n" % [str(old_limb.armor)])
 		$choice/Control/RichTextLabel.append_text("Armor: [color=green]%s[/color]\n" % [str(armor)])
 	
 	if old_limb.speed > speed:
 		$choice/Control/RichTextLabel2.append_text("Speed: [color=green]%s[/color]\n" % [str(old_limb.speed)])
 		$choice/Control/RichTextLabel.append_text("Speed: [color=red]%s[/color]\n" % [str(speed)])
-	if old_limb.speed <= speed:
+	elif old_limb.speed == speed:
+		$choice/Control/RichTextLabel2.append_text("Speed: [color=yellow]%s[/color]\n" % [str(old_limb.speed)])
+		$choice/Control/RichTextLabel.append_text("Speed: [color=yellow]%s[/color]\n" % [str(speed)])
+	else:
 		$choice/Control/RichTextLabel2.append_text("Speed: [color=red]%s[/color]\n" % [str(old_limb.speed)])
 		$choice/Control/RichTextLabel.append_text("Speed: [color=green]%s[/color]\n" % [str(speed)])
 	
 	if old_limb.luck > luck:
 		$choice/Control/RichTextLabel2.append_text("Luck: [color=green]%s[/color]\n" % [str(old_limb.luck)])
 		$choice/Control/RichTextLabel.append_text("Luck: [color=red]%s[/color]\n" % [str(luck)])
-	if old_limb.luck <= luck:
+	elif old_limb.luck == luck:
+		$choice/Control/RichTextLabel2.append_text("Luck: [color=yellow]%s[/color]\n" % [str(old_limb.luck)])
+		$choice/Control/RichTextLabel.append_text("Luck: [color=yellow]%s[/color]\n" % [str(luck)])
+	else:
 		$choice/Control/RichTextLabel2.append_text("Luck: [color=red]%s[/color]\n" % [str(old_limb.luck)])
 		$choice/Control/RichTextLabel.append_text("Luck: [color=green]%s[/color]\n" % [str(luck)])
 	
@@ -124,7 +147,7 @@ func tooltip(old_limb,show_attack = false):
 	#$choice/Control/RichTextLabel2.text += str(old_limb.damage)
 
 func play_step():
-	global.play_sound("res://Assets/sfx/step_c1.mp3", global_position,-30)
+	global.play_sound(["res://Assets/sfx/step_c1.mp3","res://Assets/sfx/step_c2.mp3","res://Assets/sfx/step_c3.mp3"].pick_random(), global_position,-22)
 
 
 
@@ -290,9 +313,6 @@ func _process(delta: float) -> void:
 		$CollisionShape3D.disabled = false
 		if $AnimationPlayer.has_animation("RESET"):
 			$AnimationPlayer.play("RESET")
-
-	#$billboard.global_position = global_position + Vector3(0,6/scale.y,0)
-	#$billboard.global_rotation = Vector3.ZERO
 	
 	var s = ""
 	if special_type != "none":
@@ -301,7 +321,12 @@ func _process(delta: float) -> void:
 	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
 	
 	if $choice.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$billboard.visible = false
+		if global_position.distance_to(player.global_position) > 15:
+			$choice.visible = false
+			global.choice_active = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if $billboard.visible:
 		if Input.is_action_just_pressed("f") and !global.choice_active:

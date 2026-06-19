@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cnsbjkh2m58w0"]
+
+[ext_resource type="Script" uid="uid://07uhllblttjx" path="res://Scripts/sound_effects.gd" id="1_4cnsv"]
+[ext_resource type="Texture2D" uid="uid://7ifbb3jj0n76" path="res://Assets/elements/blood_effect_2.png" id="1_mgtge"]
+[ext_resource type="Texture2D" uid="uid://dmd5pnspq2831" path="res://Assets/elements/blood_effect_2_n.png" id="2_ajaua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjwas"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_mgtge")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_ajaua")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_mgtge"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0860215, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.0031216, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ajaua"]
+curve = SubResource("Curve_mgtge")
+
+[sub_resource type="Curve" id="Curve_kjwas"]
+_data = [Vector2(0, 0), 0.0, 3.1586337, 0, 0, Vector2(1, 1), 0.2774047, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mgtge"]
+curve = SubResource("Curve_kjwas")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kjwas"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -5.0
+initial_velocity_max = 2.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.99997765
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_mgtge")
+alpha_curve = SubResource("CurveTexture_ajaua")
+turbulence_influence_max = 0.2
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_use_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_kjwas"]
+
+[node name="BloodExplosion" type="Node3D" unique_id=347788589]
+script = ExtResource("1_4cnsv")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=634204354]
+material_override = SubResource("StandardMaterial3D_kjwas")
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kjwas")
+draw_pass_1 = SubResource("QuadMesh_kjwas")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_finished"]

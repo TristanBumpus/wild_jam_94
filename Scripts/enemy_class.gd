@@ -68,7 +68,7 @@ func chest_equalizer():
 
 func basic_movement():
 	$NavigationAgent3D.target_position = player.global_position
-	
+	$NavigationAgent3D.path_desired_distance = 20
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
 		player.global_position.z - global_position.z
@@ -78,10 +78,11 @@ func basic_movement():
 	
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
 	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
-	velocity.x = flat_direction.x * speed
-	velocity.z = flat_direction.y * speed
+	velocity.x = dir.x * speed
+	velocity.z = dir.z * speed
 
 func set_animation(node:Node3D,animString:String):
+	node.get_parent().rotation = Vector3(0,0,0)
 	if animString == "attack":
 		node.get_parent().look_at(player.position)
 		#if node.get_node("AnimationPlayer").current_animation != "attack":
@@ -105,13 +106,13 @@ func melee_attack():
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
 	
-	if global_position.distance_to(player.global_position) < 10:
+	if global_position.distance_to(player.global_position) < 10 and $body/right_arm.get_child(0).get_node("AnimationPlayer").current_animation != "attack":
 		set_animation($body/right_arm.get_child(0), "attack")
 
 func range_attack():
 	if velocity.x + velocity.z != 0:
 		set_animation($body/left_arm.get_child(0),"walk")
-		if global_position.distance_to(player.global_position) > 10:
+		if global_position.distance_to(player.global_position) > 10 and $body/right_arm.get_child(0).get_node("AnimationPlayer").current_animation != "attack":
 			set_animation($body/right_arm.get_child(0),"walk")
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
@@ -180,7 +181,7 @@ func _ready() -> void:
 	
 	
 	if r <= 10 * (global.difficulty / 100):
-		e_name += " Mutent"
+		e_name += " Mutant"
 		var ran = randi_range(1,4)
 		
 		if ran == 1:
@@ -197,6 +198,7 @@ func _ready() -> void:
 				$body/left_arm.get_child(0).queue_free()
 				var new_limb = load(global.all_arms.pick_random()).instantiate()
 				$body/left_arm.add_child(new_limb)
+				new_limb.side = 0
 			if ran2 == 2:
 				$body/right_arm.get_child(0).queue_free()
 				var new_limb = load(global.all_arms.pick_random()).instantiate()
@@ -207,6 +209,7 @@ func _ready() -> void:
 				$body/left_leg.get_child(0).queue_free()
 				var new_limb = load(global.all_legs.pick_random()).instantiate()
 				$body/left_leg.add_child(new_limb)
+				new_limb.side = 0
 			if ran2 == 2:
 				$body/right_leg.get_child(0).queue_free()
 				var new_limb = load(global.all_legs.pick_random()).instantiate()
@@ -281,6 +284,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			global.play_sound("res://Assets/sfx/die_c1.mp3",global_position)
 			player.current_hp += player.max_hp / 5
 			var chance = randi_range(1,100)
+			
+			var death_effect = load("res://Entitites/effects/blood_explosion.tscn").instantiate()
+			get_tree().current_scene.add_child(death_effect)
+			death_effect.global_position = global_position
+			death_effect.get_child(0).emitting = true
 			
 			var times = 0
 			
