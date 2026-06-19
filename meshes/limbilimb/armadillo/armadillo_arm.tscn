@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhe14tgi7wt4p"]
+
+[ext_resource type="PackedScene" uid="uid://d1ux60165smy3" path="res://assets/armadillo/armadillo_arm.glb" id="1_3ga4m"]
+[ext_resource type="Material" uid="uid://dckwigmjaa8nl" path="res://assets/armadillo/aarmadillo_skin.tres" id="2_nrd4p"]
+
+[node name="armadillo_arm" unique_id=678692868 instance=ExtResource("1_3ga4m")]
+
+[node name="Cube_128" parent="." index="0" unique_id=1925982084]
+surface_material_override/0 = ExtResource("2_nrd4p")

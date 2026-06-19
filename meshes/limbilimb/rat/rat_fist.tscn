@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bl5c1vwbqnicc"]
+
+[ext_resource type="PackedScene" uid="uid://bib80f7naaw1k" path="res://assets/rat/rat_fist.glb" id="1_ubxl0"]
+[ext_resource type="Material" uid="uid://dfhlpg81uuhyt" path="res://assets/rat/arat_skin.tres" id="2_ht2d8"]
+
+[node name="rat_fist" unique_id=434333402 instance=ExtResource("1_ubxl0")]
+
+[node name="Cube_132" parent="." index="0" unique_id=902313598]
+material_override = ExtResource("2_ht2d8")
+surface_material_override/0 = ExtResource("2_ht2d8")

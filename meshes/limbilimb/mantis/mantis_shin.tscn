@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cm3hjlkprhp2x"]
+
+[ext_resource type="PackedScene" uid="uid://co7j5kh6wp3g5" path="res://assets/mantis/mantis_shin.glb" id="1_lpyan"]
+[ext_resource type="Material" uid="uid://debjtlwgnca2a" path="res://meshes/limbilimb/mantis/amantis_skin.tres" id="2_brbvj"]
+
+[node name="mantis_shin" unique_id=1079048046 instance=ExtResource("1_lpyan")]
+
+[node name="Cube_141" parent="." index="0" unique_id=25886247]
+surface_material_override/0 = ExtResource("2_brbvj")

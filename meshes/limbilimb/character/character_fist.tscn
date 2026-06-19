@@ -49,6 +49,6 @@ texture_filter = 0
 
 [node name="character_fist" unique_id=498664092 instance=ExtResource("1_njort")]
 
-[node name="Cube_050" parent="." index="0" unique_id=1366313043]
+[node name="Cube_050" parent="." index="0" unique_id=1665426630]
 mesh = SubResource("ArrayMesh_alsat")
 surface_material_override/0 = SubResource("StandardMaterial3D_6mkhe")

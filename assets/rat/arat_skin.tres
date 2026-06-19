@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dfhlpg81uuhyt"]
+
+[ext_resource type="Texture2D" uid="uid://b4kexybwwctbg" path="res://assets/rat/rat_arm_ratmen_TEXT.png" id="1_v5fok"]
+
+[resource]
+albedo_texture = ExtResource("1_v5fok")
+texture_filter = 0

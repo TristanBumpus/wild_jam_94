@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://debjtlwgnca2a"]
+
+[ext_resource type="Texture2D" uid="uid://b80o3bvda462g" path="res://assets/mantis/mantis_arm_mantis_TEXT.png" id="1_5tvf4"]
+
+[resource]
+albedo_texture = ExtResource("1_5tvf4")
+texture_filter = 0

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://4ypo0ottbg78"]
+
+[ext_resource type="PackedScene" uid="uid://y6swcrtlxnpa" path="res://assets/rat/rat_neck.glb" id="1_ldllo"]
+
+[node name="rat_neck" unique_id=1352817499 instance=ExtResource("1_ldllo")]

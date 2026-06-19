@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ck38o8brihile"]
+
+[ext_resource type="PackedScene" uid="uid://5fsur4bjyg1l" path="res://assets/mantis/mantis_neck.glb" id="1_tfpeg"]
+
+[node name="mantis_neck" unique_id=1289801557 instance=ExtResource("1_tfpeg")]
