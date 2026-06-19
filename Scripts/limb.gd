@@ -33,6 +33,7 @@ var billboard
 
 
 func switch_limb(to_get,s = 1):
+	
 	global.play_sound("res://Assets/sfx/equip_limb_c2.mp3",global_position)
 	global.choice_active = false
 	var node = player.get_node(to_get)
@@ -41,13 +42,44 @@ func switch_limb(to_get,s = 1):
 	reparent(node)
 	old.global_position = global_position + Vector3(0,3,0)
 	old.get_node("choice").visible = false
+	old.freeze = false
+	old.get_node("CollisionShape3D").disabled = false
+	old.get_node("AnimationPlayer").play("RESET")
+	
+	if has_node("attack_box"):
+		$AnimationPlayer.speed_scale = attack_speed
+		if get_parent() != get_tree().current_scene:
+			if get_parent().get_parent().get_parent().is_in_group("player"):
+				$attack_box.set_collision_layer_value(2,true)
+				$attack_box.set_collision_layer_value(3,false)
+				$attack_box.set_collision_mask_value(2,true)
+				$attack_box.set_collision_mask_value(3,false)
+			else:
+				$attack_box.set_collision_layer_value(3,true)
+				$attack_box.set_collision_layer_value(2,false)
+				$attack_box.set_collision_mask_value(3,true)
+				$attack_box.set_collision_mask_value(2,false)
 	position = Vector3.ZERO
 	rotation = Vector3.ZERO
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$choice.visible = false
+	$billboard.visible = false
+	$CollisionShape3D.disabled = true
 	side = s
 	freeze = true
-	old.freeze = false
+	
+	if side == 0 and type != 0:
+		scale = Vector3(-1,1,1)
+		if special_type == "Big":
+			scale = Vector3(-2,2,2)
+		if special_type == "Small":
+			scale = Vector3(-.5,.5,.5)
+		else:
+			scale = Vector3(1,1,1)
+			if special_type == "Big":
+				scale = Vector3(2,2,2)
+			if special_type == "Small":
+				scale = Vector3(.5,.5,.5)
 	player.limb_checker()
 
 func tooltip(old_limb,show_attack = false):
@@ -265,15 +297,22 @@ func _ready() -> void:
 		if special_type == "Small":
 			scale = Vector3(.5,.5,.5)
 	
-	
-	
 	player = get_tree().get_first_node_in_group("player")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+	
+	var s = ""
+	if special_type != "none":
+		s = special_type + " "
+	$billboard/title.text = s + limb_name
+	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
+	
+	if get_tree().current_scene != get_parent() and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
+		freeze = true
+		position = Vector3.ZERO
+		rotation = Vector3.ZERO
+		$CollisionShape3D.disabled = true
 	
 	if has_node("attack_box"):
+		$AnimationPlayer.speed_scale = attack_speed
 		if get_parent() != get_tree().current_scene:
 			if get_parent().get_parent().get_parent().is_in_group("player"):
 				$attack_box.set_collision_layer_value(2,true)
@@ -285,40 +324,10 @@ func _process(delta: float) -> void:
 				$attack_box.set_collision_layer_value(2,false)
 				$attack_box.set_collision_mask_value(3,true)
 				$attack_box.set_collision_mask_value(2,false)
-	
-	if get_parent() != get_tree().current_scene and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
-		if has_node("attack_box"):
-			$AnimationPlayer.speed_scale = attack_speed
-		
-		freeze = true
-		$choice.visible = false
-		$billboard.visible = false
-		$CollisionShape3D.disabled = true
-		position = Vector3.ZERO
-		rotation = Vector3.ZERO
-		if side == 0 and type != 0:
-			scale = Vector3(-1,1,1)
-			if special_type == "Big":
-				scale = Vector3(-2,2,2)
-			if special_type == "Small":
-				scale = Vector3(-.5,.5,.5)
-		else:
-			scale = Vector3(1,1,1)
-			if special_type == "Big":
-				scale = Vector3(2,2,2)
-			if special_type == "Small":
-				scale = Vector3(.5,.5,.5)
-	else:
-		freeze = false
-		$CollisionShape3D.disabled = false
-		if $AnimationPlayer.has_animation("RESET"):
-			$AnimationPlayer.play("RESET")
-	
-	var s = ""
-	if special_type != "none":
-		s = special_type + " "
-	$billboard/title.text = s + limb_name
-	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
+
+
+
+func _physics_process(delta: float) -> void:
 	
 	if $choice.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -343,6 +352,8 @@ func _process(delta: float) -> void:
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
+	
+
 
 
 func _on_right_arm_button_down() -> void:

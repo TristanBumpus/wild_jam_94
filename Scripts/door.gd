@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	
 	if get_tree().get_node_count_in_group("enemy") > 0:
 		$RigidBody3D.freeze = true
-		if $RigidBody3D.position != Vector3.ZERO and run:
+		if run:
 			#global_transform.origin = init
 			run = false
 			global.play_sound("res://Assets/sfx/close_door_c1.mp3",global_position)

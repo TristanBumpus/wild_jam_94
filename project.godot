@@ -13,11 +13,18 @@ config_version=5
 config/name="Godot_Wild_Jam_94"
 run/main_scene="uid://cxn67d3c4suyy"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://qe00mv35lggb"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
 global="*uid://gcmlerlcdl1e"
+
+[debug]
+
+settings/profiler/max_timestamp_query_elements=5000
+settings/stdout/print_fps=true
 
 [display]
 
@@ -44,6 +51,7 @@ player=""
 limb=""
 enemy=""
 spawner=""
+first_level_is_special_cus_the_limbs_demand_it=""
 
 [gui]
 
@@ -123,8 +131,15 @@ e={
 
 [physics]
 
+3d/run_on_separate_thread=true
+common/physics_ticks_per_second=30
 3d/physics_engine="Jolt Physics"
 3d/default_gravity_vector=Vector3(0, -5, 0)
+3d/sleep_threshold_linear=0.05
+3d/sleep_threshold_angular=0.06981317007977318
+3d/time_before_sleep=0.25
+3d/solver/solver_iterations=8
+common/physics_interpolation=true
 
 [rendering]
 

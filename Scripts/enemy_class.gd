@@ -36,7 +36,8 @@ var hit_sound = ["res://Assets/sfx/atk_c1.mp3", "res://Assets/sfx/atk_c2.mp3"]
 
 #special effect
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
-
+var died = false
+var timer
 
 func chest_equalizer():
 	var head_offset = $body/torso.get_child(0).chest_off_head_set
@@ -67,8 +68,11 @@ func chest_equalizer():
 	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func basic_movement():
-	$NavigationAgent3D.target_position = player.global_position
-	$NavigationAgent3D.path_desired_distance = 20
+	
+	if timer.is_stopped():
+		$NavigationAgent3D.target_position = player.global_position
+		timer.start(.5 * randf_range(.8,1.2))
+	
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
 		player.global_position.z - global_position.z
@@ -82,21 +86,22 @@ func basic_movement():
 	velocity.z = dir.z * speed
 
 func set_animation(node:Node3D,animString:String):
-	node.get_parent().rotation = Vector3(0,0,0)
-	if animString == "attack":
-		node.get_parent().look_at(player.position)
-		#if node.get_node("AnimationPlayer").current_animation != "attack":
-		node.get_node("AnimationPlayer").play("attack")
-	
-	elif node.side == 1:
-		node.get_node("AnimationPlayer").play(animString, .3)
-	else:
-		var advance = false
-		if node.get_node("AnimationPlayer").current_animation != animString:
-			advance = true
-		node.get_node("AnimationPlayer").play(animString, .3)
-		if advance:
-			node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
+	if hp > 0:
+		node.get_parent().rotation = Vector3(0,0,0)
+		if animString == "attack":
+			node.get_parent().look_at(player.position)
+			#if node.get_node("AnimationPlayer").current_animation != "attack":
+			node.get_node("AnimationPlayer").play("attack")
+		
+		elif node.side == 1:
+			node.get_node("AnimationPlayer").play(animString, .3)
+		else:
+			var advance = false
+			if node.get_node("AnimationPlayer").current_animation != animString:
+				advance = true
+			node.get_node("AnimationPlayer").play(animString, .3)
+			if advance:
+				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
 
 func melee_attack():
 	if velocity.x + velocity.z != 0:
@@ -168,6 +173,11 @@ func rigid_interaction():
 
 
 func _ready() -> void:
+	add_to_group("enemy")
+	timer = Timer.new()
+	timer.one_shot = true
+	add_child(timer)
+	timer.start(.5 * randf_range(.8,1.2))
 	
 	player = get_tree().get_first_node_in_group("player")
 	
@@ -214,8 +224,8 @@ func _ready() -> void:
 				$body/right_leg.get_child(0).queue_free()
 				var new_limb = load(global.all_legs.pick_random()).instantiate()
 				$body/right_leg.add_child(new_limb)
-		
-		
+	
+	
 	
 	$body/head.get_child(0).special_type = special_type
 	$body/torso.get_child(0).special_type = special_type
@@ -223,33 +233,34 @@ func _ready() -> void:
 	$body/right_arm.get_child(0).special_type = special_type
 	$body/left_leg.get_child(0).special_type = special_type
 	$body/right_leg.get_child(0).special_type = special_type
+	
+	$NavigationAgent3D.target_position = player.global_position
+	$NavigationAgent3D.path_desired_distance = 20
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if start:
 		limb_checker()
-		
-		
 		start = false
 	
-	chest_equalizer()
-	add_to_group("enemy")
+	if hp > 0:
+		chest_equalizer()
 	
-	if is_effected_by_gravity:
-		if not is_on_floor():
-			velocity += get_gravity() * delta
-	
-	if movement_type == 0:
-		basic_movement()
-	
-	if attack_type == 0:
-		melee_attack()
-	if attack_type == 1:
-		range_attack()
-	
-	move_and_slide()
-	
-	rigid_interaction()
+		if is_effected_by_gravity:
+			if not is_on_floor():
+				velocity += get_gravity() * delta
+		
+		if movement_type == 0:
+			basic_movement()
+		
+		if attack_type == 0:
+			melee_attack()
+		if attack_type == 1:
+			range_attack()
+		
+		move_and_slide()
+		
+		#rigid_interaction()
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
@@ -280,7 +291,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		b.rotation.y = randf_range(0,7)
 		
 		
-		if hp <= 0:
+		if hp <= 0 and !died:
+			died = true
 			global.play_sound("res://Assets/sfx/die_c1.mp3",global_position)
 			player.current_hp += player.max_hp / 5
 			var chance = randi_range(1,100)
@@ -302,6 +314,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			var selected = new_loot.pick_random()
 			selected.reparent(get_tree().current_scene)
 			selected.global_position.y += 2
-			
+			selected.freeze = false
+			selected.get_node("CollisionShape3D").disabled = false
+			selected.get_node("AnimationPlayer").play("RESET")
 			
 			queue_free()

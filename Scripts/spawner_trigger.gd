@@ -10,7 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if start_kills:
-		if get_parent().find_children("*","spawner") != []:
+		if get_parent().find_children("*","spawner") == []:
 			global.difficulty += 10
 			get_tree().current_scene.genocide()
 			start_kills = false

@@ -215,7 +215,7 @@ func rigid_interaction():
 			
 			# 4. Apply the impulse at the exact point of contact
 			# Multiplying by character velocity makes it push harder if you're running faster
-			var push_force = speed / 10
+			var push_force = speed / 2
 			var final_force = push_dir * push_force
 			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
 
@@ -258,6 +258,10 @@ func _physics_process(delta: float) -> void:
 	animation_states()
 	
 	move_and_slide()
+	
+	
+
+func _process(delta: float) -> void:
 	
 	rigid_interaction()
 
