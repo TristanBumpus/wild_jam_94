@@ -1,14 +1,34 @@
 [gd_resource type="Theme" format=3 uid="uid://dng3rphw3juoc"]
 
 [ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="1_fqh3q"]
+[ext_resource type="Texture2D" uid="uid://ortkb4gibl8j" path="res://Assets/gui/button/button_nine_patch2.png" id="2_jrjic"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqh3q"]
-bg_color = Color(1, 0, 0, 0.34117648)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrjic"]
+texture = ExtResource("2_jrjic")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+modulate_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqh3q"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpylt"]
+texture = ExtResource("2_jrjic")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+modulate_color = Color(0.69, 0.69, 0.69, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qlaem"]
+texture = ExtResource("2_jrjic")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
 
 [resource]
 Button/fonts/font = ExtResource("1_fqh3q")
-Button/styles/disabled = SubResource("StyleBoxFlat_fqh3q")
-Button/styles/normal = SubResource("StyleBoxEmpty_fqh3q")
+Button/styles/disabled = SubResource("StyleBoxTexture_jrjic")
+Button/styles/hover = SubResource("StyleBoxTexture_qpylt")
+Button/styles/normal = SubResource("StyleBoxTexture_qlaem")
 Label/fonts/font = ExtResource("1_fqh3q")

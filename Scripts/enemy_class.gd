@@ -180,7 +180,7 @@ func _ready() -> void:
 	
 	
 	if r <= 10 * (global.difficulty / 100):
-		e_name += " Mutent"
+		e_name += " Mutant"
 		var ran = randi_range(1,4)
 		
 		if ran == 1:
