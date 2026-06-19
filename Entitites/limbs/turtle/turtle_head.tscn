@@ -13,7 +13,7 @@ height = 2.0019531
 script = ExtResource("1_cxver")
 type = 0
 limb_name = "Turtle Head"
-hp = 5.0
+hp = 10.0
 image = ExtResource("2_h7258")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 

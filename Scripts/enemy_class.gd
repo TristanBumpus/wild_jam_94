@@ -173,13 +173,14 @@ func _ready() -> void:
 	
 	var r = randi_range(1,100)
 	
-	if r <= 50 * (global.difficulty / 100):
+	if r <= 40 * (global.difficulty / 100):
 		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
 		#var types = ["Big","Small"]
 		special_type = types.pick_random()
 	
+	
 	if r <= 10 * (global.difficulty / 100):
-		
+		e_name += " Mutent"
 		var ran = randi_range(1,4)
 		
 		if ran == 1:

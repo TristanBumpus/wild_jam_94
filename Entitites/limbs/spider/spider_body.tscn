@@ -13,6 +13,7 @@ type = 3
 limb_name = "Spider Torso"
 hp = 5.0
 image = ExtResource("2_cejn0")
+speed = 5
 chest_off_set = Vector3(0.677, 0, -0.575)
 chest_off_set_legs = Vector3(0.677, 0, -0.575)
 chest_off_head_set = Vector3(0, -0.42490745, -2.4542398)

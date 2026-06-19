@@ -182,8 +182,10 @@ type_2 = 1
 limb_name = "Kobold Head"
 damage = 1.0
 hp = 1.0
+attack_speed = 1.5
 armor_p = 1.0
 image = ExtResource("2_248ph")
+speed = 2
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="kobold_head" parent="." unique_id=1762839225 instance=ExtResource("2_ou8un")]

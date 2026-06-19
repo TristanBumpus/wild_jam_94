@@ -46,8 +46,8 @@ func switch_limb(to_get,s = 1):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$choice.visible = false
 	side = s
-	sleeping = true
-	old.sleeping = false
+	freeze = true
+	old.freeze = false
 	player.limb_checker()
 
 func tooltip(old_limb,show_attack = false):
@@ -122,6 +122,10 @@ func tooltip(old_limb,show_attack = false):
 	
 	#$choice/Control/RichTextLabel2.text
 	#$choice/Control/RichTextLabel2.text += str(old_limb.damage)
+
+func play_step():
+	global.play_sound("res://Assets/sfx/step_c1.mp3", global_position,-30)
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -260,8 +264,10 @@ func _process(delta: float) -> void:
 				$attack_box.set_collision_mask_value(2,false)
 	
 	if get_parent() != get_tree().current_scene and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
-		$AnimationPlayer.speed_scale = attack_speed
-		sleeping = true
+		if has_node("attack_box"):
+			$AnimationPlayer.speed_scale = attack_speed
+		
+		freeze = true
 		$choice.visible = false
 		$billboard.visible = false
 		$CollisionShape3D.disabled = true
@@ -280,7 +286,7 @@ func _process(delta: float) -> void:
 			if special_type == "Small":
 				scale = Vector3(.5,.5,.5)
 	else:
-		sleeping = false
+		freeze = false
 		$CollisionShape3D.disabled = false
 		if $AnimationPlayer.has_animation("RESET"):
 			$AnimationPlayer.play("RESET")

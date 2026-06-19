@@ -140,7 +140,8 @@ func set_animation(node:Node3D,animString:String):
 				advance = true
 			node.get_node("AnimationPlayer").play(animString, .3)
 			if advance:
-				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.attack_speed)
+				node.get_node("AnimationPlayer").seek(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.get_node("AnimationPlayer").speed_scale,true)
+			print(advance)
 
 func animation_states():
 	if velocity.x + velocity.z != 0:
@@ -236,7 +237,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_area_entered(area: Area3D) -> void:
-	current_hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
+	current_hp -= snapped(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p),.01)
 	
 	if current_hp <= 0:
 		$ui/Control/health_bar.value = current_hp
@@ -276,15 +277,16 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func update_enemy_ui(area: Area3D) -> void:
 	if area.get_parent() != null and area.get_parent().is_in_group("enemy"):
-		$ui/Control/enemy.visible = true
-		$ui/Control/enemy_hp.visible = true
-		
-		$ui/Control/enemy_hp.max_value = area.get_parent().max_hp
-		$ui/Control/enemy_hp.value = area.get_parent().hp
-		if area.get_parent().special_type != "none":
-			$ui/Control/enemy.text = area.get_parent().get_node("body/head").get_child(0).special_type + " " + area.get_parent().e_name
-		else:
-			$ui/Control/enemy.text = area.get_parent().e_name
+		if area.get_parent().hp > 0:
+			$ui/Control/enemy.visible = true
+			$ui/Control/enemy_hp.visible = true
+			
+			$ui/Control/enemy_hp.max_value = area.get_parent().max_hp
+			$ui/Control/enemy_hp.value = area.get_parent().hp
+			if area.get_parent().special_type != "none":
+				$ui/Control/enemy.text = area.get_parent().get_node("body/head").get_child(0).special_type + " " + area.get_parent().e_name
+			else:
+				$ui/Control/enemy.text = area.get_parent().e_name
 
 
 func _on_attack_cooldown_0_timeout() -> void:

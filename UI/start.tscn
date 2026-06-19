@@ -46,5 +46,6 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_5of7q")
 theme_override_font_sizes/font_size = 48
 text = "Start"
+icon_alignment = 1
 
 [connection signal="button_down" from="start" to="." method="_on_start_button_down"]

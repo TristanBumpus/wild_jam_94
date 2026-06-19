@@ -2,9 +2,13 @@ extends Node3D
 
 @export var start : Node3D
 
-@export var levels : Array[PackedScene]
+@export var dung_levels : Array[PackedScene]
+@export var mount_lvl : Array[PackedScene]
+@export var trans_lvl : Array[PackedScene]
 
-@export var size = 100
+@export var size = 5
+@export var size_mount = 5
+@export var size_dtm = 5
 
 @export var enemies: Array[PackedScene]
 
@@ -23,7 +27,7 @@ func _ready() -> void:
 	
 	while size:
 		
-		var level = levels.pick_random().instantiate()
+		var level = dung_levels.pick_random().instantiate()
 		
 		get_tree().current_scene.add_child(level)
 		
@@ -34,8 +38,34 @@ func _ready() -> void:
 		start = level.find_child("door")
 		
 		size -= 1
+	while size_dtm:
+		
+		var level = trans_lvl.pick_random().instantiate()
+		
+		get_tree().current_scene.add_child(level)
+		
+		level.global_position = start.global_position
+		
+		level.global_position.y = 0
+		
+		start = level.find_child("door")
+		
+		size_dtm -= 1
 	
 	
+	while size_mount:
+		
+		var l = mount_lvl.pick_random().instantiate()
+		
+		get_tree().current_scene.add_child(l)
+		
+		l.global_position = start.global_position
+		
+		l.global_position.y = 0
+		
+		start = l.find_child("door")
+		
+		size_mount -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
