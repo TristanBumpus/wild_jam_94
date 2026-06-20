@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c60m1p4s3r2ys"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_hgi0w"]
+[ext_resource type="PackedScene" uid="uid://ck38o8brihile" path="res://meshes/limbilimb/mantis/mantis_neck.tscn" id="2_dvycf"]
+[ext_resource type="PackedScene" uid="uid://tooydbh2wb2v" path="res://meshes/limbilimb/mantis/mantis_head.tscn" id="3_iul8r"]
+
+[node name="mantis_head" type="RigidBody3D" unique_id=2048937635]
+script = ExtResource("1_hgi0w")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="mantis_neck" parent="." unique_id=1289801557 instance=ExtResource("2_dvycf")]
+
+[node name="mantis_head" parent="." unique_id=219750835 instance=ExtResource("3_iul8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1389289932]

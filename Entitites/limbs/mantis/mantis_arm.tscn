@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://br2ehjc68dcnh"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_6d284"]
+[ext_resource type="PackedScene" uid="uid://bpvxwd41h866o" path="res://meshes/limbilimb/mantis/mantis_arm.tscn" id="2_msbpt"]
+[ext_resource type="PackedScene" uid="uid://c6fdec12tepc7" path="res://meshes/limbilimb/mantis/mantis_forearm.tscn" id="3_81oe5"]
+[ext_resource type="PackedScene" uid="uid://ek8pfbcf1xu0" path="res://meshes/limbilimb/mantis/mantis_fist.tscn" id="4_c4for"]
+
+[sub_resource type="Animation" id="Animation_81oe5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c4for"]
+resource_name = "attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.3183069, -0.7522592, -0.08370951), Vector3(-0.8965933, -0.31772587, 0.30788413)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.97961855, -0.63079685, 5.3472487e-08), Vector3(1.1602883, 0.98739046, -0.031147787)]
+}
+
+[sub_resource type="Animation" id="Animation_s2pdo"]
+resource_name = "hurt"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.51000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.2617994, 0, 0), Vector3(-0.22907451, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_msbpt"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.11180579, 0, 0), Vector3(-0.117391914, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.2952399, 0, 0), Vector3(-0.08798385, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cvrvg"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.11180579, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.29359084, -0.108872, -0.031621143), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81oe5"]
+_data = {
+&"RESET": SubResource("Animation_81oe5"),
+&"attack": SubResource("Animation_c4for"),
+&"hurt": SubResource("Animation_s2pdo"),
+&"idle": SubResource("Animation_msbpt"),
+&"walk": SubResource("Animation_cvrvg")
+}
+
+[node name="mantis_arm" type="RigidBody3D" unique_id=1397359573]
+script = ExtResource("1_6d284")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="arm_a" type="Node3D" parent="." unique_id=1438285787]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="forearm_a" type="Node3D" parent="arm_a" unique_id=1942726111]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999976, 0, 0, 0, 1.0000001, 1.5189271, 2.1144052, -0.74059534)
+
+[node name="mantis_forearm" parent="arm_a/forearm_a" unique_id=386264690 instance=ExtResource("3_81oe5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16982412, -1.1144052, -2.081942)
+
+[node name="mantis_fist" parent="arm_a/forearm_a" unique_id=1585975971 instance=ExtResource("4_c4for")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03906083, -2.907878, -4.0509167)
+
+[node name="mantis_arm" parent="arm_a" unique_id=1601683353 instance=ExtResource("2_msbpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.33940744)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1490572752]
+libraries/ = SubResource("AnimationLibrary_81oe5")
