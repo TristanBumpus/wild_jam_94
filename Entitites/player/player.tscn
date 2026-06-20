@@ -133,6 +133,7 @@ visible = false
 [node name="human_head" parent="body/head" unique_id=2067002376 instance=ExtResource("3_40ase")]
 
 [node name="torso" type="Node3D" parent="body" unique_id=129462357]
+visible = false
 
 [node name="human_torso" parent="body/torso" unique_id=2017863707 instance=ExtResource("6_xelh6")]
 

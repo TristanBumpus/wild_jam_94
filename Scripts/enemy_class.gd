@@ -37,7 +37,7 @@ var hit_sound = ["res://Assets/sfx/atk_c1.mp3", "res://Assets/sfx/atk_c2.mp3"]
 #special effect
 var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 var died = false
-var timer
+var path
 
 func chest_equalizer():
 	var head_offset = $body/torso.get_child(0).chest_off_head_set
@@ -67,11 +67,16 @@ func chest_equalizer():
 	$body/right_arm.position = arm_offset
 	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
+func new_pos():
+	path = NavigationServer3D.map_get_path(global.nav_map,global_position,player.global_position,true)
+	await get_tree().physics_frame
+
 func basic_movement():
 	
-	if timer.is_stopped():
-		$NavigationAgent3D.target_position = player.global_position
-		timer.start(.5 * randf_range(.8,1.2))
+	if speed <= 0:
+		speed = 1
+	
+	new_pos()
 	
 	var flat_direction = Vector2(
 		player.global_position.x - global_position.x,
@@ -81,7 +86,7 @@ func basic_movement():
 	var target_angle = flat_direction.angle_to(Vector2.UP)
 	
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
-	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
+	var dir = (path[1] - global_position).normalized()
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
 
@@ -119,6 +124,7 @@ func range_attack():
 		set_animation($body/left_arm.get_child(0),"walk")
 		if global_position.distance_to(player.global_position) > 10 and $body/right_arm.get_child(0).get_node("AnimationPlayer").current_animation != "attack":
 			set_animation($body/right_arm.get_child(0),"walk")
+			$body/right_arm.rotation = Vector3.ZERO
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
 	
@@ -157,15 +163,11 @@ func rigid_interaction():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		# 3. Check if what we hit is actually a RigidBody3D
 		if collider is RigidBody3D:
-			# Calculate the direction of the hit (ignoring the Y axis so we don't push it into the floor)
 			var push_dir = -collision.get_normal()
 			push_dir.y = 0 
 			push_dir = push_dir.normalized()
 			
-			# 4. Apply the impulse at the exact point of contact
-			# Multiplying by character velocity makes it push harder if you're running faster
 			var push_force = speed / 10
 			var final_force = push_dir * push_force
 			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
@@ -174,17 +176,17 @@ func rigid_interaction():
 
 func _ready() -> void:
 	add_to_group("enemy")
-	timer = Timer.new()
-	timer.one_shot = true
-	add_child(timer)
-	timer.start(.5 * randf_range(.8,1.2))
+	#timer = Timer.new()
+	#timer.one_shot = true
+	#add_child(timer)
+	#timer.start(.5 * randf_range(.8,1.2))
 	
 	player = get_tree().get_first_node_in_group("player")
 	
 	
 	var r = randi_range(1,100)
 	
-	if r <= 40 * (global.difficulty / 100):
+	if r <= 50 * (global.difficulty / 100):
 		var types = ["Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky"]
 		#var types = ["Big","Small"]
 		special_type = types.pick_random()
@@ -207,8 +209,8 @@ func _ready() -> void:
 			if ran2 == 1:
 				$body/left_arm.get_child(0).queue_free()
 				var new_limb = load(global.all_arms.pick_random()).instantiate()
-				$body/left_arm.add_child(new_limb)
 				new_limb.side = 0
+				$body/left_arm.add_child(new_limb)
 			if ran2 == 2:
 				$body/right_arm.get_child(0).queue_free()
 				var new_limb = load(global.all_arms.pick_random()).instantiate()
@@ -218,8 +220,8 @@ func _ready() -> void:
 			if ran2 == 1:
 				$body/left_leg.get_child(0).queue_free()
 				var new_limb = load(global.all_legs.pick_random()).instantiate()
-				$body/left_leg.add_child(new_limb)
 				new_limb.side = 0
+				$body/left_leg.add_child(new_limb)
 			if ran2 == 2:
 				$body/right_leg.get_child(0).queue_free()
 				var new_limb = load(global.all_legs.pick_random()).instantiate()
@@ -233,6 +235,13 @@ func _ready() -> void:
 	$body/right_arm.get_child(0).special_type = special_type
 	$body/left_leg.get_child(0).special_type = special_type
 	$body/right_leg.get_child(0).special_type = special_type
+	
+	$body/head.get_child(0).request_ready()
+	$body/torso.get_child(0).request_ready()
+	$body/left_arm.get_child(0).request_ready()
+	$body/right_arm.get_child(0).request_ready()
+	$body/left_leg.get_child(0).request_ready()
+	$body/right_leg.get_child(0).request_ready()
 	
 	$NavigationAgent3D.target_position = player.global_position
 	$NavigationAgent3D.path_desired_distance = 20

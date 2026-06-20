@@ -206,16 +206,12 @@ func rigid_interaction():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		# 3. Check if what we hit is actually a RigidBody3D
 		if collider is RigidBody3D:
-			# Calculate the direction of the hit (ignoring the Y axis so we don't push it into the floor)
 			var push_dir = -collision.get_normal()
 			push_dir.y = 0 
 			push_dir = push_dir.normalized()
 			
-			# 4. Apply the impulse at the exact point of contact
-			# Multiplying by character velocity makes it push harder if you're running faster
-			var push_force = speed / 2
+			var push_force = speed / 10
 			var final_force = push_dir * push_force
 			collider.apply_impulse(final_force, collision.get_position() - collider.global_position)
 

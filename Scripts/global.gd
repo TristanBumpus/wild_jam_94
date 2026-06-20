@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 var difficulty = 100
 var new_level = false
@@ -12,11 +12,13 @@ var all_arms = ["res://Entitites/limbs/kobold/kobold_arm.tscn","res://Entitites/
 
 var sound_effects = preload("res://Entitites/effects/sound_effects.tscn")
 
-
+var nav_map :RID
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Engine.max_fps = 60
+	await get_tree().create_timer(.1).timeout
+	nav_map = get_world_3d().get_navigation_map()
 	pass
 
 

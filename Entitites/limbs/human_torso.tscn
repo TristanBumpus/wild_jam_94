@@ -28,3 +28,7 @@ shape = SubResource("BoxShape3D_aq4mq")
 [node name="character_torso" parent="." unique_id=1576948992 instance=ExtResource("2_j3kjv")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1950849723]
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=2124557014]
+aabb = AABB(-1.4031394, -2.3988078, -1, 2.8062787, 4.7976155, 2)
+enable_mode = 1

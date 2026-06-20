@@ -52,6 +52,7 @@ limb=""
 enemy=""
 spawner=""
 first_level_is_special_cus_the_limbs_demand_it=""
+e_holder=""
 
 [gui]
 
