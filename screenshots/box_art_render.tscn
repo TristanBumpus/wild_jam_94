@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="1_hr1kk"]
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="2_857x8"]
+[ext_resource type="PackedScene" uid="uid://bcbphvx2vvkxs" path="res://assets/boss/boss2.glb" id="2_rbnep"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_gkqpt"]
 [ext_resource type="PackedScene" uid="uid://cw8fdfw3xvjlo" path="res://screenshots/new_box_art2.glb" id="4_gkqpt"]
 
@@ -40,6 +41,9 @@ mesh = SubResource("QuadMesh_857x8")
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="shader" unique_id=634962478]
 material = SubResource("ShaderMaterial_ysrar")
 mesh = SubResource("QuadMesh_857x8")
+
+[node name="boss2" parent="shader" unique_id=1731068414 instance=ExtResource("2_rbnep")]
+transform = Transform3D(0.3842631, 0, -0.9232236, 0, 1, 0, 0.9232236, 0, 0.3842631, -5.247019, 6.2735205, 7.9986677)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=313189844]
 environment = SubResource("Environment_rbnep")
