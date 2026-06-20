@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_wfbyf"]
 [ext_resource type="PackedScene" uid="uid://pc7nv5qt3m4v" path="res://meshes/limbilimb/turtle/turtle_body_obj.tscn" id="2_oynhj"]
-[ext_resource type="Texture2D" uid="uid://cv3kpq48n8t54" path="res://Assets/gui/limb/turtle/turtle_body.png" id="2_uwxdl"]
+[ext_resource type="Texture2D" uid="uid://cv3kpq48n8t54" path="res://assets/gui/limb/turtle/turtle_body.png" id="2_uwxdl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oynhj"]
 size = Vector3(3.1171875, 3.6954346, 2.5825806)
