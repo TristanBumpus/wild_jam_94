@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b808abjpc0xjd"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_c4nnr"]
+[ext_resource type="PackedScene" uid="uid://befsp0uup8fcb" path="res://meshes/limbilimb/armadillo/armadillo_neck.tscn" id="2_x6rsb"]
+[ext_resource type="PackedScene" uid="uid://b5u458adl4tbj" path="res://meshes/limbilimb/armadillo/armadillo_head.tscn" id="3_qx04s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfg1g"]
+radius = 0.86328125
+height = 2.8859863
+
+[node name="armadillo_head" type="RigidBody3D" unique_id=1552691094]
+script = ExtResource("1_c4nnr")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="armadillo_neck" parent="." unique_id=1894742223 instance=ExtResource("2_x6rsb")]
+
+[node name="armadillo_head" parent="." unique_id=984406004 instance=ExtResource("3_qx04s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.77293503)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=781387981]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=332667296]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.61276793, -0.5590682)
+shape = SubResource("CapsuleShape3D_vfg1g")
