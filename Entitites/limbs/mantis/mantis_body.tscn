@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dd61u8x1f1qly"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_57bsc"]
+[ext_resource type="PackedScene" uid="uid://bcjfcslek61c8" path="res://meshes/limbilimb/mantis/mantis_body.tscn" id="2_gmdsw"]
+
+[node name="mantis_body" type="RigidBody3D" unique_id=1042664130]
+script = ExtResource("1_57bsc")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="mantis_body" parent="." unique_id=1892515521 instance=ExtResource("2_gmdsw")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=568132989]

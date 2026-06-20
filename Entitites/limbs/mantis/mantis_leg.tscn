@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://c51w32tnvwayx"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_mdomy"]
+[ext_resource type="PackedScene" uid="uid://cfw0frjdrefm3" path="res://meshes/limbilimb/mantis/mantis_thigh.tscn" id="2_wxugv"]
+[ext_resource type="PackedScene" uid="uid://cm3hjlkprhp2x" path="res://meshes/limbilimb/mantis/mantis_shin.tscn" id="3_44ofn"]
+[ext_resource type="PackedScene" uid="uid://dst7k6e5p3epx" path="res://meshes/limbilimb/mantis/mantis_foot.tscn" id="4_dct4t"]
+
+[sub_resource type="Animation" id="Animation_801j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("thigh_a2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.7853982, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("thigh_a2/shin_a2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mnct3"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.047141347, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.01927959, 0.16694099, -0.113910265)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("thigh_a2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.7853982, 0), Vector3(0, -0.7853982, -0.038571775)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("thigh_a2/shin_a2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.06501351)]
+}
+
+[sub_resource type="Animation" id="Animation_wxugv"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.2617994, 0, 0), Vector3(0.013721421, 0.34030476, -0.011590958)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.26179942, -1.4196682e-08, -0.4337318), Vector3(0.033564106, 0.25689632, -0.28197402)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("thigh_a2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.7853982, 0), Vector3(-5.194887e-09, -1.0471976, -0.087266445), Vector3(-1.4769391e-08, -0.93499786, 0.18835345)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("thigh_a2/shin_a2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.35422602, 0.25552234, -0.6454987), Vector3(-0.20241487, 0.14601274, -0.12604618)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3l8r4"]
+_data = {
+&"RESET": SubResource("Animation_801j4"),
+&"idle": SubResource("Animation_mnct3"),
+&"walk": SubResource("Animation_wxugv")
+}
+
+[node name="mantis_leg" type="RigidBody3D" unique_id=801801284]
+script = ExtResource("1_mdomy")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="thigh_a" type="Node3D" parent="." unique_id=1082756425]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0.70220804)
+
+[node name="mantis_thigh" parent="thigh_a" unique_id=957419598 instance=ExtResource("2_wxugv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)
+
+[node name="shin_a" type="Node3D" parent="thigh_a" unique_id=2098746406]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.8467079, -3.9367237, 0.28459918)
+
+[node name="mantis_shin" parent="thigh_a/shin_a" unique_id=1079048046 instance=ExtResource("3_44ofn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6533867, -0.8986721, -0.34726465)
+
+[node name="mantis_foot" parent="thigh_a/shin_a" unique_id=1028476835 instance=ExtResource("4_dct4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0852947, -1.6916337, -0.6119809)
+
+[node name="thigh_a2" type="Node3D" parent="." unique_id=150295229]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -0.073556885, 0, -0.3274656)
+
+[node name="mantis_thigh" parent="thigh_a2" unique_id=764844084 instance=ExtResource("2_wxugv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)
+
+[node name="shin_a2" type="Node3D" parent="thigh_a2" unique_id=253802597]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.8467079, -3.9367237, 0.28459918)
+
+[node name="mantis_shin" parent="thigh_a2/shin_a2" unique_id=950111731 instance=ExtResource("3_44ofn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6533867, -0.8986721, -0.34726465)
+
+[node name="mantis_foot" parent="thigh_a2/shin_a2" unique_id=1090806172 instance=ExtResource("4_dct4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0852947, -1.6916337, -0.6119809)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1668343713]
+libraries/ = SubResource("AnimationLibrary_3l8r4")

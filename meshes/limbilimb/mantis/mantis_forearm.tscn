@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6fdec12tepc7"]
+
+[ext_resource type="PackedScene" uid="uid://bueendxtyydob" path="res://assets/mantis/mantis_forearm.glb" id="1_pemoj"]
+[ext_resource type="Material" uid="uid://debjtlwgnca2a" path="res://meshes/limbilimb/mantis/amantis_skin.tres" id="2_hxum8"]
+
+[node name="mantis_forearm" unique_id=386264690 instance=ExtResource("1_pemoj")]
+
+[node name="Cube_146" parent="." index="0" unique_id=914900844]
+surface_material_override/0 = ExtResource("2_hxum8")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://clbsfv8ofeltl"]
+
+[ext_resource type="PackedScene" uid="uid://wqdjfoy01gla" path="res://assets/rat/rat_shin.glb" id="1_qist6"]
+[ext_resource type="Material" uid="uid://dfhlpg81uuhyt" path="res://assets/rat/arat_skin.tres" id="2_3njq3"]
+
+[node name="rat_shin" unique_id=142122292 instance=ExtResource("1_qist6")]
+
+[node name="Cube_130" parent="." index="0" unique_id=1250676563]
+surface_material_override/0 = ExtResource("2_3njq3")

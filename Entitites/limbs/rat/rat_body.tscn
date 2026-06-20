@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c5wxbsnbd6po3"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_2l883"]
+[ext_resource type="PackedScene" uid="uid://116a3ptibu6k" path="res://meshes/limbilimb/rat/rat_body.tscn" id="2_iw814"]
+
+[node name="rat_body" type="RigidBody3D" unique_id=1993125106]
+script = ExtResource("1_2l883")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="rat_body" parent="." unique_id=653320480 instance=ExtResource("2_iw814")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1786975568]

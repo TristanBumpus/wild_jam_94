@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://vy46uyia8gvy"]
+
+[ext_resource type="PackedScene" uid="uid://bmxtl2bohv7sa" path="res://assets/armadillo/armadillo_thigh.glb" id="1_ny1k1"]
+[ext_resource type="Material" uid="uid://dckwigmjaa8nl" path="res://assets/armadillo/aarmadillo_skin.tres" id="2_kdhny"]
+
+[node name="armadillo_thigh" unique_id=1705251843 instance=ExtResource("1_ny1k1")]
+
+[node name="Cube_124" parent="." index="0" unique_id=1086093525]
+surface_material_override/0 = ExtResource("2_kdhny")

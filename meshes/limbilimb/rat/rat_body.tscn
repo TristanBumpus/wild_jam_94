@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://116a3ptibu6k"]
+
+[ext_resource type="PackedScene" uid="uid://guvsqgmjxopc" path="res://assets/rat/rat_body.glb" id="1_jl4vf"]
+
+[node name="rat_body" unique_id=653320480 instance=ExtResource("1_jl4vf")]

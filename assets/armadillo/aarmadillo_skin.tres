@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dckwigmjaa8nl"]
+
+[ext_resource type="Texture2D" uid="uid://b2t2nal5ahaxs" path="res://assets/armadillo/armadillo_arm_armadilo_TEXT.png" id="1_ni8ff"]
+
+[resource]
+albedo_texture = ExtResource("1_ni8ff")
+texture_filter = 0

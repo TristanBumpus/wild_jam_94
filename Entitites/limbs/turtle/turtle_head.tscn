@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_cxver"]
 [ext_resource type="PackedScene" uid="uid://dqn8mvbxrg3iq" path="res://meshes/limbilimb/turtle/turtle_head_obj.tscn" id="2_f4c6a"]
-[ext_resource type="Texture2D" uid="uid://dxiu50mq2b6y" path="res://Assets/gui/limb/turtle/turtle_head.png" id="2_h7258"]
+[ext_resource type="Texture2D" uid="uid://dxiu50mq2b6y" path="res://assets/gui/limb/turtle/turtle_head.png" id="2_h7258"]
 [ext_resource type="PackedScene" uid="uid://735epodgdlrn" path="res://meshes/limbilimb/turtle/turtle_neck_obj.tscn" id="3_h7258"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4c6a"]

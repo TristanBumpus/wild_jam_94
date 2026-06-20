@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cox21l0ame7c2"]
+
+[ext_resource type="PackedScene" uid="uid://wcpxcnrg5ill" path="res://assets/rat/rat_foot.glb" id="1_amu4c"]
+[ext_resource type="Material" uid="uid://dfhlpg81uuhyt" path="res://assets/rat/arat_skin.tres" id="2_gqq12"]
+
+[node name="rat_foot" unique_id=369644908 instance=ExtResource("1_amu4c")]
+
+[node name="Cube_137" parent="." index="0" unique_id=667467865]
+surface_material_override/0 = ExtResource("2_gqq12")

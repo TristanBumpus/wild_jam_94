@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://bgybrovxmau3e"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_urdnj"]
+[ext_resource type="PackedScene" uid="uid://vy46uyia8gvy" path="res://meshes/limbilimb/armadillo/armadillo_thigh.tscn" id="2_8wynu"]
+[ext_resource type="PackedScene" uid="uid://bfoahju2lfie2" path="res://meshes/limbilimb/armadillo/armadillo_foot.tscn" id="5_sp4gh"]
+[ext_resource type="PackedScene" uid="uid://d04iqipg3qaa7" path="res://meshes/limbilimb/armadillo/armadillo_shin.tscn" id="6_jvh0i"]
+
+[sub_resource type="Animation" id="Animation_se4xl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2tmbd"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.7853982, 0, 0), Vector3(1.6580628, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.7853982, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_md04r"]
+resource_name = "hurt"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.26179937, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.26179937, 0), Vector3(0, -0.26179942, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1l1l6"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.045884702, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.05206317, -0.06421066, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_egrn3"]
+resource_name = "walk"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.52359885, -0.2617994, 0), Vector3(0, 0, 0), Vector3(-0.2617994, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.50403535, -0.30005917, 0.14833173), Vector3(0, 0, 0), Vector3(-0.5235989, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_step"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f35hl"]
+_data = {
+&"RESET": SubResource("Animation_se4xl"),
+&"attack": SubResource("Animation_2tmbd"),
+&"hurt": SubResource("Animation_md04r"),
+&"idle": SubResource("Animation_1l1l6"),
+&"walk": SubResource("Animation_egrn3")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ji8l0"]
+height = 4.788574
+
+[node name="armadillo_leg" type="RigidBody3D" unique_id=191378170]
+script = ExtResource("1_urdnj")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="thigh_a" type="Node3D" parent="." unique_id=565625428]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999997, 0, -0.124415874, 0.022377014)
+
+[node name="armadillo_thigh" parent="thigh_a" unique_id=1705251843 instance=ExtResource("2_8wynu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841864e-07, -0.8657789, -0.65837073)
+
+[node name="shin_a" type="Node3D" parent="thigh_a" unique_id=1559364397]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, -1.6298145e-09, -2.1891568, -0.119065665)
+
+[node name="armadillo_foot" parent="thigh_a/shin_a" unique_id=180772045 instance=ExtResource("5_sp4gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12238793, -1.8494694, -1.1272215)
+
+[node name="armadillo_shin" parent="thigh_a/shin_a" unique_id=100742357 instance=ExtResource("6_jvh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6308784, -0.32707697)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=337277402]
+libraries/ = SubResource("AnimationLibrary_f35hl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=934778115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1959198, 0, -2.2739258, -0.2601955)
+shape = SubResource("CapsuleShape3D_ji8l0")

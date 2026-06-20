@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b4w8cx831818q"]
+
+[ext_resource type="PackedScene" uid="uid://pd3hv2v1f7sp" path="res://assets/armadillo/armadillo_body.glb" id="1_01s7n"]
+
+[node name="armadillo_body" unique_id=632472996 instance=ExtResource("1_01s7n")]

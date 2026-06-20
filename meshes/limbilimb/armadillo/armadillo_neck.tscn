@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://befsp0uup8fcb"]
+
+[ext_resource type="PackedScene" uid="uid://bcv3mxiv6el7q" path="res://assets/armadillo/armadillo_neck.glb" id="1_bk5s2"]
+
+[node name="armadillo_neck" unique_id=1894742223 instance=ExtResource("1_bk5s2")]

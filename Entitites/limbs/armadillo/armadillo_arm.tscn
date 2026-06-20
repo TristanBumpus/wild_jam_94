@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://dlemfbfmouqf8"]
+
+[ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_n35hr"]
+[ext_resource type="PackedScene" uid="uid://bhe14tgi7wt4p" path="res://meshes/limbilimb/armadillo/armadillo_arm.tscn" id="2_hbf3a"]
+[ext_resource type="PackedScene" uid="uid://bskf5wkne4382" path="res://meshes/limbilimb/armadillo/armadillo_forearm.tscn" id="3_bkh3g"]
+[ext_resource type="PackedScene" uid="uid://1uvctqhbgy8i" path="res://meshes/limbilimb/armadillo/armadillo_fist.tscn" id="4_abkli"]
+
+[sub_resource type="Animation" id="Animation_s5k8x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wokdt"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.2787678), Vector3(0.1400461, -0.8428719, -0.5711041), Vector3(0.3710359, 1.0835859, -0.10072642)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0431145, 0.359056, -0.32513654), Vector3(-0.08799522, 0.71955955, -0.29749545), Vector3(-0.50726926, 1.418356, -0.10746323)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.57, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_c28bo"]
+resource_name = "hurt"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.2787678), Vector3(-2.8451608e-09, 0.16158257, -1.2787678), Vector3(-4.4182734e-08, -0.6642112, -1.2787678)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0431145, 0.359056, -0.32513654), Vector3(0.11570536, 0.86734843, -0.1717525), Vector3(-0.046528522, 0.5447661, -0.116661645)]
+}
+
+[sub_resource type="Animation" id="Animation_ck1b4"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.2787678), Vector3(0, 0, -1.0169684)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0431145, 0.359056, -0.32513654), Vector3(0.13288534, 0.33721837, -0.57210886)]
+}
+
+[sub_resource type="Animation" id="Animation_owhpc"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_a:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.5235988, 1.4809563e-08, -1.2787678), Vector3(0.24165832, 4.4183635e-09, -1.2787678)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arm_a/forearm_a:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.20556381, 1.1331403, -0.17426395), Vector3(0.21463417, 1.2159567, -0.15209773)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2f0te"]
+_data = {
+&"RESET": SubResource("Animation_s5k8x"),
+&"attack": SubResource("Animation_wokdt"),
+&"hurt": SubResource("Animation_c28bo"),
+&"idle": SubResource("Animation_ck1b4"),
+&"walk": SubResource("Animation_owhpc")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6a61"]
+radius = 0.3334961
+height = 4.9765625
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g103b"]
+size = Vector3(2.6264648, 1, 9.800903)
+
+[node name="armadillo_arm" type="RigidBody3D" unique_id=817377743]
+script = ExtResource("1_n35hr")
+metadata/_custom_type_script = "uid://1ncxcw86231v"
+
+[node name="arm_a" type="Node3D" parent="." unique_id=991549625]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999997, 0, 0, 0)
+
+[node name="armadillo_arm" parent="arm_a" unique_id=678692868 instance=ExtResource("2_hbf3a")]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, 1.0000002, 0, 0)
+
+[node name="forearm_a" type="Node3D" parent="arm_a" unique_id=1161447493]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 2.172923, 6.7055225e-07, 1.7881393e-07)
+
+[node name="armadillo_forearm" parent="arm_a/forearm_a" unique_id=2125483118 instance=ExtResource("3_bkh3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8369401, 0, 0)
+
+[node name="armadillo_fist" parent="arm_a/forearm_a" unique_id=1393138254 instance=ExtResource("4_abkli")]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, 2.8270786, -6.556511e-07, -1.7881393e-07)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1353255865]
+libraries/ = SubResource("AnimationLibrary_2f0te")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1254479250]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.2703705, 0.028869627, 0.0345459)
+shape = SubResource("CapsuleShape3D_d6a61")
+
+[node name="attack_box" type="Area3D" parent="." unique_id=1022204434]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=519843570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -5.7802925)
+shape = SubResource("BoxShape3D_g103b")
+disabled = true
