@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhdw321i3d1mo"
-path.s3tc="res://.godot/imported/character_shin_Character_TEXT.png-900a2e72f18418955aa4942e526cabbe.s3tc.ctex"
+path.s3tc="res://.godot/imported/character_shin_Character_TEXT.png-6a864133c64ef68e113092f73cacaf57.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/main_character/character_shin_Character_TEXT.png"
-dest_files=["res://.godot/imported/character_shin_Character_TEXT.png-900a2e72f18418955aa4942e526cabbe.s3tc.ctex"]
+source_file="res://Assets/main_character/character_shin_Character_TEXT.png"
+dest_files=["res://.godot/imported/character_shin_Character_TEXT.png-6a864133c64ef68e113092f73cacaf57.s3tc.ctex"]
 
 [params]
 

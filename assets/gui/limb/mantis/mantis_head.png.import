@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1j2jup80qsox"
-path="res://.godot/imported/mantis_head.png-e8ea93277e5a62fcfa8118f949ef4e35.ctex"
+path="res://.godot/imported/mantis_head.png-edff0e4fc6b8a602c4f5488b6a04aee7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/mantis/mantis_head.png"
-dest_files=["res://.godot/imported/mantis_head.png-e8ea93277e5a62fcfa8118f949ef4e35.ctex"]
+source_file="res://Assets/gui/limb/mantis/mantis_head.png"
+dest_files=["res://.godot/imported/mantis_head.png-edff0e4fc6b8a602c4f5488b6a04aee7.ctex"]
 
 [params]
 

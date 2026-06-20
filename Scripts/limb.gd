@@ -191,11 +191,12 @@ func _ready() -> void:
 	angular_damp = 2
 	mass = .5
 	
-	var enabler: VisibleOnScreenEnabler3D
-	enabler = VisibleOnScreenEnabler3D.new()
-	add_child(enabler)
-	enabler.aabb = AABB(Vector3(-1.403,-2.399,-1.0),Vector3(2.806,4.798,2.0))
-	enabler.enable_mode = VisibleOnScreenEnabler3D.ENABLE_MODE_ALWAYS
+	#var enabler: VisibleOnScreenEnabler3D
+	#enabler = VisibleOnScreenEnabler3D.new()
+	#add_child(enabler)
+	#enabler.aabb = AABB(Vector3(-1.403,-2.399,-1.0),Vector3(2.806,4.798,2.0))
+	#enabler.enable_mode = VisibleOnScreenEnabler3D.ENABLE_MODE_ALWAYS
+	#enabler.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	for child in find_children("*","MeshInstance3D"):
 		child.set_layer_mask_value(1,false)

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsd3afnf2oedg"
-path.s3tc="res://.godot/imported/character_foot_Character_TEXT.png-1112d2e13e084a7c6cb4db1ba5ebf2c6.s3tc.ctex"
+path.s3tc="res://.godot/imported/character_foot_Character_TEXT.png-0d68577cc6cf32a40a00f496f38d316b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/main_character/character_foot_Character_TEXT.png"
-dest_files=["res://.godot/imported/character_foot_Character_TEXT.png-1112d2e13e084a7c6cb4db1ba5ebf2c6.s3tc.ctex"]
+source_file="res://Assets/main_character/character_foot_Character_TEXT.png"
+dest_files=["res://.godot/imported/character_foot_Character_TEXT.png-0d68577cc6cf32a40a00f496f38d316b.s3tc.ctex"]
 
 [params]
 

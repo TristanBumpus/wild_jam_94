@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6goy1m178ayk"
-path="res://.godot/imported/turtle_forearm.glb-f9a58ff41456483f90e7df6ba90f4805.scn"
+path="res://.godot/imported/turtle_forearm.glb-298708fe07df306d9cabb9197f0d3705.scn"
 
 [deps]
 
-source_file="res://assets/turtle/turtle_forearm.glb"
-dest_files=["res://.godot/imported/turtle_forearm.glb-f9a58ff41456483f90e7df6ba90f4805.scn"]
+source_file="res://Assets/turtle/turtle_forearm.glb"
+dest_files=["res://.godot/imported/turtle_forearm.glb-298708fe07df306d9cabb9197f0d3705.scn"]
 
 [params]
 

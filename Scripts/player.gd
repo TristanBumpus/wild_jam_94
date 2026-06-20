@@ -285,15 +285,16 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			body.get_node("billboard").visible = true
 	
 	if body.is_in_group("enemy") and body != null:
-		$ui/Control/enemy.visible = true
-		$ui/Control/enemy_hp.visible = true
-		
-		$ui/Control/enemy_hp.max_value = body.max_hp
-		$ui/Control/enemy_hp.value = body.hp
-		if body.special_type != "none":
-			$ui/Control/enemy.text = body.get_node("body/head").get_child(0).special_type + " " + body.e_name
-		else:
-			$ui/Control/enemy.text = body.e_name
+		if body.hp >= 0:
+			$ui/Control/enemy.visible = true
+			$ui/Control/enemy_hp.visible = true
+			
+			$ui/Control/enemy_hp.max_value = body.max_hp
+			$ui/Control/enemy_hp.value = body.hp
+			if body.special_type != "none":
+				$ui/Control/enemy.text = body.get_node("body/head").get_child(0).special_type + " " + body.e_name
+			else:
+				$ui/Control/enemy.text = body.e_name
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:

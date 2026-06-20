@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://csr1llyiaepnm"
-path="res://.godot/imported/kobold_atk_c1.mp3-2837df53f6711de9d22a433f4508d1a3.mp3str"
+path="res://.godot/imported/kobold_atk_c1.mp3-bf7d9712f937e48f4a4a6ce4670f2885.mp3str"
 
 [deps]
 
-source_file="res://assets/sfx/kobold_atk_c1.mp3"
-dest_files=["res://.godot/imported/kobold_atk_c1.mp3-2837df53f6711de9d22a433f4508d1a3.mp3str"]
+source_file="res://Assets/sfx/kobold_atk_c1.mp3"
+dest_files=["res://.godot/imported/kobold_atk_c1.mp3-bf7d9712f937e48f4a4a6ce4670f2885.mp3str"]
 
 [params]
 

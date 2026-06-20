@@ -14,7 +14,6 @@ limb_name = "Turtle Shell"
 hp = 10.0
 armor = 10.0
 image = ExtResource("2_uwxdl")
-speed = -2
 chest_off_set = Vector3(1.812, 0.974, 0)
 chest_off_set_legs = Vector3(0.7, -2.284, 0.308)
 chest_off_head_set = Vector3(0, 2.0183964, -0.2858851)
