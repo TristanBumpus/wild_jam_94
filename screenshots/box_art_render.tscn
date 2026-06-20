@@ -43,7 +43,7 @@ material = SubResource("ShaderMaterial_ysrar")
 mesh = SubResource("QuadMesh_857x8")
 
 [node name="boss2" parent="shader" unique_id=1731068414 instance=ExtResource("2_rbnep")]
-transform = Transform3D(0.3842631, 0, -0.9232236, 0, 1, 0, 0.9232236, 0, 0.3842631, -5.247019, 6.2735205, 7.9986677)
+transform = Transform3D(0.988678, 0.14987996, -0.007204503, 0, -0.048013028, -0.9988467, -0.15005302, 0.98753774, -0.04746942, -14.021347, 10.382394, 20.729431)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=313189844]
 environment = SubResource("Environment_rbnep")
