@@ -33,6 +33,7 @@ var billboard
 
 
 func switch_limb(to_get,s = 1):
+	
 	global.play_sound("res://Assets/sfx/equip_limb_c2.mp3",global_position)
 	global.choice_active = false
 	var node = player.get_node(to_get)
@@ -41,13 +42,44 @@ func switch_limb(to_get,s = 1):
 	reparent(node)
 	old.global_position = global_position + Vector3(0,3,0)
 	old.get_node("choice").visible = false
+	old.freeze = false
+	old.get_node("CollisionShape3D").disabled = false
+	old.get_node("AnimationPlayer").play("RESET")
+	
+	if has_node("attack_box"):
+		$AnimationPlayer.speed_scale = attack_speed
+		if get_parent() != get_tree().current_scene:
+			if get_parent().get_parent().get_parent().is_in_group("player"):
+				$attack_box.set_collision_layer_value(2,true)
+				$attack_box.set_collision_layer_value(3,false)
+				$attack_box.set_collision_mask_value(2,true)
+				$attack_box.set_collision_mask_value(3,false)
+			else:
+				$attack_box.set_collision_layer_value(3,true)
+				$attack_box.set_collision_layer_value(2,false)
+				$attack_box.set_collision_mask_value(3,true)
+				$attack_box.set_collision_mask_value(2,false)
 	position = Vector3.ZERO
 	rotation = Vector3.ZERO
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$choice.visible = false
+	$billboard.visible = false
+	$CollisionShape3D.disabled = true
 	side = s
 	freeze = true
-	old.freeze = false
+	
+	if s == 0 and type != 0:
+		scale = Vector3(-1,1,1)
+		if special_type == "Big":
+			scale = Vector3(-2,2,2)
+		if special_type == "Small":
+			scale = Vector3(-.5,.5,.5)
+	else:
+		scale = Vector3(1,1,1)
+		if special_type == "Big":
+			scale = Vector3(2,2,2)
+		if special_type == "Small":
+			scale = Vector3(.5,.5,.5)
 	player.limb_checker()
 
 func tooltip(old_limb,show_attack = false):
@@ -147,7 +179,8 @@ func tooltip(old_limb,show_attack = false):
 	#$choice/Control/RichTextLabel2.text += str(old_limb.damage)
 
 func play_step():
-	global.play_sound(["res://Assets/sfx/step_c1.mp3","res://Assets/sfx/step_c2.mp3","res://Assets/sfx/step_c3.mp3"].pick_random(), global_position,-22)
+	if get_parent().get_parent().get_parent().is_in_group("player"):
+		global.play_sound(["res://Assets/sfx/step_c1.mp3","res://Assets/sfx/step_c2.mp3","res://Assets/sfx/step_c3.mp3"].pick_random(), global_position,-22)
 
 
 
@@ -158,29 +191,36 @@ func _ready() -> void:
 	angular_damp = 2
 	mass = .5
 	
+	var enabler: VisibleOnScreenEnabler3D
+	enabler = VisibleOnScreenEnabler3D.new()
+	add_child(enabler)
+	enabler.aabb = AABB(Vector3(-1.403,-2.399,-1.0),Vector3(2.806,4.798,2.0))
+	enabler.enable_mode = VisibleOnScreenEnabler3D.ENABLE_MODE_ALWAYS
+	
 	for child in find_children("*","MeshInstance3D"):
 		child.set_layer_mask_value(1,false)
 		child.set_layer_mask_value(2,true)
 	
 	#Summoning ui elements
-	var b = load("res://UI/billboard.tscn")
-	var billboard = b.instantiate()
-	add_child(billboard)
+	if !has_node("billboard"):
+		var b = load("res://UI/billboard.tscn")
+		var billboard = b.instantiate()
+		add_child(billboard)
 	$billboard.visible = false
 	
-	
-	var c = load("res://UI/choice.tscn")
-	var c2 = c.instantiate()
-	add_child(c2)
+	if !has_node("choice"):
+		var c = load("res://UI/choice.tscn")
+		var c2 = c.instantiate()
+		add_child(c2)
 	
 	#Connecting buttons
-	c2.get_node("Control/Node2D/head").button_down.connect(_on_head_button_down)
-	c2.get_node("Control/Node2D/torso").button_down.connect(_on_torso_button_down)
-	c2.get_node("Control/Node2D/right_arm").button_down.connect(_on_right_arm_button_down)
-	c2.get_node("Control/Node2D/left_arm").button_down.connect(_on_left_arm_button_down)
-	c2.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
-	c2.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
-	c2.get_node("Control/Node2D/end").button_down.connect(end_choice)
+	$choice.get_node("Control/Node2D/head").button_down.connect(_on_head_button_down)
+	$choice.get_node("Control/Node2D/torso").button_down.connect(_on_torso_button_down)
+	$choice.get_node("Control/Node2D/right_arm").button_down.connect(_on_right_arm_button_down)
+	$choice.get_node("Control/Node2D/left_arm").button_down.connect(_on_left_arm_button_down)
+	$choice.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
+	$choice.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
+	$choice.get_node("Control/Node2D/end").button_down.connect(end_choice)
 	
 	
 	
@@ -189,23 +229,23 @@ func _ready() -> void:
 	#Limb selection
 	if type == 0 or type_2 == 0:
 		$choice/Control/Node2D/head.disabled = false
-		c2.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
+		$choice.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
 	
 	if type == 1 or type_2 == 1:
 		$choice/Control/Node2D/left_arm.disabled = false
 		$choice/Control/Node2D/right_arm.disabled = false
-		c2.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
-		c2.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
+		$choice.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
+		$choice.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
 	
 	if type == 2 or type_2 == 2:
 		$choice/Control/Node2D/left_leg.disabled = false
 		$choice/Control/Node2D/right_leg.disabled = false
-		c2.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
-		c2.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
+		$choice.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
+		$choice.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
 	
 	if type == 3 or type_2 == 3:
 		$choice/Control/Node2D/torso.disabled = false
-		c2.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
+		$choice.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	
 	#Basic stats
 	damage = snapped(damage * randf_range(.8,1.2), .01) * (global.difficulty/100)
@@ -233,16 +273,17 @@ func _ready() -> void:
 		damage *= .5
 		hp *= 3
 		armor *= 2
-		armor += 1 * snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
+		armor += snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
 		speed *= .5
 	
 	if special_type == "Lucky":
 		luck *= 1.5
-		luck += 1 * snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
+		luck += snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	if special_type == "Sharp":
 		armor_p *= 2
-		armor_p += 1 * snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
+		if armor_p <= 0:
+			armor_p = snapped(1 * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	if special_type == "Dull":
 		armor_p /= 2
@@ -265,15 +306,23 @@ func _ready() -> void:
 		if special_type == "Small":
 			scale = Vector3(.5,.5,.5)
 	
-	
-	
 	player = get_tree().get_first_node_in_group("player")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+	
+	var s = ""
+	if special_type != "none":
+		s = special_type + " "
+	$billboard/title.text = s + limb_name
+	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
+	$billboard.visible = false
+	
+	if get_tree().current_scene != get_parent() and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
+		freeze = true
+		position = Vector3.ZERO
+		rotation = Vector3.ZERO
+		$CollisionShape3D.disabled = true
 	
 	if has_node("attack_box"):
+		$AnimationPlayer.speed_scale = attack_speed
 		if get_parent() != get_tree().current_scene:
 			if get_parent().get_parent().get_parent().is_in_group("player"):
 				$attack_box.set_collision_layer_value(2,true)
@@ -285,40 +334,11 @@ func _process(delta: float) -> void:
 				$attack_box.set_collision_layer_value(2,false)
 				$attack_box.set_collision_mask_value(3,true)
 				$attack_box.set_collision_mask_value(2,false)
+
+
+
+func _physics_process(delta: float) -> void:
 	
-	if get_parent() != get_tree().current_scene and !get_parent().is_in_group("first_level_is_special_cus_the_limbs_demand_it"):
-		if has_node("attack_box"):
-			$AnimationPlayer.speed_scale = attack_speed
-		
-		freeze = true
-		$choice.visible = false
-		$billboard.visible = false
-		$CollisionShape3D.disabled = true
-		position = Vector3.ZERO
-		rotation = Vector3.ZERO
-		if side == 0 and type != 0:
-			scale = Vector3(-1,1,1)
-			if special_type == "Big":
-				scale = Vector3(-2,2,2)
-			if special_type == "Small":
-				scale = Vector3(-.5,.5,.5)
-		else:
-			scale = Vector3(1,1,1)
-			if special_type == "Big":
-				scale = Vector3(2,2,2)
-			if special_type == "Small":
-				scale = Vector3(.5,.5,.5)
-	else:
-		freeze = false
-		$CollisionShape3D.disabled = false
-		if $AnimationPlayer.has_animation("RESET"):
-			$AnimationPlayer.play("RESET")
-	
-	var s = ""
-	if special_type != "none":
-		s = special_type + " "
-	$billboard/title.text = s + limb_name
-	$billboard/desc.text = "Damage " + str(damage) + "\n" + "Attack speed" + str(attack_speed) + "\n" + "Armor Percing " + str(armor_p) + "\n" + "Hp +" + str(hp) + "\n" + "Armor +" + str(armor) + "\n" +"Speed +" + str(speed) + "\n"
 	
 	if $choice.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -343,6 +363,8 @@ func _process(delta: float) -> void:
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
+	
+
 
 
 func _on_right_arm_button_down() -> void:
