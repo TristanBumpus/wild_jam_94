@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://pjwgwyc5qrg5"
-path="res://.godot/imported/turtle_arm.glb-26557e7d7c6f54806a67cdbb50d9e5a5.scn"
+path="res://.godot/imported/turtle_arm.glb-9489c454b951b4b4cae0970655be7385.scn"
 
 [deps]
 
-source_file="res://assets/turtle/turtle_arm.glb"
-dest_files=["res://.godot/imported/turtle_arm.glb-26557e7d7c6f54806a67cdbb50d9e5a5.scn"]
+source_file="res://Assets/turtle/turtle_arm.glb"
+dest_files=["res://.godot/imported/turtle_arm.glb-9489c454b951b4b4cae0970655be7385.scn"]
 
 [params]
 

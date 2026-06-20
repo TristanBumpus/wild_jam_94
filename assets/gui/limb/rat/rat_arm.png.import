@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbur0di2rojcv"
-path="res://.godot/imported/rat_arm.png-f728e1beb2841f8693bdafd16a5d2f7b.ctex"
+path="res://.godot/imported/rat_arm.png-b8e8d1a81cc1793f926533218db68f30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/rat/rat_arm.png"
-dest_files=["res://.godot/imported/rat_arm.png-f728e1beb2841f8693bdafd16a5d2f7b.ctex"]
+source_file="res://Assets/gui/limb/rat/rat_arm.png"
+dest_files=["res://.godot/imported/rat_arm.png-b8e8d1a81cc1793f926533218db68f30.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dswd1ngim0vfi"
-path="res://.godot/imported/armadillo_arm.png-d71ea4d4ad91cdd21fe2cfac50da34cc.ctex"
+path="res://.godot/imported/armadillo_arm.png-bd0d1bf0c5d16b93258e3063426f25cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/armadillo/armadillo_arm.png"
-dest_files=["res://.godot/imported/armadillo_arm.png-d71ea4d4ad91cdd21fe2cfac50da34cc.ctex"]
+source_file="res://Assets/gui/limb/armadillo/armadillo_arm.png"
+dest_files=["res://.godot/imported/armadillo_arm.png-bd0d1bf0c5d16b93258e3063426f25cc.ctex"]
 
 [params]
 

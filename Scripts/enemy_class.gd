@@ -68,8 +68,12 @@ func chest_equalizer():
 	$body/left_arm.position = arm_offset * Vector3(-1,1,1)
 
 func new_pos():
-	path = NavigationServer3D.map_get_path(global.nav_map,global_position,player.global_position,true)
-	await get_tree().physics_frame
+	if get_process_delta_time() < 16:
+		if $NavigationAgent3D.target_position.distance_to(player.global_position) > 10:
+			$NavigationAgent3D.target_position = player.global_position
+		if global_position.distance_to(player.global_position) < 10:
+			$NavigationAgent3D.target_position = player.global_position
+			await get_tree().physics_frame
 
 func basic_movement():
 	
@@ -84,9 +88,15 @@ func basic_movement():
 	).normalized()
 	
 	var target_angle = flat_direction.angle_to(Vector2.UP)
-	
+	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
-	var dir = (path[1] - global_position).normalized()
+	#var path_node = 1
+	#while true:
+		#if global_position.distance_to(path[path_node]) > 1:
+			#dir = (path[path_node] - global_position).normalized()
+			#break
+		#path_node += 1
+	
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
 
@@ -95,6 +105,8 @@ func set_animation(node:Node3D,animString:String):
 		node.get_parent().rotation = Vector3(0,0,0)
 		if animString == "attack":
 			node.get_parent().look_at(player.position)
+			node.get_parent().rotation.y = 0
+			node.get_parent().rotation.z = 0
 			#if node.get_node("AnimationPlayer").current_animation != "attack":
 			node.get_node("AnimationPlayer").play("attack")
 		
@@ -122,9 +134,9 @@ func melee_attack():
 func range_attack():
 	if velocity.x + velocity.z != 0:
 		set_animation($body/left_arm.get_child(0),"walk")
-		if global_position.distance_to(player.global_position) > 10 and $body/right_arm.get_child(0).get_node("AnimationPlayer").current_animation != "attack":
-			set_animation($body/right_arm.get_child(0),"walk")
-			$body/right_arm.rotation = Vector3.ZERO
+		if global_position.distance_to(player.global_position) > 10:
+			$body/head.rotation = Vector3.ZERO
+		set_animation($body/right_arm.get_child(0),"walk")
 		set_animation($body/left_leg.get_child(0),"walk")
 		set_animation($body/right_leg.get_child(0),"walk")
 	
@@ -180,6 +192,9 @@ func _ready() -> void:
 	#timer.one_shot = true
 	#add_child(timer)
 	#timer.start(.5 * randf_range(.8,1.2))
+	
+	$NavigationAgent3D.avoidance_enabled = true
+	$NavigationAgent3D.radius = 5
 	
 	player = get_tree().get_first_node_in_group("player")
 	
@@ -250,6 +265,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if start:
 		limb_checker()
+		new_pos()
 		start = false
 	
 	if hp > 0:
@@ -269,7 +285,7 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		
-		#rigid_interaction()
+		rigid_interaction()
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
