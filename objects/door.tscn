@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bqpv1ak4mud4c"]
 
 [ext_resource type="Script" uid="uid://cu8eyowlxvb7e" path="res://Scripts/door.gd" id="1_j7xx1"]
-[ext_resource type="PackedScene" uid="uid://bxhq2hx7c5e7p" path="res://Assets/objects/door2.glb" id="2_khffo"]
+[ext_resource type="PackedScene" uid="uid://bxhq2hx7c5e7p" path="res://assets/objects/door2.glb" id="2_khffo"]
+[ext_resource type="PackedScene" uid="uid://dngcmk3g2guum" path="res://assets/objects/door_frame2.glb" id="3_khffo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_566yj"]
 size = Vector3(13, 14.299316, 3.2480469)
@@ -37,5 +38,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.069444, 5.0427065, 0.488905
 
 [node name="Timer" type="Timer" parent="." unique_id=1984261073]
 one_shot = true
+
+[node name="door_frame2" parent="." unique_id=1586583773 instance=ExtResource("3_khffo")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.7062941, 0.45351028)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
