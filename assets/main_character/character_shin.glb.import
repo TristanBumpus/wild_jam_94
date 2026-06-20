@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cwc136gbbre6a"
-path="res://.godot/imported/character_shin.glb-6e46e032a8eb17f0cdb1d283c4308a94.scn"
+path="res://.godot/imported/character_shin.glb-097e82146d5459bb06b5f073a249ea81.scn"
 
 [deps]
 
-source_file="res://Assets/main_character/character_shin.glb"
-dest_files=["res://.godot/imported/character_shin.glb-6e46e032a8eb17f0cdb1d283c4308a94.scn"]
+source_file="res://assets/main_character/character_shin.glb"
+dest_files=["res://.godot/imported/character_shin.glb-097e82146d5459bb06b5f073a249ea81.scn"]
 
 [params]
 
