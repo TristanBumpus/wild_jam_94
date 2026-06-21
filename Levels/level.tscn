@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtvr2wcgk1ir" path="res://Entitites/Enemies/mantis.tscn" id="23_nflnv"]
 [ext_resource type="PackedScene" uid="uid://3j3s4t1nrkjv" path="res://Entitites/effects/hit_particule_fx.tscn" id="23_twn60"]
 [ext_resource type="PackedScene" uid="uid://7fi6edidokju" path="res://Entitites/Enemies/rat.tscn" id="24_3kmy4"]
+[ext_resource type="PackedScene" uid="uid://cml3rj1ibauet" path="res://Entitites/effects/gibs.tscn" id="27_nflnv"]
 
 [sub_resource type="Environment" id="Environment_ecu0b"]
 fog_enabled = true
@@ -75,5 +76,7 @@ bus = &"music"
 [node name="hit_particule_fx" parent="." unique_id=21424782 instance=ExtResource("23_twn60")]
 
 [node name="hit_particule_fx2" parent="." unique_id=1202504963 instance=ExtResource("23_twn60")]
+
+[node name="BloodExplosion" parent="." unique_id=347788589 instance=ExtResource("27_nflnv")]
 
 [connection signal="timeout" from="enemy_creator/Timer" to="enemy_creator" method="_on_timer_timeout"]

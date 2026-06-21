@@ -26,6 +26,7 @@ var cam_pos = Vector3(0,1,-.9)
 var trauma : float = 0.0 # Current shake strength
 var trauma_power : int = 2 # Trauma exponent. Increase for more extreme shaking
 @export var disabled = false
+var scene = true
 
 
 func chest_equalizer():
@@ -71,8 +72,8 @@ func cheats():
 		global.last_limbs = [null,null,null,null,null,null]
 		limb_checker()
 		global_position = get_tree().get_first_node_in_group("boss_room").global_position + Vector3(0,10,0)
-		#for child in get_tree().get_nodes_in_group("enemy"):
-			#child.queue_free()
+		for child in get_tree().get_nodes_in_group("enemy"):
+			child.queue_free()
 
 func movement(delta):
 	
@@ -127,6 +128,7 @@ func limb_to_check(node,index):
 			luck -= global.last_limbs[index].luck
 		
 		global.last_limbs[index] = node.get_child(0)
+		global.last_limb_path[index] = node.get_child(0).scene_file_path
 		max_hp += node.get_child(0).hp
 		current_hp += node.get_child(0).hp
 		speed += node.get_child(0).speed
@@ -146,21 +148,25 @@ func limb_checker():
 	chest_equalizer()
 
 func set_animation(node:Node3D,animString:String):
-	if animString == "attack":
-		#if node.get_node("AnimationPlayer").current_animation != "attack":
-		node.get_node("AnimationPlayer").play(animString, .3)
-		node.get_node("AnimationPlayer").advance(0)
-	elif node.side == 1:
-		if node.get_node("AnimationPlayer").current_animation != "attack":
-			node.get_node("AnimationPlayer").play(animString, .3)
-	else:
-		if node.get_node("AnimationPlayer").current_animation != "attack":
-			var advance = false
-			if node.get_node("AnimationPlayer").current_animation != animString:
-				advance = true
-			node.get_node("AnimationPlayer").play(animString, .3)
-			if advance:
-				node.get_node("AnimationPlayer").seek(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.get_node("AnimationPlayer").speed_scale,true)
+	if node.get_node("AnimationPlayer").has_animation(animString):
+		if animString == "attack":
+			#if node.get_node("AnimationPlayer").current_animation != "attack":
+			if node.type == 0 and node.get_parent().name == "head":
+				pass
+			else:
+				node.get_node("AnimationPlayer").play(animString, .3)
+				node.get_node("AnimationPlayer").advance(0)
+		elif node.side == 1:
+			if node.get_node("AnimationPlayer").current_animation != "attack" and animString != "attack":
+				node.get_node("AnimationPlayer").play(animString, .3)
+		else:
+			if node.get_node("AnimationPlayer").current_animation != "attack" and animString != "attack":
+				var advance = false
+				if node.get_node("AnimationPlayer").current_animation != animString:
+					advance = true
+				node.get_node("AnimationPlayer").play(animString, .3)
+				if advance:
+					node.get_node("AnimationPlayer").seek(node.get_node("AnimationPlayer").get_animation(animString).length/ 2 * node.get_node("AnimationPlayer").speed_scale,true)
 
 func animation_states():
 	if velocity.x + velocity.z != 0:
@@ -241,7 +247,8 @@ func trigger_shake(amount : float):
 
 
 func _ready() -> void:
-	limb_checker()
+	if !disabled:
+		limb_checker()
 
 func _physics_process(delta: float) -> void:
 	if !disabled:
@@ -265,14 +272,20 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 	else:
+		if scene:
+			var temp = 0
+			for child in global.last_limb_path:
+				limb_slots[temp].get_child(0).queue_free()
+				var t = load(child).instantiate()
+				limb_slots[temp].add_child(t)
+				temp += 1
+			scene = false
 		$ui.visible = false
-		print("test")
 		for child in limb_slots:
 			child.get_child(0).scale = Vector3(.5,.5,.5)
-			child.get_child(0).position = Vector3.ZERO
+			##child.get_child(0).position = Vector3.ZERO
 		$body/torso.visible = true
 		limb_checker()
-		#position = Vector3(-91.1,8.8,-15.8 )
 	
 
 func _process(delta: float) -> void:
@@ -285,13 +298,14 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 	current_hp -= snapped(global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p),.01)
 	
 	if current_hp <= 0:
+		global.deaths += 1
 		$ui/Control/health_bar.value = current_hp
 		
 		$ui/Control/health.text = "hp: " + str(current_hp)
 		
 		$ui/death_screen.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		#get_tree().paused = true
+		get_tree().paused = true
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

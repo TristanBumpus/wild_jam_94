@@ -9,6 +9,7 @@ height = 5.1463623
 
 [node name="mantis_body" type="RigidBody3D" unique_id=1042664130]
 script = ExtResource("1_57bsc")
+limb_name = "Mantis Torso"
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="mantis_body" parent="." unique_id=1892515521 instance=ExtResource("2_gmdsw")]

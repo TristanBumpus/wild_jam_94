@@ -14,6 +14,8 @@ var sound_effects = preload("res://Entitites/effects/sound_effects.tscn")
 
 var nav_map :RID
 var last_limbs = [null,null,null,null,null,null]
+var last_limb_path = ["","","","","",""]
+var deaths = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -187,6 +187,7 @@ size = Vector3(2.6264648, 1, 6.021515)
 
 [node name="armadillo_arm" type="RigidBody3D" unique_id=817377743]
 script = ExtResource("1_n35hr")
+limb_name = "Armadillo Arm"
 damage = 3.0
 hp = 2.0
 attack_speed = 0.8

@@ -11,6 +11,7 @@ height = 4.7629395
 [node name="armadillo_body" type="RigidBody3D" unique_id=1415761282]
 script = ExtResource("1_jlrgv")
 type = 3
+limb_name = "Armadillo Torso"
 hp = 12.0
 image = ExtResource("2_tyevj")
 chest_off_set = Vector3(1.812, 0.974, 0)

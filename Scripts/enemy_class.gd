@@ -341,10 +341,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			death_effect.global_position = global_position
 			death_effect.get_child(0).emitting = true
 			
-			var death_effect2 = load("res://Entitites/effects/gibs.tscn").instantiate()
-			get_tree().current_scene.add_child(death_effect2)
-			death_effect2.global_position = global_position
-			death_effect2.get_child(0).emitting = true
+			if !OS.has_feature("web"):
+				var death_effect2 = load("res://Entitites/effects/gibs.tscn").instantiate()
+				get_tree().current_scene.add_child(death_effect2)
+				death_effect2.global_position = global_position
+				death_effect2.get_child(0).emitting = true
 			
 			var times = 0
 			

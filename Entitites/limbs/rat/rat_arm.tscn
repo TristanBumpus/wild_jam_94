@@ -187,6 +187,7 @@ size = Vector3(2.6264648, 1, 6.0752563)
 
 [node name="rat_arm" type="RigidBody3D" unique_id=584384732]
 script = ExtResource("1_xjhwy")
+limb_name = "Rat Arm"
 damage = 2.0
 armor_p = 5.0
 image = ExtResource("2_t1efy")

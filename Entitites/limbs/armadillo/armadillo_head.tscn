@@ -149,6 +149,7 @@ size = Vector3(2.6264648, 1, 6.010254)
 script = ExtResource("1_c4nnr")
 type = 0
 type_2 = 3
+limb_name = "Armadillo Head"
 damage = 2.0
 hp = 7.0
 image = ExtResource("2_qx04s")

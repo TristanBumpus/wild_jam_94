@@ -201,6 +201,7 @@ size = Vector3(2.6264648, 1, 6.010254)
 [node name="armadillo_leg" type="RigidBody3D" unique_id=191378170]
 script = ExtResource("1_urdnj")
 type = 2
+limb_name = "Armadillo Leg"
 damage = 2.0
 hp = 5.0
 image = ExtResource("2_wow70")

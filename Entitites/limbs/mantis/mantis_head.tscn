@@ -148,6 +148,7 @@ size = Vector3(2.6264648, 1, 6.010254)
 script = ExtResource("1_hgi0w")
 type = 0
 type_2 = 3
+limb_name = "Mantis Head"
 damage = 2.0
 image = ExtResource("2_iul8r")
 metadata/_custom_type_script = "uid://1ncxcw86231v"

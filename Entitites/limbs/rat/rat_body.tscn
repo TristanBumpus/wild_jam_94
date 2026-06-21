@@ -11,6 +11,7 @@ height = 3.8830566
 [node name="rat_body" type="RigidBody3D" unique_id=1993125106]
 script = ExtResource("1_2l883")
 type = 3
+limb_name = "Rat Torso"
 hp = 7.0
 image = ExtResource("2_ceest")
 chest_off_set = Vector3(1.468, 0.974, 0)

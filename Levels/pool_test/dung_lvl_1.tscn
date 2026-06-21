@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b3wbmaphhvo4j"]
 
 [ext_resource type="Script" uid="uid://c6ngt8a3k4tc2" path="res://Scripts/level_manager.gd" id="1_6q72o"]
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_vjcl7"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="2_0wjf4"]
-[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://assets/font/Minecraft.ttf" id="4_fl3fy"]
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="4_fl3fy"]
 [ext_resource type="PackedScene" uid="uid://bqpv1ak4mud4c" path="res://objects/door.tscn" id="4_vjcl7"]
 [ext_resource type="PackedScene" uid="uid://djkuw1xuor68y" path="res://Entitites/limbs/human_head.tscn" id="7_6q72o"]
 [ext_resource type="PackedScene" uid="uid://cf6qquxdfulr6" path="res://Entitites/limbs/human_torso.tscn" id="7_vfkhy"]
@@ -52,6 +52,16 @@ Collect Some limb"
 font = ExtResource("4_fl3fy")
 font_size = 320
 
+[node name="Label3D3" type="Label3D" parent="." unique_id=988409156]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 7.1286707, 57.657)
+visible = false
+text = "Seems like you'er struggling. 
+Click P to skip to the boss.
+Though collection a couple 
+limbs first makes it better"
+font = ExtResource("4_fl3fy")
+font_size = 320
+
 [node name="Label3D2" type="Label3D" parent="." unique_id=897638997]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -4.761881, 9.77945, 59.3639)
 text = "Push"
@@ -67,6 +77,12 @@ transform = Transform3D(0.99959815, 0, 0.028340425, 0, 1, 0, -0.028340425, 0, 0.
 [node name="human_arm" parent="." unique_id=694186439 instance=ExtResource("7_vna20")]
 transform = Transform3D(-0.5829522, 0.758417, 0.2914962, 0.81190425, 0.55755097, 0.17305624, 0.031275153, -0.3375505, 0.94078755, -23.475847, 5.477952, 59.73007)
 
+[node name="lore" type="Label3D" parent="." unique_id=1099573045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.817785, -109.735596)
+text = "Lore room"
+font_size = 640
+vertical_alignment = 0
+
 [node name="human_arm2" parent="." unique_id=1083254216 instance=ExtResource("7_vna20")]
 transform = Transform3D(0.47242317, -0.8623627, 0.18206403, 0.8770205, 0.48045316, 1.4901161e-08, -0.08747323, 0.1596739, 0.9832867, -20.655067, 5.620423, 59.462387)
 
@@ -75,9 +91,3 @@ transform = Transform3D(0.85941696, 0.51127476, -0.0004659293, 0.008001855, -0.0
 
 [node name="human_leg" parent="." unique_id=335077774 instance=ExtResource("8_6q72o")]
 transform = Transform3D(0.93106884, -0.36482826, 0.0032903936, 0.06458485, 0.15593569, -0.9856534, 0.35908118, 0.91792375, 0.16874923, -21.489124, 2.1278625, 59.856815)
-
-[node name="lore" type="Label3D" parent="." unique_id=1099573045]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.817785, -109.735596)
-text = "Lore room"
-font_size = 640
-vertical_alignment = 0

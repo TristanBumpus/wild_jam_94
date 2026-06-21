@@ -186,6 +186,7 @@ height = 4.570801
 
 [node name="mantis_arm" type="RigidBody3D" unique_id=1397359573]
 script = ExtResource("1_6d284")
+limb_name = "Mantis Arm"
 damage = 5.0
 attack_speed = 1.2
 image = ExtResource("2_81oe5")

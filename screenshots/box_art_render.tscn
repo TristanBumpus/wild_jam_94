@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cwpg3j84ox1bu"]
 
 [ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="1_hr1kk"]
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="2_857x8"]
-[ext_resource type="PackedScene" uid="uid://bcbphvx2vvkxs" path="res://assets/boss/boss2.glb" id="2_rbnep"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="2_857x8"]
+[ext_resource type="PackedScene" uid="uid://bcbphvx2vvkxs" path="res://Assets/boss/boss2.glb" id="2_rbnep"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="3_gkqpt"]
 [ext_resource type="PackedScene" uid="uid://cw8fdfw3xvjlo" path="res://screenshots/new_box_art2.glb" id="4_gkqpt"]
 
