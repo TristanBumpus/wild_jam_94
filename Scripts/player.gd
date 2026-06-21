@@ -65,7 +65,12 @@ func cheats():
 		i.save_png("res://screenshots/"+ str(randi()) +".png")
 		$ui.visible = true
 	if Input.is_action_just_pressed("p"):
+		global.difficulty = 250
+		for child in find_children("*","limb"):
+			child.request_ready()
 		global_position = get_tree().get_first_node_in_group("boss_room").global_position + Vector3(0,10,0)
+		for child in get_tree().get_nodes_in_group("enemy"):
+			child.queue_free()
 
 func movement(delta):
 	
@@ -108,8 +113,7 @@ func attack():
 	if Input.is_action_pressed("right_click") and !attacking[1]:
 		attacking[1] = true
 		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position)
-	
-	
+
 
 func limb_to_check(node,index):
 	if node.get_child(0) != last_limbs[index]:

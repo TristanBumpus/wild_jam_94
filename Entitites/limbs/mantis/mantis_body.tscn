@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dd61u8x1f1qly"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_57bsc"]
+[ext_resource type="Texture2D" uid="uid://bgj41krc2kban" path="res://Assets/gui/limb/mantis/mantis_body.png" id="2_81lg1"]
 [ext_resource type="PackedScene" uid="uid://bcjfcslek61c8" path="res://meshes/limbilimb/mantis/mantis_body.tscn" id="2_gmdsw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmdsw"]
@@ -9,6 +10,9 @@ height = 5.1463623
 
 [node name="mantis_body" type="RigidBody3D" unique_id=1042664130]
 script = ExtResource("1_57bsc")
+type = 3
+hp = 5.0
+image = ExtResource("2_81lg1")
 chest_off_set = Vector3(0.732703, 1.6173105, -1.2082138)
 chest_off_set_legs = Vector3(0.8351195, -0.47011828, 0.2043623)
 chest_off_head_set = Vector3(0, 3.0183964, -1.2893031)

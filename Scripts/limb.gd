@@ -186,7 +186,7 @@ func play_step():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	print("S")
 	#process_mode = Node.PROCESS_MODE_DISABLED
 
 	
@@ -367,7 +367,8 @@ func _physics_process(delta: float) -> void:
 			
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	
+	if global_position.y < -2:
+		global_position.y = 10
 
 
 

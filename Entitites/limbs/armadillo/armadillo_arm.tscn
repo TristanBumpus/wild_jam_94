@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlemfbfmouqf8"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_n35hr"]
+[ext_resource type="Texture2D" uid="uid://dswd1ngim0vfi" path="res://Assets/gui/limb/armadillo/armadillo_arm.png" id="2_bkh3g"]
 [ext_resource type="PackedScene" uid="uid://bhe14tgi7wt4p" path="res://meshes/limbilimb/armadillo/armadillo_arm.tscn" id="2_hbf3a"]
 [ext_resource type="PackedScene" uid="uid://bskf5wkne4382" path="res://meshes/limbilimb/armadillo/armadillo_forearm.tscn" id="3_bkh3g"]
 [ext_resource type="PackedScene" uid="uid://1uvctqhbgy8i" path="res://meshes/limbilimb/armadillo/armadillo_fist.tscn" id="4_abkli"]
@@ -186,6 +187,10 @@ size = Vector3(2.6264648, 1, 6.021515)
 
 [node name="armadillo_arm" type="RigidBody3D" unique_id=817377743]
 script = ExtResource("1_n35hr")
+damage = 3.0
+hp = 2.0
+attack_speed = 0.8
+image = ExtResource("2_bkh3g")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="arm_a" type="Node3D" parent="." unique_id=991549625]

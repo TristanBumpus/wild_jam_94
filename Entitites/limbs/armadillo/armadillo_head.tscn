@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b808abjpc0xjd"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_c4nnr"]
+[ext_resource type="Texture2D" uid="uid://cnonwoteoneb5" path="res://Assets/gui/limb/armadillo/armadillo_head.png" id="2_qx04s"]
 [ext_resource type="PackedScene" uid="uid://befsp0uup8fcb" path="res://meshes/limbilimb/armadillo/armadillo_neck.tscn" id="2_x6rsb"]
 [ext_resource type="PackedScene" uid="uid://b5u458adl4tbj" path="res://meshes/limbilimb/armadillo/armadillo_head.tscn" id="3_qx04s"]
 
@@ -10,6 +11,9 @@ height = 2.8859863
 
 [node name="armadillo_head" type="RigidBody3D" unique_id=1552691094]
 script = ExtResource("1_c4nnr")
+type = 0
+hp = 7.0
+image = ExtResource("2_qx04s")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="armadillo_neck" parent="." unique_id=1894742223 instance=ExtResource("2_x6rsb")]
