@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkjsqw2hb6py0"
-path.s3tc="res://.godot/imported/mount_of_clay_Sprite-0005.png-212d73a47eca36e2f0dcab6aafd83b1a.s3tc.ctex"
+path.s3tc="res://.godot/imported/mount_of_clay_Sprite-0005.png-8427c219b979cfa665c0f93959375969.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/elements/mount_of_clay_Sprite-0005.png"
-dest_files=["res://.godot/imported/mount_of_clay_Sprite-0005.png-212d73a47eca36e2f0dcab6aafd83b1a.s3tc.ctex"]
+source_file="res://assets/elements/mount_of_clay_Sprite-0005.png"
+dest_files=["res://.godot/imported/mount_of_clay_Sprite-0005.png-8427c219b979cfa665c0f93959375969.s3tc.ctex"]
 
 [params]
 

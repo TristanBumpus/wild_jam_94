@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rv27x32apahq"
-path.s3tc="res://.godot/imported/god_head_allayi_TEXT.png-6b29ecebd3b50b9c4a35c55bcd009b89.s3tc.ctex"
+uid="uid://bsamw5n2upfbn"
+path.s3tc="res://.godot/imported/god_head_allayi_TEXT.png-886de89995c0cebf0aada09baadcce47.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/godot/god_head_allayi_TEXT.png"
-dest_files=["res://.godot/imported/god_head_allayi_TEXT.png-6b29ecebd3b50b9c4a35c55bcd009b89.s3tc.ctex"]
+source_file="res://assets/godot/god_head_allayi_TEXT.png"
+dest_files=["res://.godot/imported/god_head_allayi_TEXT.png-886de89995c0cebf0aada09baadcce47.s3tc.ctex"]
 
 [params]
 

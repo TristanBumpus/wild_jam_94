@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bh6nrxid7u6ud"
-path="res://.godot/imported/mount_of_clay.glb-a284b98834de46ca2c01314d58d740c6.scn"
+path="res://.godot/imported/mount_of_clay.glb-344189f40fd9d4c1fbf4e017494ec89b.scn"
 
 [deps]
 
-source_file="res://Assets/elements/mount_of_clay.glb"
-dest_files=["res://.godot/imported/mount_of_clay.glb-a284b98834de46ca2c01314d58d740c6.scn"]
+source_file="res://assets/elements/mount_of_clay.glb"
+dest_files=["res://.godot/imported/mount_of_clay.glb-344189f40fd9d4c1fbf4e017494ec89b.scn"]
 
 [params]
 

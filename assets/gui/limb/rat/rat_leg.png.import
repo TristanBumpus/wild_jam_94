@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8xy6g45ufsol"
-path="res://.godot/imported/rat_leg.png-a94057ce83ae61402e046d8551fa5e1c.ctex"
+path="res://.godot/imported/rat_leg.png-21e6401a3f90a245823a6115bf5a23e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gui/limb/rat/rat_leg.png"
-dest_files=["res://.godot/imported/rat_leg.png-a94057ce83ae61402e046d8551fa5e1c.ctex"]
+source_file="res://assets/gui/limb/rat/rat_leg.png"
+dest_files=["res://.godot/imported/rat_leg.png-21e6401a3f90a245823a6115bf5a23e5.ctex"]
 
 [params]
 

@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dh70gybawcrpm"]
 
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_igj5r"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_igj5r"]
 [ext_resource type="Script" uid="uid://dcgy32soncy2r" path="res://Scripts/cinematic.gd" id="1_insrb"]
-[ext_resource type="AudioStream" uid="uid://bxcos8lu1fdgv" path="res://assets/music/foadDivid.mp3" id="2_jnirm"]
-[ext_resource type="PackedScene" uid="uid://bh6nrxid7u6ud" path="res://Assets/elements/mount_of_clay.glb" id="3_v3fdh"]
-[ext_resource type="PackedScene" uid="uid://dmtuffq65iale" path="res://assets/godot/god_fist.glb" id="4_hpwao"]
-[ext_resource type="PackedScene" uid="uid://c44tx80jk5r47" path="res://Assets/main_character/character_head.glb" id="5_gr0qf"]
+[ext_resource type="AudioStream" uid="uid://q267fugyaj1v" path="res://assets/music/foadDivid.mp3" id="2_jnirm"]
+[ext_resource type="PackedScene" uid="uid://bh6nrxid7u6ud" path="res://assets/elements/mount_of_clay.glb" id="3_v3fdh"]
+[ext_resource type="PackedScene" uid="uid://cxgfaum3e17qy" path="res://assets/godot/god_fist.glb" id="4_hpwao"]
+[ext_resource type="PackedScene" uid="uid://c44tx80jk5r47" path="res://assets/main_character/character_head.glb" id="5_gr0qf"]
 [ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="6_hcmvk"]
-[ext_resource type="PackedScene" uid="uid://5ft4jn4jxxrk" path="res://Assets/armadillo/armadillo_head.glb" id="7_ajn3r"]
-[ext_resource type="PackedScene" uid="uid://yjx4hq6djku7" path="res://Assets/rat/rat_head.glb" id="8_7qa1m"]
-[ext_resource type="PackedScene" uid="uid://out8mibux2fa" path="res://Assets/spider/spider_head.glb" id="9_v3fdh"]
-[ext_resource type="PackedScene" uid="uid://cg5kdekh43q2e" path="res://Assets/mantis/mantis_head.glb" id="10_v3fdh"]
-[ext_resource type="PackedScene" uid="uid://bhy2ircymd4lw" path="res://Assets/turtle/turtle_head.glb" id="11_insrb"]
+[ext_resource type="PackedScene" uid="uid://5ft4jn4jxxrk" path="res://assets/armadillo/armadillo_head.glb" id="7_ajn3r"]
+[ext_resource type="PackedScene" uid="uid://yjx4hq6djku7" path="res://assets/rat/rat_head.glb" id="8_7qa1m"]
+[ext_resource type="PackedScene" uid="uid://out8mibux2fa" path="res://assets/spider/spider_head.glb" id="9_v3fdh"]
+[ext_resource type="PackedScene" uid="uid://cg5kdekh43q2e" path="res://assets/mantis/mantis_head.glb" id="10_v3fdh"]
+[ext_resource type="PackedScene" uid="uid://bhy2ircymd4lw" path="res://assets/turtle/turtle_head.glb" id="11_insrb"]
 
 [sub_resource type="Environment" id="Environment_jnirm"]
 fog_enabled = true
@@ -370,7 +370,7 @@ shader_parameter/test_scanlines = 7.56
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
 
-[node name="cinematic_intro" type="Node3D" unique_id=329652867]
+[node name="cinematic_intro2" type="Node3D" unique_id=329652867]
 script = ExtResource("1_insrb")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=988854814]
@@ -394,12 +394,6 @@ autoplay = true
 
 [node name="mount_of_clay" parent="." unique_id=532674442 instance=ExtResource("3_v3fdh")]
 transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -94.43424, 4.657421, -5.3668137)
-
-[node name="god_fist" parent="." unique_id=454969553 instance=ExtResource("4_hpwao")]
-transform = Transform3D(3.18, 0, 0, 0, 2.9665725, -1.1453595, 0, 1.1453595, 2.9665725, -96.306, 16.883966, -3.7464213)
-
-[node name="god_fist2" parent="." unique_id=1374583855 instance=ExtResource("4_hpwao")]
-transform = Transform3D(0.93702793, 0.84331924, 2.9194496, -1.3046254, 2.8708546, -0.41054842, 2.7445104, 1.0767591, -1.1919131, -92.811966, 16.883966, -6.376888)
 
 [node name="character_head" parent="." unique_id=1531592438 instance=ExtResource("5_gr0qf")]
 transform = Transform3D(-2.2183294, 0, -1.3271172, 0, 2.585, 0, 1.3271172, 0, -2.2183294, -94.74129, -4.048634, -5.531789)
@@ -442,3 +436,9 @@ transform = Transform3D(0.14415023, 1.2747135, 1.5343814, -0.11923026, 1.5411377
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1845889913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 4, 2)
+
+[node name="god_fist" parent="." unique_id=1217223154 instance=ExtResource("4_hpwao")]
+transform = Transform3D(5, 0, 0, 0, 4.664422, -1.8008797, 0, 1.8008797, 4.664422, -96.306, 16.883966, -3.7464213)
+
+[node name="god_fist2" parent="." unique_id=2138323478 instance=ExtResource("4_hpwao")]
+transform = Transform3D(-1.473314, -1.3259734, -4.590331, 2.0512972, -4.5139217, 0.6455166, -4.315267, -1.6930172, 1.8740779, -92.811966, 16.883966, -6.376888)

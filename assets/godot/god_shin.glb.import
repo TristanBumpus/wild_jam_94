@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbgc3qy6ljmxk"
-path="res://.godot/imported/god_shin.glb-9253ea12594d5053dde6c23b23b05900.scn"
+uid="uid://dja4ojxl302r7"
+path="res://.godot/imported/god_shin.glb-358c1da69c43bc338d0e751dcef08b2e.scn"
 
 [deps]
 
-source_file="res://Assets/godot/god_shin.glb"
-dest_files=["res://.godot/imported/god_shin.glb-9253ea12594d5053dde6c23b23b05900.scn"]
+source_file="res://assets/godot/god_shin.glb"
+dest_files=["res://.godot/imported/god_shin.glb-358c1da69c43bc338d0e751dcef08b2e.scn"]
 
 [params]
 
