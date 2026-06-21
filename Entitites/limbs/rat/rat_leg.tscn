@@ -201,6 +201,7 @@ size = Vector3(2.6264648, 1, 6.010254)
 [node name="rat_leg" type="RigidBody3D" unique_id=650647279]
 script = ExtResource("1_c0o47")
 type = 2
+damage = 2.0
 hp = 2.0
 image = ExtResource("2_mfcqm")
 speed = 3
