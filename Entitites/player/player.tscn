@@ -75,7 +75,6 @@ center_offset = Vector3(640, 360, 0)
 floor_max_angle = 0.2617994
 script = ExtResource("1_x8xjm")
 limb_slots = [NodePath("body/head"), NodePath("body/torso"), NodePath("body/left_arm"), NodePath("body/right_arm"), NodePath("body/left_leg"), NodePath("body/right_leg")]
-disabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1701862291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0284791, -0.9148001)
