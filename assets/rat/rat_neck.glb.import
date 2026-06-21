@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://y6swcrtlxnpa"
-path="res://.godot/imported/rat_neck.glb-2435d21204abac77c369e4f58886585b.scn"
+path="res://.godot/imported/rat_neck.glb-58e2cd65c79236edd6885faa08570270.scn"
 
 [deps]
 
-source_file="res://Assets/rat/rat_neck.glb"
-dest_files=["res://.godot/imported/rat_neck.glb-2435d21204abac77c369e4f58886585b.scn"]
+source_file="res://assets/rat/rat_neck.glb"
+dest_files=["res://.godot/imported/rat_neck.glb-58e2cd65c79236edd6885faa08570270.scn"]
 
 [params]
 

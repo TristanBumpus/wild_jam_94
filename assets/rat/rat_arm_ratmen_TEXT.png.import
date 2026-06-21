@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4kexybwwctbg"
-path.s3tc="res://.godot/imported/rat_arm_ratmen_TEXT.png-b4ee7fc9f355ac296158c24f7075b116.s3tc.ctex"
+path.s3tc="res://.godot/imported/rat_arm_ratmen_TEXT.png-6ad9962de246a51c5979e34b5f5c11c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/rat/rat_arm_ratmen_TEXT.png"
-dest_files=["res://.godot/imported/rat_arm_ratmen_TEXT.png-b4ee7fc9f355ac296158c24f7075b116.s3tc.ctex"]
+source_file="res://assets/rat/rat_arm_ratmen_TEXT.png"
+dest_files=["res://.godot/imported/rat_arm_ratmen_TEXT.png-6ad9962de246a51c5979e34b5f5c11c8.s3tc.ctex"]
 
 [params]
 

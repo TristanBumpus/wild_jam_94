@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bscj080a52txm"
-path="res://.godot/imported/armadillo_forearm.glb-ba7851a6c8c4d419dbdde3b9f235cb14.scn"
+path="res://.godot/imported/armadillo_forearm.glb-ec4d381440228a07e8ef4e984d4e1969.scn"
 
 [deps]
 
-source_file="res://Assets/armadillo/armadillo_forearm.glb"
-dest_files=["res://.godot/imported/armadillo_forearm.glb-ba7851a6c8c4d419dbdde3b9f235cb14.scn"]
+source_file="res://assets/armadillo/armadillo_forearm.glb"
+dest_files=["res://.godot/imported/armadillo_forearm.glb-ec4d381440228a07e8ef4e984d4e1969.scn"]
 
 [params]
 

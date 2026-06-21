@@ -2,31 +2,680 @@
 
 [ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_hg8in"]
 [ext_resource type="PackedScene" uid="uid://cqwgc1byhuh1k" path="res://objects/torch.tscn" id="2_l7bbv"]
+[ext_resource type="PackedScene" uid="uid://dvwyqr5avwcgq" path="res://assets/godot/throne2.glb" id="3_l7bbv"]
+[ext_resource type="PackedScene" uid="uid://dyxhu0q7nhwbs" path="res://assets/godot/god_body.glb" id="4_vijhb"]
+[ext_resource type="PackedScene" uid="uid://jugsrnglwf5c" path="res://assets/godot/god_arm.glb" id="5_0l557"]
+[ext_resource type="PackedScene" uid="uid://b5ixk17xclgbi" path="res://assets/godot/god_forearm.glb" id="6_cd8u0"]
+[ext_resource type="PackedScene" uid="uid://dmtuffq65iale" path="res://assets/godot/god_fist.glb" id="7_tkqjl"]
+[ext_resource type="PackedScene" uid="uid://dr06crq16yeis" path="res://assets/godot/god_head.glb" id="8_f74h5"]
+[ext_resource type="PackedScene" uid="uid://cxk58bb256n2r" path="res://assets/godot/god_neck.glb" id="9_x1575"]
+[ext_resource type="PackedScene" uid="uid://d1e4be064s2o5" path="res://assets/godot/god_thigh.glb" id="10_tkqjl"]
+[ext_resource type="PackedScene" uid="uid://dbgc3qy6ljmxk" path="res://assets/godot/god_shin.glb" id="11_f74h5"]
+[ext_resource type="PackedScene" uid="uid://bnm6htbx8vaf5" path="res://assets/godot/god_foot.glb" id="12_x1575"]
+[ext_resource type="PackedScene" uid="uid://c1a28bmrhgxgu" path="res://Entitites/player/player.tscn" id="13_f74h5"]
+[ext_resource type="AudioStream" uid="uid://bxcos8lu1fdgv" path="res://assets/music/foadDivid.mp3" id="14_x1575"]
+[ext_resource type="AudioStream" uid="uid://cevgt003jffkk" path="res://assets/sfx/cin_start.mp3" id="15_qyogh"]
+
+[sub_resource type="Environment" id="Environment_xh6n6"]
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 2.0
+fog_density = 0.8
+fog_sky_affect = 0.0
+fog_depth_curve = 12.553342
+fog_depth_begin = 5.0
+
+[sub_resource type="Animation" id="Animation_f74h5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-90.82569, 11.588894, -13.209709)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.31594586, -3.1344757, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("godot/arm_R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.0561905, 1.8099442, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("godot/arm_R:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4625768, 0.60617954, -0.8823259)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("godot/arm_L:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.34232047, 1.9099216, 2.3809984)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("godot/arm_L:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.6598663, 1.8099442, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("godot/leg_L:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.26179937, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("godot/leg_L:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0000001, 1, 1.0000001)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("godot/leg_R:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.8143387, -3.000001, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("godot/leg_R:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.8797934, -3.1415927)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("godot/head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.37199762, -0.01735643, 0.047719643)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("godot/head:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.5136392, -0.86713934)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("godot/god_body:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("godot/god_body:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("godot/leg_L:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1, -3.0000005, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("godot/leg_R/shin_L:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("godot/leg_R/shin_L:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -4.8767643)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("godot/leg_L/shin_L:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -4.8767643)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("godot/leg_L/shin_L:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("godot:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-90.85063, 9.323263, -6.0083504)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("godot:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x1575"]
+resource_name = "whole"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0000002, 7.0000005, 10.000001, 14.000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-90.82569, 11.588894, -13.209709), Vector3(-90.82569, 11.588894, -13.209709), Vector3(-90.99583, 1.7172928, -16.807756), Vector3(-90.99583, 1.7172928, -16.807756), Vector3(-90.99583, 1.7172928, -21.44631)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.0000002, 7.0000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.31594586, -3.1344757, 0), Vector3(0.31594586, -3.1344757, 0), Vector3(0.31594586, -3.1344757, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("godot/arm_R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.0561905, 1.8099442, 0), Vector3(2.0561905, 3.906602, -5.3608265)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("godot/arm_R:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(14.000001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4625768, 0.60617954, -0.8823259)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("godot/arm_L:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.34232047, 1.9099216, 2.3809984), Vector3(0.43983272, 1.7620276, 1.9975344)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("godot/arm_L:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.6598663, 1.8099442, 0), Vector3(-2.6598663, 4.355803, -5.5153713)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("godot/leg_L:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.26179937, 0), Vector3(-1.0367627, 0.5334139, -0.47025743)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("godot/leg_L:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(14.000001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0000001, 1, 1.0000001)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("godot/leg_R:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.8143387, -3.000001, 0), Vector3(0.8143387, -0.67426443, -5.8959856)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("godot/leg_R:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(14.000001, 16, 17, 19.23171, 19.731712),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.8797934, -3.1415927), Vector3(1.0524335, 2.591814, -3.6302848), Vector3(0.5427974, 3.1293755, -3.3213615), Vector3(0.5427974, 3.1293755, -3.3213615), Vector3(0.9075712, 3.1258848, -3.328343)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("godot/head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.37199762, -0.01735643, 0.047719643), Vector3(-0.37199762, -0.017356427, 0.047719646)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("godot/head:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.5136392, -0.86713934), Vector3(0, 5.5136395, -6.86714)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("godot/god_body:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.6099992, -5.58982)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("godot/god_body:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(14.000001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("godot/leg_L:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, -3.0000005, 0), Vector3(-1, -0.8728719, -5.458349)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("godot/leg_R/shin_L:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.9236796, 0.18131305, 0.36220786)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("godot/leg_R/shin_L:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(14.000001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -4.8767643)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("godot/leg_L/shin_L:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(14.000001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -4.8767643)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("godot/leg_L/shin_L:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.9104775, 0.1738104, 0.3522617)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("godot:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(14.000001, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-90.85063, 9.323263, -6.0083504), Vector3(-90.85063, 11.306447, -6.0083504)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("godot:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(14.000001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyogh"]
+_data = {
+&"RESET": SubResource("Animation_f74h5"),
+&"whole": SubResource("Animation_x1575")
+}
 
 [node name="cinematic" type="Node3D" unique_id=851349253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, 0)
 
 [node name="GridMap" type="GridMap" parent="." unique_id=791536497]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -8, 0)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -51.205, -8, 0)
 mesh_library = ExtResource("1_hg8in")
 data = {
-"cells": PackedInt32Array(0, 0, 0, 0, 65535, 0, 65535, 65535, 0, 65535, 0, 0, 0, 65534, 0, 65535, 65534, 0, 0, 65533, 0, 65535, 65533, 0, 0, 1, 0, 65535, 1, 0, 0, 2, 0, 65535, 2, 0, 65534, 65533, 1441795, 65534, 65534, 1441795, 65534, 65535, 1441795, 65534, 0, 1441795, 65534, 1, 1441795, 65534, 2, 1441795, 1, 65533, 1048579, 1, 65534, 1048579, 1, 65535, 1048579, 1, 0, 1048579, 1, 1, 1048579, 1, 2, 1048579, 65535, 3, 11, 0, 3, 10, 1, 3, 5, 65534, 65532, 655365, 1, 65532, 1048581, 65534, 3, 1441797, 65535, 65532, 655370, 0, 65532, 655371, 65535, 65531, 11, 0, 65531, 10, 0, 65530, 655360, 65535, 65530, 1441792, 0, 65529, 655363, 65535, 65529, 655363, 65534, 65530, 1441795, 65534, 65531, 1441797, 1, 65531, 5, 1, 65530, 1048579, 1, 65529, 1048581, 65534, 65529, 655365, 2, 65531, 5)
+"cells": PackedInt32Array(65535, 65534, 3, 0, 65535, 1441795, 65535, 0, 655363, 65534, 65535, 1048579, 65534, 0, 1048585, 65534, 65534, 9, 0, 65534, 1441801, 0, 0, 655369, 65530, 65534, 9, 65530, 65535, 1048579, 65530, 0, 1048585, 65531, 65534, 3, 65531, 0, 655363, 65532, 65534, 1441801, 65532, 65535, 1441795, 65532, 0, 655369, 0, 65533, 655360, 65535, 65533, 655360, 65534, 65533, 655360, 65533, 0, 655360, 65533, 65535, 655360, 65533, 65534, 655360, 65533, 65533, 655360, 65532, 65533, 655360, 65531, 65533, 655360, 65530, 65533, 655360, 1, 0, 1048579, 1, 65535, 1048579, 1, 65534, 1048579, 1, 65533, 1048579, 0, 1, 3, 65535, 1, 3, 65534, 1, 3, 65533, 1, 3, 65532, 1, 3, 65531, 1, 3, 65530, 1, 3, 65529, 65533, 1441795, 65529, 65534, 1441795, 65529, 65535, 1441795, 65529, 0, 1441795, 1, 1, 5, 65529, 1, 1441797, 65529, 65532, 655365, 65530, 65532, 655363, 65531, 65532, 655363, 65532, 65532, 655363, 65533, 65532, 655363, 65534, 65532, 655363, 65535, 65532, 655363, 0, 65532, 655363, 1, 65532, 1048581)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="torch" parent="." unique_id=352304234 instance=ExtResource("2_l7bbv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.387802, 9.491249, 4.8727508)
-
-[node name="torch2" parent="." unique_id=1492819426 instance=ExtResource("2_l7bbv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.387802, 9.491249, 35.365097)
-
-[node name="torch3" parent="." unique_id=230888299 instance=ExtResource("2_l7bbv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.3878, 9.491249, -29.35665)
-
 [node name="torch4" parent="." unique_id=1621320842 instance=ExtResource("2_l7bbv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368694, 9.491249, 30.998108)
+transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, -67.60612, 12.859688, -1.9690517)
 
-[node name="torch5" parent="." unique_id=561529196 instance=ExtResource("2_l7bbv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368689, 9.491249, -33.133957)
+[node name="torch5" parent="." unique_id=352304234 instance=ExtResource("2_l7bbv")]
+transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, -67.60612, 12.859688, -7.1541824)
 
-[node name="torch6" parent="." unique_id=1821079446 instance=ExtResource("2_l7bbv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.368692, 9.491249, 4.872753)
+[node name="torch6" parent="." unique_id=966879134 instance=ExtResource("2_l7bbv")]
+transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, -67.60612, 12.859688, -12.33551)
+
+[node name="torch7" parent="." unique_id=1589938389 instance=ExtResource("2_l7bbv")]
+transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, -114.95689, 12.859688, -12.336777)
+
+[node name="torch8" parent="." unique_id=1782881121 instance=ExtResource("2_l7bbv")]
+transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, -114.95689, 12.859688, -7.1516466)
+
+[node name="torch9" parent="." unique_id=939142105 instance=ExtResource("2_l7bbv")]
+transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, -114.95689, 12.859688, -1.9703188)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=733571131]
+environment = SubResource("Environment_xh6n6")
+
+[node name="throne2" parent="." unique_id=1734538115 instance=ExtResource("3_l7bbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.98319, 12.541285, -3.51614)
+
+[node name="throne3" parent="." unique_id=733041356 instance=ExtResource("3_l7bbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.98319, 10.217947, 2.8264236)
+
+[node name="godot" type="Node3D" parent="." unique_id=1254137124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.85063, 9.323263, -6.0083504)
+
+[node name="god_body" parent="godot" unique_id=1786809772 instance=ExtResource("4_vijhb")]
+
+[node name="arm_R" type="Node3D" parent="godot" unique_id=844796043]
+transform = Transform3D(0.32582206, 0.7961698, 0.5098561, -0.6910628, 0.5685842, -0.44625556, -0.6451915, -0.2069427, 0.73546076, 2.0561905, 1.8099442, 0)
+
+[node name="god_arm" parent="godot/arm_R" unique_id=1379151813 instance=ExtResource("5_0l557")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4845657, 0.44925976, 0)
+
+[node name="forearm_R" type="Node3D" parent="godot/arm_R" unique_id=382622624]
+transform = Transform3D(0.45752612, -0.28821358, 0.8411915, -0.73473686, 0.41029552, 0.54020333, -0.50083107, -0.8652109, -0.02404067, 3.4771042, 0.42250824, 1.5258789e-05)
+
+[node name="god_forearm" parent="godot/arm_R/forearm_R" unique_id=2003230388 instance=ExtResource("6_cd8u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0463257, 0.042456627, 0)
+
+[node name="god_fist" parent="godot/arm_R/forearm_R" unique_id=454969553 instance=ExtResource("7_tkqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3263626, 0, -0.27488136)
+
+[node name="arm_L" type="Node3D" parent="godot" unique_id=340663655]
+transform = Transform3D(-0.4592078, -4.4703476e-08, -0.88832873, -0.64935464, 0.6823939, 0.3356738, -0.60619015, -0.73098445, 0.31336066, -2.6598663, 1.8099442, 0)
+
+[node name="god_arm" parent="godot/arm_L" unique_id=1377257672 instance=ExtResource("5_0l557")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4845657, 0.44925976, 0)
+
+[node name="forearm_L" type="Node3D" parent="godot/arm_L" unique_id=1185597736]
+transform = Transform3D(0.25972772, -0.57032263, 0.7792778, -0.06883553, 0.7939851, 0.60402817, -0.9632257, -0.21052487, 0.16696155, 3.4771156, 0.42253566, -2.2888184e-05)
+
+[node name="god_forearm" parent="godot/arm_L/forearm_L" unique_id=1144616095 instance=ExtResource("6_cd8u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0463257, 0.042456627, 0)
+
+[node name="god_fist" parent="godot/arm_L/forearm_L" unique_id=1820020604 instance=ExtResource("7_tkqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3263626, 0, -0.27488136)
+
+[node name="leg_L" type="Node3D" parent="godot" unique_id=1367556168]
+transform = Transform3D(0.96592593, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.96592593, -1, -3.0000005, 0)
+
+[node name="god_thigh" parent="godot/leg_L" unique_id=1933102498 instance=ExtResource("10_tkqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.281456)
+
+[node name="shin_L" type="Node3D" parent="godot/leg_L" unique_id=1965522866]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, -4.8767643)
+
+[node name="god_shin" parent="godot/leg_L/shin_L" unique_id=1312741877 instance=ExtResource("11_f74h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2446165, 0)
+
+[node name="god_foot" parent="godot/leg_L/shin_L" unique_id=1811143673 instance=ExtResource("12_x1575")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9548707, -0.89019394)
+
+[node name="leg_R" type="Node3D" parent="godot" unique_id=1335342989]
+transform = Transform3D(-0.9659258, -8.444392e-08, -0.25881895, -8.742277e-08, 1, 0, -0.2588189, -2.2626669e-08, 0.965926, 0.8143387, -3.000001, 0)
+
+[node name="god_thigh" parent="godot/leg_R" unique_id=900834654 instance=ExtResource("10_tkqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.281456)
+
+[node name="shin_L" type="Node3D" parent="godot/leg_R" unique_id=1055795826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.8767643)
+
+[node name="god_shin" parent="godot/leg_R/shin_L" unique_id=1452069173 instance=ExtResource("11_f74h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2446165, 0)
+
+[node name="god_foot" parent="godot/leg_R/shin_L" unique_id=862610654 instance=ExtResource("12_x1575")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9548707, -0.89019394)
+
+[node name="head" type="Node3D" parent="godot" unique_id=568818004]
+transform = Transform3D(0.9990121, -0.041393183, -0.016168492, 0.0444389, 0.9305427, 0.36347714, -5.5879354e-09, -0.3638366, 0.9314628, 0, 3.5136392, -0.86713934)
+
+[node name="god_head" parent="godot/head" unique_id=665374287 instance=ExtResource("8_f74h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4863608, -0.86938524)
+
+[node name="god_neck" parent="godot/head" unique_id=212581455 instance=ExtResource("9_x1575")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33869576, -0.063135624)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2105067006]
+transform = Transform3D(-0.99997455, -0.0022113274, -0.0067646196, 0, 0.9505028, -0.31071562, 0.0071168845, -0.31070775, -0.95047873, -90.82569, 11.588894, -13.209709)
+
+[node name="GODOT" type="AnimationPlayer" parent="." unique_id=810648525]
+libraries/ = SubResource("AnimationLibrary_qyogh")
+autoplay = &"whole"
+
+[node name="player" parent="." unique_id=1745359200 instance=ExtResource("13_f74h5")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -91.11499, 8.804337, -15.859052)
+disabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=288395605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.021484, 21.896633, -1.4433851)
+light_energy = 15.05
+omni_range = 25.642
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=674384993]
+stream = ExtResource("14_x1575")
+volume_db = -0.365
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=357975779]
+stream = ExtResource("15_qyogh")
+autoplay = true

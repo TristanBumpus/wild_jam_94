@@ -267,6 +267,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		$ui.visible = false
+		print("test")
 		for child in limb_slots:
 			child.get_child(0).scale = Vector3(.5,.5,.5)
 		$body/torso.visible = true
@@ -289,7 +290,7 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 		
 		$ui/death_screen.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		get_tree().paused = true
+		#get_tree().paused = true
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
