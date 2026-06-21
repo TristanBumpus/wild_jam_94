@@ -183,7 +183,6 @@ func play_step():
 		global.play_sound(["res://Assets/sfx/step_c1.mp3","res://Assets/sfx/step_c2.mp3","res://Assets/sfx/step_c3.mp3"].pick_random(), global_position,-22)
 
 func reset():
-	print(global.difficulty)
 	linear_damp = 2
 	angular_damp = 2
 	mass = .5
@@ -337,7 +336,6 @@ func reset():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("S")
 	#process_mode = Node.PROCESS_MODE_DISABLED
 
 	
@@ -378,23 +376,20 @@ func _ready() -> void:
 		$choice.get_node("Control/Node2D/end").button_down.connect(end_choice)
 		
 		#Limb selection
-		if type == 0 or type_2 == 0:
+		if type != 3:
 			$choice/Control/Node2D/head.disabled = false
 			$choice.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
-		
-		if type == 1 or type_2 == 1:
-			$choice/Control/Node2D/left_arm.disabled = false
-			$choice/Control/Node2D/right_arm.disabled = false
-			$choice.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
-			$choice.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
-		
-		if type == 2 or type_2 == 2:
-			$choice/Control/Node2D/left_leg.disabled = false
-			$choice/Control/Node2D/right_leg.disabled = false
-			$choice.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
-			$choice.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
-		
-		if type == 3 or type_2 == 3:
+	
+		$choice/Control/Node2D/left_arm.disabled = false
+		$choice/Control/Node2D/right_arm.disabled = false
+		$choice.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
+		$choice.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
+	
+		$choice/Control/Node2D/left_leg.disabled = false
+		$choice/Control/Node2D/right_leg.disabled = false
+		$choice.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
+		$choice.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
+		if type == 3 or type == 0:
 			$choice/Control/Node2D/torso.disabled = false
 			$choice.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	

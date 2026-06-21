@@ -60,8 +60,8 @@ func chest_equalizer():
 	$CollisionShape3D.scale = $body/torso.get_child(0).scale
 	$Area3D/CollisionShape3D.scale = $body/torso.get_child(0).scale
 	
-	$CollisionShape3D.position *= $body/torso.get_child(0).scale
-	$Area3D/CollisionShape3D.position *= $body/torso.get_child(0).scale
+	#$CollisionShape3D.position *= $body/torso.get_child(0).scale
+	#$Area3D/CollisionShape3D.position *= $body/torso.get_child(0).scale
 	
 	$body/head.position = head_offset
 	

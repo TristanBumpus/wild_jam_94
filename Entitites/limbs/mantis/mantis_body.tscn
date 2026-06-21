@@ -11,6 +11,7 @@ height = 5.1463623
 [node name="mantis_body" type="RigidBody3D" unique_id=1042664130]
 script = ExtResource("1_57bsc")
 type = 3
+damage = 5.0
 hp = 5.0
 image = ExtResource("2_81lg1")
 chest_off_set = Vector3(0.732703, 1.6173105, -1.2082138)

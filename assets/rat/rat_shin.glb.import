@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wqdjfoy01gla"
-path="res://.godot/imported/rat_shin.glb-1bb488e9d91ad699767832f133f68f55.scn"
+path="res://.godot/imported/rat_shin.glb-c8a99d52cca79c40f41dea885bfece27.scn"
 
 [deps]
 
-source_file="res://assets/rat/rat_shin.glb"
-dest_files=["res://.godot/imported/rat_shin.glb-1bb488e9d91ad699767832f133f68f55.scn"]
+source_file="res://Assets/rat/rat_shin.glb"
+dest_files=["res://.godot/imported/rat_shin.glb-c8a99d52cca79c40f41dea885bfece27.scn"]
 
 [params]
 

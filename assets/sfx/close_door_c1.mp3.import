@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bop5cdppjudyn"
-path="res://.godot/imported/close_door_c1.mp3-24902a09dd069bdc43a46f6858ddb5e2.mp3str"
+path="res://.godot/imported/close_door_c1.mp3-7d12bb9699aa0f7dc0683dbae1b127a5.mp3str"
 
 [deps]
 
-source_file="res://assets/sfx/close_door_c1.mp3"
-dest_files=["res://.godot/imported/close_door_c1.mp3-24902a09dd069bdc43a46f6858ddb5e2.mp3str"]
+source_file="res://Assets/sfx/close_door_c1.mp3"
+dest_files=["res://.godot/imported/close_door_c1.mp3-7d12bb9699aa0f7dc0683dbae1b127a5.mp3str"]
 
 [params]
 

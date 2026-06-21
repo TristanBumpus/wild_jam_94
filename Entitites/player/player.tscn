@@ -71,9 +71,11 @@ shader_parameter/test_scanlines = 7.56
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
 
-[node name="player" type="CharacterBody3D" unique_id=1745359200 groups=["player"]]
+[node name="player" type="CharacterBody3D" unique_id=1745359200 node_paths=PackedStringArray("limb_slots") groups=["player"]]
 floor_max_angle = 0.2617994
 script = ExtResource("1_x8xjm")
+limb_slots = [NodePath("body/head"), NodePath("body/torso"), NodePath("body/left_arm"), NodePath("body/right_arm"), NodePath("body/left_leg"), NodePath("body/right_leg")]
+disabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1701862291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0284791, -0.9148001)
@@ -128,7 +130,6 @@ mesh = SubResource("QuadMesh_bnevg")
 
 [node name="head" type="Node3D" parent="body" unique_id=903046002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-visible = false
 
 [node name="human_head" parent="body/head" unique_id=2067002376 instance=ExtResource("3_40ase")]
 

@@ -8,7 +8,7 @@ extends CharacterBody3D
 var speed = 10.0
 var attack_speed = 1
 var armor = 0
-var jump_speed = 4.5
+var jump_speed = 9
 var luck = 0.0
 var mouse_sensitivity = .005
 @onready var cam = $Camera3D
@@ -16,6 +16,7 @@ var mouse_sensitivity = .005
 var attacking = [false,false]
 var last_limbs = [null,null,null,null,null,null]
 var cam_pos = Vector3(0,1,-.9)
+@export var limb_slots : Array[Node3D]
 
 @export_category("Camera Shake")
 @export var decay : float = 0.8 # Time it takes to reach 0% of trauma
@@ -25,7 +26,7 @@ var cam_pos = Vector3(0,1,-.9)
 
 var trauma : float = 0.0 # Current shake strength
 var trauma_power : int = 2 # Trauma exponent. Increase for more extreme shaking
-
+@export var disabled = false
 
 
 func chest_equalizer():
@@ -147,10 +148,9 @@ func limb_checker():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
-		if node.get_node("AnimationPlayer").current_animation != "attack" and get_node("attack_cooldown"+str(node.side)).is_stopped() and attacking[node.side]:
-			node.get_node("AnimationPlayer").play(animString, .3)
-			node.get_node("AnimationPlayer").advance(0)
-			get_node("attack_cooldown"+str(node.side)).start(node.get_node("AnimationPlayer").get_animation(animString).length / node.attack_speed)
+		#if node.get_node("AnimationPlayer").current_animation != "attack":
+		node.get_node("AnimationPlayer").play(animString, .3)
+		node.get_node("AnimationPlayer").advance(0)
 	elif node.side == 1:
 		if node.get_node("AnimationPlayer").current_animation != "attack":
 			node.get_node("AnimationPlayer").play(animString, .3)
@@ -178,9 +178,10 @@ func animation_states():
 		set_animation($body/right_leg.get_child(0),"idle")
 	if attacking[0] or attacking[1]:
 		if attacking[0]:
-			set_animation($body/left_arm.get_child(0),"attack")
-		if attacking[1]:
-			set_animation($body/right_arm.get_child(0),"attack")
+			for child in limb_slots:
+				if child.get_child(0).get_node("AnimationPlayer").has_animation("attack"):
+					set_animation(child.get_child(0),"attack")
+				attacking[0] = false
 
 func _unhandled_input(event):
 	# Handle vertical/horizontal camera rotation
@@ -243,27 +244,30 @@ func _ready() -> void:
 	limb_checker()
 
 func _physics_process(delta: float) -> void:
-	
-	cam.position = cam_pos * $body/torso.get_child(0).scale.x
-	
-	if global_position.y < -5:
-		$ui/Control/health_bar.value = current_hp
+	if !disabled:
+		cam.position = cam_pos * $body/torso.get_child(0).scale.x
 		
-		$ui/Control/health.text = "hp: " + str(current_hp)
+		if global_position.y < -5:
+			$ui/Control/health_bar.value = current_hp
+			
+			$ui/Control/health.text = "hp: " + str(current_hp)
+			
+			$ui/death_screen.visible = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			get_tree().paused = true
 		
-		$ui/death_screen.visible = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		get_tree().paused = true
-	
-	shake(delta)
-	update_ui()
-	attack()
-	movement(delta)
-	cheats()
-	animation_states()
-	
-	move_and_slide()
-	
+		shake(delta)
+		update_ui()
+		attack()
+		movement(delta)
+		cheats()
+		animation_states()
+		
+		move_and_slide()
+	else:
+		$body/torso.get_child(0).scale = Vector3(.5,.5,.5)
+		$body/torso.visible = true
+		limb_checker()
 	
 
 func _process(delta: float) -> void:
