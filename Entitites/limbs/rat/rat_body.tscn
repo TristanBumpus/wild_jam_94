@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5wxbsnbd6po3"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_2l883"]
+[ext_resource type="Texture2D" uid="uid://oqysi2u3yrjo" path="res://Assets/gui/limb/rat/rat_body.png" id="2_ceest"]
 [ext_resource type="PackedScene" uid="uid://116a3ptibu6k" path="res://meshes/limbilimb/rat/rat_body.tscn" id="2_iw814"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iw814"]
@@ -9,6 +10,9 @@ height = 3.8830566
 
 [node name="rat_body" type="RigidBody3D" unique_id=1993125106]
 script = ExtResource("1_2l883")
+type = 3
+hp = 7.0
+image = ExtResource("2_ceest")
 chest_off_set = Vector3(1.468, 0.974, 0)
 chest_off_set_legs = Vector3(0.7, -2.1859758, 0.308)
 chest_off_head_set = Vector3(0, 1.4581535, -0.2858851)

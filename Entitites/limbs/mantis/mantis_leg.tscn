@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c51w32tnvwayx"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_mdomy"]
+[ext_resource type="Texture2D" uid="uid://dsx6kftiek3yc" path="res://Assets/gui/limb/mantis/mantis_leg.png" id="2_44ofn"]
 [ext_resource type="PackedScene" uid="uid://cfw0frjdrefm3" path="res://meshes/limbilimb/mantis/mantis_thigh.tscn" id="2_wxugv"]
 [ext_resource type="PackedScene" uid="uid://cm3hjlkprhp2x" path="res://meshes/limbilimb/mantis/mantis_shin.tscn" id="3_44ofn"]
 [ext_resource type="PackedScene" uid="uid://dst7k6e5p3epx" path="res://meshes/limbilimb/mantis/mantis_foot.tscn" id="4_dct4t"]
@@ -173,6 +174,9 @@ height = 6.184204
 
 [node name="mantis_leg" type="RigidBody3D" unique_id=801801284]
 script = ExtResource("1_mdomy")
+type = 2
+image = ExtResource("2_44ofn")
+speed = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="thigh_a" type="Node3D" parent="." unique_id=1082756425]

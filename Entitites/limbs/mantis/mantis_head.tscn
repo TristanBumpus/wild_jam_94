@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_hgi0w"]
 [ext_resource type="PackedScene" uid="uid://ck38o8brihile" path="res://meshes/limbilimb/mantis/mantis_neck.tscn" id="2_dvycf"]
+[ext_resource type="Texture2D" uid="uid://d1j2jup80qsox" path="res://Assets/gui/limb/mantis/mantis_head.png" id="2_iul8r"]
 [ext_resource type="PackedScene" uid="uid://tooydbh2wb2v" path="res://meshes/limbilimb/mantis/mantis_head.tscn" id="3_iul8r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dvycf"]
@@ -9,6 +10,9 @@ radius = 1.1879194
 
 [node name="mantis_head" type="RigidBody3D" unique_id=2048937635]
 script = ExtResource("1_hgi0w")
+type = 0
+damage = 2.0
+image = ExtResource("2_iul8r")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="mantis_neck" parent="." unique_id=1289801557 instance=ExtResource("2_dvycf")]

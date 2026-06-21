@@ -269,8 +269,7 @@ func _ready() -> void:
 	$NavigationAgent3D.target_position = player.global_position
 	$NavigationAgent3D.path_desired_distance = 20
 	
-	if hp <= 0:
-		hp = 1
+	hp *= .9
 
 
 

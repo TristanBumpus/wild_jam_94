@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_urdnj"]
 [ext_resource type="PackedScene" uid="uid://vy46uyia8gvy" path="res://meshes/limbilimb/armadillo/armadillo_thigh.tscn" id="2_8wynu"]
+[ext_resource type="Texture2D" uid="uid://dwm6beyw8yl1a" path="res://Assets/gui/limb/armadillo/armadillo_leg.png" id="2_wow70"]
 [ext_resource type="PackedScene" uid="uid://bfoahju2lfie2" path="res://meshes/limbilimb/armadillo/armadillo_foot.tscn" id="5_sp4gh"]
 [ext_resource type="PackedScene" uid="uid://d04iqipg3qaa7" path="res://meshes/limbilimb/armadillo/armadillo_shin.tscn" id="6_jvh0i"]
 
@@ -168,10 +169,14 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ji8l0"]
-height = 4.788574
+height = 4.587158
 
 [node name="armadillo_leg" type="RigidBody3D" unique_id=191378170]
 script = ExtResource("1_urdnj")
+type = 2
+hp = 5.0
+image = ExtResource("2_wow70")
+speed = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="thigh_a" type="Node3D" parent="." unique_id=565625428]
@@ -193,5 +198,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6308784, -0.32707697)
 libraries/ = SubResource("AnimationLibrary_f35hl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=934778115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1959198, 0, -2.2739258, -0.2601955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1732178, -0.443887)
 shape = SubResource("CapsuleShape3D_ji8l0")

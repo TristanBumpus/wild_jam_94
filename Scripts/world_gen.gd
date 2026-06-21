@@ -6,9 +6,9 @@ extends Node3D
 @export var mount_lvl : Array[PackedScene]
 @export var trans_lvl : Array[PackedScene]
 
-@export var size = 5
-@export var size_mount = 5
-@export var size_dtm = 5
+@export var size = 1
+@export var size_mount = 1
+@export var size_dtm = 1
 
 @export var enemies: Array[PackedScene]
 
@@ -23,18 +23,6 @@ func genocide():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start = get_child(0).get_node("door3")
-	
-	var leve = load("res://Levels/pool_test/dung_lvl_3.tscn").instantiate()
-	
-	get_tree().current_scene.add_child(leve)
-	
-	leve.global_position = start.global_position
-	
-	leve.global_position.y = 0
-	
-	start = leve.find_child("door")
-	
-	
 	
 	while size:
 		

@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_7wppw"]
 [ext_resource type="PackedScene" uid="uid://4ypo0ottbg78" path="res://meshes/limbilimb/rat/rat_neck.tscn" id="2_8men8"]
+[ext_resource type="Texture2D" uid="uid://c2jcr613l3pou" path="res://Assets/gui/limb/rat/rat_head.png" id="2_m2jdf"]
 [ext_resource type="PackedScene" uid="uid://dnbr61g22a77n" path="res://meshes/limbilimb/rat/rat_head.tscn" id="3_m2jdf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8men8"]
 
 [node name="rat_head" type="RigidBody3D" unique_id=967588140]
 script = ExtResource("1_7wppw")
+type = 0
+hp = 4.0
+image = ExtResource("2_m2jdf")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="rat_neck" parent="." unique_id=1352817499 instance=ExtResource("2_8men8")]
