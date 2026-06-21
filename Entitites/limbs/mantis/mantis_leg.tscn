@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 3.1415927, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 3.1415927, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -42,7 +42,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.7853982, 0)]
+"values": [Vector3(0, 3.1415927, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -54,7 +54,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 3.1415927, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mnct3"]
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.047141347, 0, 0)]
+"values": [Vector3(0, 3.1415927, 0), Vector3(-0.04712389, 3.1415927, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -82,7 +82,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.01927959, 0.16694099, -0.113910265)]
+"values": [Vector3(0, 0, 0), Vector3(0.019198623, 0.1675516, -0.1134464)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -94,7 +94,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -0.7853982, 0), Vector3(0, -0.7853982, -0.038571775)]
+"values": [Vector3(0, 2.3561945, 0), Vector3(0, 2.3561945, -0.038397245)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -106,7 +106,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.06501351)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.064577185)]
 }
 
 [sub_resource type="Animation" id="Animation_wxugv"]
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.2617994, 0, 0), Vector3(0.013721421, 0.34030476, -0.011590958)]
+"values": [Vector3(0, 3.1415927, 0), Vector3(-0.2617994, 3.1415927, 0), Vector3(0.013721421, 0.34030476, -0.011590958)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -146,7 +146,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -0.7853982, 0), Vector3(-5.194887e-09, -1.0471976, -0.087266445), Vector3(-1.4769391e-08, -0.93499786, 0.18835345)]
+"values": [Vector3(0, 2.3561945, 0), Vector3(0, 2.0943952, -0.08726646), Vector3(0, 2.2060962, 0.18849556)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -180,13 +180,13 @@ speed = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="thigh_a" type="Node3D" parent="." unique_id=1082756425]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.70220804)
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 0.99999994, 0, 8.742278e-08, 0, -0.99999994, 0, 0.31599617, 0.6997766)
 
 [node name="mantis_thigh" parent="thigh_a" unique_id=957419598 instance=ExtResource("2_wxugv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)
 
 [node name="shin_a" type="Node3D" parent="thigh_a" unique_id=2098746406]
-transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.8467079, -3.9367237, 0.28459918)
+transform = Transform3D(-1.0000001, 0, -8.742277e-08, 0, 0.99999994, 0, 8.7422784e-08, 0, -0.99999994, -0.8467079, -3.9367237, 0.28459918)
 
 [node name="mantis_shin" parent="thigh_a/shin_a" unique_id=1079048046 instance=ExtResource("3_44ofn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6533867, -0.8986721, -0.34726465)
@@ -195,13 +195,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6533867, -0.8986721, -0.347
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0852947, -1.6916337, -0.6119809)
 
 [node name="thigh_a2" type="Node3D" parent="." unique_id=150295229]
-transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.073556885, 0, -0.3274656)
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742278e-08, 0, -0.99999994, -0.070670836, 0.31597853, -0.32457954)
 
 [node name="mantis_thigh" parent="thigh_a2" unique_id=764844084 instance=ExtResource("2_wxugv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)
 
 [node name="shin_a2" type="Node3D" parent="thigh_a2" unique_id=253802597]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.8467079, -3.9367237, 0.28459918)
+transform = Transform3D(-1.0000001, 0, -8.742278e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -0.8467079, -3.9367237, 0.28459918)
 
 [node name="mantis_shin" parent="thigh_a2/shin_a2" unique_id=950111731 instance=ExtResource("3_44ofn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6533867, -0.8986721, -0.34726465)

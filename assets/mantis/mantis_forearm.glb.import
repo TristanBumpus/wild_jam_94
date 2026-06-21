@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bueendxtyydob"
-path="res://.godot/imported/mantis_forearm.glb-46fb5e37001d66c14a8ba968bd1d1de3.scn"
+path="res://.godot/imported/mantis_forearm.glb-8a42305125cd5b27768a98f3a61ef7f0.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_forearm.glb"
-dest_files=["res://.godot/imported/mantis_forearm.glb-46fb5e37001d66c14a8ba968bd1d1de3.scn"]
+source_file="res://assets/mantis/mantis_forearm.glb"
+dest_files=["res://.godot/imported/mantis_forearm.glb-8a42305125cd5b27768a98f3a61ef7f0.scn"]
 
 [params]
 

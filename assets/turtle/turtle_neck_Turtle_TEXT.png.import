@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfi28e8bp5lkg"
-path.s3tc="res://.godot/imported/turtle_neck_Turtle_TEXT.png-41a0c609cc58d4e23392d2abdba8180c.s3tc.ctex"
+path.s3tc="res://.godot/imported/turtle_neck_Turtle_TEXT.png-7471ff603eac2a8f6232bb17470d23d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/turtle/turtle_neck_Turtle_TEXT.png"
-dest_files=["res://.godot/imported/turtle_neck_Turtle_TEXT.png-41a0c609cc58d4e23392d2abdba8180c.s3tc.ctex"]
+source_file="res://assets/turtle/turtle_neck_Turtle_TEXT.png"
+dest_files=["res://.godot/imported/turtle_neck_Turtle_TEXT.png-7471ff603eac2a8f6232bb17470d23d1.s3tc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qysewfdt4qk"
-path="res://.godot/imported/kobold_body.png-6e8dea5ff90d01eef933839b488a91b6.ctex"
+uid="uid://bbt0yqqdln50k"
+path="res://.godot/imported/1730403281.png-9d858cbf77f31c54fc4f8b6750779ed9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/kobold/kobold_body.png"
-dest_files=["res://.godot/imported/kobold_body.png-6e8dea5ff90d01eef933839b488a91b6.ctex"]
+source_file="res://screenshots/1730403281.png"
+dest_files=["res://.godot/imported/1730403281.png-9d858cbf77f31c54fc4f8b6750779ed9.ctex"]
 
 [params]
 
