@@ -67,10 +67,12 @@ func cheats():
 	if Input.is_action_just_pressed("p"):
 		global.difficulty = 250
 		for child in find_children("*","limb"):
-			child.request_ready()
+			child.reset()
+		last_limbs = [null,null,null,null,null,null]
+		limb_checker()
 		global_position = get_tree().get_first_node_in_group("boss_room").global_position + Vector3(0,10,0)
-		for child in get_tree().get_nodes_in_group("enemy"):
-			child.queue_free()
+		#for child in get_tree().get_nodes_in_group("enemy"):
+			#child.queue_free()
 
 func movement(delta):
 	
