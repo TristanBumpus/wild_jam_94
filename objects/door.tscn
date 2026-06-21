@@ -1,11 +1,67 @@
 [gd_scene format=3 uid="uid://bqpv1ak4mud4c"]
 
 [ext_resource type="Script" uid="uid://cu8eyowlxvb7e" path="res://Scripts/door.gd" id="1_j7xx1"]
-[ext_resource type="PackedScene" uid="uid://bxhq2hx7c5e7p" path="res://assets/objects/door2.glb" id="2_khffo"]
+[ext_resource type="PackedScene" uid="uid://blpunfjti03ba" path="res://assets/objects/door3.glb" id="2_4hvcy"]
 [ext_resource type="PackedScene" uid="uid://dngcmk3g2guum" path="res://assets/objects/door_frame2.glb" id="3_khffo"]
+[ext_resource type="PackedScene" uid="uid://cqdwtinupx6oy" path="res://assets/objects/padlock.glb" id="4_4hvcy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_566yj"]
 size = Vector3(13, 14.299316, 3.2480469)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khffo"]
+size = Vector3(6.1220093, 19.119415, 6.183655)
+
+[sub_resource type="Animation" id="Animation_4hvcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("padlock:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3, 3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_87mug"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("padlock:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3, 3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_encw8"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("padlock:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3, 3, 3), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fv6im"]
+_data = {
+&"RESET": SubResource("Animation_4hvcy"),
+&"appear": SubResource("Animation_87mug"),
+&"disappear": SubResource("Animation_encw8")
+}
 
 [node name="door" type="Node3D" unique_id=1781663024]
 script = ExtResource("1_j7xx1")
@@ -26,7 +82,7 @@ gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 6
 
-[node name="door" parent="RigidBody3D" unique_id=670192887 instance=ExtResource("2_khffo")]
+[node name="door" parent="RigidBody3D" unique_id=668266669 instance=ExtResource("2_4hvcy")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1616012475]
@@ -34,12 +90,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.582212, 0.48513794)
 shape = SubResource("BoxShape3D_566yj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=809980860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.069444, 5.0427065, 0.4889059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.266317, 5.0427065, 0.4889059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2101406712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87652683, 1.9140472, -0.20791626)
+shape = SubResource("BoxShape3D_khffo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=746050929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.453945, 1.9140472, -0.20791626)
+shape = SubResource("BoxShape3D_khffo")
 
 [node name="Timer" type="Timer" parent="." unique_id=1984261073]
 one_shot = true
 
 [node name="door_frame2" parent="." unique_id=1586583773 instance=ExtResource("3_khffo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.7062941, 0.45351028)
+
+[node name="padlock" parent="." unique_id=216302809 instance=ExtResource("4_4hvcy")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.49230433, -1.1473765)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=224304222]
+libraries/ = SubResource("AnimationLibrary_fv6im")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

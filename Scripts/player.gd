@@ -94,7 +94,6 @@ func movement(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 func attack():
-	
 	if attacking[0] and $attack_cooldown0.is_stopped():
 		attacking[0] = false
 	if attacking[1] and $attack_cooldown1.is_stopped():
