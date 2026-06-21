@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://crm1bva6b03dv"
-path="res://.godot/imported/rat_forearm.glb-6fc4c38c94d7b3a44cd07a3e541c5703.scn"
+path="res://.godot/imported/rat_forearm.glb-fb0f77831b4f64eaf48bca5fec23f862.scn"
 
 [deps]
 
-source_file="res://Assets/rat/rat_forearm.glb"
-dest_files=["res://.godot/imported/rat_forearm.glb-6fc4c38c94d7b3a44cd07a3e541c5703.scn"]
+source_file="res://assets/rat/rat_forearm.glb"
+dest_files=["res://.godot/imported/rat_forearm.glb-fb0f77831b4f64eaf48bca5fec23f862.scn"]
 
 [params]
 
