@@ -27,6 +27,44 @@ point_count = 2
 offsets = PackedFloat32Array(0.28368795, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.16924527, 0.1692453, 0.16924521, 1)
 
+[sub_resource type="Animation" id="Animation_x0om8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.5223408, -3.2307339)]
+}
+
+[sub_resource type="Animation" id="Animation_dvc4m"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6666667, 1.1, 1.8000001, 2.2, 2.6000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.5223408, -3.2307339), Vector3(-0.57112145, 2.7223408, -3.2307339), Vector3(-0.18866241, 2.5564408, -3.2307339), Vector3(0.8748325, 3.5378551, -2.744476), Vector3(0.55252576, 3.5321393, -2.4330974), Vector3(0.3683505, 3.5288732, -2.0207465), Vector3(0.1841752, 3.5256069, -3.1112537)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rxyrm"]
+_data = {
+&"RESET": SubResource("Animation_x0om8"),
+&"idle": SubResource("Animation_dvc4m")
+}
+
 [node name="torch" type="StaticBody3D" unique_id=352304234]
 
 [node name="torch2" parent="." unique_id=1688982626 instance=ExtResource("1_i3qqe")]
@@ -70,3 +108,7 @@ scale_amount_max = 1.4
 scale_amount_curve = SubResource("Curve_rxyrm")
 color = Color(2.7786894, 1.4719771, 0.91565424, 1)
 color_ramp = SubResource("Gradient_x0om8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=162644388]
+libraries/ = SubResource("AnimationLibrary_rxyrm")
+autoplay = &"idle"
