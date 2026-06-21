@@ -265,6 +265,7 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 	else:
+		$ui.visible = false
 		$body/torso.get_child(0).scale = Vector3(.5,.5,.5)
 		$body/torso.visible = true
 		limb_checker()
