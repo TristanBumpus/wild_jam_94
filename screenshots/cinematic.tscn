@@ -195,7 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4863608, -0.86938524)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33869576, -0.063135624)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2105067006]
-transform = Transform3D(-0.9999746, -0.0022113274, -0.00676462, 0, 0.9505029, -0.31071562, 0.007116885, -0.31070775, -0.9504788, -90.82569, 11.588894, -13.209709)
+transform = Transform3D(-0.99997455, -0.0022113274, -0.0067646196, 0, 0.9505028, -0.31071562, 0.0071168845, -0.31070775, -0.95047873, -90.82569, 11.588894, -13.209709)
 
 [node name="GODOT" type="AnimationPlayer" parent="." unique_id=810648525]
 libraries/ = SubResource("AnimationLibrary_qyogh")
