@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bnm6htbx8vaf5"
-path="res://.godot/imported/god_foot.glb-7384e6adb96d9c377781d2bf67e58410.scn"
+path="res://.godot/imported/god_foot.glb-5e5ef37574cfd74058acc44e2e9969ee.scn"
 
 [deps]
 
-source_file="res://assets/godot/god_foot.glb"
-dest_files=["res://.godot/imported/god_foot.glb-7384e6adb96d9c377781d2bf67e58410.scn"]
+source_file="res://Assets/godot/god_foot.glb"
+dest_files=["res://.godot/imported/god_foot.glb-5e5ef37574cfd74058acc44e2e9969ee.scn"]
 
 [params]
 

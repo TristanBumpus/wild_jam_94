@@ -18,13 +18,12 @@ metallic = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_dreyd"]
 size = Vector3(2.5129328, 9.302782, 2.1027222)
 
-[node name="Kobold" type="CharacterBody3D" unique_id=571424669 node_paths=PackedStringArray("hit_box", "nav")]
+[node name="Kobold" type="CharacterBody3D" unique_id=571424669 node_paths=PackedStringArray("hit_box")]
 script = ExtResource("1_mpleh")
 attack_type = 1
 hit_box = NodePath("Area3D")
 loot = Array[PackedScene]([ExtResource("2_8l6fn")])
 loot_chance = Array[int]([100])
-nav = NodePath("NavigationAgent3D")
 e_name = "Kobold"
 metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
 

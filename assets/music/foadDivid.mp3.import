@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bxcos8lu1fdgv"
-path="res://.godot/imported/foadDivid.mp3-e3a3eec2ca7d9dc4bf0b7143facd4865.mp3str"
+path="res://.godot/imported/foadDivid.mp3-487deab508db99f53991759071d497c0.mp3str"
 
 [deps]
 
-source_file="res://assets/music/foadDivid.mp3"
-dest_files=["res://.godot/imported/foadDivid.mp3-e3a3eec2ca7d9dc4bf0b7143facd4865.mp3str"]
+source_file="res://Assets/music/foadDivid.mp3"
+dest_files=["res://.godot/imported/foadDivid.mp3-487deab508db99f53991759071d497c0.mp3str"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cevkt5dv75aag"
-path.s3tc="res://.godot/imported/god_neck_allayi_TEXT.png-fa2965f408cde48757f08fd5696ab126.s3tc.ctex"
+path.s3tc="res://.godot/imported/god_neck_allayi_TEXT.png-e675db3a444246cd56957bfb75819f1e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/godot/god_neck_allayi_TEXT.png"
-dest_files=["res://.godot/imported/god_neck_allayi_TEXT.png-fa2965f408cde48757f08fd5696ab126.s3tc.ctex"]
+source_file="res://Assets/godot/god_neck_allayi_TEXT.png"
+dest_files=["res://.godot/imported/god_neck_allayi_TEXT.png-e675db3a444246cd56957bfb75819f1e.s3tc.ctex"]
 
 [params]
 

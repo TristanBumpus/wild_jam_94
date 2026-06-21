@@ -14,7 +14,6 @@ var mouse_sensitivity = .005
 @onready var cam = $Camera3D
 
 var attacking = [false,false]
-var last_limbs = [null,null,null,null,null,null]
 var cam_pos = Vector3(0,1,-.9)
 @export var limb_slots : Array[Node3D]
 
@@ -69,7 +68,7 @@ func cheats():
 		global.difficulty = 250
 		for child in find_children("*","limb"):
 			child.reset()
-		last_limbs = [null,null,null,null,null,null]
+		global.last_limbs = [null,null,null,null,null,null]
 		limb_checker()
 		global_position = get_tree().get_first_node_in_group("boss_room").global_position + Vector3(0,10,0)
 		#for child in get_tree().get_nodes_in_group("enemy"):
@@ -119,15 +118,15 @@ func attack():
 
 
 func limb_to_check(node,index):
-	if node.get_child(0) != last_limbs[index]:
-		if last_limbs[index] != null:
-			max_hp -= last_limbs[index].hp
-			current_hp -= last_limbs[index].hp
-			speed -= last_limbs[index].speed
-			armor -= last_limbs[index].armor
-			luck -= last_limbs[index].luck
+	if node.get_child(0) != global.last_limbs[index]:
+		if global.last_limbs[index] != null:
+			max_hp -= global.last_limbs[index].hp
+			current_hp -= global.last_limbs[index].hp
+			speed -= global.last_limbs[index].speed
+			armor -= global.last_limbs[index].armor
+			luck -= global.last_limbs[index].luck
 		
-		last_limbs[index] = node.get_child(0)
+		global.last_limbs[index] = node.get_child(0)
 		max_hp += node.get_child(0).hp
 		current_hp += node.get_child(0).hp
 		speed += node.get_child(0).speed
@@ -270,8 +269,10 @@ func _physics_process(delta: float) -> void:
 		print("test")
 		for child in limb_slots:
 			child.get_child(0).scale = Vector3(.5,.5,.5)
+			child.get_child(0).position = Vector3.ZERO
 		$body/torso.visible = true
 		limb_checker()
+		#position = Vector3(-91.1,8.8,-15.8 )
 	
 
 func _process(delta: float) -> void:

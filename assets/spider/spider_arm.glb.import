@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cdmmmr351g5hn"
-path="res://.godot/imported/spider_arm.glb-d05327b12a37d4528b38bee36d4fd19a.scn"
+path="res://.godot/imported/spider_arm.glb-ec48716cd4dae6d2c6051f12654ac8d3.scn"
 
 [deps]
 
-source_file="res://assets/spider/spider_arm.glb"
-dest_files=["res://.godot/imported/spider_arm.glb-d05327b12a37d4528b38bee36d4fd19a.scn"]
+source_file="res://Assets/spider/spider_arm.glb"
+dest_files=["res://.godot/imported/spider_arm.glb-ec48716cd4dae6d2c6051f12654ac8d3.scn"]
 
 [params]
 

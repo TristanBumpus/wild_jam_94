@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blkx6lwcwkfo"
-path.s3tc="res://.godot/imported/throne2_throne_TEXT.png-02afc2e153d4882a458c5988ca61d8b3.s3tc.ctex"
+path.s3tc="res://.godot/imported/throne2_throne_TEXT.png-c724d5b24f2ce0250eeea49ea379fe7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/godot/throne2_throne_TEXT.png"
-dest_files=["res://.godot/imported/throne2_throne_TEXT.png-02afc2e153d4882a458c5988ca61d8b3.s3tc.ctex"]
+source_file="res://Assets/godot/throne2_throne_TEXT.png"
+dest_files=["res://.godot/imported/throne2_throne_TEXT.png-c724d5b24f2ce0250eeea49ea379fe7e.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wcpxcnrg5ill"
-path="res://.godot/imported/rat_foot.glb-5699a54edc9c97ef5542058d55a6bdcd.scn"
+path="res://.godot/imported/rat_foot.glb-7005dced34ee6341414d0a10277e351d.scn"
 
 [deps]
 
-source_file="res://assets/rat/rat_foot.glb"
-dest_files=["res://.godot/imported/rat_foot.glb-5699a54edc9c97ef5542058d55a6bdcd.scn"]
+source_file="res://Assets/rat/rat_foot.glb"
+dest_files=["res://.godot/imported/rat_foot.glb-7005dced34ee6341414d0a10277e351d.scn"]
 
 [params]
 

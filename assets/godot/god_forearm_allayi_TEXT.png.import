@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjrenuudbaxso"
-path.s3tc="res://.godot/imported/god_forearm_allayi_TEXT.png-f6beaeb64ec7bca47d118cb890e2400c.s3tc.ctex"
+path.s3tc="res://.godot/imported/god_forearm_allayi_TEXT.png-45733be4482729202a6f6f495f418956.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/godot/god_forearm_allayi_TEXT.png"
-dest_files=["res://.godot/imported/god_forearm_allayi_TEXT.png-f6beaeb64ec7bca47d118cb890e2400c.s3tc.ctex"]
+source_file="res://Assets/godot/god_forearm_allayi_TEXT.png"
+dest_files=["res://.godot/imported/god_forearm_allayi_TEXT.png-45733be4482729202a6f6f495f418956.s3tc.ctex"]
 
 [params]
 

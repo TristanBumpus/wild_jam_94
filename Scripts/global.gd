@@ -13,6 +13,7 @@ var all_arms = ["res://Entitites/limbs/kobold/kobold_arm.tscn","res://Entitites/
 var sound_effects = preload("res://Entitites/effects/sound_effects.tscn")
 
 var nav_map :RID
+var last_limbs = [null,null,null,null,null,null]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

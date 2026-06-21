@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dmtuffq65iale"
-path="res://.godot/imported/god_fist.glb-678ec83cdb6cfefd57d68a72bebc185d.scn"
+path="res://.godot/imported/god_fist.glb-c3f95ed89a8fc4c18fb2782858bfa141.scn"
 
 [deps]
 
-source_file="res://assets/godot/god_fist.glb"
-dest_files=["res://.godot/imported/god_fist.glb-678ec83cdb6cfefd57d68a72bebc185d.scn"]
+source_file="res://Assets/godot/god_fist.glb"
+dest_files=["res://.godot/imported/god_fist.glb-c3f95ed89a8fc4c18fb2782858bfa141.scn"]
 
 [params]
 

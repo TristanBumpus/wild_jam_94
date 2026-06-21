@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvwyqr5avwcgq"
-path="res://.godot/imported/throne2.glb-ae9ae1bca2a8cdcf837bc86f35be4387.scn"
+path="res://.godot/imported/throne2.glb-70092f623a39640b88f5b05257e57676.scn"
 
 [deps]
 
-source_file="res://assets/godot/throne2.glb"
-dest_files=["res://.godot/imported/throne2.glb-ae9ae1bca2a8cdcf837bc86f35be4387.scn"]
+source_file="res://Assets/godot/throne2.glb"
+dest_files=["res://.godot/imported/throne2.glb-70092f623a39640b88f5b05257e57676.scn"]
 
 [params]
 

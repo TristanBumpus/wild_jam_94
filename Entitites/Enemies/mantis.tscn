@@ -41,23 +41,23 @@ shape = SubResource("BoxShape3D_2xxcg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0183964, -1.2893031)
 
 [node name="mantis_head" parent="body/head" unique_id=2048937635 instance=ExtResource("2_0mc7c")]
-type = 1
-damage = 0.0
-image = null
 
 [node name="torso" type="Node3D" parent="body" unique_id=1225980449]
 
 [node name="mantis_body" parent="body/torso" unique_id=1042664130 instance=ExtResource("3_2xxcg")]
 type = 1
+damage = 0.0
 hp = 0.0
 image = null
+chest_off_set = Vector3(0, 0, 0)
+chest_off_set_legs = Vector3(0, 0, 0)
+chest_off_head_set = Vector3(0, 0, 0)
 
 [node name="left_arm" type="Node3D" parent="body" unique_id=684734028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.733, 1.617, -1.208)
 
 [node name="mantis_arm" parent="body/left_arm" unique_id=1397359573 instance=ExtResource("4_6wank")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-side = 0
 damage = 0.0
 attack_speed = 1.0
 image = null
@@ -76,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.835, -0.47, 0.204)
 [node name="mantis_leg" parent="body/left_leg" unique_id=801801284 instance=ExtResource("5_0sr34")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 type = 1
-side = 0
+damage = 0.0
 image = null
 speed = 0
 
@@ -85,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8351195, -0.47011828, 0.204
 
 [node name="mantis_leg" parent="body/right_leg" unique_id=26821699 instance=ExtResource("5_0sr34")]
 type = 1
+damage = 0.0
 image = null
 speed = 0
 

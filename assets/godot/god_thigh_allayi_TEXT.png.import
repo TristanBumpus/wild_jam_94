@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dupoqn7q7msni"
-path.s3tc="res://.godot/imported/god_thigh_allayi_TEXT.png-d4b2c28b95d4fff13c2f7b8a5ad8f1a1.s3tc.ctex"
+path.s3tc="res://.godot/imported/god_thigh_allayi_TEXT.png-3b68fc725824eb73354491fba42b2484.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/godot/god_thigh_allayi_TEXT.png"
-dest_files=["res://.godot/imported/god_thigh_allayi_TEXT.png-d4b2c28b95d4fff13c2f7b8a5ad8f1a1.s3tc.ctex"]
+source_file="res://Assets/godot/god_thigh_allayi_TEXT.png"
+dest_files=["res://.godot/imported/god_thigh_allayi_TEXT.png-3b68fc725824eb73354491fba42b2484.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bihix5uv8hmbj"
-path.s3tc="res://.godot/imported/god_foot_allayi_TEXT.png-052ba59343c0b3ef9aafa492f6746ee3.s3tc.ctex"
+path.s3tc="res://.godot/imported/god_foot_allayi_TEXT.png-245e29df91b2e4f839b222d5eb9bbf8e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/godot/god_foot_allayi_TEXT.png"
-dest_files=["res://.godot/imported/god_foot_allayi_TEXT.png-052ba59343c0b3ef9aafa492f6746ee3.s3tc.ctex"]
+source_file="res://Assets/godot/god_foot_allayi_TEXT.png"
+dest_files=["res://.godot/imported/god_foot_allayi_TEXT.png-245e29df91b2e4f839b222d5eb9bbf8e.s3tc.ctex"]
 
 [params]
 

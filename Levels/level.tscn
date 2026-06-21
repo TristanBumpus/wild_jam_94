@@ -48,7 +48,6 @@ enemies = Array[PackedScene]([ExtResource("7_ugh17"), ExtResource("8_eabcg"), Ex
 
 [node name="player" parent="." unique_id=1745359200 instance=ExtResource("8_ecu0b")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 10.308697, 0)
-disabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1198014098]
 environment = SubResource("Environment_ecu0b")

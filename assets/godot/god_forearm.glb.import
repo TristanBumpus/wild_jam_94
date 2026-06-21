@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b5ixk17xclgbi"
-path="res://.godot/imported/god_forearm.glb-89a061baf678cac8bb6b0e2ba959e2e8.scn"
+path="res://.godot/imported/god_forearm.glb-bab0b2ba8cf43bc232d75852e1b0ebc3.scn"
 
 [deps]
 
-source_file="res://assets/godot/god_forearm.glb"
-dest_files=["res://.godot/imported/god_forearm.glb-89a061baf678cac8bb6b0e2ba959e2e8.scn"]
+source_file="res://Assets/godot/god_forearm.glb"
+dest_files=["res://.godot/imported/god_forearm.glb-bab0b2ba8cf43bc232d75852e1b0ebc3.scn"]
 
 [params]
 

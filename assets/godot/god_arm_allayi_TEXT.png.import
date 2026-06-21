@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cipb1bw1s2aqs"
-path.s3tc="res://.godot/imported/god_arm_allayi_TEXT.png-acd865bd45c72f22b2bf0992754c4a2c.s3tc.ctex"
+path.s3tc="res://.godot/imported/god_arm_allayi_TEXT.png-be4ca319e954a5f25a59779749ea3fe0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/godot/god_arm_allayi_TEXT.png"
-dest_files=["res://.godot/imported/god_arm_allayi_TEXT.png-acd865bd45c72f22b2bf0992754c4a2c.s3tc.ctex"]
+source_file="res://Assets/godot/god_arm_allayi_TEXT.png"
+dest_files=["res://.godot/imported/god_arm_allayi_TEXT.png-be4ca319e954a5f25a59779749ea3fe0.s3tc.ctex"]
 
 [params]
 

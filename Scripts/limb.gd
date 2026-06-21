@@ -489,32 +489,37 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
-	if $choice.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		$billboard.visible = false
-		if global_position.distance_to(player.global_position) > 15:
-			$choice.visible = false
-			global.choice_active = false
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	if $billboard.visible:
-		if Input.is_action_just_pressed("f") and !global.choice_active:
-			$choice.visible = true
-			global.choice_active = false
-			
-			$choice/Control/Node2D/head/TextureRect.texture = player.get_node("body/head").get_child(0).image
-			$choice/Control/Node2D/torso/TextureRect.texture = player.get_node("body/torso").get_child(0).image
-			$choice/Control/Node2D/right_arm/TextureRect.texture = player.get_node("body/right_arm").get_child(0).image
-			$choice/Control/Node2D/left_arm/TextureRect.texture = player.get_node("body/left_arm").get_child(0).image
-			$choice/Control/Node2D/right_leg/TextureRect.texture = player.get_node("body/right_leg").get_child(0).image
-			$choice/Control/Node2D/left_leg/TextureRect.texture = player.get_node("body/left_leg").get_child(0).image
-			
-			
+	if get_parent().is_in_group("player") and get_parent().disabled:
+		if side == 0 and type != 0:
+			scale = Vector3(-.5,.5,.5)
+		else:
+			scale = Vector3(.5,.5,.5)
+	else:
+		if $choice.visible:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
-	if global_position.y < -2:
-		global_position.y = 10
+			$billboard.visible = false
+			if global_position.distance_to(player.global_position) > 15:
+				$choice.visible = false
+				global.choice_active = false
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		if $billboard.visible:
+			if Input.is_action_just_pressed("f") and !global.choice_active:
+				$choice.visible = true
+				global.choice_active = false
+				
+				$choice/Control/Node2D/head/TextureRect.texture = player.get_node("body/head").get_child(0).image
+				$choice/Control/Node2D/torso/TextureRect.texture = player.get_node("body/torso").get_child(0).image
+				$choice/Control/Node2D/right_arm/TextureRect.texture = player.get_node("body/right_arm").get_child(0).image
+				$choice/Control/Node2D/left_arm/TextureRect.texture = player.get_node("body/left_arm").get_child(0).image
+				$choice/Control/Node2D/right_leg/TextureRect.texture = player.get_node("body/right_leg").get_child(0).image
+				$choice/Control/Node2D/left_leg/TextureRect.texture = player.get_node("body/left_leg").get_child(0).image
+				
+				
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+		if global_position.y < -2:
+			global_position.y = 10
 
 
 
