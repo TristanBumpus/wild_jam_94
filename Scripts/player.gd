@@ -184,17 +184,18 @@ func animation_states():
 				attacking[0] = false
 
 func _unhandled_input(event):
-	# Handle vertical/horizontal camera rotation
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		cam.rotate_x(-event.relative.y * mouse_sensitivity)
-		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
-		
-		$body/left_arm.rotation.x = cam.rotation.x + deg_to_rad(10 + $body/left_arm.get_child(0).rotation_diffrence)
-		$body/right_arm.rotation.x = cam.rotation.x + deg_to_rad(10 + $body/right_arm.get_child(0).rotation_diffrence)
-		
-		$body/left_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
-		$body/right_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
+	if !disabled:
+		# Handle vertical/horizontal camera rotation
+		if event is InputEventMouseMotion:
+			rotate_y(-event.relative.x * mouse_sensitivity)
+			cam.rotate_x(-event.relative.y * mouse_sensitivity)
+			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+			
+			$body/left_arm.rotation.x = cam.rotation.x + deg_to_rad(10 + $body/left_arm.get_child(0).rotation_diffrence)
+			$body/right_arm.rotation.x = cam.rotation.x + deg_to_rad(10 + $body/right_arm.get_child(0).rotation_diffrence)
+			
+			$body/left_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
+			$body/right_arm.rotation.x = clamp(cam.rotation.x, deg_to_rad(-50), deg_to_rad(90))
 
 func update_ui():
 	
