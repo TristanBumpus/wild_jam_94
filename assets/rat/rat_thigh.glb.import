@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://nk1brakc3nw1"
-path="res://.godot/imported/rat_thigh.glb-03b67491558b61dc30a212c86fa92199.scn"
+path="res://.godot/imported/rat_thigh.glb-eed06f19c1435901f93e43094ed18e07.scn"
 
 [deps]
 
-source_file="res://assets/rat/rat_thigh.glb"
-dest_files=["res://.godot/imported/rat_thigh.glb-03b67491558b61dc30a212c86fa92199.scn"]
+source_file="res://Assets/rat/rat_thigh.glb"
+dest_files=["res://.godot/imported/rat_thigh.glb-eed06f19c1435901f93e43094ed18e07.scn"]
 
 [params]
 

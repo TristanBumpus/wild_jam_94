@@ -37,11 +37,14 @@ func _process(delta: float) -> void:
 				t.tween_property($RigidBody3D,"linear_velocity",Vector3.ZERO,.1)
 				t.tween_property($RigidBody3D,"angular_velocity",Vector3.ZERO,.1)
 				t.tween_property($RigidBody3D/CollisionShape3D,"disabled",false,.1)
+				await t.finished
+				$AnimationPlayer.play("appear")
 	else:
 		run = true
 		$RigidBody3D.freeze = false
-	
-	
+		if $padlock.scale.x == 3:
+			$AnimationPlayer.play("disappear")
+
 
 
 

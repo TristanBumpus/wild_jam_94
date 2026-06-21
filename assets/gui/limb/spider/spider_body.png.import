@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccuxhidjj1at8"
-path="res://.godot/imported/spider_body.png-234852b82f84f049a2bcaaba2dfa3c99.ctex"
+path="res://.godot/imported/spider_body.png-d45b3ee28c9653d7c084b088bc50aec7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/spider/spider_body.png"
-dest_files=["res://.godot/imported/spider_body.png-234852b82f84f049a2bcaaba2dfa3c99.ctex"]
+source_file="res://Assets/gui/limb/spider/spider_body.png"
+dest_files=["res://.godot/imported/spider_body.png-d45b3ee28c9653d7c084b088bc50aec7.ctex"]
 
 [params]
 

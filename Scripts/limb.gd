@@ -217,46 +217,44 @@ func _ready() -> void:
 		var c2 = c.instantiate()
 		add_child(c2)
 	
-	#Connecting buttons
-	$choice.get_node("Control/Node2D/head").button_down.connect(_on_head_button_down)
-	$choice.get_node("Control/Node2D/torso").button_down.connect(_on_torso_button_down)
-	$choice.get_node("Control/Node2D/right_arm").button_down.connect(_on_right_arm_button_down)
-	$choice.get_node("Control/Node2D/left_arm").button_down.connect(_on_left_arm_button_down)
-	$choice.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
-	$choice.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
-	$choice.get_node("Control/Node2D/end").button_down.connect(end_choice)
-	
-	
+		#Connecting buttons
+		$choice.get_node("Control/Node2D/head").button_down.connect(_on_head_button_down)
+		$choice.get_node("Control/Node2D/torso").button_down.connect(_on_torso_button_down)
+		$choice.get_node("Control/Node2D/right_arm").button_down.connect(_on_right_arm_button_down)
+		$choice.get_node("Control/Node2D/left_arm").button_down.connect(_on_left_arm_button_down)
+		$choice.get_node("Control/Node2D/right_leg").button_down.connect(_on_right_leg_button_down)
+		$choice.get_node("Control/Node2D/left_leg").button_down.connect(_on_left_leg_button_down)
+		$choice.get_node("Control/Node2D/end").button_down.connect(end_choice)
+		
+		#Limb selection
+		if type == 0 or type_2 == 0:
+			$choice/Control/Node2D/head.disabled = false
+			$choice.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
+		
+		if type == 1 or type_2 == 1:
+			$choice/Control/Node2D/left_arm.disabled = false
+			$choice/Control/Node2D/right_arm.disabled = false
+			$choice.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
+			$choice.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
+		
+		if type == 2 or type_2 == 2:
+			$choice/Control/Node2D/left_leg.disabled = false
+			$choice/Control/Node2D/right_leg.disabled = false
+			$choice.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
+			$choice.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
+		
+		if type == 3 or type_2 == 3:
+			$choice/Control/Node2D/torso.disabled = false
+			$choice.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	
 	add_to_group("limb",true)
-	
-	#Limb selection
-	if type == 0 or type_2 == 0:
-		$choice/Control/Node2D/head.disabled = false
-		$choice.get_node("Control/Node2D/head").mouse_entered.connect(_head_hover)
-	
-	if type == 1 or type_2 == 1:
-		$choice/Control/Node2D/left_arm.disabled = false
-		$choice/Control/Node2D/right_arm.disabled = false
-		$choice.get_node("Control/Node2D/right_arm").mouse_entered.connect(_right_arm_hover)
-		$choice.get_node("Control/Node2D/left_arm").mouse_entered.connect(_left_arm_hover)
-	
-	if type == 2 or type_2 == 2:
-		$choice/Control/Node2D/left_leg.disabled = false
-		$choice/Control/Node2D/right_leg.disabled = false
-		$choice.get_node("Control/Node2D/right_leg").mouse_entered.connect(_right_leg_hover)
-		$choice.get_node("Control/Node2D/left_leg").mouse_entered.connect(_left_leg_hover)
-	
-	if type == 3 or type_2 == 3:
-		$choice/Control/Node2D/torso.disabled = false
-		$choice.get_node("Control/Node2D/torso").mouse_entered.connect(_torso_hover)
 	
 	#Basic stats
 	damage = snapped(damage * randf_range(.8,1.2), .01) * (global.difficulty/100)
 	hp = snapped(hp * randf_range(.8,1.2), .01) * (global.difficulty/100)
-	speed = snapped(speed * randf_range(.8,1.2),.01) * (global.difficulty/100)
+	speed = snapped(speed * randf_range(.8,1.2),.01)
 	armor = snapped(armor * randf_range(.8,1.2), .01) * (global.difficulty/100)
-	attack_speed = snapped(attack_speed * randf_range(.8,1.2), .01) * (global.difficulty/100)
+	attack_speed = snapped(attack_speed * randf_range(.8,1.2), .01)
 	armor_p = snapped(armor_p * randf_range(.8,1.2),.01) * (global.difficulty/100)
 	
 	#Set up special types

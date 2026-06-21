@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://7fi6edidokju"]
+
+[ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_g5rbh"]
+[ext_resource type="PackedScene" uid="uid://cfsxbvrm05l4n" path="res://Entitites/limbs/rat/rat_head.tscn" id="2_46hjt"]
+[ext_resource type="PackedScene" uid="uid://c5wxbsnbd6po3" path="res://Entitites/limbs/rat/rat_body.tscn" id="3_um0p3"]
+[ext_resource type="PackedScene" uid="uid://bvanqkfrfow14" path="res://Entitites/limbs/rat/rat_arm.tscn" id="4_gwhuq"]
+[ext_resource type="PackedScene" uid="uid://del6px3k3x34n" path="res://Entitites/limbs/rat/rat_leg.tscn" id="5_x242d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3g5o"]
+size = Vector3(2.45969, 9.2097645, 2.5901642)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_owqai"]
+size = Vector3(2.5129328, 10.556664, 2.941208)
+
+[node name="rat" type="CharacterBody3D" unique_id=1169183522]
+script = ExtResource("1_g5rbh")
+e_name = "Rat"
+metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1123969684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013498306, -2.347497, 0.22350311)
+shape = SubResource("BoxShape3D_j3g5o")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1188596606]
+avoidance_enabled = true
+radius = 5.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 45.6
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1548510511]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=739233518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040112972, -1.6909165, 0.22350311)
+shape = SubResource("BoxShape3D_owqai")
+
+[node name="body" type="Node3D" parent="." unique_id=690290561]
+
+[node name="head" type="Node3D" parent="body" unique_id=982682356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4581535, -0.2858851)
+
+[node name="rat_head" parent="body/head" unique_id=967588140 instance=ExtResource("2_46hjt")]
+
+[node name="torso" type="Node3D" parent="body" unique_id=1208477964]
+
+[node name="rat_body" parent="body/torso" unique_id=1993125106 instance=ExtResource("3_um0p3")]
+
+[node name="left_arm" type="Node3D" parent="body" unique_id=1908273997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4678755, 0.9741397, 0)
+
+[node name="rat_arm" parent="body/left_arm" unique_id=584384732 instance=ExtResource("4_gwhuq")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="right_arm" type="Node3D" parent="body" unique_id=378865548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.468, 0.974, 0)
+
+[node name="rat_arm" parent="body/right_arm" unique_id=525401079 instance=ExtResource("4_gwhuq")]
+
+[node name="left_leg" type="Node3D" parent="body" unique_id=1207216646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694, -2.186, 0.308)
+
+[node name="rat_leg" parent="body/left_leg" unique_id=650647279 instance=ExtResource("5_x242d")]
+
+[node name="right_leg" type="Node3D" parent="body" unique_id=2003867585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.1859758, 0.308)
+
+[node name="rat_leg" parent="body/right_leg" unique_id=440823352 instance=ExtResource("5_x242d")]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

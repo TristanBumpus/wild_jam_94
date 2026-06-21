@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ck38o8brihile" path="res://meshes/limbilimb/mantis/mantis_neck.tscn" id="2_dvycf"]
 [ext_resource type="PackedScene" uid="uid://tooydbh2wb2v" path="res://meshes/limbilimb/mantis/mantis_head.tscn" id="3_iul8r"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_dvycf"]
+radius = 1.1879194
+
 [node name="mantis_head" type="RigidBody3D" unique_id=2048937635]
 script = ExtResource("1_hgi0w")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
@@ -14,3 +17,7 @@ metadata/_custom_type_script = "uid://1ncxcw86231v"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1389289932]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1740731646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84562683, -0.9735179)
+shape = SubResource("SphereShape3D_dvycf")

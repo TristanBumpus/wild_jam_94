@@ -4,7 +4,7 @@ class_name Enemy
 
 @export_category("Combat")
 @export_enum("melee", "range") var attack_type = 0
-@export var hp = 0
+@export var hp = 1
 var max_hp = 0
 @export var damage = 1
 @export_enum("none", "Big","Small","Long","Heavy","Lucky","Sharp","Dull", "Unlucky") var special_type = "none"
@@ -19,7 +19,6 @@ var armor = 0
 @export_category("Movement")
 @export_enum("basic") var movement_type = 0
 @export var speed = 1.0
-@export var nav : NavigationAgent3D
 @export var is_effected_by_gravity = true
 var luck = 0.0
 
@@ -60,6 +59,9 @@ func chest_equalizer():
 	
 	$CollisionShape3D.scale = $body/torso.get_child(0).scale
 	$Area3D/CollisionShape3D.scale = $body/torso.get_child(0).scale
+	
+	$CollisionShape3D.position *= $body/torso.get_child(0).scale
+	$Area3D/CollisionShape3D.position *= $body/torso.get_child(0).scale
 	
 	$body/head.position = head_offset
 	
@@ -266,6 +268,9 @@ func _ready() -> void:
 	
 	$NavigationAgent3D.target_position = player.global_position
 	$NavigationAgent3D.path_desired_distance = 20
+	
+	if hp <= 0:
+		hp = 1
 
 
 
