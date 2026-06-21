@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bqpv1ak4mud4c"]
 
 [ext_resource type="Script" uid="uid://cu8eyowlxvb7e" path="res://Scripts/door.gd" id="1_j7xx1"]
-[ext_resource type="PackedScene" uid="uid://blpunfjti03ba" path="res://assets/objects/door3.glb" id="2_4hvcy"]
-[ext_resource type="PackedScene" uid="uid://dngcmk3g2guum" path="res://assets/objects/door_frame2.glb" id="3_khffo"]
-[ext_resource type="PackedScene" uid="uid://cqdwtinupx6oy" path="res://assets/objects/padlock.glb" id="4_4hvcy"]
+[ext_resource type="PackedScene" uid="uid://blpunfjti03ba" path="res://Assets/objects/door3.glb" id="2_4hvcy"]
+[ext_resource type="PackedScene" uid="uid://dngcmk3g2guum" path="res://Assets/objects/door_frame2.glb" id="3_khffo"]
+[ext_resource type="PackedScene" uid="uid://cqdwtinupx6oy" path="res://Assets/objects/padlock.glb" id="4_4hvcy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_566yj"]
 size = Vector3(13, 14.299316, 3.2480469)
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(3, 3, 3)]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_87mug"]
@@ -107,7 +107,7 @@ one_shot = true
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.7062941, 0.45351028)
 
 [node name="padlock" parent="." unique_id=216302809 instance=ExtResource("4_4hvcy")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.49230433, -1.1473765)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.49230433, -1.1473765)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=224304222]
 libraries/ = SubResource("AnimationLibrary_fv6im")

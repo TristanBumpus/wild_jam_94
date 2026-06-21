@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_jlrgv"]
 [ext_resource type="PackedScene" uid="uid://b4w8cx831818q" path="res://meshes/limbilimb/armadillo/armadillo_body.tscn" id="2_w7frb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tyevj"]
-size = Vector3(3.1171875, 3.6954346, 2.5825806)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jlrgv"]
+radius = 1.3183594
+height = 4.7629395
 
 [node name="armadillo_body" type="RigidBody3D" unique_id=1415761282]
 script = ExtResource("1_jlrgv")
+chest_off_set = Vector3(1.812, 0.974, 0)
+chest_off_set_legs = Vector3(0.7, -2.284, 0.308)
+chest_off_head_set = Vector3(0, 2.0183964, -0.2858851)
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="armadillo_body" parent="." unique_id=632472996 instance=ExtResource("2_w7frb")]
@@ -16,5 +20,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1956317452]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1554246684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29681396, -0.22280884)
-shape = SubResource("BoxShape3D_tyevj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29083252, 0.26090693)
+shape = SubResource("CapsuleShape3D_jlrgv")

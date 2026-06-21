@@ -3,10 +3,21 @@
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_57bsc"]
 [ext_resource type="PackedScene" uid="uid://bcjfcslek61c8" path="res://meshes/limbilimb/mantis/mantis_body.tscn" id="2_gmdsw"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmdsw"]
+radius = 0.7314453
+height = 5.1463623
+
 [node name="mantis_body" type="RigidBody3D" unique_id=1042664130]
 script = ExtResource("1_57bsc")
+chest_off_set = Vector3(0.732703, 1.6173105, -1.2082138)
+chest_off_set_legs = Vector3(0.8351195, -0.47011828, 0.2043623)
+chest_off_head_set = Vector3(0, 3.0183964, -1.2893031)
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="mantis_body" parent="." unique_id=1892515521 instance=ExtResource("2_gmdsw")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=568132989]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1668079860]
+transform = Transform3D(1, 0, 0, 0, 0.7128099, 0.70135725, 0, -0.70135725, 0.7128099, 0, 0.3568119, -0.20791578)
+shape = SubResource("CapsuleShape3D_gmdsw")

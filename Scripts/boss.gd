@@ -189,8 +189,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if start:
+		print("S")
 		limb_checker()
-		hp = 100
+		hp = 50
 		new_pos()
 		start = false
 	
@@ -203,7 +204,6 @@ func _process(delta: float) -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("limb"):
 		hp -= global.damage_calc(area.get_parent().damage,armor,area.get_parent().armor_p)
-		
 		global.play_sound(hit_sound.pick_random(),global_position,-10)
 		
 		var hit_effect = load("res://Entitites/effects/hit_particule_fx.tscn").instantiate()

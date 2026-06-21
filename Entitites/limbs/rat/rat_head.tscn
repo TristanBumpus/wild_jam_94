@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://4ypo0ottbg78" path="res://meshes/limbilimb/rat/rat_neck.tscn" id="2_8men8"]
 [ext_resource type="PackedScene" uid="uid://dnbr61g22a77n" path="res://meshes/limbilimb/rat/rat_head.tscn" id="3_m2jdf"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8men8"]
+
 [node name="rat_head" type="RigidBody3D" unique_id=967588140]
 script = ExtResource("1_7wppw")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
@@ -14,3 +16,7 @@ metadata/_custom_type_script = "uid://1ncxcw86231v"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0631988, -0.2228601)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=349116441]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1362098731]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.83964026, -0.4370904)
+shape = SubResource("CapsuleShape3D_8men8")

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cajd4efq7g2dc"]
+
+[ext_resource type="Script" uid="uid://cf3ljm2w7h0i" path="res://Scripts/enemy_class.gd" id="1_m7vwv"]
+[ext_resource type="PackedScene" uid="uid://b808abjpc0xjd" path="res://Entitites/limbs/armadillo/armadillo_head.tscn" id="2_gtjq3"]
+[ext_resource type="PackedScene" uid="uid://byuu30ssq0vir" path="res://Entitites/limbs/armadillo/armadillo_body.tscn" id="3_qmfyo"]
+[ext_resource type="PackedScene" uid="uid://dlemfbfmouqf8" path="res://Entitites/limbs/armadillo/armadillo_arm.tscn" id="4_mcp4h"]
+[ext_resource type="PackedScene" uid="uid://bgybrovxmau3e" path="res://Entitites/limbs/armadillo/armadillo_leg.tscn" id="5_pvrrn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsh66"]
+size = Vector3(2.45969, 10.331762, 2.3476868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8p2mn"]
+size = Vector3(2.5129328, 10.624047, 2.6876755)
+
+[node name="armadillo" type="CharacterBody3D" unique_id=1420459718]
+script = ExtResource("1_m7vwv")
+e_name = "Armadillo"
+metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1454136755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013498306, -1.8711176, 0.33241272)
+shape = SubResource("BoxShape3D_wsh66")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=603301631]
+avoidance_enabled = true
+radius = 5.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 45.6
+
+[node name="Area3D" type="Area3D" parent="." unique_id=549165986]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1600102661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040112972, -1.724608, 0.2849846)
+shape = SubResource("BoxShape3D_8p2mn")
+
+[node name="body" type="Node3D" parent="." unique_id=147399233]
+
+[node name="head" type="Node3D" parent="body" unique_id=169269008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0183964, -0.2858851)
+
+[node name="armadillo_head" parent="body/head" unique_id=1552691094 instance=ExtResource("2_gtjq3")]
+
+[node name="torso" type="Node3D" parent="body" unique_id=1079419203]
+
+[node name="armadillo_body" parent="body/torso" unique_id=1415761282 instance=ExtResource("3_qmfyo")]
+
+[node name="left_arm" type="Node3D" parent="body" unique_id=1348977130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8118849, 0.9741397, 0)
+
+[node name="armadillo_arm" parent="body/left_arm" unique_id=817377743 instance=ExtResource("4_mcp4h")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
+
+[node name="right_arm" type="Node3D" parent="body" unique_id=800705100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.812, 0.974, 0)
+
+[node name="armadillo_arm" parent="body/right_arm" unique_id=1573732933 instance=ExtResource("4_mcp4h")]
+
+[node name="left_leg" type="Node3D" parent="body" unique_id=1986795624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69447386, -2.2839234, 0.30782318)
+
+[node name="armadillo_leg" parent="body/left_leg" unique_id=191378170 instance=ExtResource("5_pvrrn")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26719666, 0)
+side = 0
+
+[node name="right_leg" type="Node3D" parent="body" unique_id=951915955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.284, 0.308)
+
+[node name="armadillo_leg" parent="body/right_leg" unique_id=809720113 instance=ExtResource("5_pvrrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26719666, 0)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

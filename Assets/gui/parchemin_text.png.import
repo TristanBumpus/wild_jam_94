@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ynl8g7hxwc43"
-path.s3tc="res://.godot/imported/parchemin_text.png-d43ea61434c17cb3b08fd4a250763480.s3tc.ctex"
+path.s3tc="res://.godot/imported/parchemin_text.png-5b74943fc0c8e72f6aeb4bec86981dfa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/gui/parchemin_text.png"
-dest_files=["res://.godot/imported/parchemin_text.png-d43ea61434c17cb3b08fd4a250763480.s3tc.ctex"]
+source_file="res://Assets/gui/parchemin_text.png"
+dest_files=["res://.godot/imported/parchemin_text.png-5b74943fc0c8e72f6aeb4bec86981dfa.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da6dh0fvxv5jf"
-path.s3tc="res://.godot/imported/armadillo_shin_armadilo_TEXT.png-a43ebabb947e2fcd04ef34f7e172bbe5.s3tc.ctex"
+path.s3tc="res://.godot/imported/armadillo_shin_armadilo_TEXT.png-e61eb7806ff0c51df3e292292c4704ed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/armadillo/armadillo_shin_armadilo_TEXT.png"
-dest_files=["res://.godot/imported/armadillo_shin_armadilo_TEXT.png-a43ebabb947e2fcd04ef34f7e172bbe5.s3tc.ctex"]
+source_file="res://Assets/armadillo/armadillo_shin_armadilo_TEXT.png"
+dest_files=["res://.godot/imported/armadillo_shin_armadilo_TEXT.png-e61eb7806ff0c51df3e292292c4704ed.s3tc.ctex"]
 
 [params]
 

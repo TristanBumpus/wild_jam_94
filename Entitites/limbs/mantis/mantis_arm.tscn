@@ -31,6 +31,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_c4for"]
 resource_name = "attack"
@@ -58,6 +70,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.97961855, -0.63079685, 5.3472487e-08), Vector3(1.1602883, 0.98739046, -0.031147787)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.61, 0.89),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_s2pdo"]
@@ -153,6 +177,12 @@ _data = {
 &"walk": SubResource("Animation_cvrvg")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_msbpt"]
+size = Vector3(2.6264648, 1, 6.0786743)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_msbpt"]
+height = 4.570801
+
 [node name="mantis_arm" type="RigidBody3D" unique_id=1397359573]
 script = ExtResource("1_6d284")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
@@ -174,3 +204,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.33940744)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1490572752]
 libraries/ = SubResource("AnimationLibrary_81oe5")
+
+[node name="attack_box" type="Area3D" parent="." unique_id=34888224]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=970859176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -3.919178)
+shape = SubResource("BoxShape3D_msbpt")
+disabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1421031610]
+transform = Transform3D(0.9878543, -0.13793503, -0.07153845, 0, 0.46040127, -0.8877109, 0.15538283, 0.87692904, 0.45480937, 1.949173, 1.034303, -2.714392)
+shape = SubResource("CapsuleShape3D_msbpt")

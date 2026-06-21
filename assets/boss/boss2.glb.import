@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcbphvx2vvkxs"
-path="res://.godot/imported/boss2.glb-049cb07615ae5da1dc78067e5fca35eb.scn"
+path="res://.godot/imported/boss2.glb-3f658db54ad5c631d2499de223ba1cba.scn"
 
 [deps]
 
-source_file="res://assets/boss/boss2.glb"
-dest_files=["res://.godot/imported/boss2.glb-049cb07615ae5da1dc78067e5fca35eb.scn"]
+source_file="res://Assets/boss/boss2.glb"
+dest_files=["res://.godot/imported/boss2.glb-3f658db54ad5c631d2499de223ba1cba.scn"]
 
 [params]
 

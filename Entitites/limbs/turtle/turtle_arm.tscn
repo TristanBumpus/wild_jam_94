@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_orh06"]
 [ext_resource type="PackedScene" uid="uid://d30uakkdoy8o5" path="res://meshes/limbilimb/turtle/turtle_arm_obj.tscn" id="2_fq7at"]
-[ext_resource type="Texture2D" uid="uid://ch8hgep6wwsfj" path="res://assets/gui/limb/turtle/turtle_arm.png" id="2_l6dij"]
+[ext_resource type="Texture2D" uid="uid://ch8hgep6wwsfj" path="res://Assets/gui/limb/turtle/turtle_arm.png" id="2_l6dij"]
 [ext_resource type="PackedScene" uid="uid://comgjh6ebwu13" path="res://meshes/limbilimb/turtle/turtle_forearm_obj.tscn" id="3_l6dij"]
 [ext_resource type="PackedScene" uid="uid://b73dg5kqs3dta" path="res://meshes/limbilimb/turtle/turtle_fist_obj.tscn" id="4_tqk2v"]
 
@@ -48,7 +48,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_wokdt"]
 resource_name = "attack"
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

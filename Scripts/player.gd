@@ -108,6 +108,8 @@ func attack():
 	if Input.is_action_pressed("right_click") and !attacking[1]:
 		attacking[1] = true
 		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position)
+	
+	
 
 func limb_to_check(node,index):
 	if node.get_child(0) != last_limbs[index]:

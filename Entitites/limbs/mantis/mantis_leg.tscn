@@ -167,12 +167,16 @@ _data = {
 &"walk": SubResource("Animation_wxugv")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wxugv"]
+radius = 0.82910156
+height = 6.184204
+
 [node name="mantis_leg" type="RigidBody3D" unique_id=801801284]
 script = ExtResource("1_mdomy")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="thigh_a" type="Node3D" parent="." unique_id=1082756425]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0.70220804)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.70220804)
 
 [node name="mantis_thigh" parent="thigh_a" unique_id=957419598 instance=ExtResource("2_wxugv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)
@@ -187,7 +191,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6533867, -0.8986721, -0.347
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0852947, -1.6916337, -0.6119809)
 
 [node name="thigh_a2" type="Node3D" parent="." unique_id=150295229]
-transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -0.073556885, 0, -0.3274656)
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.073556885, 0, -0.3274656)
 
 [node name="mantis_thigh" parent="thigh_a2" unique_id=764844084 instance=ExtResource("2_wxugv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)
@@ -203,3 +207,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0852947, -1.6916337, -0.611
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1668343713]
 libraries/ = SubResource("AnimationLibrary_3l8r4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2048088295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4041748, -2.6900024, 0)
+shape = SubResource("CapsuleShape3D_wxugv")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwv2tha1kev2c"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_t6lbc"]
-[ext_resource type="Texture2D" uid="uid://bt1qujq811grk" path="res://assets/gui/limb/kobold/kobold_arm.png" id="2_4q71b"]
+[ext_resource type="Texture2D" uid="uid://bt1qujq811grk" path="res://Assets/gui/limb/kobold/kobold_arm.png" id="2_4q71b"]
 [ext_resource type="PackedScene" uid="uid://bnkyg0efathlc" path="res://meshes/limbilimb/kobold/kobold_arm_obj.tscn" id="2_h56yg"]
 [ext_resource type="PackedScene" uid="uid://blgd7pk7bdose" path="res://meshes/limbilimb/kobold/kobold_fist_obj.tscn" id="3_4q71b"]
 [ext_resource type="PackedScene" uid="uid://b66lgqii2y1ek" path="res://meshes/limbilimb/kobold/kobold_forearm_obj.tscn" id="4_ol7wb"]
@@ -183,7 +183,7 @@ radius = 0.3334961
 height = 4.9765625
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4q71b"]
-size = Vector3(2.6264648, 1, 9.800903)
+size = Vector3(2.6264648, 1, 6.000061)
 
 [node name="kobold_arm" type="RigidBody3D" unique_id=29705706]
 script = ExtResource("1_t6lbc")
@@ -221,6 +221,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=1165055831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -5.7802925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -3.8798714)
 shape = SubResource("BoxShape3D_4q71b")
 disabled = true

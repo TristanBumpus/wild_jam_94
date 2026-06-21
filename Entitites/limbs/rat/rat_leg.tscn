@@ -168,7 +168,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y5dsf"]
-height = 3.8515625
+height = 4.796875
 
 [node name="rat_leg" type="RigidBody3D" unique_id=650647279]
 script = ExtResource("1_c0o47")
@@ -193,5 +193,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5018621, 0.6717751)
 libraries/ = SubResource("AnimationLibrary_mfcqm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2120162743]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1959198, 0, -1.8054199, -0.2601955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1959198, 0, -2.2780762, -0.2601955)
 shape = SubResource("CapsuleShape3D_y5dsf")
