@@ -1,6 +1,6 @@
 extends Node3D
 
-var difficulty = 100
+var difficulty = 250
 var new_level = false
 var choice_active = false
 var hover_limb = null

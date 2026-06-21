@@ -2,15 +2,28 @@ extends Node3D
 
 class_name spawner
 
-@export var enemies : Array[PackedScene]
+@export var boss : PackedScene
 
 
 
 func spawn():
-	var e = get_tree().current_scene.get_node("enemy_holder").get_children().pick_random()
-	if e != null:
-		e.reparent(get_tree().current_scene)
-		e.global_position = global_position + Vector3(0,10,0)
+	if boss == null:
+		var e = get_tree().current_scene.get_node("enemy_holder").get_children().pick_random()
+		if e != null:
+			e.reparent(get_tree().current_scene)
+			e.global_position = global_position + Vector3(0,10,0)
+			queue_free()
+		else:
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			spawn()
+	else:
+		global.difficulty = 100
+		var e = boss.instantiate()
+		get_tree().current_scene.add_child(e)
+		e.global_position = global_position + Vector3(0,0,0)
 		queue_free()
 
 

@@ -39,6 +39,8 @@ var blood_splatter = preload("res://Entitites/effects/blood_splatter.tscn")
 var died = false
 var path
 
+
+
 func chest_equalizer():
 	var head_offset = $body/torso.get_child(0).chest_off_head_set
 	var arm_offset = $body/torso.get_child(0).chest_off_set
@@ -71,6 +73,7 @@ func new_pos():
 	if get_process_delta_time() < 16:
 		if $NavigationAgent3D.target_position.distance_to(player.global_position) > 10:
 			$NavigationAgent3D.target_position = player.global_position
+			await get_tree().physics_frame
 		if global_position.distance_to(player.global_position) < 10:
 			$NavigationAgent3D.target_position = player.global_position
 			await get_tree().physics_frame
@@ -89,7 +92,7 @@ func basic_movement():
 	
 	var target_angle = flat_direction.angle_to(Vector2.UP)
 	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
-	rotation.y = lerp_angle(rotation.y, target_angle, .05)
+	rotation.y = lerp_angle(rotation.y, target_angle, .1)
 	#var path_node = 1
 	#while true:
 		#if global_position.distance_to(path[path_node]) > 1:
@@ -107,18 +110,20 @@ func set_animation(node:Node3D,animString:String):
 			node.get_parent().look_at(player.position)
 			node.get_parent().rotation.y = 0
 			node.get_parent().rotation.z = 0
-			#if node.get_node("AnimationPlayer").current_animation != "attack":
-			node.get_node("AnimationPlayer").play("attack")
+			if node.get_node("AnimationPlayer").current_animation != "attack":
+				node.get_node("AnimationPlayer").play("attack")
 		
 		elif node.side == 1:
-			node.get_node("AnimationPlayer").play(animString, .3)
-		else:
-			var advance = false
 			if node.get_node("AnimationPlayer").current_animation != animString:
-				advance = true
-			node.get_node("AnimationPlayer").play(animString, .3)
-			if advance:
-				node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
+				node.get_node("AnimationPlayer").play(animString, .3)
+		else:
+			if node.get_node("AnimationPlayer").current_animation != animString:
+				var advance = false
+				if node.get_node("AnimationPlayer").current_animation != animString:
+					advance = true
+				node.get_node("AnimationPlayer").play(animString, .3)
+				if advance:
+					node.get_node("AnimationPlayer").advance(node.get_node("AnimationPlayer").get_animation(animString).length/ 2)
 
 func melee_attack():
 	if velocity.x + velocity.z != 0:
@@ -187,6 +192,7 @@ func rigid_interaction():
 
 
 func _ready() -> void:
+	
 	add_to_group("enemy")
 	#timer = Timer.new()
 	#timer.one_shot = true
@@ -262,15 +268,17 @@ func _ready() -> void:
 	$NavigationAgent3D.path_desired_distance = 20
 
 
+
 func _physics_process(delta: float) -> void:
+	
 	if start:
 		limb_checker()
 		new_pos()
 		start = false
-	
-	if hp > 0:
 		chest_equalizer()
 	
+	if hp > 0:
+		
 		if is_effected_by_gravity:
 			if not is_on_floor():
 				velocity += get_gravity() * delta
@@ -286,6 +294,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 		rigid_interaction()
+	
+	
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

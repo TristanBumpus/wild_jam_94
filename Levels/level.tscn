@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cwlfnpwtfwckq" path="res://Levels/pool_test/dtm_lvl_4.tscn" id="14_gaktt"]
 [ext_resource type="PackedScene" uid="uid://bliy2mdwfntjv" path="res://Levels/pool_test/dtm_lvl_5.tscn" id="15_3fdi5"]
 [ext_resource type="AudioStream" uid="uid://dfejnthou7i2p" path="res://Assets/music/thing.mp3" id="16_vmy0u"]
+[ext_resource type="Script" uid="uid://chqej2wrs0kli" path="res://Scripts/enemy_creator.gd" id="21_1sae0"]
 [ext_resource type="PackedScene" uid="uid://3j3s4t1nrkjv" path="res://Entitites/effects/hit_particule_fx.tscn" id="23_twn60"]
 
 [sub_resource type="Environment" id="Environment_ecu0b"]
@@ -48,13 +49,18 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1198014098]
 environment = SubResource("Environment_ecu0b")
 
+[node name="enemy_creator" type="Node3D" parent="." unique_id=1127420325]
+process_mode = 3
+script = ExtResource("21_1sae0")
+enemies = Array[PackedScene]([ExtResource("7_ugh17"), ExtResource("8_eabcg"), ExtResource("9_dvejp")])
+
+[node name="Timer" type="Timer" parent="enemy_creator" unique_id=1184278005]
+wait_time = 0.05
+autostart = true
+
 [node name="enemy_holder" type="Node3D" parent="." unique_id=333925593 groups=["e_holder"]]
 process_mode = 4
 visible = false
-
-[node name="Timer" type="Timer" parent="." unique_id=1184278005]
-wait_time = 0.5
-autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=373271715]
 process_mode = 3
@@ -67,4 +73,4 @@ bus = &"music"
 
 [node name="hit_particule_fx2" parent="." unique_id=1202504963 instance=ExtResource("23_twn60")]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="enemy_creator/Timer" to="enemy_creator" method="_on_timer_timeout"]
