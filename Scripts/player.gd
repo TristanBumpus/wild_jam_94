@@ -112,10 +112,10 @@ func attack():
 	
 	if Input.is_action_pressed("left_click") and !attacking[0]:
 		attacking[0] = true
-		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position)
+		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position,-20)
 	if Input.is_action_pressed("right_click") and !attacking[1]:
 		attacking[1] = true
-		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position)
+		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position,-20)
 
 
 func limb_to_check(node,index):
@@ -266,7 +266,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		$ui.visible = false
-		$body/torso.get_child(0).scale = Vector3(.5,.5,.5)
+		for child in limb_slots:
+			child.get_child(0).scale = Vector3(.5,.5,.5)
 		$body/torso.visible = true
 		limb_checker()
 	

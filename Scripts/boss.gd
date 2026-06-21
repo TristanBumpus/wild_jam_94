@@ -190,7 +190,7 @@ func _process(delta: float) -> void:
 	
 	if start:
 		limb_checker()
-		hp = 50
+		hp = 100
 		new_pos()
 		start = false
 	

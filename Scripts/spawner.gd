@@ -20,7 +20,7 @@ func spawn():
 			await get_tree().physics_frame
 			spawn()
 	else:
-		global.difficulty = 100
+		global.difficulty = 200
 		var e = boss.instantiate()
 		get_tree().current_scene.add_child(e)
 		e.global_position = global_position + Vector3(0,0,0)
