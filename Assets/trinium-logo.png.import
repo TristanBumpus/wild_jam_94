@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qe00mv35lggb"
-path="res://.godot/imported/trinium-logo.png-78354596c8f23a7e35350003b31e19b6.ctex"
+path="res://.godot/imported/trinium-logo.png-04353a40eb71bc8f6a2a57122e6adfc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/trinium-logo.png"
-dest_files=["res://.godot/imported/trinium-logo.png-78354596c8f23a7e35350003b31e19b6.ctex"]
+source_file="res://Assets/trinium-logo.png"
+dest_files=["res://.godot/imported/trinium-logo.png-04353a40eb71bc8f6a2a57122e6adfc9.ctex"]
 
 [params]
 

@@ -22,8 +22,19 @@ func genocide():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	start = get_child(0).get_node("door3")
+	
+	var leve = load("res://Levels/pool_test/dung_lvl_3.tscn").instantiate()
+	
+	get_tree().current_scene.add_child(leve)
+	
+	leve.global_position = start.global_position
+	
+	leve.global_position.y = 0
+	
+	start = leve.find_child("door")
+	
+	
 	
 	while size:
 		
@@ -66,16 +77,18 @@ func _ready() -> void:
 		start = l.find_child("door")
 		
 		size_mount -= 1
+	
+	var level = load("res://Levels/pool_test/boss_room.tscn").instantiate()
+	
+	get_tree().current_scene.add_child(level)
+	
+	level.global_position = start.global_position
+	
+	level.global_position.y = 0
+	
+	start = level.find_child("door")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-func _on_timer_timeout() -> void:
-	if $enemy_holder.get_child_count() < 20:
-		
-		var e = enemies.pick_random().instantiate()
-		$enemy_holder.add_child(e)
-		
-		

@@ -187,6 +187,9 @@ func play_step():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	#process_mode = Node.PROCESS_MODE_DISABLED
+
+	
 	linear_damp = 2
 	angular_damp = 2
 	mass = .5
@@ -323,7 +326,10 @@ func _ready() -> void:
 		$CollisionShape3D.disabled = true
 	
 	if has_node("attack_box"):
-		$AnimationPlayer.speed_scale = attack_speed
+		if attack_speed > .1:
+			$AnimationPlayer.speed_scale = attack_speed
+		else:
+			$AnimationPlayer.speed_scale = .1
 		if get_parent() != get_tree().current_scene:
 			if get_parent().get_parent().get_parent().is_in_group("player"):
 				$attack_box.set_collision_layer_value(2,true)
@@ -339,7 +345,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 	
 	if $choice.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

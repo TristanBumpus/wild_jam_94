@@ -64,6 +64,8 @@ func cheats():
 		var i = get_viewport().get_texture().get_image()
 		i.save_png("res://screenshots/"+ str(randi()) +".png")
 		$ui.visible = true
+	if Input.is_action_just_pressed("p"):
+		global_position = get_tree().get_first_node_in_group("boss_room").global_position + Vector3(0,10,0)
 
 func movement(delta):
 	
@@ -138,7 +140,7 @@ func limb_checker():
 
 func set_animation(node:Node3D,animString:String):
 	if animString == "attack":
-		if node.get_node("AnimationPlayer").current_animation != "attack" and get_node("attack_cooldown"+str(node.side)).is_stopped():
+		if node.get_node("AnimationPlayer").current_animation != "attack" and get_node("attack_cooldown"+str(node.side)).is_stopped() and attacking[node.side]:
 			node.get_node("AnimationPlayer").play(animString, .3)
 			node.get_node("AnimationPlayer").advance(0)
 			get_node("attack_cooldown"+str(node.side)).start(node.get_node("AnimationPlayer").get_animation(animString).length / node.attack_speed)

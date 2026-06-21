@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c87cf26vst10g"]
+
+[ext_resource type="Script" uid="uid://coihyx1oaif7m" path="res://Scripts/boss.gd" id="1_8vqiu"]
+[ext_resource type="PackedScene" uid="uid://bcbphvx2vvkxs" path="res://Assets/boss/boss2.glb" id="2_fsutq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fsutq"]
+radius = 4.7
+
+[node name="boss" type="CharacterBody3D" unique_id=464835068 groups=["enemy"]]
+script = ExtResource("1_8vqiu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1729608270]
+shape = SubResource("SphereShape3D_fsutq")
+
+[node name="boss2" parent="." unique_id=323837125 instance=ExtResource("2_fsutq")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=915701076]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=156547286]
+shape = SubResource("SphereShape3D_fsutq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1736252434]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1168951040]
+
+[node name="body" type="Node3D" parent="." unique_id=1078983940]
+
+[node name="Node3D" type="Node3D" parent="body" unique_id=1299142527]
+
+[node name="Node3D2" type="Node3D" parent="body" unique_id=980143972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Node3D3" type="Node3D" parent="body" unique_id=91092878]
+
+[node name="Node3D4" type="Node3D" parent="body" unique_id=1634687757]
+
+[node name="Node3D5" type="Node3D" parent="body" unique_id=59343782]
+
+[node name="Node3D6" type="Node3D" parent="body" unique_id=1319869713]
+
+[node name="Node3D7" type="Node3D" parent="body" unique_id=1534068246]
+
+[node name="Node3D8" type="Node3D" parent="body" unique_id=1536127668]
+
+[node name="Node3D9" type="Node3D" parent="body" unique_id=835032721]
+
+[node name="Node3D10" type="Node3D" parent="body" unique_id=2004787137]
+
+[node name="Node3D11" type="Node3D" parent="body" unique_id=746767695]
+
+[node name="Node3D12" type="Node3D" parent="body" unique_id=1190805770]
+
+[node name="Node3D13" type="Node3D" parent="body" unique_id=1678120394]
+
+[node name="Node3D14" type="Node3D" parent="body" unique_id=1202655256]
+
+[node name="Node3D15" type="Node3D" parent="body" unique_id=2028456937]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
