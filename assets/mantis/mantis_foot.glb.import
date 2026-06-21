@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://crwj38jj85dxc"
-path="res://.godot/imported/mantis_foot.glb-efc9435a5fa6267584434ccce0a615d1.scn"
+path="res://.godot/imported/mantis_foot.glb-c82f899b1a54de40c7ebaeeca47e2ad2.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_foot.glb"
-dest_files=["res://.godot/imported/mantis_foot.glb-efc9435a5fa6267584434ccce0a615d1.scn"]
+source_file="res://assets/mantis/mantis_foot.glb"
+dest_files=["res://.godot/imported/mantis_foot.glb-c82f899b1a54de40c7ebaeeca47e2ad2.scn"]
 
 [params]
 
