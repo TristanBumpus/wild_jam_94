@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="Godot_Wild_Jam_94"
-run/main_scene="uid://cxn67d3c4suyy"
+run/main_scene="uid://dh70gybawcrpm"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/use_filter=false
 boot_splash/image="uid://qe00mv35lggb"
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1000
+
+[audio]
+
+buses/default_bus_layout="uid://ctotc3pttnbot"
 
 [autoload]
 
