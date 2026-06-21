@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cml3rj1ibauet"]
 
 [ext_resource type="Script" uid="uid://07uhllblttjx" path="res://Scripts/sound_effects.gd" id="1_pw5fy"]
-[ext_resource type="Texture2D" uid="uid://7ifbb3jj0n76" path="res://assets/elements/blood_effect_2.png" id="2_mj1b5"]
-[ext_resource type="Texture2D" uid="uid://dmd5pnspq2831" path="res://assets/elements/blood_effect_2_n.png" id="3_eaypn"]
+[ext_resource type="Texture2D" uid="uid://7ifbb3jj0n76" path="res://Assets/elements/blood_effect_2.png" id="2_mj1b5"]
+[ext_resource type="Texture2D" uid="uid://dmd5pnspq2831" path="res://Assets/elements/blood_effect_2_n.png" id="3_eaypn"]
+[ext_resource type="ArrayMesh" uid="uid://dww6m180khnn2" path="res://Assets/gib/gib_1.res" id="4_mj1b5"]
+[ext_resource type="ArrayMesh" uid="uid://bvaas4bvyeymf" path="res://Assets/gib/gib_2.res" id="5_eaypn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjwas"]
 transparency = 2
@@ -37,17 +39,16 @@ curve = SubResource("Curve_kjwas")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kjwas"]
 particle_flag_rotate_y = true
-emission_shape = 1
-emission_sphere_radius = 2.0
 angle_min = -179.99998
 angle_max = 180.00002
 direction = Vector3(0, 1, 0)
-initial_velocity_min = -5.0
-initial_velocity_max = 2.0
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 7.0
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 0.99997765
-scale_min = 1.5
-scale_max = 2.0
+scale_min = 0.5
+scale_max = 0.5
 scale_curve = SubResource("CurveTexture_mgtge")
 alpha_curve = SubResource("CurveTexture_ajaua")
 turbulence_influence_max = 0.2
@@ -63,9 +64,13 @@ script = ExtResource("1_pw5fy")
 material_override = SubResource("StandardMaterial3D_kjwas")
 emitting = false
 amount = 60
+lifetime = 3.0
 one_shot = true
-explosiveness = 0.5
+explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_kjwas")
+draw_passes = 2
+draw_pass_1 = ExtResource("4_mj1b5")
+draw_pass_2 = ExtResource("5_eaypn")
 
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_finished"]

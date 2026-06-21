@@ -31,6 +31,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2tmbd"]
 resource_name = "attack"
@@ -57,6 +69,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.7853982, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.68, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_md04r"]
@@ -170,10 +194,14 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j2bfl"]
 height = 3.8515625
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gnbh"]
+size = Vector3(2.6264648, 1, 6.010254)
+
 [node name="kobold_leg" type="RigidBody3D" unique_id=1415290783]
 script = ExtResource("1_8nv7u")
 type = 2
 limb_name = "Kobold Leg"
+hp = 2.0
 armor = 1.0
 image = ExtResource("2_5gnbh")
 speed = 3
@@ -197,3 +225,12 @@ libraries/ = SubResource("AnimationLibrary_nukca")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=804974056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1959198, 0, -1.8054199, -0.2601955)
 shape = SubResource("CapsuleShape3D_j2bfl")
+
+[node name="attack_box" type="Area3D" parent="." unique_id=1892394261]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=1442548918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -7.675617)
+shape = SubResource("BoxShape3D_5gnbh")
+disabled = true

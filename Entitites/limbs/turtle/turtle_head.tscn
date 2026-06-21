@@ -2,18 +2,156 @@
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_cxver"]
 [ext_resource type="PackedScene" uid="uid://dqn8mvbxrg3iq" path="res://meshes/limbilimb/turtle/turtle_head_obj.tscn" id="2_f4c6a"]
-[ext_resource type="Texture2D" uid="uid://dxiu50mq2b6y" path="res://assets/gui/limb/turtle/turtle_head.png" id="2_h7258"]
+[ext_resource type="Texture2D" uid="uid://dxiu50mq2b6y" path="res://Assets/gui/limb/turtle/turtle_head.png" id="2_h7258"]
 [ext_resource type="PackedScene" uid="uid://735epodgdlrn" path="res://meshes/limbilimb/turtle/turtle_neck_obj.tscn" id="3_h7258"]
+
+[sub_resource type="Animation" id="Animation_ni4k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turtle_head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.7868396, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("turtle_neck:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("turtle_head:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("turtle_neck:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_h7258"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turtle_head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7868396, 0), Vector3(0, 0.7868396, -6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("turtle_neck:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("turtle_head:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("turtle_neck:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("attack_box/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ni4k6"]
+_data = {
+&"RESET": SubResource("Animation_ni4k6"),
+&"attack": SubResource("Animation_h7258")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4c6a"]
 radius = 0.86328125
 height = 2.0019531
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8i4lv"]
+size = Vector3(2.6264648, 1, 6.010254)
+
 [node name="turtle_head" type="RigidBody3D" unique_id=1155505961]
 script = ExtResource("1_cxver")
 type = 0
 limb_name = "Turtle Head"
+damage = 2.0
 hp = 10.0
+armor = 2.0
 image = ExtResource("2_h7258")
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
@@ -23,7 +161,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7868396, 0)
 [node name="turtle_neck" parent="." unique_id=1969769088 instance=ExtResource("3_h7258")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=251845262]
+libraries/ = SubResource("AnimationLibrary_ni4k6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1608856086]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46861196, 0)
 shape = SubResource("CapsuleShape3D_f4c6a")
+
+[node name="attack_box" type="Area3D" parent="." unique_id=1035305530]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack_box" unique_id=1080248185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132324, 0, -7.675617)
+shape = SubResource("BoxShape3D_8i4lv")
+disabled = true

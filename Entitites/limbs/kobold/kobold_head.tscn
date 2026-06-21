@@ -178,7 +178,7 @@ size = Vector3(2.385315, 1, 8.161743)
 [node name="kobold_head" type="RigidBody3D" unique_id=856710131]
 script = ExtResource("1_0pict")
 type = 0
-type_2 = 1
+type_2 = 3
 limb_name = "Kobold Head"
 damage = 1.0
 hp = 1.0

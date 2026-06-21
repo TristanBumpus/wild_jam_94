@@ -60,8 +60,8 @@ func chest_equalizer():
 	$CollisionShape3D.scale = $body/torso.get_child(0).scale
 	$Area3D/CollisionShape3D.scale = $body/torso.get_child(0).scale
 	
-	$CollisionShape3D.position *= $body/torso.get_child(0).scale
-	$Area3D/CollisionShape3D.position *= $body/torso.get_child(0).scale
+	#$CollisionShape3D.position *= $body/torso.get_child(0).scale
+	#$Area3D/CollisionShape3D.position *= $body/torso.get_child(0).scale
 	
 	$body/head.position = head_offset
 	
@@ -340,6 +340,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			get_tree().current_scene.add_child(death_effect)
 			death_effect.global_position = global_position
 			death_effect.get_child(0).emitting = true
+			
+			var death_effect2 = load("res://Entitites/effects/gibs.tscn").instantiate()
+			get_tree().current_scene.add_child(death_effect2)
+			death_effect2.global_position = global_position
+			death_effect2.get_child(0).emitting = true
 			
 			var times = 0
 			

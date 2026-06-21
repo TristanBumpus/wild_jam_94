@@ -189,7 +189,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if start:
-		print("S")
 		limb_checker()
 		hp = 50
 		new_pos()

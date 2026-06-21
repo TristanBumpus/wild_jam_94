@@ -175,6 +175,7 @@ height = 6.184204
 [node name="mantis_leg" type="RigidBody3D" unique_id=801801284]
 script = ExtResource("1_mdomy")
 type = 2
+damage = 2.0
 image = ExtResource("2_44ofn")
 speed = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"

@@ -6,9 +6,9 @@ extends Node3D
 @export var mount_lvl : Array[PackedScene]
 @export var trans_lvl : Array[PackedScene]
 
-@export var size = 1
-@export var size_mount = 1
-@export var size_dtm = 1
+@export var size = 3
+@export var size_mount = 3
+@export var size_dtm = 3
 
 @export var enemies: Array[PackedScene]
 
