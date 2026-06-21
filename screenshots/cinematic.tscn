@@ -73,10 +73,10 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.0000002, 7.0000005, 10.000001, 14.000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3.0000002, 7.0000005),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.31594586, -3.1344757, 0), Vector3(0.31594586, -3.1344757, 0), Vector3(0.4730257, 3.1356175, 0), Vector3(0.4730257, 3.1356175, 0), Vector3(0.4730257, 3.1356173, 0)]
+"values": [Vector3(0.31594586, -3.1344757, 0), Vector3(0.31594586, -3.1344757, 0), Vector3(0.31594586, -3.1344757, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qyogh"]
@@ -202,7 +202,8 @@ libraries/ = SubResource("AnimationLibrary_qyogh")
 autoplay = &"whole"
 
 [node name="player" parent="." unique_id=1745359200 instance=ExtResource("13_f74h5")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -91.11499, 8.804337, -17.610882)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -91.11499, 8.804337, -15.859052)
+disabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=288395605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.021484, 21.896633, -1.4433851)
