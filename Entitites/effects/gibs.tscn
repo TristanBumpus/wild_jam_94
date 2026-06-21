@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cml3rj1ibauet"]
 
 [ext_resource type="Script" uid="uid://07uhllblttjx" path="res://Scripts/sound_effects.gd" id="1_pw5fy"]
-[ext_resource type="Texture2D" uid="uid://7ifbb3jj0n76" path="res://Assets/elements/blood_effect_2.png" id="2_mj1b5"]
-[ext_resource type="Texture2D" uid="uid://dmd5pnspq2831" path="res://Assets/elements/blood_effect_2_n.png" id="3_eaypn"]
+[ext_resource type="Texture2D" uid="uid://7ifbb3jj0n76" path="res://assets/elements/blood_effect_2.png" id="2_mj1b5"]
+[ext_resource type="Texture2D" uid="uid://dmd5pnspq2831" path="res://assets/elements/blood_effect_2_n.png" id="3_eaypn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjwas"]
 transparency = 2
@@ -56,8 +56,6 @@ collision_friction = 0.0
 collision_bounce = 0.0
 collision_use_scale = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_kjwas"]
-
 [node name="BloodExplosion" type="Node3D" unique_id=347788589]
 script = ExtResource("1_pw5fy")
 
@@ -69,6 +67,5 @@ one_shot = true
 explosiveness = 0.5
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_kjwas")
-draw_pass_1 = SubResource("QuadMesh_kjwas")
 
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_finished"]
