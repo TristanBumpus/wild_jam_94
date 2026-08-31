@@ -60,11 +60,11 @@ func cheats():
 		trigger_shake(.5)
 		for child in get_tree().get_nodes_in_group("enemy"):
 			child.hp = 0
-	if Input.is_action_just_pressed("e"):
-		$ui.visible = false
-		var i = get_viewport().get_texture().get_image()
-		i.save_png("res://screenshots/"+ str(randi()) +".png")
-		$ui.visible = true
+	#if Input.is_action_just_pressed("e"):
+		#$ui.visible = false
+		#var i = get_viewport().get_texture().get_image()
+		#i.save_png("res://screenshots/"+ str(randi()) +".png")
+		#$ui.visible = true
 	if Input.is_action_just_pressed("p"):
 		global.difficulty = 250
 		for child in find_children("*","limb"):

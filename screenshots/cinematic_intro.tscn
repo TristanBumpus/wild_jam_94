@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dh70gybawcrpm"]
 
-[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://assets/dungeon/tileset_dungeon13.meshlib" id="1_igj5r"]
+[ext_resource type="MeshLibrary" uid="uid://cpvknv7b61tp6" path="res://Assets/dungeon/tileset_dungeon13.meshlib" id="1_igj5r"]
 [ext_resource type="Script" uid="uid://dcgy32soncy2r" path="res://Scripts/cinematic.gd" id="1_insrb"]
-[ext_resource type="AudioStream" uid="uid://q267fugyaj1v" path="res://assets/music/foadDivid.mp3" id="2_jnirm"]
-[ext_resource type="PackedScene" uid="uid://bh6nrxid7u6ud" path="res://assets/elements/mount_of_clay.glb" id="3_v3fdh"]
-[ext_resource type="PackedScene" uid="uid://cxgfaum3e17qy" path="res://assets/godot/god_fist.glb" id="4_hpwao"]
-[ext_resource type="PackedScene" uid="uid://c44tx80jk5r47" path="res://assets/main_character/character_head.glb" id="5_gr0qf"]
+[ext_resource type="AudioStream" uid="uid://q267fugyaj1v" path="res://Assets/music/foadDivid.mp3" id="2_jnirm"]
+[ext_resource type="PackedScene" uid="uid://bh6nrxid7u6ud" path="res://Assets/elements/mount_of_clay.glb" id="3_v3fdh"]
+[ext_resource type="PackedScene" uid="uid://cxgfaum3e17qy" path="res://Assets/godot/god_fist.glb" id="4_hpwao"]
+[ext_resource type="PackedScene" uid="uid://c44tx80jk5r47" path="res://Assets/main_character/character_head.glb" id="5_gr0qf"]
 [ext_resource type="Shader" uid="uid://cxegt1gmvpqmi" path="res://shader/overlaytest2d.gdshader" id="6_hcmvk"]
-[ext_resource type="PackedScene" uid="uid://5ft4jn4jxxrk" path="res://assets/armadillo/armadillo_head.glb" id="7_ajn3r"]
-[ext_resource type="PackedScene" uid="uid://yjx4hq6djku7" path="res://assets/rat/rat_head.glb" id="8_7qa1m"]
-[ext_resource type="PackedScene" uid="uid://out8mibux2fa" path="res://assets/spider/spider_head.glb" id="9_v3fdh"]
-[ext_resource type="PackedScene" uid="uid://cg5kdekh43q2e" path="res://assets/mantis/mantis_head.glb" id="10_v3fdh"]
-[ext_resource type="PackedScene" uid="uid://bhy2ircymd4lw" path="res://assets/turtle/turtle_head.glb" id="11_insrb"]
+[ext_resource type="PackedScene" uid="uid://5ft4jn4jxxrk" path="res://Assets/armadillo/armadillo_head.glb" id="7_ajn3r"]
+[ext_resource type="PackedScene" uid="uid://yjx4hq6djku7" path="res://Assets/rat/rat_head.glb" id="8_7qa1m"]
+[ext_resource type="PackedScene" uid="uid://out8mibux2fa" path="res://Assets/spider/spider_head.glb" id="9_v3fdh"]
+[ext_resource type="PackedScene" uid="uid://cg5kdekh43q2e" path="res://Assets/mantis/mantis_head.glb" id="10_v3fdh"]
+[ext_resource type="PackedScene" uid="uid://bhy2ircymd4lw" path="res://Assets/turtle/turtle_head.glb" id="11_insrb"]
 
 [sub_resource type="Environment" id="Environment_jnirm"]
 fog_enabled = true
@@ -441,4 +441,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 4, 2)
 transform = Transform3D(5, 0, 0, 0, 4.664422, -1.8008797, 0, 1.8008797, 4.664422, -96.306, 16.883966, -3.7464213)
 
 [node name="god_fist2" parent="." unique_id=2138323478 instance=ExtResource("4_hpwao")]
-transform = Transform3D(-1.473314, -1.3259734, -4.590331, 2.0512972, -4.5139217, 0.6455166, -4.315267, -1.6930172, 1.8740779, -92.811966, 16.883966, -6.376888)
+transform = Transform3D(-1.4733143, -1.3259736, -4.590331, 2.0512977, -4.5139227, 0.6455166, -4.3152676, -1.6930175, 1.8740779, -92.811966, 16.883966, -6.376888)

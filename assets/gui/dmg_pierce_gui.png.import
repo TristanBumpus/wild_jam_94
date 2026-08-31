@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbh7pm5a2pm1i"
-path.s3tc="res://.godot/imported/dmg_pierce_gui.png-c5681ba9e1ec37a40699bf6a22859601.s3tc.ctex"
+path.s3tc="res://.godot/imported/dmg_pierce_gui.png-11a71d9b136760b2ac73722d59e799b2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/gui/dmg_pierce_gui.png"
-dest_files=["res://.godot/imported/dmg_pierce_gui.png-c5681ba9e1ec37a40699bf6a22859601.s3tc.ctex"]
+source_file="res://Assets/gui/dmg_pierce_gui.png"
+dest_files=["res://.godot/imported/dmg_pierce_gui.png-11a71d9b136760b2ac73722d59e799b2.s3tc.ctex"]
 
 [params]
 

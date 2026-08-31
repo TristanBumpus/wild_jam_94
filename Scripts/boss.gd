@@ -88,6 +88,7 @@ func basic_movement():
 	var target_angle = flat_direction.angle_to(Vector2.UP)
 	var dir = ($NavigationAgent3D.get_next_path_position() - global_position).normalized()
 	rotation.y = lerp_angle(rotation.y, target_angle, .05)
+	$body.rotation.y = lerp_angle($body.rotation.y, -target_angle, .05)
 	#var path_node = 1
 	#while true:
 		#if global_position.distance_to(path[path_node]) > 1:

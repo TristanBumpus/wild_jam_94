@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8ckfaodjr5wj"
-path.s3tc="res://.godot/imported/dungeon_tileset5_dungeon_tiles.png-a136d814b7d38753d71d861c2f6b7d07.s3tc.ctex"
+path.s3tc="res://.godot/imported/dungeon_tileset5_dungeon_tiles.png-08972e5d7f65cfa0baaa38a9edffe9eb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/dungeon/dungeon_tileset5_dungeon_tiles.png"
-dest_files=["res://.godot/imported/dungeon_tileset5_dungeon_tiles.png-a136d814b7d38753d71d861c2f6b7d07.s3tc.ctex"]
+source_file="res://Assets/dungeon/dungeon_tileset5_dungeon_tiles.png"
+dest_files=["res://.godot/imported/dungeon_tileset5_dungeon_tiles.png-08972e5d7f65cfa0baaa38a9edffe9eb.s3tc.ctex"]
 
 [params]
 

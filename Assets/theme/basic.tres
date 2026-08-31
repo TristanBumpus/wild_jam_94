@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://dng3rphw3juoc"]
 
-[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://assets/font/Minecraft.ttf" id="1_fqh3q"]
-[ext_resource type="Texture2D" uid="uid://ortkb4gibl8j" path="res://assets/gui/button/button_nine_patch2.png" id="2_jrjic"]
+[ext_resource type="FontFile" uid="uid://d32iwai3iy0a7" path="res://Assets/font/Minecraft.ttf" id="1_fqh3q"]
+[ext_resource type="Texture2D" uid="uid://ortkb4gibl8j" path="res://Assets/gui/button/button_nine_patch2.png" id="2_jrjic"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrjic"]
 texture = ExtResource("2_jrjic")

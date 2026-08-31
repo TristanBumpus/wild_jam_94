@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce6y4va4gbnmh"
-path="res://.godot/imported/human_head.png-888a6d8061d9b1179d52b0b0fd136ca0.ctex"
+path="res://.godot/imported/human_head.png-7b6eee5d253cda8077960d05e6166a9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/human/human_head.png"
-dest_files=["res://.godot/imported/human_head.png-888a6d8061d9b1179d52b0b0fd136ca0.ctex"]
+source_file="res://Assets/gui/limb/human/human_head.png"
+dest_files=["res://.godot/imported/human_head.png-7b6eee5d253cda8077960d05e6166a9d.ctex"]
 
 [params]
 

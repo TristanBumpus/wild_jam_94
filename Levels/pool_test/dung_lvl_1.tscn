@@ -47,7 +47,7 @@ transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 0, 4.371602, 62.6274
 
 [node name="Label3D" type="Label3D" parent="." unique_id=2029475716]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 18.897171, 13.325357, 59.3639)
-text = "Attack: Right and Left Click
+text = "Attack: Left Click
 Collect Some limb"
 font = ExtResource("4_fl3fy")
 font_size = 320

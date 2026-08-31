@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxiu50mq2b6y"
-path="res://.godot/imported/turtle_head.png-c6d30a6a57a6850d494351b9b1e5076e.ctex"
+path="res://.godot/imported/turtle_head.png-1e999192b08c038ec00b7ce94d4b573e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/turtle/turtle_head.png"
-dest_files=["res://.godot/imported/turtle_head.png-c6d30a6a57a6850d494351b9b1e5076e.ctex"]
+source_file="res://Assets/gui/limb/turtle/turtle_head.png"
+dest_files=["res://.godot/imported/turtle_head.png-1e999192b08c038ec00b7ce94d4b573e.ctex"]
 
 [params]
 
