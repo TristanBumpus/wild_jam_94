@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ggmpby1iv2jj"
-path.s3tc="res://.godot/imported/rat_neck_ratmen_TEXT.png-971fd40dce63c65fe68a6f40ac4ebac7.s3tc.ctex"
+path.s3tc="res://.godot/imported/rat_neck_ratmen_TEXT.png-835f167b5ec1c4e0967bac964b625dfc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/rat/rat_neck_ratmen_TEXT.png"
-dest_files=["res://.godot/imported/rat_neck_ratmen_TEXT.png-971fd40dce63c65fe68a6f40ac4ebac7.s3tc.ctex"]
+source_file="res://Assets/rat/rat_neck_ratmen_TEXT.png"
+dest_files=["res://.godot/imported/rat_neck_ratmen_TEXT.png-835f167b5ec1c4e0967bac964b625dfc.s3tc.ctex"]
 
 [params]
 

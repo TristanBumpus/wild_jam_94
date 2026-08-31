@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccgv1rj270f0r"
-path.s3tc="res://.godot/imported/mantis_fist_mantis_TEXT.png-870cfcb3f16bee1ad45963141c17c78f.s3tc.ctex"
+path.s3tc="res://.godot/imported/mantis_fist_mantis_TEXT.png-b13df2ba7021dece037e2a30ebb005d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/mantis/mantis_fist_mantis_TEXT.png"
-dest_files=["res://.godot/imported/mantis_fist_mantis_TEXT.png-870cfcb3f16bee1ad45963141c17c78f.s3tc.ctex"]
+source_file="res://Assets/mantis/mantis_fist_mantis_TEXT.png"
+dest_files=["res://.godot/imported/mantis_fist_mantis_TEXT.png-b13df2ba7021dece037e2a30ebb005d1.s3tc.ctex"]
 
 [params]
 

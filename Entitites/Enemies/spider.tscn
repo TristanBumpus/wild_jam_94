@@ -29,11 +29,10 @@ _data = {
 &"melee_attack": SubResource("Animation_dptck")
 }
 
-[node name="spider" type="CharacterBody3D" unique_id=973888417 node_paths=PackedStringArray("nav")]
+[node name="spider" type="CharacterBody3D" unique_id=973888417]
 script = ExtResource("1_ixa8j")
 loot = Array[PackedScene]([ExtResource("5_8qq4n")])
 loot_chance = Array[int]([100])
-nav = NodePath("NavigationAgent3D")
 e_name = "Spider"
 metadata/_custom_type_script = "uid://cf3ljm2w7h0i"
 

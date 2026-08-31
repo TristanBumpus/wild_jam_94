@@ -51,6 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4678755, 0.9741397, 0)
 
 [node name="rat_arm" parent="body/left_arm" unique_id=584384732 instance=ExtResource("4_gwhuq")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+side = 0
 
 [node name="right_arm" type="Node3D" parent="body" unique_id=378865548]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.468, 0.974, 0)
@@ -61,6 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.468, 0.974, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694, -2.186, 0.308)
 
 [node name="rat_leg" parent="body/left_leg" unique_id=650647279 instance=ExtResource("5_x242d")]
+side = 0
 
 [node name="right_leg" type="Node3D" parent="body" unique_id=2003867585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -2.1859758, 0.308)

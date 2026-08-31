@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7ifbb3jj0n76"
-path.s3tc="res://.godot/imported/blood_effect_2.png-4ca2081c59928f55b290758fc95cf662.s3tc.ctex"
+path.s3tc="res://.godot/imported/blood_effect_2.png-1e9bde6c0399b19b98649b786cf35fca.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/elements/blood_effect_2.png"
-dest_files=["res://.godot/imported/blood_effect_2.png-4ca2081c59928f55b290758fc95cf662.s3tc.ctex"]
+source_file="res://Assets/elements/blood_effect_2.png"
+dest_files=["res://.godot/imported/blood_effect_2.png-1e9bde6c0399b19b98649b786cf35fca.s3tc.ctex"]
 
 [params]
 

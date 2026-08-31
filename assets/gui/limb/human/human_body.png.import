@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpm3sbv6o6juh"
-path="res://.godot/imported/human_body.png-b58c38939bd8dc6bf8ed5af3c96190a3.ctex"
+path="res://.godot/imported/human_body.png-bb238abf75f70a480225537dbce3252f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/limb/human/human_body.png"
-dest_files=["res://.godot/imported/human_body.png-b58c38939bd8dc6bf8ed5af3c96190a3.ctex"]
+source_file="res://Assets/gui/limb/human/human_body.png"
+dest_files=["res://.godot/imported/human_body.png-bb238abf75f70a480225537dbce3252f.ctex"]
 
 [params]
 

@@ -82,7 +82,7 @@ _data = {
 &"walk": SubResource("Animation_fsutq")
 }
 
-[node name="boss" type="CharacterBody3D" unique_id=464835068 groups=["enemy"]]
+[node name="boss" type="CharacterBody3D" unique_id=464835068 groups=["boss", "enemy"]]
 script = ExtResource("1_8vqiu")
 e_name = "The Being"
 

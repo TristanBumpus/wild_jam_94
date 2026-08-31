@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://haqjs71j5lpq"
-path="res://.godot/imported/gib_a.glb-1e5d3058497c05e4e6b2b51349118593.scn"
+path="res://.godot/imported/gib_a.glb-b9a57ce03c49d640ee6e196b76d8558c.scn"
 
 [deps]
 
-source_file="res://assets/gib/gib_a.glb"
-dest_files=["res://.godot/imported/gib_a.glb-1e5d3058497c05e4e6b2b51349118593.scn"]
+source_file="res://Assets/gib/gib_a.glb"
+dest_files=["res://.godot/imported/gib_a.glb-b9a57ce03c49d640ee6e196b76d8558c.scn"]
 
 [params]
 
@@ -45,7 +45,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/gib/gib_1.res",
+"save_to_file/fallback_path": "res://Assets/gib/gib_1.res",
 "save_to_file/path": "uid://dyupjjl0aa41q"
 }
 }

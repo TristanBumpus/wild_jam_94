@@ -484,6 +484,10 @@ func _ready() -> void:
 				$attack_box.set_collision_layer_value(2,false)
 				$attack_box.set_collision_mask_value(3,true)
 				$attack_box.set_collision_mask_value(2,false)
+	
+	#Minimum check
+	if attack_speed < .34:
+		attack_speed = .34
 
 
 

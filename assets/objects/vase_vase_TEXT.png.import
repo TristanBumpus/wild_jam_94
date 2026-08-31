@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://u4wmd6w8gte3"
-path.s3tc="res://.godot/imported/vase_vase_TEXT.png-3b54697bbea7c6da8cd8c6089a9437af.s3tc.ctex"
+path.s3tc="res://.godot/imported/vase_vase_TEXT.png-bb610febd227e9620072432ebee3b533.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/objects/vase_vase_TEXT.png"
-dest_files=["res://.godot/imported/vase_vase_TEXT.png-3b54697bbea7c6da8cd8c6089a9437af.s3tc.ctex"]
+source_file="res://Assets/objects/vase_vase_TEXT.png"
+dest_files=["res://.godot/imported/vase_vase_TEXT.png-bb610febd227e9620072432ebee3b533.s3tc.ctex"]
 
 [params]
 

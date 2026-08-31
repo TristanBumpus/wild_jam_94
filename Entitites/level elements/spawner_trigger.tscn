@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cjm1vju54hpy8" path="res://Scripts/spawner_trigger.gd" id="1_ykgn3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ln2w8"]
-size = Vector3(20, 14.299, 3)
+size = Vector3(31.933044, 14.299, 7.7333984)
 
 [node name="SpawnerTrigger" type="Node3D" unique_id=1359928648]
 script = ExtResource("1_ykgn3")
@@ -11,7 +11,7 @@ script = ExtResource("1_ykgn3")
 [node name="Area3D" type="Area3D" parent="." unique_id=1362353907]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1875679028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.582212, 0.48513794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0574646, 4.582212, -1.8815613)
 shape = SubResource("BoxShape3D_ln2w8")
 
 [node name="Timer" type="Timer" parent="." unique_id=1440537132]

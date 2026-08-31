@@ -19,6 +19,7 @@ func _on_reset_button_down() -> void:
 
 func _on_start_button_down() -> void:
 	visible = false
+	global.difficulty = 100
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$"../Control".visible = true

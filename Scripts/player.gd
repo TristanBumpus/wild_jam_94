@@ -113,10 +113,9 @@ func attack():
 	if Input.is_action_pressed("left_click") and !attacking[0]:
 		attacking[0] = true
 		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position,-20)
-	if Input.is_action_pressed("right_click") and !attacking[1]:
-		attacking[1] = true
-		global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position,-20)
-
+	#if Input.is_action_pressed("right_click") and !attacking[1]:
+		#attacking[1] = true
+		#global.play_sound("res://Assets/sfx/whoosh_c1.mp3",global_position,-20)
 
 func limb_to_check(node,index):
 	if node.get_child(0) != global.last_limbs[index]:
@@ -252,6 +251,18 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !disabled:
+		
+		if get_tree().get_first_node_in_group("boss") != null:
+			$ui/Control/enemy.visible = true
+			$ui/Control/enemy_hp.visible = true
+			
+			$ui/Control/enemy_hp.max_value = get_tree().get_first_node_in_group("boss").max_hp
+			$ui/Control/enemy_hp.value = get_tree().get_first_node_in_group("boss").hp
+			if get_tree().get_first_node_in_group("boss").special_type != "none":
+				$ui/Control/enemy.text = get_tree().get_first_node_in_group("boss").get_node("body/head").get_child(0).special_type + " " + get_tree().get_first_node_in_group("boss").e_name
+			else:
+				$ui/Control/enemy.text = get_tree().get_first_node_in_group("boss").e_name
+		
 		cam.position = cam_pos * $body/torso.get_child(0).scale.x
 		
 		if global_position.y < -5:
@@ -278,11 +289,16 @@ func _physics_process(delta: float) -> void:
 				limb_slots[temp].get_child(0).queue_free()
 				var t = load(child).instantiate()
 				limb_slots[temp].add_child(t)
+				if temp == 2 or temp == 4:
+					t.side = 0
 				temp += 1
 			scene = false
 		$ui.visible = false
 		for child in limb_slots:
-			child.get_child(0).scale = Vector3(.5,.5,.5)
+			if child.get_child(0).side == 1:
+				child.get_child(0).scale = Vector3(.5,.5,.5)
+			else:
+				child.get_child(0).scale = Vector3(-.5,.5,.5)
 			##child.get_child(0).position = Vector3.ZERO
 		$body/torso.visible = true
 		limb_checker()
@@ -299,6 +315,7 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 	
 	if current_hp <= 0:
 		global.deaths += 1
+		global.difficulty = 100
 		$ui/Control/health_bar.value = current_hp
 		
 		$ui/Control/health.text = "hp: " + str(current_hp)

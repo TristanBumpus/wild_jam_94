@@ -191,6 +191,7 @@ func _process(delta: float) -> void:
 	if start:
 		limb_checker()
 		hp = 100
+		max_hp = 100
 		new_pos()
 		start = false
 	

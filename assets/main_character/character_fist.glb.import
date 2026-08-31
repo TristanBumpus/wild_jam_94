@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://du8ffty7okqqy"
-path="res://.godot/imported/character_fist.glb-d47bb174f0f452799dda6678dafe0cd4.scn"
+path="res://.godot/imported/character_fist.glb-4b2192025c75e0398b7aabaacb0c3945.scn"
 
 [deps]
 
-source_file="res://assets/main_character/character_fist.glb"
-dest_files=["res://.godot/imported/character_fist.glb-d47bb174f0f452799dda6678dafe0cd4.scn"]
+source_file="res://Assets/main_character/character_fist.glb"
+dest_files=["res://.godot/imported/character_fist.glb-4b2192025c75e0398b7aabaacb0c3945.scn"]
 
 [params]
 

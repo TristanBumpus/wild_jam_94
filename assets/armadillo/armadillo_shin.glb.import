@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://401pcglrag31"
-path="res://.godot/imported/armadillo_shin.glb-2d66807c930840002aa9302fabb41cfe.scn"
+path="res://.godot/imported/armadillo_shin.glb-51244b7629022dade6ecb3d85c871dd1.scn"
 
 [deps]
 
-source_file="res://assets/armadillo/armadillo_shin.glb"
-dest_files=["res://.godot/imported/armadillo_shin.glb-2d66807c930840002aa9302fabb41cfe.scn"]
+source_file="res://Assets/armadillo/armadillo_shin.glb"
+dest_files=["res://.godot/imported/armadillo_shin.glb-51244b7629022dade6ecb3d85c871dd1.scn"]
 
 [params]
 
