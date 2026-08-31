@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxgcpxctaeg2i"
-path.s3tc="res://.godot/imported/turtle_foot_Turtle_TEXT.png-cf289ab72815e2d82af13a8c234da881.s3tc.ctex"
+path.s3tc="res://.godot/imported/turtle_foot_Turtle_TEXT.png-9c5aa2c8f55098dc7da2c41c7c95ca32.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/turtle/turtle_foot_Turtle_TEXT.png"
-dest_files=["res://.godot/imported/turtle_foot_Turtle_TEXT.png-cf289ab72815e2d82af13a8c234da881.s3tc.ctex"]
+source_file="res://assets/turtle/turtle_foot_Turtle_TEXT.png"
+dest_files=["res://.godot/imported/turtle_foot_Turtle_TEXT.png-9c5aa2c8f55098dc7da2c41c7c95ca32.s3tc.ctex"]
 
 [params]
 

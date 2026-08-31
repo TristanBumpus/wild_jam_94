@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c51w32tnvwayx"]
 
 [ext_resource type="Script" uid="uid://1ncxcw86231v" path="res://Scripts/limb.gd" id="1_mdomy"]
-[ext_resource type="Texture2D" uid="uid://dsx6kftiek3yc" path="res://Assets/gui/limb/mantis/mantis_leg.png" id="2_44ofn"]
+[ext_resource type="Texture2D" uid="uid://dsx6kftiek3yc" path="res://assets/gui/limb/mantis/mantis_leg.png" id="2_44ofn"]
 [ext_resource type="PackedScene" uid="uid://cfw0frjdrefm3" path="res://meshes/limbilimb/mantis/mantis_thigh.tscn" id="2_wxugv"]
 [ext_resource type="PackedScene" uid="uid://cm3hjlkprhp2x" path="res://meshes/limbilimb/mantis/mantis_shin.tscn" id="3_44ofn"]
 [ext_resource type="PackedScene" uid="uid://dst7k6e5p3epx" path="res://meshes/limbilimb/mantis/mantis_foot.tscn" id="4_dct4t"]
@@ -55,6 +55,59 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 3.1415927, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_44ofn"]
+resource_name = "attack"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("thigh_a:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.3, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 0), Vector3(-1.3548727, 0.43149886, 0.81509584), Vector3(-1.5054142, 0.1303773, 0.84838593), Vector3(-1.5062191, 2.0594885, 0.84823)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thigh_a/shin_a:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.3, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.9494791), Vector3(-0.6459491, 0.9047583, -2.6997504), Vector3(-0.6457718, 0.90408057, -0.48694685)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("thigh_a2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.3561945, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("thigh_a2/shin_a2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mnct3"]
@@ -164,6 +217,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3l8r4"]
 _data = {
 &"RESET": SubResource("Animation_801j4"),
+&"attack": SubResource("Animation_44ofn"),
 &"idle": SubResource("Animation_mnct3"),
 &"walk": SubResource("Animation_wxugv")
 }
@@ -182,7 +236,7 @@ speed = 3
 metadata/_custom_type_script = "uid://1ncxcw86231v"
 
 [node name="thigh_a" type="Node3D" parent="." unique_id=1082756425]
-transform = Transform3D(-1, 0, -8.742277e-08, 0, 0.99999994, 0, 8.742278e-08, 0, -0.99999994, 0, 0.31599617, 0.6997766)
+transform = Transform3D(-0.9999998, 0, -8.742278e-08, 0, 0.9999998, 0, 8.742276e-08, 0, -1, 0, 0.31599617, 0.6997766)
 
 [node name="mantis_thigh" parent="thigh_a" unique_id=957419598 instance=ExtResource("2_wxugv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4852481, -2.024663, 0.06774449)

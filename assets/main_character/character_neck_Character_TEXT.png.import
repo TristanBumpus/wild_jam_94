@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn3kmfcukp8s"
-path.s3tc="res://.godot/imported/character_neck_Character_TEXT.png-538c4638027c6579ab42942a8bab78db.s3tc.ctex"
+path.s3tc="res://.godot/imported/character_neck_Character_TEXT.png-6993bd834ee0f447f9d94d011155d106.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/main_character/character_neck_Character_TEXT.png"
-dest_files=["res://.godot/imported/character_neck_Character_TEXT.png-538c4638027c6579ab42942a8bab78db.s3tc.ctex"]
+source_file="res://assets/main_character/character_neck_Character_TEXT.png"
+dest_files=["res://.godot/imported/character_neck_Character_TEXT.png-6993bd834ee0f447f9d94d011155d106.s3tc.ctex"]
 
 [params]
 

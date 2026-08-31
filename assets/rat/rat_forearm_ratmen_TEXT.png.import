@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wb31voxbrxsf"
-path.s3tc="res://.godot/imported/rat_forearm_ratmen_TEXT.png-e72ca1d0cd04e717946cb4b3a56a93cf.s3tc.ctex"
+path.s3tc="res://.godot/imported/rat_forearm_ratmen_TEXT.png-e0abeddba6a4aad87073fed350762da1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/rat/rat_forearm_ratmen_TEXT.png"
-dest_files=["res://.godot/imported/rat_forearm_ratmen_TEXT.png-e72ca1d0cd04e717946cb4b3a56a93cf.s3tc.ctex"]
+source_file="res://assets/rat/rat_forearm_ratmen_TEXT.png"
+dest_files=["res://.godot/imported/rat_forearm_ratmen_TEXT.png-e0abeddba6a4aad87073fed350762da1.s3tc.ctex"]
 
 [params]
 

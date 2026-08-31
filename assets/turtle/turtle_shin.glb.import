@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bd3ehmn8syexa"
-path="res://.godot/imported/turtle_shin.glb-84016da69991feb7fe36a9b32f37227b.scn"
+path="res://.godot/imported/turtle_shin.glb-e53a6dab2dc7949ed1ab52d1b6733c4a.scn"
 
 [deps]
 
-source_file="res://Assets/turtle/turtle_shin.glb"
-dest_files=["res://.godot/imported/turtle_shin.glb-84016da69991feb7fe36a9b32f37227b.scn"]
+source_file="res://assets/turtle/turtle_shin.glb"
+dest_files=["res://.godot/imported/turtle_shin.glb-e53a6dab2dc7949ed1ab52d1b6733c4a.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -40,3 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=0

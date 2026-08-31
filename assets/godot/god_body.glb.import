@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d28vil7eba0lt"
-path="res://.godot/imported/god_body.glb-887fc47881a2f5739537b144acf5ff11.scn"
+path="res://.godot/imported/god_body.glb-c8e34e8a16a659975c07acb6e09cc276.scn"
 
 [deps]
 
-source_file="res://Assets/godot/god_body.glb"
-dest_files=["res://.godot/imported/god_body.glb-887fc47881a2f5739537b144acf5ff11.scn"]
+source_file="res://assets/godot/god_body.glb"
+dest_files=["res://.godot/imported/god_body.glb-c8e34e8a16a659975c07acb6e09cc276.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -40,3 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=0

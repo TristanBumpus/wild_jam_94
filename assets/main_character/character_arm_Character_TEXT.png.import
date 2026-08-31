@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4oe3k50d12c6"
-path.s3tc="res://.godot/imported/character_arm_Character_TEXT.png-3b7f96bb5118a0602934396c4105a576.s3tc.ctex"
+path.s3tc="res://.godot/imported/character_arm_Character_TEXT.png-48124933e9ceae0eae57b52ecd23007f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/main_character/character_arm_Character_TEXT.png"
-dest_files=["res://.godot/imported/character_arm_Character_TEXT.png-3b7f96bb5118a0602934396c4105a576.s3tc.ctex"]
+source_file="res://assets/main_character/character_arm_Character_TEXT.png"
+dest_files=["res://.godot/imported/character_arm_Character_TEXT.png-48124933e9ceae0eae57b52ecd23007f.s3tc.ctex"]
 
 [params]
 

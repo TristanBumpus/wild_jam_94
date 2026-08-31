@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bkh266s13sur6"
-path="res://.godot/imported/mantis_arm.glb-9fac66d55e5e93b08eda4891fe60e613.scn"
+path="res://.godot/imported/mantis_arm.glb-f83c239fcea099058910ba6eef47503b.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_arm.glb"
-dest_files=["res://.godot/imported/mantis_arm.glb-9fac66d55e5e93b08eda4891fe60e613.scn"]
+source_file="res://assets/mantis/mantis_arm.glb"
+dest_files=["res://.godot/imported/mantis_arm.glb-f83c239fcea099058910ba6eef47503b.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -40,3 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=0

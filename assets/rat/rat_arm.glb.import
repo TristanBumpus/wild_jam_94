@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dmeajg2akaoxi"
-path="res://.godot/imported/rat_arm.glb-b4f8eef3fd5c37999ae0f7ad1d59755e.scn"
+path="res://.godot/imported/rat_arm.glb-22eb1e147d86c9e6908b273d016dd268.scn"
 
 [deps]
 
-source_file="res://Assets/rat/rat_arm.glb"
-dest_files=["res://.godot/imported/rat_arm.glb-b4f8eef3fd5c37999ae0f7ad1d59755e.scn"]
+source_file="res://assets/rat/rat_arm.glb"
+dest_files=["res://.godot/imported/rat_arm.glb-22eb1e147d86c9e6908b273d016dd268.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -40,3 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=0

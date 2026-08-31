@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7xld3h1wokr0"
-path="res://.godot/imported/kobold_head.png-993962e80c2c572230e2386c265209e8.ctex"
+path="res://.godot/imported/kobold_head.png-afa057bbd42dc97a509084c2f332bc15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gui/limb/kobold/kobold_head.png"
-dest_files=["res://.godot/imported/kobold_head.png-993962e80c2c572230e2386c265209e8.ctex"]
+source_file="res://assets/gui/limb/kobold/kobold_head.png"
+dest_files=["res://.godot/imported/kobold_head.png-afa057bbd42dc97a509084c2f332bc15.ctex"]
 
 [params]
 

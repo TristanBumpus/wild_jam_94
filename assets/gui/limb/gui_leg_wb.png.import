@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbdopcmflf3in"
-path="res://.godot/imported/gui_leg_wb.png-f6bc9f1724022a6416f6e2f2d557a3b7.ctex"
+path="res://.godot/imported/gui_leg_wb.png-a59b9238bdd643ce3b21891dc91f1e0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gui/limb/gui_leg_wb.png"
-dest_files=["res://.godot/imported/gui_leg_wb.png-f6bc9f1724022a6416f6e2f2d557a3b7.ctex"]
+source_file="res://assets/gui/limb/gui_leg_wb.png"
+dest_files=["res://.godot/imported/gui_leg_wb.png-a59b9238bdd643ce3b21891dc91f1e0b.ctex"]
 
 [params]
 

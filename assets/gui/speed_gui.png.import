@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2wgmnvo5bmg4"
-path.s3tc="res://.godot/imported/speed_gui.png-1ab5eec6692604a071e01d707e81e11a.s3tc.ctex"
+path.s3tc="res://.godot/imported/speed_gui.png-dab08644ec1ed2606bcd5b2c4837c253.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/gui/speed_gui.png"
-dest_files=["res://.godot/imported/speed_gui.png-1ab5eec6692604a071e01d707e81e11a.s3tc.ctex"]
+source_file="res://assets/gui/speed_gui.png"
+dest_files=["res://.godot/imported/speed_gui.png-dab08644ec1ed2606bcd5b2c4837c253.s3tc.ctex"]
 
 [params]
 

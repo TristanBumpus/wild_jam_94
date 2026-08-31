@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://3i07sueee7c7"
-path="res://.godot/imported/torch2.glb-dda1f648ccb233d7c82cdc54cc39a6d0.scn"
+path="res://.godot/imported/torch2.glb-b6f10c62146c0ea036b32c85950b6185.scn"
 
 [deps]
 
-source_file="res://Assets/objects/torch2.glb"
-dest_files=["res://.godot/imported/torch2.glb-dda1f648ccb233d7c82cdc54cc39a6d0.scn"]
+source_file="res://assets/objects/torch2.glb"
+dest_files=["res://.godot/imported/torch2.glb-b6f10c62146c0ea036b32c85950b6185.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -40,3 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=0
