@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxpgqta8tl734"
-path.s3tc="res://.godot/imported/dmg_particules.png-e25fb3a9e928ed074dc2da55c76cc5f5.s3tc.ctex"
+path.s3tc="res://.godot/imported/dmg_particules.png-e619559cf08f448d1e55301d5732fb79.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/gui/pops/dmg_particules.png"
-dest_files=["res://.godot/imported/dmg_particules.png-e25fb3a9e928ed074dc2da55c76cc5f5.s3tc.ctex"]
+source_file="res://assets/gui/pops/dmg_particules.png"
+dest_files=["res://.godot/imported/dmg_particules.png-e619559cf08f448d1e55301d5732fb79.s3tc.ctex"]
 
 [params]
 

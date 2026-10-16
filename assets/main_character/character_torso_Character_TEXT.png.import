@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://67e2b3h3wydd"
-path.s3tc="res://.godot/imported/character_torso_Character_TEXT.png-3315e3329865f1bfc71d4d7949f220d1.s3tc.ctex"
+path.s3tc="res://.godot/imported/character_torso_Character_TEXT.png-bd267e8b44543a46f36c502ecba24479.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/main_character/character_torso_Character_TEXT.png"
-dest_files=["res://.godot/imported/character_torso_Character_TEXT.png-3315e3329865f1bfc71d4d7949f220d1.s3tc.ctex"]
+source_file="res://assets/main_character/character_torso_Character_TEXT.png"
+dest_files=["res://.godot/imported/character_torso_Character_TEXT.png-bd267e8b44543a46f36c502ecba24479.s3tc.ctex"]
 
 [params]
 

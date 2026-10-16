@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djc2uqcmo3t4i"
-path.s3tc="res://.godot/imported/boss2_boss_TEXT.png-972218b3f778fa91de8822d5966f3c21.s3tc.ctex"
+path.s3tc="res://.godot/imported/boss2_boss_TEXT.png-b456d5e139f005833a6622cd4e48ebd0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/boss/boss2_boss_TEXT.png"
-dest_files=["res://.godot/imported/boss2_boss_TEXT.png-972218b3f778fa91de8822d5966f3c21.s3tc.ctex"]
+source_file="res://assets/boss/boss2_boss_TEXT.png"
+dest_files=["res://.godot/imported/boss2_boss_TEXT.png-b456d5e139f005833a6622cd4e48ebd0.s3tc.ctex"]
 
 [params]
 

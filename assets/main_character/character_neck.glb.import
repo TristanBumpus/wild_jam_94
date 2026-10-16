@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d057ld1mgre8s"
-path="res://.godot/imported/character_neck.glb-75fb99524f8d591d2e140fc3aeed737c.scn"
+path="res://.godot/imported/character_neck.glb-f131da23375e5eaccd549cfc5c8ebc22.scn"
 
 [deps]
 
-source_file="res://Assets/main_character/character_neck.glb"
-dest_files=["res://.godot/imported/character_neck.glb-75fb99524f8d591d2e140fc3aeed737c.scn"]
+source_file="res://assets/main_character/character_neck.glb"
+dest_files=["res://.godot/imported/character_neck.glb-f131da23375e5eaccd549cfc5c8ebc22.scn"]
 
 [params]
 

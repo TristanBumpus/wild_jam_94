@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cunxwcjc458c"
-path="res://.godot/imported/mantis_fist.glb-7e69a3f929fc2a4d3f13ce54482eb68f.scn"
+path="res://.godot/imported/mantis_fist.glb-c604b9491cb1fa8e0ee8bf92ada95bb7.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_fist.glb"
-dest_files=["res://.godot/imported/mantis_fist.glb-7e69a3f929fc2a4d3f13ce54482eb68f.scn"]
+source_file="res://assets/mantis/mantis_fist.glb"
+dest_files=["res://.godot/imported/mantis_fist.glb-c604b9491cb1fa8e0ee8bf92ada95bb7.scn"]
 
 [params]
 

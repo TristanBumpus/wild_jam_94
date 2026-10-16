@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bmxtl2bohv7sa"
-path="res://.godot/imported/armadillo_thigh.glb-8c391d0548b1b20c3311b557f12b5ac6.scn"
+path="res://.godot/imported/armadillo_thigh.glb-164b65e5c31d0ee6516a9632b77192cb.scn"
 
 [deps]
 
-source_file="res://Assets/armadillo/armadillo_thigh.glb"
-dest_files=["res://.godot/imported/armadillo_thigh.glb-8c391d0548b1b20c3311b557f12b5ac6.scn"]
+source_file="res://assets/armadillo/armadillo_thigh.glb"
+dest_files=["res://.godot/imported/armadillo_thigh.glb-164b65e5c31d0ee6516a9632b77192cb.scn"]
 
 [params]
 

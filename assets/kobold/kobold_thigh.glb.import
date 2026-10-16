@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bjsgkydt03beg"
-path="res://.godot/imported/kobold_thigh.glb-3d228678c1d45841d5ed602594d86b98.scn"
+path="res://.godot/imported/kobold_thigh.glb-fb2a2e0a8176b36dea79d30dfeaaf566.scn"
 
 [deps]
 
-source_file="res://Assets/kobold/kobold_thigh.glb"
-dest_files=["res://.godot/imported/kobold_thigh.glb-3d228678c1d45841d5ed602594d86b98.scn"]
+source_file="res://assets/kobold/kobold_thigh.glb"
+dest_files=["res://.godot/imported/kobold_thigh.glb-fb2a2e0a8176b36dea79d30dfeaaf566.scn"]
 
 [params]
 

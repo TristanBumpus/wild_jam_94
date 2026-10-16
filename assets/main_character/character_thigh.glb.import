@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://j8tyyft4lu2q"
-path="res://.godot/imported/character_thigh.glb-9c121693fe22765ac269df94975deea4.scn"
+path="res://.godot/imported/character_thigh.glb-50a28b6db9608f2d5124e2bc5845e843.scn"
 
 [deps]
 
-source_file="res://Assets/main_character/character_thigh.glb"
-dest_files=["res://.godot/imported/character_thigh.glb-9c121693fe22765ac269df94975deea4.scn"]
+source_file="res://assets/main_character/character_thigh.glb"
+dest_files=["res://.godot/imported/character_thigh.glb-50a28b6db9608f2d5124e2bc5845e843.scn"]
 
 [params]
 

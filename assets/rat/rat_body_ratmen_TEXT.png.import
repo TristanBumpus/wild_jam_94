@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcr122ds4xcic"
-path.s3tc="res://.godot/imported/rat_body_ratmen_TEXT.png-0f8353fd4e0f99ba54fa70b110aefc9d.s3tc.ctex"
+path.s3tc="res://.godot/imported/rat_body_ratmen_TEXT.png-b2ac94a66b77f99dc6038959153466df.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/rat/rat_body_ratmen_TEXT.png"
-dest_files=["res://.godot/imported/rat_body_ratmen_TEXT.png-0f8353fd4e0f99ba54fa70b110aefc9d.s3tc.ctex"]
+source_file="res://assets/rat/rat_body_ratmen_TEXT.png"
+dest_files=["res://.godot/imported/rat_body_ratmen_TEXT.png-b2ac94a66b77f99dc6038959153466df.s3tc.ctex"]
 
 [params]
 

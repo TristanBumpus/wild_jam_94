@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://t1wy6nd3n1uw"
-path="res://.godot/imported/kobold_head.glb-efd14319fe47b72201693eefbe07501e.scn"
+path="res://.godot/imported/kobold_head.glb-247acdc50776a74479aa2ec7573fa8c9.scn"
 
 [deps]
 
-source_file="res://Assets/kobold/kobold_head.glb"
-dest_files=["res://.godot/imported/kobold_head.glb-efd14319fe47b72201693eefbe07501e.scn"]
+source_file="res://assets/kobold/kobold_head.glb"
+dest_files=["res://.godot/imported/kobold_head.glb-247acdc50776a74479aa2ec7573fa8c9.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://5fsur4bjyg1l"
-path="res://.godot/imported/mantis_neck.glb-55350bd6a94e519fd6ba7116eab7064f.scn"
+path="res://.godot/imported/mantis_neck.glb-d2ecd5d8af8a33f80f2bf07c76ad87a5.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_neck.glb"
-dest_files=["res://.godot/imported/mantis_neck.glb-55350bd6a94e519fd6ba7116eab7064f.scn"]
+source_file="res://assets/mantis/mantis_neck.glb"
+dest_files=["res://.godot/imported/mantis_neck.glb-d2ecd5d8af8a33f80f2bf07c76ad87a5.scn"]
 
 [params]
 

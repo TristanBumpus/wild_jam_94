@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcs28v1mwgmvk"
-path="res://.godot/imported/kobold_shin.glb-3366d7b219578087bc7068f9a93ce9c6.scn"
+path="res://.godot/imported/kobold_shin.glb-85bc6f76e15e7cbdac65752a51d7600f.scn"
 
 [deps]
 
-source_file="res://Assets/kobold/kobold_shin.glb"
-dest_files=["res://.godot/imported/kobold_shin.glb-3366d7b219578087bc7068f9a93ce9c6.scn"]
+source_file="res://assets/kobold/kobold_shin.glb"
+dest_files=["res://.godot/imported/kobold_shin.glb-85bc6f76e15e7cbdac65752a51d7600f.scn"]
 
 [params]
 

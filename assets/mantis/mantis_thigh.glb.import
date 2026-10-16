@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bbx3c20oaqx3t"
-path="res://.godot/imported/mantis_thigh.glb-f83f99862fab02ff3333272d5cc19bab.scn"
+path="res://.godot/imported/mantis_thigh.glb-005d829f1858a4b365b3617152928a0a.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_thigh.glb"
-dest_files=["res://.godot/imported/mantis_thigh.glb-f83f99862fab02ff3333272d5cc19bab.scn"]
+source_file="res://assets/mantis/mantis_thigh.glb"
+dest_files=["res://.godot/imported/mantis_thigh.glb-005d829f1858a4b365b3617152928a0a.scn"]
 
 [params]
 

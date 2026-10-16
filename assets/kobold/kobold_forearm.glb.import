@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0lmekufhje0l"
-path="res://.godot/imported/kobold_forearm.glb-a132545fd0790d24769f237434c79072.scn"
+path="res://.godot/imported/kobold_forearm.glb-119778f988de2b1e101303e21de131c5.scn"
 
 [deps]
 
-source_file="res://Assets/kobold/kobold_forearm.glb"
-dest_files=["res://.godot/imported/kobold_forearm.glb-a132545fd0790d24769f237434c79072.scn"]
+source_file="res://assets/kobold/kobold_forearm.glb"
+dest_files=["res://.godot/imported/kobold_forearm.glb-119778f988de2b1e101303e21de131c5.scn"]
 
 [params]
 

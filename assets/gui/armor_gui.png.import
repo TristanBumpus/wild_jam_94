@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq8jldullq4p4"
-path.s3tc="res://.godot/imported/armor_gui.png-959c0e9c64d6360c0839fc07b76e4804.s3tc.ctex"
+path.s3tc="res://.godot/imported/armor_gui.png-409a4d9c7fd1e91e49f8a4e686efd89e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/gui/armor_gui.png"
-dest_files=["res://.godot/imported/armor_gui.png-959c0e9c64d6360c0839fc07b76e4804.s3tc.ctex"]
+source_file="res://assets/gui/armor_gui.png"
+dest_files=["res://.godot/imported/armor_gui.png-409a4d9c7fd1e91e49f8a4e686efd89e.s3tc.ctex"]
 
 [params]
 

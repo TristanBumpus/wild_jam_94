@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ioyb5p7tw7re"
-path.s3tc="res://.godot/imported/door_frame_dungeon_tiles_save2.png-0fb09b4502aaa49af5421a6e7e4fcc59.s3tc.ctex"
+path.s3tc="res://.godot/imported/door_frame_dungeon_tiles_save2.png-0823df9eb43e7634b2dcde0f5671e416.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/objects/door_frame_dungeon_tiles_save2.png"
-dest_files=["res://.godot/imported/door_frame_dungeon_tiles_save2.png-0fb09b4502aaa49af5421a6e7e4fcc59.s3tc.ctex"]
+source_file="res://assets/objects/door_frame_dungeon_tiles_save2.png"
+dest_files=["res://.godot/imported/door_frame_dungeon_tiles_save2.png-0823df9eb43e7634b2dcde0f5671e416.s3tc.ctex"]
 
 [params]
 

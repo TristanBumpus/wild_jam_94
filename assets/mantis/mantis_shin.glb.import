@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://co7j5kh6wp3g5"
-path="res://.godot/imported/mantis_shin.glb-154fb0628d00f207e9c21e31221580ab.scn"
+path="res://.godot/imported/mantis_shin.glb-67a676781227b276e81b2160f2c59cd2.scn"
 
 [deps]
 
-source_file="res://Assets/mantis/mantis_shin.glb"
-dest_files=["res://.godot/imported/mantis_shin.glb-154fb0628d00f207e9c21e31221580ab.scn"]
+source_file="res://assets/mantis/mantis_shin.glb"
+dest_files=["res://.godot/imported/mantis_shin.glb-67a676781227b276e81b2160f2c59cd2.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cokk0mciwrr6o"
-path.s3tc="res://.godot/imported/character_fist_Character_TEXT.png-ac2e47a5338d97e2a92eb171dffbcf6d.s3tc.ctex"
+path.s3tc="res://.godot/imported/character_fist_Character_TEXT.png-0c74eabd55fab959328e09261907d603.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/main_character/character_fist_Character_TEXT.png"
-dest_files=["res://.godot/imported/character_fist_Character_TEXT.png-ac2e47a5338d97e2a92eb171dffbcf6d.s3tc.ctex"]
+source_file="res://assets/main_character/character_fist_Character_TEXT.png"
+dest_files=["res://.godot/imported/character_fist_Character_TEXT.png-0c74eabd55fab959328e09261907d603.s3tc.ctex"]
 
 [params]
 

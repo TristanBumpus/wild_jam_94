@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2uhb71qh83xu"
-path.s3tc="res://.godot/imported/spider_fist_spider.png-31f999a66f70de5765da77e825d74278.s3tc.ctex"
+path.s3tc="res://.godot/imported/spider_fist_spider.png-a51d5b30396f46bc1b33236a98446b16.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/spider/spider_fist_spider.png"
-dest_files=["res://.godot/imported/spider_fist_spider.png-31f999a66f70de5765da77e825d74278.s3tc.ctex"]
+source_file="res://assets/spider/spider_fist_spider.png"
+dest_files=["res://.godot/imported/spider_fist_spider.png-a51d5b30396f46bc1b33236a98446b16.s3tc.ctex"]
 
 [params]
 
